@@ -1,0 +1,60 @@
+@keyframes gradient
+{
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes win-gradient
+{
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes defeat-gradient
+{
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+body.default-bg
+{
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #2338d5, #d523cc, #fe3b00, #c40000);
+	background-size: 400% 400%;
+	animation: gradient 5s ease infinite;
+	height: 100vh;
+}
+
+body.win-bg
+{
+	background: radial-gradient(circle, #62c239 0%, #228B22 100%);
+	background-size: cover;
+	height: 100vh;
+}
+
+body.defeat-bg
+{
+	background: radial-gradient(circle, #c90000 0%, #8B0000 100%);
+	background-size: cover;
+	height: 100vh;
+}
