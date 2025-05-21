@@ -112,13 +112,13 @@
         
             <script>
                 let i = 0;
-                var vettore = new Array(0, 1, 2, 3)
+                var vettore = new Array(0, 1, 2, 3, 4, 5, 6)
                 for(i in vettore)
                 {
                     const button = document.createElement('button')
                     console.log(i);
                     // Set the button text to 'Can you click me?'
-                    button.innerText = 'Can you click me?'
+                    button.innerText = 'Bottone ' + i.toString();
 
                     button.id = 'Button' + i.toString();
 
