@@ -17,13 +17,11 @@ var randomNum2 = 0; // numero generato per il gioco 2
 
 var body = document; // sfondo -- non si puo assegnare qui??????
 
-// sta roba va rivista -- chiedere al prof
 window.addEventListener('DOMContentLoaded', function()
 {
     body = document.getElementById('main');
 });
 
-//chiedere al prof !!
 function setBodyBgClass(className)
 {
     if (!body) return;
