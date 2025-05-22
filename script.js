@@ -15,7 +15,9 @@ var winPercentageGame1 = 0; // percentuale di vittoria del gioco 1 e 2
 var hasGame2BeenStarted = false; // serve per il gioco 2
 var randomNum2 = 0; // numero generato per il gioco 2
 
-var body = document; // sfondo -- non si puo assegnare qui??????
+var body; // sfondo -- non si puo assegnare qui??????
+
+var parole = new Array("Madonna Alta", "Roberto Orfei", "Statuto Albertino", "Anidride Carbonica", "William Wordsworth", "Antistaminico", "Eurospin", "Coefficiente Angolare", "Campo Elettrico", "Javascript");
 
 window.addEventListener('DOMContentLoaded', function()
 {
@@ -84,6 +86,7 @@ function backToHome() // torna alla home
     document.getElementById('gameFrame1').style.display = 'none';
     document.getElementById('gameFrame2').style.display = 'none';
     document.getElementById('gameFrame3').style.display = 'none';
+    document.getElementById('gameFrame4').style.display = 'none';
     document.getElementById('nutellaButton').style.display = 'block';
 
     setDefaultBackground();
@@ -111,7 +114,65 @@ function getAnimal(index)
 
 function generateAnimalIndex()
 {
-    return Math.floor(Math.random() * 5) // genera un numero da 0 a 4
+    return Math.floor(Math.random() * 10) // genera un numero da 0 a 9
+}
+
+function getQuestion(index)
+{
+    switch(index)
+    {
+        case 0:
+            return "Madonna Alta";
+        case 1:
+            return "Roberto Orfei";
+        case 2:
+            return "Statuto Albertino";
+        case 3:
+            return "Anidride Carbonica";
+        case 4:
+            return "William Wordsworth";
+        case 5:
+            return "Antistaminico";
+        case 6:
+            return "Eurospin";
+        case 7:
+            return "Coefficiente Angolare";
+        case 8:
+            return "Campo Elettrico";
+        case 9:
+            return "Javascript";
+        default:
+            return "null";
+    }
+}
+
+function getQuestionTip(index)
+{
+    switch(index)
+    {
+        case 0:
+            return "Dove ti trovi adesso?";
+        case 1:
+            return "Il miglior prof d'italiano";
+        case 2:
+            return "Costituzione emanata da Carlo Alberto";
+        case 3:
+            return "In chimica corrisponde al diossido di carbonio";
+        case 4:
+            return "Celebre poeta romantico inglese autore della poesia 'Daffodils'";
+        case 5:
+            return "Farmaco usato per combattere le allergie";
+        case 6:
+            return "Catena di supermercati discount italiana";
+        case 7:
+            return "Corrisponde alla derivata di una funzione in un punto";
+        case 8:
+            return "In fisica è una grandezza vettoriale che rappresenta la forza elettrica esercitata su una carica di prova";
+        case 9:
+            return "Con cosa si scrivono le pagine web?";
+        default:
+            return "null";
+    }
 }
 
 function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
@@ -332,7 +393,6 @@ function loadGame3() // TODO
     var indice = generateAnimalIndex();
     var animale = getAnimal(indice);
     document.getElementById("game3Title").innerHTML = animale.toString();
-    document.getElementById("Button2").style.display = "none";
 }
 
 function loadGame4() // TODO
@@ -340,7 +400,53 @@ function loadGame4() // TODO
     document.getElementById('testi-home').style.display = 'none';
     document.getElementById('homeButton').style.visibility = 'visible';
     document.getElementById('nutellaButton').style.display = 'none';
+    document.getElementById('gameFrame4').style.display = 'block';
     currentPage = 4;
+    var indice = generateAnimalIndex();
+    var lunghezza = parole[indice].length;
+    const vettoreCaratteri = Array.from(parole[indice]); // crea un array di caratteri dalla parola
+    const vettoreCaratteri2 = Array.from(parole[indice]); // crea un array di caratteri dalla parola
+    var secondIndex = 0; // index da dove ripartire per scrivere il secondo vettore
+    var needToClear = false; // serve per il ciclo for
+    for (var i = 0; i < lunghezza; i++)
+    {
+        var randomNum = Math.floor(Math.random() * 2);
+        if(needToClear == true) // se abbiamo già trovato uno spazio -> non scrivere più niente
+        {
+            vettoreCaratteri[i] = '';
+        }
+        if (needToClear == false) // nel frattempo cancella il secondo vettore
+        {
+            vettoreCaratteri2[i] = '';
+        }
+        if(randomNum == 0 && vettoreCaratteri[i] != ' ' && vettoreCaratteri[i] != '') // 50% di probabilità di mostrare il carattere
+        {
+            vettoreCaratteri[i] = '_';
+        }
+        if(vettoreCaratteri[i] == ' ') // se è uno spazio -> segnati un index da dove ripartire per scrivere il secondo vettore e cancellami il primo
+        {
+            secondIndex = i + 1; // +1 per non scrivere lo spazio
+            needToClear = true; // ora non scrivere più niente
+        }
+        vettoreCaratteri[i] = vettoreCaratteri[i].toUpperCase(); // mettiamo in maiuscolo
+    }
+    for (var j = secondIndex; j < lunghezza; j++)
+    {
+        var randomNum = Math.floor(Math.random() * 2);
+        if(randomNum == 0 && vettoreCaratteri2[j] != ' ' && vettoreCaratteri2[j] != '') // 50% di probabilità di mostrare il carattere
+        {
+            vettoreCaratteri2[j] = '_';
+        }
+        vettoreCaratteri2[j] = vettoreCaratteri2[j].toUpperCase(); // mettiamo in maiuscolo
+    }
+    
+    var parolaFinale = vettoreCaratteri.join(''); // unisce gli elementi dell'array in una stringa
+    var parolaFinale2 = vettoreCaratteri2.join(''); // unisce gli elementi dell'array in una stringa
+
+    document.getElementById("game4Title").innerHTML = parolaFinale;    
+    document.getElementById("game4Title2").innerHTML = parolaFinale2;
+    document.getElementById("game4Tip").innerHTML = getQuestionTip(indice);
+
 }
 
 //easter egg
