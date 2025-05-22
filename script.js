@@ -114,7 +114,7 @@ function getAnimal(index)
 
 function generateAnimalIndex()
 {
-    return Math.floor(Math.random() * 10) // genera un numero da 0 a 9
+    return Math.floor(Math.random() * 30) // genera un numero da 0 a 9
 }
 
 function getQuestion(index)
@@ -141,6 +141,46 @@ function getQuestion(index)
             return "Campo Elettrico";
         case 9:
             return "Javascript";
+        case 10:
+            return "Leonardo da Vinci";
+        case 11:
+            return "Monte Bianco";
+        case 12:
+            return "Pitagora";
+        case 13:
+            return "Vulcano Etna";
+        case 14:
+            return "Galileo Galilei";
+        case 15:
+            return "Teorema di Talete";
+        case 16:
+            return "Dante Alighieri";
+        case 17:
+            return "Mole Antonelliana";
+        case 18:
+            return "Lago di Garda";
+        case 19:
+            return "Guglielmo Marconi";
+        case 20:
+            return "Piazza San Marco";
+        case 21:
+            return "Cristoforo Colombo";
+        case 22:
+            return "Torre di Pisa";
+        case 23:
+            return "Giotto";
+        case 24:
+            return "Vesuvio";
+        case 25:
+            return "Michelangelo";
+        case 26:
+            return "Colosseo";
+        case 27:
+            return "Raffaello Sanzio";
+        case 28:
+            return "Trinità dei Monti";
+        case 29:
+            return "Palazzo Vecchio";
         default:
             return "null";
     }
@@ -170,6 +210,46 @@ function getQuestionTip(index)
             return "In fisica è una grandezza vettoriale che rappresenta la forza elettrica esercitata su una carica di prova";
         case 9:
             return "Con cosa si scrivono le pagine web?";
+        case 10:
+            return "Genio del Rinascimento, autore della Gioconda";
+        case 11:
+            return "La montagna più alta d'Italia";
+        case 12:
+            return "Filosofo e matematico greco famoso per un teorema";
+        case 13:
+            return "Il vulcano attivo più alto d'Europa";
+        case 14:
+            return "Padre della scienza moderna, inventore del telescopio astronomico";
+        case 15:
+            return "Teorema geometrico che riguarda i triangoli simili";
+        case 16:
+            return "Poeta fiorentino, autore della Divina Commedia";
+        case 17:
+            return "Simbolo di Torino, edificio molto alto";
+        case 18:
+            return "Il lago più grande d'Italia";
+        case 19:
+            return "Inventore della radio, premio Nobel per la fisica";
+        case 20:
+            return "Famosa piazza di Venezia con una basilica e i piccioni";
+        case 21:
+            return "Navigatore genovese che scoprì l'America";
+        case 22:
+            return "Torre pendente famosa in Toscana";
+        case 23:
+            return "Pittore e architetto italiano, noto per la Cappella degli Scrovegni";
+        case 24:
+            return "Vulcano vicino a Napoli, famoso per l'eruzione del 79 d.C.";
+        case 25:
+            return "Scultore e pittore del Rinascimento, autore del David";
+        case 26:
+            return "Anfiteatro romano simbolo di Roma";
+        case 27:
+            return "Pittore e architetto urbinate, autore della Scuola di Atene";
+        case 28:
+            return "Celebre scalinata romana che porta a una chiesa";
+        case 29:
+            return "Storico palazzo e municipio di Firenze";
         default:
             return "null";
     }
@@ -403,9 +483,9 @@ function loadGame4() // TODO
     document.getElementById('gameFrame4').style.display = 'block';
     currentPage = 4;
     var indice = generateAnimalIndex();
-    var lunghezza = parole[indice].length;
-    const vettoreCaratteri = Array.from(parole[indice]); // crea un array di caratteri dalla parola
-    const vettoreCaratteri2 = Array.from(parole[indice]); // crea un array di caratteri dalla parola
+    var lunghezza = getQuestion(indice).length;
+    const vettoreCaratteri = Array.from(getQuestion(indice)); // crea un array di caratteri dalla parola
+    const vettoreCaratteri2 = Array.from(getQuestion(indice)); // crea un array di caratteri dalla parola
     var secondIndex = 0; // index da dove ripartire per scrivere il secondo vettore
     var needToClear = false; // serve per il ciclo for
     for (var i = 0; i < lunghezza; i++)
