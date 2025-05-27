@@ -15,6 +15,8 @@ var winPercentageGame1 = 0; // percentuale di vittoria del gioco 1 e 2
 var hasGame2BeenStarted = false; // serve per il gioco 2
 var randomNum2 = 0; // numero generato per il gioco 2
 
+var game4Index = 0;
+
 var body; // sfondo -- non si puo assegnare qui??????
 
 var parole = new Array("Madonna Alta", "Roberto Orfei", "Statuto Albertino", "Anidride Carbonica", "William Wordsworth", "Antistaminico", "Eurospin", "Coefficiente Angolare", "Campo Elettrico", "Javascript");
@@ -477,6 +479,7 @@ function loadGame3() // TODO
 
 function loadGame4() // TODO
 {
+    setDefaultBackground();
     document.getElementById('testi-home').style.display = 'none';
     document.getElementById('homeButton').style.visibility = 'visible';
     document.getElementById('nutellaButton').style.display = 'none';
@@ -519,13 +522,36 @@ function loadGame4() // TODO
         }
         vettoreCaratteri2[j] = vettoreCaratteri2[j].toUpperCase(); // mettiamo in maiuscolo
     }
-    
+
+    game4Index = indice;
+
     var parolaFinale = vettoreCaratteri.join(''); // unisce gli elementi dell'array in una stringa
     var parolaFinale2 = vettoreCaratteri2.join(''); // unisce gli elementi dell'array in una stringa
 
     document.getElementById("game4Title").innerHTML = parolaFinale;    
     document.getElementById("game4Title2").innerHTML = parolaFinale2;
     document.getElementById("game4Tip").innerHTML = getQuestionTip(indice);
+
+}
+
+function checkAnswer(event)
+{
+    
+    event.preventDefault(); // Prevent the form from reloading the page
+   
+    const inputBoxValue = document.getElementById("inputGame4").value.toUpperCase();
+    console.log("e partita la funzione");
+    if(inputBoxValue == getQuestion(game4Index).toUpperCase())
+    {
+        console.log("Funziona");
+        setWinBackground();
+        document.getElementById("game4Title").innerHTML = getQuestion(game4Index).toUpperCase();
+        document.getElementById("game4Title2").innerHTML = "";
+    }
+    else
+    {
+        setDefeatBackground();
+    }
 
 }
 

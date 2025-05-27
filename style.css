@@ -37,6 +37,32 @@
 	}
 }
 
+.defaultButton
+{
+	background-color: rgb(15, 15, 15);
+	border-radius: 6px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: rgb(105, 105, 105);
+	font-family: 'Segoe UI';
+	font-size: 18px;
+	color: white;
+	margin-top: 10px;
+	transition: ease-in-out 0.1s;
+}
+
+.defaultButton:hover
+{
+	scale: 1.1;
+	background-color: rgb(241, 241, 241);
+	border-color: rgb(0, 0, 0)
+}
+
+.defaultButton:active
+{
+	scale: 0.9;
+}
+
 body.default-bg
 {
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #2338d5, #d523cc, #fe3b00, #c40000);
@@ -58,3 +84,5 @@ body.defeat-bg
 	background-size: cover;
 	height: 100vh;
 }
+
+

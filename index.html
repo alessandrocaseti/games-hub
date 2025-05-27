@@ -13,7 +13,7 @@
     <body id="main" class="default-bg" style="color: #FFFFFF; font-family: 'Segoe UI'; font-size: 20px; font-weight: 750; margin-top: 10px; background: linear-gradient(-45deg, #ee7752, #e73c7e, #2338d5, #d523cc, #fe3b00, #c40000); background-size: 400% 400%; animation: gradient 5s ease-out infinite; height: 100vh;">
     
         <button id="nutellaButton" onclick="nutella()" style="background-color: purple; color: #FFFFFF;">nutella</button>
-        <button id="homeButton" onclick="backToHome()" style="background-color: rgb(43, 43, 43); width: 200px; height: 30px; border-radius: 6px; font-family: 'Segoe UI'; font-size: 18px; color: #FFFFFF; visibility: hidden;">Torna alla Home</button>
+        <button id="homeButton" onclick="backToHome()" class="defaultButton" style="width: 200px; height: 30px; visibility: hidden; transition: none; " >Torna alla Home</button>
         
         <!-- Home -->
         <div id="testi-home" style="text-align: center; margin-top: 50px;">
@@ -27,10 +27,10 @@
             </div>
 
             <div id="gameButtonsDiv" style="margin-top: 100px;">
-                <button id="game1" style="background-color: rgb(43, 43, 43); width: 300px; height: 200px; border-radius: 25px; font-family: 'Segoe UI'; font-size: 32px; color: #FFFFFF;" onclick="loadGame1()">Gioco 1<br>Guess the Number (hard)</button>
-                <button id="game2" style="background-color: rgb(43, 43, 43); width: 300px; height: 200px; border-radius: 25px; font-family: 'Segoe UI'; font-size: 32px; color: #FFFFFF; margin-left: 70px;" onclick="loadGame2()">Gioco 2<br>Guess the Number (easy)</button>
-                <button id="game3" style="background-color: rgb(43, 43, 43); width: 300px; height: 200px; border-radius: 25px; font-family: 'Segoe UI'; font-size: 32px; color: #FFFFFF; margin-left: 70px;" onclick="loadGame3()">Gioco 3<br>Guess the Animal (quiz) [N/A]</button>
-                <button id="game4" style="background-color: rgb(43, 43, 43); width: 300px; height: 200px; border-radius: 25px; font-family: 'Segoe UI'; font-size: 32px; color: #FFFFFF; margin-left: 70px;" onclick="loadGame4()">Gioco 4<br>Reazione a Catena (impiccato) [N/A]</button>
+                <button id="game1" class="defaultButton" style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px;" onclick="loadGame1()">Gioco 1<br>Guess the Number (hard)</button>
+                <button id="game2" class="defaultButton" style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin-left: 70px;" onclick="loadGame2()">Gioco 2<br>Guess the Number (easy)</button>
+                <button id="game3" class="defaultButton" style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin-left: 70px;" onclick="loadGame3()">Gioco 3<br>Guess the Animal (quiz) [N/A]</button>
+                <button id="game4" class="defaultButton" style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin-left: 70px;" onclick="loadGame4()">Gioco 4<br>Reazione a Catena (impiccato) [N/A]</button>
             </div>
 
         </div>
@@ -138,9 +138,13 @@
 
         <!-- GIOCO 4: REAZIONE A CATENA (IMPICCATO) -->
         <div id="gameFrame4" style="margin-top: 20px; display: none; text-align: center;">
-            <h1 id="game4Title" style="font-size: 150px; letter-spacing: 50px;"></h1>
-            <h1 id="game4Title2" style="font-size: 150px; letter-spacing: 50px;"></h1>
+            <h1 id="game4Title" style="font-size: 150px; letter-spacing: 40px;"></h1>
+            <h1 id="game4Title2" style="font-size: 150px; letter-spacing: 40px;"></h1>
             <h2 id="game4Tip" style="font-size: 50px;"></h2>
+            <form onsubmit="checkAnswer(event)">
+                <input type="text" id="inputGame4" placeholder="Inserisci la risposta" >
+            </form>
+            <button onclick="loadGame4()" class="defaultButton">Rigenera</button>
         </div>
 
         <!-- Nutella -->
