@@ -2,7 +2,6 @@
 
 var currentPage = 0; // 0 = home, 1 = game1, 2 = game2, 3 = game3, 4 = game4
 var counterGame1 = 0; // contatore per il gioco 1 e 2
-
 var game1Min = 0; // valore minimo del gioco 1 e 2
 var game1Max = 0; // valore massimo del gioco 1 e 2
 
@@ -14,6 +13,34 @@ var winPercentageGame1 = 0; // percentuale di vittoria del gioco 1 e 2
 
 var hasGame2BeenStarted = false; // serve per il gioco 2
 var randomNum2 = 0; // numero generato per il gioco 2
+var parolaFull = ""; // parola completa per il gioco 4
+var parolaFull2 = ""; // parola completa per il gioco 4 (seconda parte)
+
+var game3Image =  [
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/am.svg", // Armenia
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/ae.svg", // United Arab Emirates
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/bb.svg", // Barbados
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/au.svg", // Australia
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/it.svg", // Italy
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/fr.svg", // France
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/pl.svg", // Poland
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/th.svg", // Thailand    
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/za.svg", // South Africa
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/es.svg", // Spain
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/ru.svg", // Russia
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/us.svg", // United States
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/pt.svg", // Portugal
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/uk.svg", // United Kingdom
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/ro.svg", // Romania
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/de.svg", // Germany
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/ua.svg", // Ukraine
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/ch.svg", // Switzerland
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/gr.svg", // Greece
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/ma.svg", // Morocco
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/tr.svg", // Turkey    
+    
+]
+var hasGame3BeenStarted = false; // serve per il gioco 3
 
 var game4Index = 0;
 
@@ -81,7 +108,7 @@ function resetAllGames() // TODO PER OGNI GIOCO
 function backToHome() // torna alla home
 {
     document.getElementById('testi-home').style.display = 'block'; // mostra la home
-    document.getElementById('homeButton').style.visibility = 'hidden'; // nascondi il pulsante home
+    document.getElementById('homeButton').style.display = 'none'; // nascondi il pulsante home
 
     // TODO: PER OGNI GIOCO
 
@@ -114,9 +141,10 @@ function getAnimal(index)
     }
 }
 
-function generateAnimalIndex()
+function generateIncrementalIndex(oldIndex)
 {
-    return Math.floor(Math.random() * 30) // genera un numero da 0 a 9
+    // return Math.floor(Math.random() * 30) // genera un numero da 0 a 29
+    return oldIndex + 1;
 }
 
 function getQuestion(index)
@@ -444,7 +472,7 @@ function startGame2(event)
 function loadGame1()
 {
     document.getElementById('testi-home').style.display = 'none';
-    document.getElementById('homeButton').style.visibility = 'visible';
+    document.getElementById('homeButton').style.display = 'block';
     document.getElementById('gameFrame1').style.display = 'block';
     document.getElementById('nutellaButton').style.display = 'none';
     document.getElementById('gameSetup').style.display = 'none';
@@ -456,7 +484,7 @@ function loadGame2()
 {
     setDefaultBackground();
     document.getElementById('testi-home').style.display = 'none';
-    document.getElementById('homeButton').style.visibility = 'visible';
+    document.getElementById('homeButton').style.display = 'block';
     document.getElementById('nutellaButton').style.display = 'none';
     document.getElementById('gameFrame2').style.display = 'block';
     document.getElementById('gameSetup2').style.display = 'none';
@@ -465,30 +493,144 @@ function loadGame2()
     currentPage = 2;
 }
 
+function setProgressBarValue(value)
+{
+    const progressBar = document.getElementById('progressBar');
+    progressBar.value = 100;
+    if (progressBar) {
+        var a = setInterval(function() 
+            {
+                value = value -1;
+                progressBar.value = value;
+                if (value < 0) 
+                {
+                    clearInterval(a);
+                }
+            }, 1000);
+    }
+}
+
 function loadGame3() // TODO
 {
     document.getElementById('testi-home').style.display = 'none';
-    document.getElementById('homeButton').style.visibility = 'visible';
+    document.getElementById('homeButton').style.display = 'block';
     document.getElementById('nutellaButton').style.display = 'none';
     document.getElementById('gameFrame3').style.display = 'block';
+    document.getElementById("game3Title").innerHTML = "15";
     currentPage = 3;
-    var indice = generateAnimalIndex();
-    var animale = getAnimal(indice);
-    document.getElementById("game3Title").innerHTML = animale.toString();
+
+    let i = 0;
+    var vettore = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
+    if(hasGame3BeenStarted == true) // se il gioco è già stato avviato, non ricreare i bottoni
+    {
+        return;
+    }
+    else
+    {
+        hasGame3BeenStarted = true; // ora il gioco è stato avviato
+        for(i in vettore)
+        {
+            const button = document.createElement('button');
+            var image = game3Image[i];
+
+            button.innerText = "";
+            button.className = 'defaultButton';
+            button.id = 'Button' + i.toString();
+            button.style.width= "180px";
+            button.style.margin = "30px";
+            button.style.height = "180px";
+
+            var url = "url('" + image + "')"; 
+
+            button.style.backgroundImage = url.toString();
+            button.style.backgroundSize = "cover"; // Copri l'intera area del bottone con l'immagine
+            //  qui faccimo il gioco
+            button.addEventListener('click', () => {
+                var index = parseInt(button.id.replace('Button', '')); // ottieni l'indice del bottone
+                var newUrl = "url('" + game3Image[index] + "')"; 
+                button.style.backgroundImage = newUrl.toString();
+            })
+            var frame = document.getElementById("gameFrame3");
+            frame.appendChild(button)
+        }
+    }
+    var startCountdown = 15;
+    setProgressBarValue(startCountdown); // Imposta il valore della barra di avanzamento a 15 secondi
+    var gameCountdown = 60;
+    setProgressBarValue(gameCountdown); // Imposta il valore della barra di avanzamento a 15 secondi
+
+    var x = setInterval(function() 
+    {
+        startCountdown--;
+        document.getElementById("game3Title").innerHTML = startCountdown.toString();
+        // Get today's date and time
+        // var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        // var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        // var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        // var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+        // document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+        // + minutes + "m " + seconds + "s ";
+
+        // If the count down is finished, write some text
+        if (startCountdown < 0) 
+        {
+            clearInterval(x);
+            document.getElementById("game3Title").innerHTML = "LETZOSKY LETSGO";
+            for (let j = 0; j < 21; j++) // rimuovi i bottoni
+            {
+                var button = document.getElementById('Button' + j.toString());
+                if(button) // punto interrogativo
+                {
+                    button.style.backgroundImage = "url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/xx.svg')";
+                }
+            }
+            var y = setInterval(function() 
+            {
+                gameCountdown--;
+                document.getElementById("game3Title").innerHTML = gameCountdown.toString();
+
+                if (gameCountdown < 0) 
+                {
+                    clearInterval(y);
+                    setDefeatBackground();
+                    document.getElementById("game3Title").innerHTML = "HAI PERSO!";
+                    for (let j = 0; j < 21; j++) // rimuovi i bottoni
+                    {
+                        var button = document.getElementById('Button' + j.toString());
+                        if(button) // punto interrogativo
+                        {
+                            button.style.backgroundImage = "url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/xx.svg')";
+                        }
+                    }
+                }
+            }, 1000);
+        }
+    }, 1000);
 }
 
 function loadGame4() // TODO
 {
     setDefaultBackground();
     document.getElementById('testi-home').style.display = 'none';
-    document.getElementById('homeButton').style.visibility = 'visible';
+    document.getElementById("inputGame4").value = "";
+    document.getElementById('homeButton').style.display = 'block';
     document.getElementById('nutellaButton').style.display = 'none';
     document.getElementById('gameFrame4').style.display = 'block';
     currentPage = 4;
-    var indice = generateAnimalIndex();
+    var indice = generateIncrementalIndex(game4Index);
     var lunghezza = getQuestion(indice).length;
-    const vettoreCaratteri = Array.from(getQuestion(indice)); // crea un array di caratteri dalla parola
-    const vettoreCaratteri2 = Array.from(getQuestion(indice)); // crea un array di caratteri dalla parola
+    var vettoreCaratteri = Array.from(getQuestion(indice)); // crea un array di caratteri dalla parola
+    var vettoreCaratteri2 = Array.from(getQuestion(indice)); // crea un array di caratteri dalla parola
+    parolaFull = Array.from(getQuestion(indice));
+    parolaFull2 = Array.from(getQuestion(indice));
     var secondIndex = 0; // index da dove ripartire per scrivere il secondo vettore
     var needToClear = false; // serve per il ciclo for
     for (var i = 0; i < lunghezza; i++)
@@ -497,10 +639,12 @@ function loadGame4() // TODO
         if(needToClear == true) // se abbiamo già trovato uno spazio -> non scrivere più niente
         {
             vettoreCaratteri[i] = '';
+            parolaFull[i] = ''; // cancella anche la parola completa
         }
         if (needToClear == false) // nel frattempo cancella il secondo vettore
         {
             vettoreCaratteri2[i] = '';
+            parolaFull2[i] = ''; // cancella anche la parola completa
         }
         if(randomNum == 0 && vettoreCaratteri[i] != ' ' && vettoreCaratteri[i] != '') // 50% di probabilità di mostrare il carattere
         {
@@ -545,8 +689,8 @@ function checkAnswer(event)
     {
         console.log("Funziona");
         setWinBackground();
-        document.getElementById("game4Title").innerHTML = getQuestion(game4Index).toUpperCase();
-        document.getElementById("game4Title2").innerHTML = "";
+        document.getElementById("game4Title").innerHTML = parolaFull.join('').toUpperCase();
+        document.getElementById("game4Title2").innerHTML = parolaFull2.join('').toUpperCase();
     }
     else
     {
@@ -558,15 +702,15 @@ function checkAnswer(event)
 //easter egg
 function nutella()
 {
-    const nutellaImage = document.getElementById('nutellaImage');
-    if (nutellaImage.style.visibility === 'hidden')
+    const nutellaImage = document.getElementById('nutellaDiv');
+    if (nutellaImage.style.display === 'none')
     {
-        nutellaImage.style.visibility = 'visible';
+        nutellaImage.style.display = 'block';
         document.getElementById('testi-home').style.display = 'none';
     }
     else
     {
-        nutellaImage.style.visibility = 'hidden';
+        nutellaImage.style.display = 'none';
         document.getElementById('testi-home').style.display = 'block';
     }
 }
