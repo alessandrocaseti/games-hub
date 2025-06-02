@@ -16,7 +16,7 @@ var countDownPlayGame3 = 0;
 var countDownQuestionGame4 = 0;
 
 var startCountdown = 15;
-var gameCountdown = 60;
+var gameCountdown = 45;
 var selectedFlags = 0;
 
 var hasMemoryPairBeenRevealed = false;
@@ -128,6 +128,7 @@ function resetAllGames() // TODO PER OGNI GIOCO
     hasGame2BeenStarted = false;
     hasGame4BeenStarted = false;
 
+    document.querySelectorAll('.defaultButton.matched').length = 0;
 }
 
 function backToHome() // torna alla home
@@ -654,34 +655,61 @@ function loadGame3()
                     button.style.backgroundImage = newUrl.toString();
                 }
 
-                if(startCountdown <= 0)
+                if(startCountdown <= 0 && !button.classList.contains('matched') && !button.classList.contains('clicked'))
                 {
+                    console.log(document.querySelectorAll('.defaultButton.matched').length);
+                    
+
+
                     // Conta quanti bottoni sono stati cliccati (con classe 'clicked')
-                    const clickedButtons = document.querySelectorAll('.defaultButton.clicked');
-                    selectedFlags = clickedButtons.length;
-                    if(selectedFlags === 0) {
-                        // Nessun bottone cliccato, mostra lo sfondo di questo
-                        button.classList.add('clicked');
-                        var index = parseInt(button.id.replace('Button', ''));
-                        var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')";
-                        button.style.backgroundImage = newUrl.toString();
-                    } else if(selectedFlags === 1) {
-                        // Un bottone già cliccato, mostra anche il secondo
-                        button.classList.add('clicked');
-                        var index = parseInt(button.id.replace('Button', ''));
-                        var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')";
-                        button.style.backgroundImage = newUrl.toString();
-                    } else if(selectedFlags === 2 && !button.classList.contains('clicked')) {
-                        // Due bottoni già cliccati, nascondi entrambi e mostra solo quello appena cliccato
-                        clickedButtons.forEach(btn => {
-                            btn.classList.remove('clicked');
-                            btn.style.backgroundImage = "url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/xx.svg')";
-                        });
-                        button.classList.add('clicked');
-                        var index = parseInt(button.id.replace('Button', ''));
-                        var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')";
-                        button.style.backgroundImage = newUrl.toString();
+                    const clickedButtons = document.querySelectorAll('.defaultButton.clicked:not(.matched)');
+                    if(clickedButtons.length === 2) {
+                        // Se ci sono già 2 bottoni cliccati, non permettere altri click finché non si risolve
+                        return;
                     }
+                    button.classList.add('clicked');
+                    var index = parseInt(button.id.replace('Button', ''));
+                    var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')";
+                    button.style.backgroundImage = newUrl.toString();
+
+                    const updatedClickedButtons = document.querySelectorAll('.defaultButton.clicked:not(.matched)');
+                    if(updatedClickedButtons.length === 2) {
+                        // Prendi i due bottoni e confronta i loro valori
+                        const btn1 = updatedClickedButtons[0];
+                        const btn2 = updatedClickedButtons[1];
+                        const idx1 = parseInt(btn1.id.replace('Button', ''));
+                        const idx2 = parseInt(btn2.id.replace('Button', ''));
+                        if(flagPairsFullArray[idx1] === flagPairsFullArray[idx2]) 
+                        {
+                            // Match! Rendi i bottoni "matched" e non più cliccabili
+                            setTimeout(() => 
+                            {
+                                btn1.classList.add('matched');
+                                btn2.classList.add('matched');
+                                btn1.classList.remove('clicked');
+                                btn2.classList.remove('clicked');
+                            }, 400); // breve feedback visivo
+
+                            if (document.querySelectorAll('.defaultButton.matched').length === 22) // WIIIIN
+                            {
+                                setWinBackground();
+                                document.getElementById("game3Title").innerHTML = "HAI VINTO!";
+                                clearInterval(countDownPlayGame3);                            
+                            }
+                        } 
+                        else 
+                        {
+                            // Non match, nascondi dopo 1 secondo
+                            setTimeout(() => 
+                            {
+                                btn1.classList.remove('clicked');
+                                btn2.classList.remove('clicked');
+                                btn1.style.backgroundImage = "url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/xx.svg')";
+                                btn2.style.backgroundImage = "url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/xx.svg')";
+                            }, 400);
+                        }
+                    }
+
                 }
             })
             var frame = document.getElementById("gameFrame3");
@@ -690,9 +718,9 @@ function loadGame3()
     }
 
     document.getElementById('progressBar3').value = 100;
-    startCountdown = 3;
+    startCountdown = 15;
     setProgressBarValue(startCountdown, 3); // Imposta il valore della barra di avanzamento a 15 secondi
-    gameCountdown = 60;
+    gameCountdown = 45;
 
     countDownStartGame3 = setInterval(function() 
     {
@@ -881,6 +909,7 @@ function checkAnswer(event, timeout)
     }
 
 }
+
 
 //easter egg
 function nutella()
