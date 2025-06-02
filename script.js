@@ -46,9 +46,15 @@ var game3Image =  [
     "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/ch.svg", // Switzerland
     "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/gr.svg", // Greece
     "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/ma.svg", // Morocco
-    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/tr.svg", // Turkey    
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/tr.svg", // Turkey
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/va.svg", // Vatican City
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/jp.svg", // Japan
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/dk.svg", // Denmark
     
 ]
+
+var memoryGameArray = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23);
+
 var hasGame3BeenStarted = false;
 var hasGame4BeenStarted = false;
 var game4Index = 0;
@@ -547,14 +553,29 @@ function loadGame3()
     currentPage = 3;
 
     let i = 0;
-    var vettore = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
-    if(hasGame3BeenStarted == true) // se il gioco è già stato avviato, non ricreare i bottoni
+
+    shuffleArray(memoryGameArray); // mescola l'array per avere le immagini in ordine casuale
+
+    var flagPairsArray = memoryGameArray.slice(12);
+
+    console.log("flagPairsArray: " + flagPairsArray);
+    console.log("memoryGameArray: " + memoryGameArray);
+
+    var flagPairsFullArray = flagPairsArray.flatMap(x => [x, x]);
+
+    console.log("flagPairsFullArray (clean): " + flagPairsFullArray);
+
+    shuffleArray(flagPairsFullArray);
+    
+    console.log("flagPairsFullArray (randomized): " + flagPairsFullArray);
+
+    if(hasGame3BeenStarted == true) // se il gioco è già stato avviato, non ricreare i bottoni, ma comunque randomizza le images
     {
         console.log("ciao coreeee");
-        for(i in vettore)
+        for(i in flagPairsFullArray)
         {
             var button = document.getElementById('Button' + i.toString());
-            var image = game3Image[i];
+            var image = game3Image[flagPairsFullArray[i]];
             var url = "url('" + image + "')"; 
             button.style.backgroundImage = url.toString();
             button.style.backgroundSize = "cover"; // Copri l'intera area del bottone con l'immagine
@@ -563,22 +584,23 @@ function loadGame3()
     else
     {
         hasGame3BeenStarted = true; // ora il gioco è stato avviato
-        for(i in vettore)
+        for(i in flagPairsFullArray)
         {
             const button = document.createElement('button');
-            var image = game3Image[i];
+            var image = game3Image[flagPairsFullArray[i]];
             button.innerText = "";
             button.className = 'defaultButton';
             button.id = 'Button' + i.toString();
-            button.style.width= "180px";
+            button.style.width= "160px";
             button.style.margin = "30px";
-            button.style.height = "180px";
+            button.style.height = "160px";
             var url = "url('" + image + "')"; 
             button.style.backgroundImage = url.toString();
             button.style.backgroundSize = "cover"; // Copri l'intera area del bottone con l'immagine
-            button.addEventListener('click', () => {
+            button.addEventListener('click', () => 
+            {
                 var index = parseInt(button.id.replace('Button', '')); // ottieni l'indice del bottone
-                var newUrl = "url('" + game3Image[index] + "')"; 
+                var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')"; 
                 button.style.backgroundImage = newUrl.toString();
             })
             var frame = document.getElementById("gameFrame3");
@@ -616,7 +638,7 @@ function loadGame3()
         {
             clearInterval(countDownStartGame3);
             document.getElementById("game3Title").innerHTML = "LETSGOSKY LETSGO";
-            for (let j = 0; j < 21; j++)
+            for (let j = 0; j < 24; j++)
             {
                 var button = document.getElementById('Button' + j.toString());
                 if(button) // punto interrogativo
@@ -634,10 +656,10 @@ function loadGame3()
                 {
                     setDefeatBackground();
                     document.getElementById("game3Title").innerHTML = "HAI PERSO!";
-                    for (let j = 0; j < 21; j++)
+                    for (let j = 0; j < 24; j++)
                     {
                         var button = document.getElementById('Button' + j.toString());
-                        var url = "url('" + game3Image[j] + "')"; 
+                        var url = "url('" + game3Image[flagPairsFullArray[j]] + "')"; //TODO
                         button.style.backgroundImage = url.toString();
                         button.style.backgroundSize = "cover"; // Copri l'intera area del bottone con l'immagine
                     }
