@@ -15,6 +15,10 @@ var countDownStartGame3 = 0;
 var countDownPlayGame3 = 0;
 var countDownQuestionGame4 = 0;
 
+var startCountdown = 15;
+var gameCountdown = 60;
+var selectedFlags = 0;
+
 var game4WinTracker = 0;
 var game4QuestionIndex = -1;
 
@@ -542,6 +546,46 @@ function setProgressBarValue(value, progressBarIndex)
         }, 10); // aggiorna la progressBar ogni 10 ms per fare una animation mooolto smooth
 }
 
+function checkFlag(button, index, flagPairsFullArray)
+{
+    /*
+    if (button.classList.contains('matched')) // se il bottone è già stato abbinato
+    {
+        return; // non fare nulla
+    }
+
+    button.classList.add('matched'); // aggiungi la classe matched al bottone
+    */
+
+    selectedFlags++;
+
+    if(selectedFlags = 1)
+    {
+        // e la prima bandiera selezionata
+        console.log("Prima bandiera selezionata: " + index.toString());
+    }
+    if(selectedFlags == 2) // se sono state selezionate due bandiere
+    {
+        // fai il check
+        console.log("Seconda bandiera selezionata: " + index.toString());
+    }
+    if(selectedFlags > 2)
+    {
+        // deseleziona le bandiere
+        console.log("Troppe bandiere selezionate, resetto tutto");
+        selectedFlags = 0; // resetta il contatore delle bandiere selezionate
+        for (let j = 0; j < 24; j++)
+        {
+            var button = document.getElementById('Button' + j.toString());
+            if(button) // punto interrogativo
+            {
+                button.style.backgroundImage = "url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/xx.svg')";
+            }
+        }
+    }
+
+}
+
 function loadGame3()
 {
     document.getElementById('testi-home').style.display = 'none';
@@ -602,6 +646,11 @@ function loadGame3()
                 var index = parseInt(button.id.replace('Button', '')); // ottieni l'indice del bottone
                 var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')"; 
                 button.style.backgroundImage = newUrl.toString();
+                if(startCountdown <= 0)
+                {
+                    console.log(selectedFlags);
+                    checkFlag(button, index, flagPairsFullArray); // chiama la funzione per controllare la corrispondenza delle bandiere
+                }
             })
             var frame = document.getElementById("gameFrame3");
             frame.appendChild(button)
@@ -609,9 +658,9 @@ function loadGame3()
     }
 
     document.getElementById('progressBar3').value = 100;
-    var startCountdown = 15;
+    startCountdown = 3;
     setProgressBarValue(startCountdown, 3); // Imposta il valore della barra di avanzamento a 15 secondi
-    var gameCountdown = 60;
+    gameCountdown = 60;
 
     countDownStartGame3 = setInterval(function() 
     {
@@ -659,7 +708,7 @@ function loadGame3()
                     for (let j = 0; j < 24; j++)
                     {
                         var button = document.getElementById('Button' + j.toString());
-                        var url = "url('" + game3Image[flagPairsFullArray[j]] + "')"; //TODO
+                        var url = "url('" + game3Image[flagPairsFullArray[j]] + "')";
                         button.style.backgroundImage = url.toString();
                         button.style.backgroundSize = "cover"; // Copri l'intera area del bottone con l'immagine
                     }
