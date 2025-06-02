@@ -19,6 +19,8 @@ var startCountdown = 15;
 var gameCountdown = 60;
 var selectedFlags = 0;
 
+var hasMemoryPairBeenRevealed = false;
+
 var game4WinTracker = 0;
 var game4QuestionIndex = -1;
 
@@ -559,7 +561,7 @@ function checkFlag(button, index, flagPairsFullArray)
 
     selectedFlags++;
 
-    if(selectedFlags = 1)
+    if(selectedFlags == 1)
     {
         // e la prima bandiera selezionata
         console.log("Prima bandiera selezionata: " + index.toString());
@@ -568,6 +570,7 @@ function checkFlag(button, index, flagPairsFullArray)
     {
         // fai il check
         console.log("Seconda bandiera selezionata: " + index.toString());
+        hasMemoryPairBeenRevealed == true
     }
     if(selectedFlags > 2)
     {
@@ -580,6 +583,7 @@ function checkFlag(button, index, flagPairsFullArray)
             if(button) // punto interrogativo
             {
                 button.style.backgroundImage = "url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/xx.svg')";
+                hasMemoryPairBeenRevealed = false;
             }
         }
     }
@@ -643,13 +647,36 @@ function loadGame3()
             button.style.backgroundSize = "cover"; // Copri l'intera area del bottone con l'immagine
             button.addEventListener('click', () => 
             {
-                var index = parseInt(button.id.replace('Button', '')); // ottieni l'indice del bottone
-                var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')"; 
-                button.style.backgroundImage = newUrl.toString();
+                if(startCountdown > 0)
+                {
+                    var index = parseInt(button.id.replace('Button', ''));
+                    var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')"; 
+                    button.style.backgroundImage = newUrl.toString();
+                }
+
                 if(startCountdown <= 0)
                 {
-                    console.log(selectedFlags);
-                    checkFlag(button, index, flagPairsFullArray); // chiama la funzione per controllare la corrispondenza delle bandiere
+                    // Conta quanti bottoni sono stati cliccati (con classe 'clicked')
+                    const clickedButtons = document.querySelectorAll('.defaultButton.clicked');
+                    selectedFlags = clickedButtons.length;
+                    if(selectedFlags === 0) {
+                        // Nessun bottone cliccato, mostra lo sfondo di questo
+                        button.classList.add('clicked');
+                        var index = parseInt(button.id.replace('Button', ''));
+                        var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')";
+                        button.style.backgroundImage = newUrl.toString();
+                    } else {
+                        // Se c'è già almeno un bottone cliccato, nascondi tutto
+                        document.querySelectorAll('.defaultButton.clicked').forEach(btn => {
+                            btn.classList.remove('clicked');
+                            btn.style.backgroundImage = "url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/xx.svg')";
+                        });
+                        // Poi mostra solo quello appena cliccato
+                        button.classList.add('clicked');
+                        var index = parseInt(button.id.replace('Button', ''));
+                        var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')";
+                        button.style.backgroundImage = newUrl.toString();
+                    }
                 }
             })
             var frame = document.getElementById("gameFrame3");
@@ -666,21 +693,6 @@ function loadGame3()
     {
         startCountdown--;
         document.getElementById("game3Title").innerHTML = startCountdown.toString();
-        // Get today's date and time
-        // var now = new Date().getTime();
-
-        // Find the distance between now and the count down date
-        // var distance = countDownDate - now;
-
-        // Time calculations for days, hours, minutes and seconds
-        // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        // var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        // var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        // Display the result in the element with id="demo"
-        // document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-        // + minutes + "m " + seconds + "s ";
 
         // If the count down is finished, write some text
         if (startCountdown <= 0) 
