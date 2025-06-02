@@ -645,7 +645,7 @@ function loadGame3()
             var url = "url('" + image + "')"; 
             button.style.backgroundImage = url.toString();
             button.style.backgroundSize = "cover"; // Copri l'intera area del bottone con l'immagine
-            button.addEventListener('click', () => 
+            button.addEventListener('click', () => // algoritmo memory
             {
                 if(startCountdown > 0)
                 {
@@ -665,13 +665,18 @@ function loadGame3()
                         var index = parseInt(button.id.replace('Button', ''));
                         var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')";
                         button.style.backgroundImage = newUrl.toString();
-                    } else {
-                        // Se c'è già almeno un bottone cliccato, nascondi tutto
-                        document.querySelectorAll('.defaultButton.clicked').forEach(btn => {
+                    } else if(selectedFlags === 1) {
+                        // Un bottone già cliccato, mostra anche il secondo
+                        button.classList.add('clicked');
+                        var index = parseInt(button.id.replace('Button', ''));
+                        var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')";
+                        button.style.backgroundImage = newUrl.toString();
+                    } else if(selectedFlags === 2 && !button.classList.contains('clicked')) {
+                        // Due bottoni già cliccati, nascondi entrambi e mostra solo quello appena cliccato
+                        clickedButtons.forEach(btn => {
                             btn.classList.remove('clicked');
                             btn.style.backgroundImage = "url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/xx.svg')";
                         });
-                        // Poi mostra solo quello appena cliccato
                         button.classList.add('clicked');
                         var index = parseInt(button.id.replace('Button', ''));
                         var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')";
