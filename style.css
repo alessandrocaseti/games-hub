@@ -56,7 +56,7 @@
 .defaultButton:hover
 {
 	scale: 1.12;
-	background-color: rgb(241, 241, 241);
+	background-color: rgb(239, 239, 239);
 	border-color: rgb(204, 255, 0);
 	color: rgb(0, 0, 0);
 }
@@ -66,9 +66,37 @@
 	scale: 0.85;
 }
 
+.defaultButton:disabled
+{
+	background-color: rgb(15, 15, 15);
+	border-radius: 6px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: rgb(65, 24, 24);
+	font-family: 'Poppins';
+	font-size: 18px;
+	color: rgb(124, 124, 124);
+	margin-top: 10px;
+	transition: ease-in-out 0.12s;
+	user-select: none;
+	box-shadow: 0 0 20px -5px rgb(33, 33, 33);
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
+}
+
+progress
+{
+	accent-color: rgb(0, 208, 255);
+	transition: ease-in-out 0.12s;
+}
+
+.defaultProgressBar
+{
+	transition: ease 0.5s;
+	text-align: center;
 }
 
 .defaultInputBox
@@ -87,6 +115,22 @@ input::-webkit-inner-spin-button {
 	user-select: none;
 }
 
+.defaultInputBox:disabled
+{
+	background-color: rgb(66, 66, 66);
+	width: 200px;
+	height: 30px;
+	margin: 10px;
+	border-radius: 6px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: rgb(255, 161, 47);
+	font-family: 'Poppins';
+	font-size: 18px;
+	color: rgb(114, 114, 114);
+	user-select: none;
+}
+
 .textAnimation
 {
 	animation: fadeIn 0.5s ease-in-out;
@@ -99,13 +143,14 @@ body.default-bg
 	background-size: 550% 550%;
 	animation: gradient 16s ease infinite;
 	height: 100%;
-	overflow: hidden;
 	backdrop-filter: blur(20px);
 }
 
 body.win-bg
 {
 	background: radial-gradient(circle, #62c239 0%, #228B22 100%);
+	background-size: 550% 550%;
+	animation: win-gradient 20s ease infinite;
 	background-size: cover;
 	height: 100%;
 	backdrop-filter: blur(20px);
@@ -114,8 +159,26 @@ body.win-bg
 
 body.defeat-bg
 {
-	background: radial-gradient(circle, #c90000 0%, #8B0000 100%);
-	background-size: cover;
+	background: linear-gradient(10deg, #cd0000, #761a00);
+	animation: defeat-gradient 20s ease infinite;
+	background-size: 550% 550%;
 	height: 100%;
 	backdrop-filter: blur(20px);
+}
+
+.glow 
+{
+	text-align: center;
+	-webkit-animation: glow 5s ease-in-out infinite alternate;
+	-moz-animation: glow 5s ease-in-out infinite alternate;
+	animation: glow 5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 2px #4c003a, 0 0 10px #ff00d0, 0 0 15px #79003c, 0 0 20px #e60082, 0 0 25 #e60073, 0 0 30px #e60073, 0 0 35px #870044;
+  }
+  to {
+    text-shadow: 0 0 10px #860000, 0 0 15px #ab0056, 0 0 20px #9c004e, 0 0 25px #ff4da6, 0 0 30px #920049, 0 0 35px #009fbb, 0 0 40px #ff4da6;
+  }
 }

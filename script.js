@@ -11,6 +11,15 @@ var winsGame2 = 0; // contatore per le vittorie del gioco 2
 var totalAttemptsGame1 = 0; // contatore per i tentativi totali del gioco 1 e 2
 var winPercentageGame1 = 0; // percentuale di vittoria del gioco 1 e 2
 
+var countDownStartGame3 = 0;
+var countDownPlayGame3 = 0;
+var countDownQuestionGame4 = 0;
+
+var game4WinTracker = 0;
+var game4QuestionIndex = -1;
+
+var progressBarValue = 0; // valore della progressbar per il gioco 3 e 4
+
 var hasGame2BeenStarted = false; // serve per il gioco 2
 var randomNum2 = 0; // numero generato per il gioco 2
 var parolaFull = ""; // parola completa per il gioco 4
@@ -40,9 +49,10 @@ var game3Image =  [
     "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/tr.svg", // Turkey    
     
 ]
-var hasGame3BeenStarted = false; // serve per il gioco 3
-
+var hasGame3BeenStarted = false;
+var hasGame4BeenStarted = false;
 var game4Index = 0;
+var questionID = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29);
 
 var body; // sfondo -- non si puo assegnare qui??????
 
@@ -102,7 +112,10 @@ function resetAllGames() // TODO PER OGNI GIOCO
     winPercentageGame1 = 0; // resettiamo la percentuale di vittoria
     winsGame1 = 0; // resettiamo il contatore delle vittorie x il gioco 1
     winsGame2 = 0; // resettiamo il contatore delle vittorie x il gioco 2
-    hasGame2BeenStarted = false; // Reset gioco 2
+    game4WinTracker = 0; // resettiamo il contatore delle vittorie x il gioco 4
+    hasGame2BeenStarted = false;
+    hasGame4BeenStarted = false;
+
 }
 
 function backToHome() // torna alla home
@@ -115,8 +128,15 @@ function backToHome() // torna alla home
     document.getElementById('gameFrame1').style.display = 'none';
     document.getElementById('gameFrame2').style.display = 'none';
     document.getElementById('gameFrame3').style.display = 'none';
+    document.getElementById('gameProgress3').style.display = 'none';
+    document.getElementById('gameProgress4').style.display = 'none';
     document.getElementById('gameFrame4').style.display = 'none';
     document.getElementById('nutellaButton').style.display = 'block';
+
+    clearInterval(countDownStartGame3);
+    clearInterval(countDownPlayGame3);
+    clearInterval(progressBarValue);
+    clearInterval(countDownQuestionGame4);
 
     setDefaultBackground();
     resetAllGames();
@@ -162,35 +182,35 @@ function getQuestion(index)
         case 4:
             return "William Wordsworth";
         case 5:
-            return "Antistaminico";
+            return "Giacomo Leopardi";
         case 6:
-            return "Eurospin";
+            return "Leone XIV";
         case 7:
             return "Coefficiente Angolare";
         case 8:
             return "Campo Elettrico";
         case 9:
-            return "Javascript";
+            return "Elon Musk";
         case 10:
             return "Leonardo da Vinci";
         case 11:
             return "Monte Bianco";
         case 12:
-            return "Pitagora";
+            return "Tomorrow Morning";
         case 13:
             return "Vulcano Etna";
         case 14:
             return "Galileo Galilei";
         case 15:
-            return "Teorema di Talete";
+            return "Decadimento Radioattivo";
         case 16:
             return "Dante Alighieri";
         case 17:
-            return "Mole Antonelliana";
+            return "Giordano Bruno";
         case 18:
             return "Lago di Garda";
         case 19:
-            return "Guglielmo Marconi";
+            return "Virtus Entella";
         case 20:
             return "Piazza San Marco";
         case 21:
@@ -198,19 +218,19 @@ function getQuestion(index)
         case 22:
             return "Torre di Pisa";
         case 23:
-            return "Giotto";
+            return "Sfera Ebbasta";
         case 24:
-            return "Vesuvio";
+            return "Jacopo Lazzarini";
         case 25:
-            return "Michelangelo";
+            return "Sick Luke";
         case 26:
-            return "Colosseo";
+            return "Trallalero Trallala";
         case 27:
-            return "Raffaello Sanzio";
+            return "Cenotafio di Newton";
         case 28:
-            return "Trinità dei Monti";
+            return "Donald Trump";
         case 29:
-            return "Palazzo Vecchio";
+            return "Unti e Bisunti";
         default:
             return "null";
     }
@@ -223,7 +243,7 @@ function getQuestionTip(index)
         case 0:
             return "Dove ti trovi adesso?";
         case 1:
-            return "Il miglior prof d'italiano";
+            return "Il migliore professore di Italiano del GB";
         case 2:
             return "Costituzione emanata da Carlo Alberto";
         case 3:
@@ -231,35 +251,35 @@ function getQuestionTip(index)
         case 4:
             return "Celebre poeta romantico inglese autore della poesia 'Daffodils'";
         case 5:
-            return "Farmaco usato per combattere le allergie";
+            return "Scrittore famoso per il suo pessimismo cosmico";
         case 6:
-            return "Catena di supermercati discount italiana";
+            return "Papa successore di Francesco I";
         case 7:
             return "Corrisponde alla derivata di una funzione in un punto";
         case 8:
             return "In fisica è una grandezza vettoriale che rappresenta la forza elettrica esercitata su una carica di prova";
         case 9:
-            return "Con cosa si scrivono le pagine web?";
+            return "Imprenditore e CEO di Tesla, SpaceX, Starlink e Twitter (ora X)";
         case 10:
             return "Genio del Rinascimento, autore della Gioconda";
         case 11:
             return "La montagna più alta d'Italia";
         case 12:
-            return "Filosofo e matematico greco famoso per un teorema";
+            return "Domattina in inglese";
         case 13:
             return "Il vulcano attivo più alto d'Europa";
         case 14:
             return "Padre della scienza moderna, inventore del telescopio astronomico";
         case 15:
-            return "Teorema geometrico che riguarda i triangoli simili";
+            return "In chimica avviene quando un nucleo atomico instabile perde energia per emettere radiazioni";
         case 16:
             return "Poeta fiorentino, autore della Divina Commedia";
         case 17:
-            return "Simbolo di Torino, edificio molto alto";
+            return "Filosofo definito come 'martire del libero pensiero' al quale hanno dato fuoco";
         case 18:
             return "Il lago più grande d'Italia";
         case 19:
-            return "Inventore della radio, premio Nobel per la fisica";
+            return "Società calcistica italiana con sede a Chiavari, in provincia di Genova, attualmente in Serie C";
         case 20:
             return "Famosa piazza di Venezia con una basilica e i piccioni";
         case 21:
@@ -267,19 +287,19 @@ function getQuestionTip(index)
         case 22:
             return "Torre pendente famosa in Toscana";
         case 23:
-            return "Pittore e architetto italiano, noto per la Cappella degli Scrovegni";
+            return "Rapper italiano, non c'è bisogno di altre descrizioni";
         case 24:
-            return "Vulcano vicino a Napoli, famoso per l'eruzione del 79 d.C.";
+            return "Il vero nome di Lazza";
         case 25:
-            return "Scultore e pittore del Rinascimento, autore del David";
+            return "Uno dei più grandi producer italiani, noto per le sue collaborazioni con la DPG, all'anagrafe Luca Antonio Barker";
         case 26:
-            return "Anfiteatro romano simbolo di Roma";
+            return "Brainrot di uno squalo con le nike";
         case 27:
-            return "Pittore e architetto urbinate, autore della Scuola di Atene";
+            return "Scultura archetettonica utopica realizzata da Etienne Louis Boullee, dedicata a Isaac Newton";
         case 28:
-            return "Celebre scalinata romana che porta a una chiesa";
+            return "Attuale presidente degli Stati Uniti d'America";
         case 29:
-            return "Storico palazzo e municipio di Firenze";
+            return "Programma televisivo italiano di cucina casereccia condotto da Chef Rubio";
         default:
             return "null";
     }
@@ -493,29 +513,36 @@ function loadGame2()
     currentPage = 2;
 }
 
-function setProgressBarValue(value)
+function setProgressBarValue(value, progressBarIndex)
 {
-    const progressBar = document.getElementById('progressBar');
-    progressBar.value = 100;
-    if (progressBar) {
-        var a = setInterval(function() 
+    clearInterval(progressBarValue);
+    var getProgressBar = "progressBar" + progressBarIndex.toString();
+    var progressBar = document.getElementById(getProgressBar.toString());
+    var max = value * 1000; // valore massimo della barra di avanzamento
+    progressBarValue = setInterval(function() 
+        {
+            max = (max - 10); // calcola il nuovo valore della barra di avanzamento
+            progressBar.value = max / (value * 10);
+
+            if (max <= 0)
             {
-                value = value -1;
-                progressBar.value = value;
-                if (value < 0) 
+                clearInterval(progressBarValue);
+                if(progressBarIndex == 4)
                 {
-                    clearInterval(a);
+                    checkAnswer(document.createEvent("Event"), 1); // chiama la funzione per controllare la risposta del gioco 4
                 }
-            }, 1000);
-    }
+            }
+
+        }, 10); // aggiorna la progressBar ogni 10 ms per fare una animation mooolto smooth
 }
 
-function loadGame3() // TODO
+function loadGame3()
 {
     document.getElementById('testi-home').style.display = 'none';
     document.getElementById('homeButton').style.display = 'block';
     document.getElementById('nutellaButton').style.display = 'none';
     document.getElementById('gameFrame3').style.display = 'block';
+    document.getElementById('gameProgress3').style.display = 'block';
     document.getElementById("game3Title").innerHTML = "15";
     currentPage = 3;
 
@@ -523,7 +550,15 @@ function loadGame3() // TODO
     var vettore = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
     if(hasGame3BeenStarted == true) // se il gioco è già stato avviato, non ricreare i bottoni
     {
-        return;
+        console.log("ciao coreeee");
+        for(i in vettore)
+        {
+            var button = document.getElementById('Button' + i.toString());
+            var image = game3Image[i];
+            var url = "url('" + image + "')"; 
+            button.style.backgroundImage = url.toString();
+            button.style.backgroundSize = "cover"; // Copri l'intera area del bottone con l'immagine
+        }
     }
     else
     {
@@ -532,19 +567,15 @@ function loadGame3() // TODO
         {
             const button = document.createElement('button');
             var image = game3Image[i];
-
             button.innerText = "";
             button.className = 'defaultButton';
             button.id = 'Button' + i.toString();
             button.style.width= "180px";
             button.style.margin = "30px";
             button.style.height = "180px";
-
             var url = "url('" + image + "')"; 
-
             button.style.backgroundImage = url.toString();
             button.style.backgroundSize = "cover"; // Copri l'intera area del bottone con l'immagine
-            //  qui faccimo il gioco
             button.addEventListener('click', () => {
                 var index = parseInt(button.id.replace('Button', '')); // ottieni l'indice del bottone
                 var newUrl = "url('" + game3Image[index] + "')"; 
@@ -554,12 +585,13 @@ function loadGame3() // TODO
             frame.appendChild(button)
         }
     }
-    var startCountdown = 15;
-    setProgressBarValue(startCountdown); // Imposta il valore della barra di avanzamento a 15 secondi
-    var gameCountdown = 60;
-    setProgressBarValue(gameCountdown); // Imposta il valore della barra di avanzamento a 15 secondi
 
-    var x = setInterval(function() 
+    document.getElementById('progressBar3').value = 100;
+    var startCountdown = 15;
+    setProgressBarValue(startCountdown, 3); // Imposta il valore della barra di avanzamento a 15 secondi
+    var gameCountdown = 60;
+
+    countDownStartGame3 = setInterval(function() 
     {
         startCountdown--;
         document.getElementById("game3Title").innerHTML = startCountdown.toString();
@@ -580,11 +612,11 @@ function loadGame3() // TODO
         // + minutes + "m " + seconds + "s ";
 
         // If the count down is finished, write some text
-        if (startCountdown < 0) 
+        if (startCountdown <= 0) 
         {
-            clearInterval(x);
-            document.getElementById("game3Title").innerHTML = "LETZOSKY LETSGO";
-            for (let j = 0; j < 21; j++) // rimuovi i bottoni
+            clearInterval(countDownStartGame3);
+            document.getElementById("game3Title").innerHTML = "LETSGOSKY LETSGO";
+            for (let j = 0; j < 21; j++)
             {
                 var button = document.getElementById('Button' + j.toString());
                 if(button) // punto interrogativo
@@ -592,28 +624,38 @@ function loadGame3() // TODO
                     button.style.backgroundImage = "url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/xx.svg')";
                 }
             }
-            var y = setInterval(function() 
+            setProgressBarValue(gameCountdown, 3); // Imposta il valore della barra di avanzamento a 15 secondi
+            countDownPlayGame3 = setInterval(function() 
             {
                 gameCountdown--;
                 document.getElementById("game3Title").innerHTML = gameCountdown.toString();
 
-                if (gameCountdown < 0) 
+                if (gameCountdown <= 0) 
                 {
-                    clearInterval(y);
                     setDefeatBackground();
                     document.getElementById("game3Title").innerHTML = "HAI PERSO!";
-                    for (let j = 0; j < 21; j++) // rimuovi i bottoni
+                    for (let j = 0; j < 21; j++)
                     {
                         var button = document.getElementById('Button' + j.toString());
-                        if(button) // punto interrogativo
-                        {
-                            button.style.backgroundImage = "url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/xx.svg')";
-                        }
+                        var url = "url('" + game3Image[j] + "')"; 
+                        button.style.backgroundImage = url.toString();
+                        button.style.backgroundSize = "cover"; // Copri l'intera area del bottone con l'immagine
                     }
+                    clearInterval(countDownPlayGame3);
                 }
             }, 1000);
         }
     }, 1000);
+}
+
+
+function shuffleArray(array)
+{
+    for (var i = array.length - 1; i > 0; i--) 
+        {
+        var rand = Math.floor(Math.random() * (i + 1));
+        [array[i], array[rand]] = [array[rand], array[i]]
+    }
 }
 
 function loadGame4() // TODO
@@ -621,32 +663,56 @@ function loadGame4() // TODO
     setDefaultBackground();
     document.getElementById('testi-home').style.display = 'none';
     document.getElementById("inputGame4").value = "";
+    document.getElementById("inputGame4").focus();
     document.getElementById('homeButton').style.display = 'block';
     document.getElementById('nutellaButton').style.display = 'none';
     document.getElementById('gameFrame4').style.display = 'block';
+    document.getElementById('gameProgress4').style.display = 'block';
+    document.getElementById("nextQuestionButton").disabled = true;
+    document.getElementById("game4MessageInfo").innerHTML = "10";
     currentPage = 4;
-    var indice = generateIncrementalIndex(game4Index);
+    clearInterval(countDownQuestionGame4);
+    clearInterval(progressBarValue);
+    var game4countdown = 10; // 10 secondi per rispondere
+    setProgressBarValue(game4countdown, 4);
+    document.getElementById("inputGame4").disabled = false;
+    document.getElementById("inputGame4").focus();
+
+    game4QuestionIndex++;
+    if(!hasGame4BeenStarted)
+    {
+        shuffleArray(questionID);
+    }
+
+    console.log(questionID)
+
+    hasGame4BeenStarted = true;
+
+    // var indice = generateIncrementalIndex(game4Index);
+    var indice = questionID[game4QuestionIndex];
     var lunghezza = getQuestion(indice).length;
     var vettoreCaratteri = Array.from(getQuestion(indice)); // crea un array di caratteri dalla parola
     var vettoreCaratteri2 = Array.from(getQuestion(indice)); // crea un array di caratteri dalla parola
     parolaFull = Array.from(getQuestion(indice));
     parolaFull2 = Array.from(getQuestion(indice));
+
     var secondIndex = 0; // index da dove ripartire per scrivere il secondo vettore
     var needToClear = false; // serve per il ciclo for
+
     for (var i = 0; i < lunghezza; i++)
     {
-        var randomNum = Math.floor(Math.random() * 2);
+        var randomNum = Math.floor(Math.random() * 1.5); // genera un numero casuale da 0 a 1
         if(needToClear == true) // se abbiamo già trovato uno spazio -> non scrivere più niente
         {
-            vettoreCaratteri[i] = '';
-            parolaFull[i] = ''; // cancella anche la parola completa
+            vettoreCaratteri[i - 1] = '';
+            parolaFull[i - 1] = ''; // cancella anche la parola completa
         }
-        if (needToClear == false) // nel frattempo cancella il secondo vettore
+        if(needToClear == false) // nel frattempo cancella il secondo vettore
         {
             vettoreCaratteri2[i] = '';
             parolaFull2[i] = ''; // cancella anche la parola completa
         }
-        if(randomNum == 0 && vettoreCaratteri[i] != ' ' && vettoreCaratteri[i] != '') // 50% di probabilità di mostrare il carattere
+        if(randomNum == 0 && vettoreCaratteri[i] != ' ' && vettoreCaratteri[i] != '') // 40% di probabilità di mostrare il carattere
         {
             vettoreCaratteri[i] = '_';
         }
@@ -657,6 +723,10 @@ function loadGame4() // TODO
         }
         vettoreCaratteri[i] = vettoreCaratteri[i].toUpperCase(); // mettiamo in maiuscolo
     }
+
+    vettoreCaratteri[lunghezza - 1] = ''; // cancella l'ultimo carattere se è uno spazio
+    parolaFull[lunghezza - 1] = ''; // cancella l'ultimo carattere se è uno spazio
+
     for (var j = secondIndex; j < lunghezza; j++)
     {
         var randomNum = Math.floor(Math.random() * 2);
@@ -669,32 +739,57 @@ function loadGame4() // TODO
 
     game4Index = indice;
 
-    var parolaFinale = vettoreCaratteri.join(''); // unisce gli elementi dell'array in una stringa
-    var parolaFinale2 = vettoreCaratteri2.join(''); // unisce gli elementi dell'array in una stringa
+    var parolaFinale = vettoreCaratteri.join('').toUpperCase(); // unisce gli elementi dell'array in una stringa
+    var parolaFinale2 = vettoreCaratteri2.join('').toUpperCase(); // unisce gli elementi dell'array in una stringa
 
-    document.getElementById("game4Title").innerHTML = parolaFinale;    
+    document.getElementById("game4Title").innerHTML = parolaFinale;
     document.getElementById("game4Title2").innerHTML = parolaFinale2;
     document.getElementById("game4Tip").innerHTML = getQuestionTip(indice);
 
+    countDownQuestionGame4 = setInterval(function()
+    {
+        game4countdown--;
+        document.getElementById("game4MessageInfo").innerHTML = game4countdown.toString();
+        if (game4countdown <= 0) 
+        {
+            clearInterval(countDownQuestionGame4);
+            document.getElementById("game4MessageInfo").innerHTML = "Tempo scaduto!";
+        }
+    }, 1000)
 }
 
-function checkAnswer(event)
+function checkAnswer(event, timeout)
 {
     
     event.preventDefault(); // Prevent the form from reloading the page
-   
-    const inputBoxValue = document.getElementById("inputGame4").value.toUpperCase();
-    console.log("e partita la funzione");
-    if(inputBoxValue == getQuestion(game4Index).toUpperCase())
+    if(timeout == 0)
     {
-        console.log("Funziona");
-        setWinBackground();
-        document.getElementById("game4Title").innerHTML = parolaFull.join('').toUpperCase();
-        document.getElementById("game4Title2").innerHTML = parolaFull2.join('').toUpperCase();
+        const inputBoxValue = document.getElementById("inputGame4").value.toUpperCase();
+        console.log("e partita la funzione");
+        if(inputBoxValue == getQuestion(game4Index).toUpperCase()) // win
+        {
+            console.log("Funziona");
+            clearInterval(progressBarValue);
+            clearInterval(countDownQuestionGame4);
+            document.getElementById("nextQuestionButton").disabled = false;
+            setWinBackground();
+            document.getElementById("game4Title").innerHTML = parolaFull.join('').toUpperCase();
+            document.getElementById("game4Title2").innerHTML = parolaFull2.join('').toUpperCase();
+            game4WinTracker++;
+            document.getElementById("game4MessageInfo").innerHTML = "ESATTO! Punteggio: " + game4WinTracker.toString() + " / 30";
+        }
+        else
+        {
+            document.getElementById("game4MessageInfo").innerHTML = "SBAGLIATO!";
+        }
     }
     else
     {
         setDefeatBackground();
+        document.getElementById("game4Title").innerHTML = parolaFull.join('').toUpperCase();
+        document.getElementById("game4Title2").innerHTML = parolaFull2.join('').toUpperCase();
+        document.getElementById("inputGame4").disabled = true;
+        document.getElementById("nextQuestionButton").disabled = false;
     }
 
 }

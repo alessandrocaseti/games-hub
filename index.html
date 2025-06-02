@@ -14,10 +14,10 @@
 
     <body id="main" class="default-bg" style="color: #FFFFFF; font-family: 'Poppins'; font-size: 20px; font-weight: 750;">
     
-        <button id="homeButton" onclick="backToHome()" class="defaultButton" style="width: 200px; height: 30px; display: none; margin-left: 20px; margin-top: 24px;" >Torna alla Home</button>
+        <button id="homeButton" onclick="backToHome()" class="defaultButton" style="width: 200px; height: 30px; display: none; margin-left: 20px; margin-top: 34px;" >Torna alla Home</button>
 
         <div style="display: flex; justify-content: right; margin-right: 10px;">
-            <button id="nutellaButton" onclick="nutella()" class="defaultButton" style="background-color: peru;">nutella</button>
+            <button id="nutellaButton" onclick="nutella()" class="defaultButton" style="border-radius: 100%; width: 32px; height: 32px; background-image: url('assets/about.png'); background-size: cover; margin: 20px;"></button>
         </div>
         
         <!-- Home -->
@@ -26,16 +26,16 @@
             <img id="ghLogo" src="assets/logo.png" alt="logo" style="user-select: none; -webkit-user-drag: none;  width: 250; height: 250px; margin-top: -20px;">
 
             <div id="homeTitleDiv" style="text-align: center; margin-bottom: 20px;">
-                <h1 id="mainTitle" style="font-size: 90px; font-weight: 750; margin-top: -30px;">Games Hub</h1>
+                <h1 id="mainTitle" class="glow" style="font-size: 90px; font-weight: 750; margin-top: -30px;">Games Hub</h1>
                 <p id="welcomeText" style="font-size: 20px; font-weight: 500; margin-top: -50px;">Benvenuto su Games Hub!</p>
                 <p id="chooseGameText" style="font-size: 20px; font-weight: 500;">Scegli un gioco cliccando uno dei seguenti quattro bottoni:</p>
             </div>
 
-            <div id="gameButtonsDiv" style="margin-top: 100px;">
-                <button id="game1" class="defaultButton" style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px;" onclick="loadGame1()">Guess the Number (hard)</button>
-                <button id="game2" class="defaultButton" style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin-left: 70px;" onclick="loadGame2()">Guess the Number (easy)</button>
-                <button id="game3" class="defaultButton" style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin-left: 70px;" onclick="loadGame3()">Memory<br>Country Flags</button>
-                <button id="game4" class="defaultButton" style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin-left: 70px;" onclick="loadGame4()">Reazione a Catena</button>
+            <div id="gameButtonsDiv" style="margin-top: 50px;">
+                <button id="game1" class="defaultButton" style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;" onclick="loadGame1()">Guess the Number (hard)</button>
+                <button id="game2" class="defaultButton" style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;" onclick="loadGame2()">Guess the Number (easy)</button>
+                <button id="game3" class="defaultButton" style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;" onclick="loadGame3()">Memory<br>Country Flags</button>
+                <button id="game4" class="defaultButton" style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;" onclick="loadGame4()">Reazione a Catena</button>
             </div>
 
         </div>
@@ -86,7 +86,7 @@
                     <form id="formSetMinMax2" onsubmit="setMinMaxValues(event)" style="display: block; text-align: center; margin-top: 20px;">
                         <input id="minValue2" type="number" class="defaultInputBox" placeholder="Inserisci il minimo" min="0">
                         <input id="maxValue2" type="number" class="defaultInputBox" placeholder="Inserisci il massimo">
-                        <button id="inputButton3" type="submit" class="defaultButton">Set Values</button>
+                        <button id="inputButton3" type="submit" class="defaultButton" style="height: 36px;">Set Values</button>
                     </form>
                 </div>
 
@@ -96,10 +96,10 @@
 
                     <form id="formStartGame2" onsubmit="startGame2(event)" style="display:inline-block; margin-top: -20px;">
                         <input id="inputBox2" type="number" class="defaultInputBox" placeholder="Inserisci un numero">
-                        <button id="inputButton4" type="submit" class="defaultButton">Tenta</button>
+                        <button id="inputButton4" type="submit" class="defaultButton" style="height: 36px; margin: 5px;">Tenta</button>
                     </form>
 
-                    <button id="editValuesButton2" onclick="editValuesGame2()" style="display: inline-block; background-color: rgb(43, 43, 43); width: 100px; height: 30px; border-radius: 6px; font-family: 'Segoe UI'; font-size: 18px; color: #FFFFFF;">Modifica</button>
+                    <button id="editValuesButton2" class="defaultButton" onclick="editValuesGame2()" style="display: inline-block; width: 100px; height: 36px; margin: 5px;">Modifica</button>
                 </div>
             <div id="cancellami" style="display: none; text-align: center; align-items: center;">
                 <h1 id="generatedNumber2" style="font-size: 200px; margin-top: 60px;"></h1>
@@ -110,30 +110,39 @@
             </div>
         </div>
 
-        <!-- GIOCO 3: GUESS THE ANIMAL (QUIZ) -->
-        <div style="text-align: center;">
-            <progress id="progressBar" max="100" style="height: 16px; width: 85%; margin-bottom: -120px; display: none;"></progress>
+        <!-- GIOCO 3: MEMORY COUNTRY FLAGS -->
+
+        <div class="defaultProgressBar" style="display: none;" id="gameProgress3">
+            <progress id="progressBar3" max="100" style="height: 16px; width: 85%; margin-bottom: -120px;"></progress>
         </div>
+
         <div id="gameFrame3" style="display: none; text-align: center; margin-top: -60px;">
             <h1 id="game3Title" style="font-size: 70px; user-select: none; width: auto; height: 30px; margin-bottom: 100px;"></h1>
         </div>
 
         <!-- GIOCO 4: REAZIONE A CATENA (IMPICCATO) -->
+
+        <div class="defaultProgressBar" style="display: none;" id="gameProgress4">
+            <progress id="progressBar4" max="100" style="height: 16px; width: 85%; margin-bottom: -120px;"></progress>
+        </div>
+
         <div id="gameFrame4" style="margin-top: 20px; display: none; text-align: center;">
             <div style="display: flex; justify-content: right;">
-                <button onclick="loadGame4()" class="defaultButton" style="width: 200px; height: 30px; margin-right: 10px; margin-top: -50px;">Prossima domanda</button>
+                <button onclick="loadGame4()" id="nextQuestionButton" class="defaultButton" style="width: 200px; height: 30px; margin-right: 20px; margin-top: -76px;">Prossima domanda</button>
             </div>
-            <h1 id="game4Title" class="textAnimaton" style="font-size: 120px; letter-spacing: 40px; text-align: center;"></h1>
-            <h1 id="game4Title2" class="textAnimaton" style="font-size: 120px; letter-spacing: 40px; text-align: center;"></h1>
+            <h1 id="game4MessageInfo" style="font-size: 50px; user-select: none; width: auto; height: 30px; margin-top: -20px;"></h1>
+            <h1 id="game4Title" class="textAnimaton" style="font-size: 120px; letter-spacing: 36px; text-align: center; margin-top: 160px;"></h1>
+            <h1 id="game4Title2" class="textAnimaton" style="font-size: 120px; letter-spacing: 36px; text-align: center; margin-top: -40px;"></h1>
             <h2 id="game4Tip" class="textAnimaton" style="font-size: 30px;"></h2>
-            <form onsubmit="checkAnswer(event)">
+            <form onsubmit="checkAnswer(event, 0)">
                 <input type="text" id="inputGame4" placeholder="Inserisci la risposta" class="defaultInputBox" style="width: 300px;" autocomplete="off">
             </form>
         </div>
 
+
         <!-- Nutella -->
         <div id="nutellaDiv" style="text-align: center; display: none;">
-            <img id="nutellaImage" class="textAnimaton" src="assets/nutella.png" alt="nutella" style="width: 600px; height: 800px; margin-top: 20px;">
+            <img id="nutellaImage" class="textAnimaton" src="assets/nutella.png" style="width: 600px; height: 800px; margin-top: 20px;">
         </div>
 
     </body>
