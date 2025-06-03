@@ -22,7 +22,10 @@ var selectedFlags = 0;
 var hasMemoryPairBeenRevealed = false;
 
 var game4WinTracker = 0;
+var game4LostTracker = 0;
 var game4QuestionIndex = -1;
+
+var game4Questions = 30;
 
 var progressBarValue = 0; // valore della progressbar per il gioco 3 e 4
 
@@ -127,6 +130,7 @@ function resetAllGames() // TODO PER OGNI GIOCO
     game4WinTracker = 0; // resettiamo il contatore delle vittorie x il gioco 4
     hasGame2BeenStarted = false;
     hasGame4BeenStarted = false;
+    game4QuestionIndex = 0;
 
     document.querySelectorAll('.defaultButton.matched').length = 0;
 }
@@ -731,7 +735,7 @@ function loadGame3()
         if (startCountdown <= 0) 
         {
             clearInterval(countDownStartGame3);
-            document.getElementById("game3Title").innerHTML = "LETSGOSKY LETSGO";
+            document.getElementById("game3Title").innerHTML = "VIA!";
             for (let j = 0; j < 24; j++)
             {
                 var button = document.getElementById('Button' + j.toString());
@@ -789,12 +793,13 @@ function loadGame4() // TODO
     currentPage = 4;
     clearInterval(countDownQuestionGame4);
     clearInterval(progressBarValue);
-    var game4countdown = 10; // 10 secondi per rispondere
+    var game4countdown = 2; // 10 secondi per rispondere
     setProgressBarValue(game4countdown, 4);
     document.getElementById("inputGame4").disabled = false;
     document.getElementById("inputGame4").focus();
 
     game4QuestionIndex++;
+
     if(!hasGame4BeenStarted)
     {
         shuffleArray(questionID);
@@ -868,8 +873,20 @@ function loadGame4() // TODO
         document.getElementById("game4MessageInfo").innerHTML = game4countdown.toString();
         if (game4countdown <= 0) 
         {
+            if(game4QuestionIndex < 29)
+            {
+                document.getElementById("game4MessageInfo").innerHTML = "Tempo scaduto!";
+            }
+            game4LostTracker++;
+            console.log(game4QuestionIndex)
+            if(game4QuestionIndex == 29)
+            {
+                console.log("QUIZ COMPLETATO - tramite tempo scaduto");
+                document.getElementById("game4MessageInfo").innerHTML = "HAI COMPLETATO IL QUIZ! " + "Punteggio: " + game4WinTracker.toString() + " / 30";
+                document.getElementById("inputGame4").disabled = true;
+                document.getElementById("nextQuestionButton").disabled = true;
+            }
             clearInterval(countDownQuestionGame4);
-            document.getElementById("game4MessageInfo").innerHTML = "Tempo scaduto!";
         }
     }, 1000)
 }
@@ -881,31 +898,53 @@ function checkAnswer(event, timeout)
     if(timeout == 0)
     {
         const inputBoxValue = document.getElementById("inputGame4").value.toUpperCase();
-        console.log("e partita la funzione");
+        console.log("Input rilevato");
         if(inputBoxValue == getQuestion(game4Index).toUpperCase()) // win
         {
-            console.log("Funziona");
+            console.log("Risposta corretta");
             clearInterval(progressBarValue);
             clearInterval(countDownQuestionGame4);
             document.getElementById("nextQuestionButton").disabled = false;
             setWinBackground();
             document.getElementById("game4Title").innerHTML = parolaFull.join('').toUpperCase();
             document.getElementById("game4Title2").innerHTML = parolaFull2.join('').toUpperCase();
-            game4WinTracker++;
+
+            game4WinTracker = game4QuestionIndex + 1 - game4LostTracker;
             document.getElementById("game4MessageInfo").innerHTML = "ESATTO! Punteggio: " + game4WinTracker.toString() + " / 30";
+
+            if(game4QuestionIndex == 29)
+            {
+                console.log("QUIZ COMPLETATO - tramite risposta corretta");
+                document.getElementById("game4MessageInfo").innerHTML = "HAI COMPLETATO IL QUIZ! " + "Punteggio: " + game4WinTracker.toString() + " / 30";
+                document.getElementById("inputGame4").disabled = true;
+                document.getElementById("nextQuestionButton").disabled = true;
+            }
+
+            console.log(game4QuestionIndex)
         }
         else
         {
             document.getElementById("game4MessageInfo").innerHTML = "SBAGLIATO!";
         }
+
     }
     else
     {
         setDefeatBackground();
         document.getElementById("game4Title").innerHTML = parolaFull.join('').toUpperCase();
         document.getElementById("game4Title2").innerHTML = parolaFull2.join('').toUpperCase();
+        if(game4QuestionIndex < 29)
+        {
+            document.getElementById("nextQuestionButton").disabled = false;
+        }
+        else
+        {
+            document.getElementById("nextQuestionButton").disabled = true;        
+
+        }
+        
         document.getElementById("inputGame4").disabled = true;
-        document.getElementById("nextQuestionButton").disabled = false;
+
     }
 
 }
