@@ -13,13 +13,13 @@
     </head>
 
     <body id="main" class="default-bg" style="color: #FFFFFF; font-family: 'Poppins'; font-size: 20px; font-weight: 750;">
-    
-        <button id="homeButton" onclick="backToHome()" class="defaultButton" style="width: 200px; height: 30px; display: none; margin-left: 20px; margin-top: 34px;" >Torna alla Home</button>
+
+        <button id="homeButton" onclick="backToHome()" class="defaultButton" style="width: 200px; height: 30px; display: none; margin-left: 20px; margin-top: 34px;">Torna alla Home</button>
 
         <div style="display: flex; justify-content: right; margin-right: 10px;">
             <button id="nutellaButton" onclick="nutella()" class="defaultButton" style="border-radius: 100%; width: 32px; height: 32px; background-image: url('assets/about.png'); background-size: cover; margin: 20px;"></button>
         </div>
-        
+
         <!-- Home -->
         <div id="testi-home" style="text-align: center; margin-top: 40px;">
 
@@ -44,63 +44,63 @@
         <div id="gameFrame1" style="margin-top: 20px; display: none; text-align: center;">
 
             <h1 id="game1Title" style="font-size: 50px;">Gioco 1: indovina il numero casuale (hard version)</h1>
-                
-                <!-- Setup gioco 1 -->
-                <div id="game1MinMaxValues">
-                    <h1 class="textAnimaton" id="valuesTitle" style="font-size: 30px; font-weight: 700;">Inserisci il valore minimo e quello massimo</h1>
 
-                    <form id="formSetMinMax" onsubmit="setMinMaxValues(event)" style="display: block; text-align: center; margin-top: 20px;">
-                        <input id="minValue" type="number" class="defaultInputBox" placeholder="Inserisci il minimo" min="0">
-                        <input id="maxValue" type="number" class="defaultInputBox" placeholder="Inserisci il massimo" autocomplete="off">
-                        <button id="inputButton" type="submit" class="defaultButton" style="height: 36px; margin: 10px;">Set Values</button>
-                    </form>
-                </div>
+            <!-- Setup gioco 1 -->
+            <div id="game1MinMaxValues">
+                <h1 class="textAnimaton" id="valuesTitle" style="font-size: 30px; font-weight: 700;">Inserisci il valore minimo e quello massimo</h1>
 
-                <!-- Interfaccia gioco 1 -->
-                <div id="gameSetup" style="display: none; align-items: center; margin-top: -30px;">
-                    <h1 id="gameTitle" style="font-size: 30px; font-weight: 700;"></h1>
+                <form id="formSetMinMax" onsubmit="setMinMaxValues(event)" style="display: block; text-align: center; margin-top: 20px;">
+                    <input id="minValue" type="number" class="defaultInputBox" placeholder="Inserisci il minimo" min="0">
+                    <input id="maxValue" type="number" class="defaultInputBox" placeholder="Inserisci il massimo" autocomplete="off">
+                    <button id="inputButton" type="submit" class="defaultButton" style="height: 36px; margin: 10px;">Set Values</button>
+                </form>
+            </div>
 
-                    <form id="formStartGame" onsubmit="startGame1(event)" style="display:inline-block; margin-top: -20px;">
-                        <input id="inputBox" type="number" class="defaultInputBox" placeholder="Inserisci un numero" autocomplete="off">
-                        <button id="inputButton2" type="submit" class="defaultButton" style="width: 100px; margin: 5px; height: 36px">Genera</button>
-                    </form>
+            <!-- Interfaccia gioco 1 -->
+            <div id="gameSetup" style="display: none; align-items: center; margin-top: -30px;">
+                <h1 id="gameTitle" style="font-size: 30px; font-weight: 700;"></h1>
 
-                    <button id="editValuesButton" class="defaultButton" onclick="editValuesGame1()" style="display: inline-block; width: 100px; height: 36px; margin: 5px;">Modifica</button>
-                </div>
+                <form id="formStartGame" onsubmit="startGame1(event)" style="display:inline-block; margin-top: -20px;">
+                    <input id="inputBox" type="number" class="defaultInputBox" placeholder="Inserisci un numero" autocomplete="off">
+                    <button id="inputButton2" type="submit" class="defaultButton" style="width: 100px; margin: 5px; height: 36px">Genera</button>
+                </form>
+
+                <button id="editValuesButton" class="defaultButton" onclick="editValuesGame1()" style="display: inline-block; width: 100px; height: 36px; margin: 5px;">Modifica</button>
+            </div>
 
             <h1 id="generatedNumber1" style="font-size: 200px; margin-top: 60px;"></h1>
             <h1 id="test" style="font-size: 70px; margin-top: -70px;"></h1>
             <h2 id="statsGame1" style="font-size: 30px; margin-top: 0px; font-weight: 400;"></h2>
 
         </div>
-        
+
         <!-- GIOCO 2: GUESS THE RANDOM NUMBER - EASY VERSION -->
         <div id="gameFrame2" style="margin-top: 20px; display: none; text-align: center;">
 
             <h1 id="game2Title" style="font-size: 50px;">Gioco 2: indovina il numero casuale (easy version)</h1>
-                
-                <!-- Setup gioco 2 -->
-                <div id="game2MinMaxValues">
-                    <h1 id="valuesTitle2" style="font-size: 30px; font-weight: 700;">Inserisci il valore minimo e quello massimo</h1>
 
-                    <form id="formSetMinMax2" onsubmit="setMinMaxValues(event)" style="display: block; text-align: center; margin-top: 20px;">
-                        <input id="minValue2" type="number" class="defaultInputBox" placeholder="Inserisci il minimo" min="0">
-                        <input id="maxValue2" type="number" class="defaultInputBox" placeholder="Inserisci il massimo">
-                        <button id="inputButton3" type="submit" class="defaultButton" style="height: 36px;">Set Values</button>
-                    </form>
-                </div>
+            <!-- Setup gioco 2 -->
+            <div id="game2MinMaxValues">
+                <h1 id="valuesTitle2" style="font-size: 30px; font-weight: 700;">Inserisci il valore minimo e quello massimo</h1>
 
-                <!-- Interfaccia gioco 2 -->
-                <div id="gameSetup2" style="display: none; align-items: center; margin-top: -30px;">
-                    <h1 id="gameTitle2" style="font-size: 30px; font-weight: 700;"></h1>
+                <form id="formSetMinMax2" onsubmit="setMinMaxValues(event)" style="display: block; text-align: center; margin-top: 20px;">
+                    <input id="minValue2" type="number" class="defaultInputBox" placeholder="Inserisci il minimo" min="0">
+                    <input id="maxValue2" type="number" class="defaultInputBox" placeholder="Inserisci il massimo">
+                    <button id="inputButton3" type="submit" class="defaultButton" style="height: 36px;">Set Values</button>
+                </form>
+            </div>
 
-                    <form id="formStartGame2" onsubmit="startGame2(event)" style="display:inline-block; margin-top: -20px;">
-                        <input id="inputBox2" type="number" class="defaultInputBox" placeholder="Inserisci un numero">
-                        <button id="inputButton4" type="submit" class="defaultButton" style="height: 36px; margin: 5px;">Tenta</button>
-                    </form>
+            <!-- Interfaccia gioco 2 -->
+            <div id="gameSetup2" style="display: none; align-items: center; margin-top: -30px;">
+                <h1 id="gameTitle2" style="font-size: 30px; font-weight: 700;"></h1>
 
-                    <button id="editValuesButton2" class="defaultButton" onclick="editValuesGame2()" style="display: inline-block; width: 100px; height: 36px; margin: 5px;">Modifica</button>
-                </div>
+                <form id="formStartGame2" onsubmit="startGame2(event)" style="display:inline-block; margin-top: -20px;">
+                    <input id="inputBox2" type="number" class="defaultInputBox" placeholder="Inserisci un numero">
+                    <button id="inputButton4" type="submit" class="defaultButton" style="height: 36px; margin: 5px;">Tenta</button>
+                </form>
+
+                <button id="editValuesButton2" class="defaultButton" onclick="editValuesGame2()" style="display: inline-block; width: 100px; height: 36px; margin: 5px;">Modifica</button>
+            </div>
             <div id="cancellami" style="display: none; text-align: center; align-items: center;">
                 <h1 id="generatedNumber2" style="font-size: 200px; margin-top: 70px;"></h1>
                 <h1 id="test2" style="font-size: 70px; margin-top: -100px;"></h1>
