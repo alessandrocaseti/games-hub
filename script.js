@@ -16,7 +16,7 @@ var countDownPlayGame3 = 0;
 var countDownQuestionGame4 = 0;
 
 var startCountdown = 15;
-var gameCountdown = 45;
+var gameCountdown = 60;
 var selectedFlags = 0;
 
 var hasMemoryPairBeenRevealed = false;
@@ -70,8 +70,6 @@ var game4Index = 0;
 var questionID = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29);
 
 var body; // sfondo -- non si puo assegnare qui??????
-
-var parole = new Array("Madonna Alta", "Roberto Orfei", "Statuto Albertino", "Anidride Carbonica", "William Wordsworth", "Antistaminico", "Eurospin", "Coefficiente Angolare", "Campo Elettrico", "Javascript");
 
 window.addEventListener('DOMContentLoaded', function()
 {
@@ -157,25 +155,6 @@ function backToHome() // torna alla home
 
     setDefaultBackground();
     resetAllGames();
-}
-
-function getAnimal(index)
-{
-    switch(index)
-    {
-        case 0:
-            return "Trallalero Trallala";
-        case 1:
-            return "Brr Brr Patapim";
-        case 2:
-            return "Ecco Cavallo Virtuoso";
-        case 3:
-            return "Trulimero Trulicina";
-        case 4:
-            return "Lirili Larila";
-        default:
-            return "null";
-    }
 }
 
 function generateIncrementalIndex(oldIndex)
@@ -440,8 +419,6 @@ function startGame1(event)
     document.getElementById('statsGame1').innerHTML = 'Statistiche: vittorie ' + winsGame1.toString() + ' | numeri generati ' + totalAttemptsGame1.toString() + ' | percentuale di vincita ' + winPercentageGame1.toFixed(2) + '%';
 }
 
-// cominciamo a giocare (al gioco 2)
-
 function startGame2(event)
 {
     event.preventDefault(); // Prevent the form from reloading the page
@@ -555,14 +532,6 @@ function setProgressBarValue(value, progressBarIndex)
 
 function checkFlag(button, index, flagPairsFullArray)
 {
-    /*
-    if (button.classList.contains('matched')) // se il bottone è già stato abbinato
-    {
-        return; // non fare nulla
-    }
-
-    button.classList.add('matched'); // aggiungi la classe matched al bottone
-    */
 
     selectedFlags++;
 
@@ -592,7 +561,6 @@ function checkFlag(button, index, flagPairsFullArray)
             }
         }
     }
-
 }
 
 function loadGame3()
@@ -663,8 +631,6 @@ function loadGame3()
                 {
                     console.log(document.querySelectorAll('.defaultButton.matched').length);
                     
-
-
                     // Conta quanti bottoni sono stati cliccati (con classe 'clicked')
                     const clickedButtons = document.querySelectorAll('.defaultButton.clicked:not(.matched)');
                     if(clickedButtons.length === 2) {
@@ -713,7 +679,6 @@ function loadGame3()
                             }, 400);
                         }
                     }
-
                 }
             })
             var frame = document.getElementById("gameFrame3");
@@ -724,7 +689,7 @@ function loadGame3()
     document.getElementById('progressBar3').value = 100;
     startCountdown = 15;
     setProgressBarValue(startCountdown, 3); // Imposta il valore della barra di avanzamento a 15 secondi
-    gameCountdown = 45;
+    gameCountdown = 60;
 
     countDownStartGame3 = setInterval(function() 
     {
@@ -809,7 +774,6 @@ function loadGame4() // TODO
 
     hasGame4BeenStarted = true;
 
-    // var indice = generateIncrementalIndex(game4Index);
     var indice = questionID[game4QuestionIndex];
     var lunghezza = getQuestion(indice).length;
     var vettoreCaratteri = Array.from(getQuestion(indice)); // crea un array di caratteri dalla parola
@@ -948,7 +912,6 @@ function checkAnswer(event, timeout)
     }
 
 }
-
 
 //easter egg
 function nutella()
