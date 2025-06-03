@@ -69,7 +69,7 @@ var hasGame4BeenStarted = false;
 var game4Index = 0;
 var questionID = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29);
 
-var body; // sfondo -- non si puo assegnare qui??????
+var body; // sfondo
 
 window.addEventListener('DOMContentLoaded', function()
 {
@@ -159,7 +159,6 @@ function backToHome() // torna alla home
 
 function generateIncrementalIndex(oldIndex)
 {
-    // return Math.floor(Math.random() * 30) // genera un numero da 0 a 29
     return oldIndex + 1;
 }
 
@@ -301,6 +300,15 @@ function getQuestionTip(index)
     }
 }
 
+function shuffleArray(array)
+{
+    for (var i = array.length - 1; i > 0; i--) 
+    {
+        var rand = Math.floor(Math.random() * (i + 1));
+        [array[i], array[rand]] = [array[rand], array[i]];
+    }
+}
+
 function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
 {
     event.preventDefault(); // Prevent the form from reloading the page
@@ -368,8 +376,6 @@ function editValuesGame2()
     document.getElementById('maxValue2').value = game1Max.toString();
     resetAllGames();
 }
-
-// cominciamo a giocare (al gioco 1)
 
 function startGame1(event)
 {
@@ -575,12 +581,14 @@ function loadGame3()
 
     let i = 0;
 
+    console.log("memoryGameArray: " + memoryGameArray);
+
     shuffleArray(memoryGameArray); // mescola l'array per avere le immagini in ordine casuale
 
     var flagPairsArray = memoryGameArray.slice(12);
 
-    console.log("flagPairsArray: " + flagPairsArray);
     console.log("memoryGameArray: " + memoryGameArray);
+    console.log("flagPairsArray: " + flagPairsArray);
 
     var flagPairsFullArray = flagPairsArray.flatMap(x => [x, x]);
 
@@ -643,7 +651,8 @@ function loadGame3()
                     button.style.backgroundImage = newUrl.toString();
 
                     const updatedClickedButtons = document.querySelectorAll('.defaultButton.clicked:not(.matched)');
-                    if(updatedClickedButtons.length === 2) {
+                    if(updatedClickedButtons.length === 2) 
+                    {
                         // Prendi i due bottoni e confronta i loro valori
                         const btn1 = updatedClickedButtons[0];
                         const btn2 = updatedClickedButtons[1];
@@ -733,22 +742,11 @@ function loadGame3()
     }, 1000);
 }
 
-
-function shuffleArray(array)
-{
-    for (var i = array.length - 1; i > 0; i--) 
-        {
-        var rand = Math.floor(Math.random() * (i + 1));
-        [array[i], array[rand]] = [array[rand], array[i]]
-    }
-}
-
 function loadGame4() // TODO
 {
     setDefaultBackground();
     document.getElementById('testi-home').style.display = 'none';
     document.getElementById("inputGame4").value = "";
-    document.getElementById("inputGame4").focus();
     document.getElementById('homeButton').style.display = 'block';
     document.getElementById('nutellaButton').style.display = 'none';
     document.getElementById('gameFrame4').style.display = 'block';
@@ -908,7 +906,6 @@ function checkAnswer(event, timeout)
         }
         
         document.getElementById("inputGame4").disabled = true;
-
     }
 
 }
