@@ -793,7 +793,7 @@ function loadGame4() // TODO
     currentPage = 4;
     clearInterval(countDownQuestionGame4);
     clearInterval(progressBarValue);
-    var game4countdown = 2; // 10 secondi per rispondere
+    var game4countdown = 10; // 10 secondi per rispondere
     setProgressBarValue(game4countdown, 4);
     document.getElementById("inputGame4").disabled = false;
     document.getElementById("inputGame4").focus();
