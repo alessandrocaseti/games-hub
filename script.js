@@ -129,11 +129,11 @@ function resetAllGames() // TODO PER OGNI GIOCO
     document.getElementById('statsGame2').innerHTML = '';
     document.getElementById('hintGame2').innerHTML = '';
 
-    totalAttemptsGame1 = 0; // resettiamo il contatore dei tentativi totali
-    winPercentageGame1 = 0; // resettiamo la percentuale di vittoria
-    winsGame1 = 0; // resettiamo il contatore delle vittorie x il gioco 1
-    winsGame2 = 0; // resettiamo il contatore delle vittorie x il gioco 2
-    game4WinTracker = 0; // resettiamo il contatore delle vittorie x il gioco 4
+    totalAttemptsGame1 = 0;
+    winPercentageGame1 = 0;
+    winsGame1 = 0;
+    winsGame2 = 0;
+    game4WinTracker = 0;
     hasGame2BeenStarted = false;
     hasGame4BeenStarted = false;
     game4QuestionIndex = 0;
@@ -143,8 +143,8 @@ function resetAllGames() // TODO PER OGNI GIOCO
 
 function backToHome() // torna alla home
 {
-    document.getElementById('testi-home').style.display = 'block'; // mostra la home
-    document.getElementById('homeButton').style.display = 'none'; // nascondi il pulsante home
+    document.getElementById('testi-home').style.display = 'block';
+    document.getElementById('homeButton').style.display = 'none';
 
     // TODO: PER OGNI GIOCO
 
@@ -544,7 +544,7 @@ function setProgressBarValue(value, progressBarIndex)
         }, 10); // aggiorna la progressBar ogni 10 ms per fare una animation mooolto smooth
 }
 
-function checkFlag(button, index, flagPairsFullArray)
+function checkFlag(button, index)
 {
 
     selectedFlags++;
@@ -589,13 +589,13 @@ function loadGame3()
 
     let i = 0;
 
-    console.log("memoryGameArray: " + memoryGameArray);
+    console.log("memoryGameArray (clean): " + memoryGameArray);
 
     shuffleArray(memoryGameArray); // mescola l'array per avere le immagini in ordine casuale
 
     var flagPairsArray = memoryGameArray.slice(20);
 
-    console.log("memoryGameArray: " + memoryGameArray);
+    console.log("memoryGameArray (randomized): " + memoryGameArray);
     console.log("flagPairsArray: " + flagPairsArray);
 
     var flagPairsFullArray = flagPairsArray.flatMap(x => [x, x]);
@@ -608,7 +608,7 @@ function loadGame3()
 
     if(hasGame3BeenStarted == true) // se il gioco è già stato avviato, non ricreare i bottoni, ma comunque randomizza le images
     {
-        console.log("ciao coreeee");
+        console.log("Buttons already generated. Randomized images and assigned them to the buttons.");
         for(i in flagPairsFullArray)
         {
             var button = document.getElementById('Button' + i.toString());
@@ -705,7 +705,7 @@ function loadGame3()
 
     document.getElementById('progressBar3').value = 100;
     startCountdown = 15;
-    setProgressBarValue(startCountdown, 3); // Imposta il valore della barra di avanzamento a 15 secondi
+    setProgressBarValue(startCountdown, 3);
     gameCountdown = 60;
 
     countDownStartGame3 = setInterval(function() 
@@ -713,7 +713,6 @@ function loadGame3()
         startCountdown--;
         document.getElementById("game3Title").innerHTML = startCountdown.toString();
 
-        // If the count down is finished, write some text
         if (startCountdown <= 0) 
         {
             clearInterval(countDownStartGame3);
@@ -721,12 +720,12 @@ function loadGame3()
             for (let j = 0; j < 24; j++)
             {
                 var button = document.getElementById('Button' + j.toString());
-                if(button) // punto interrogativo
+                if(button)
                 {
                     button.style.backgroundImage = "url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/xx.svg')";
                 }
             }
-            setProgressBarValue(gameCountdown, 3); // Imposta il valore della barra di avanzamento a 15 secondi
+            setProgressBarValue(gameCountdown, 3);
             countDownPlayGame3 = setInterval(function() 
             {
                 gameCountdown--;
@@ -750,7 +749,7 @@ function loadGame3()
     }, 1000);
 }
 
-function loadGame4() // TODO
+function loadGame4()
 {
     setDefaultBackground();
     document.getElementById('testi-home').style.display = 'none';
@@ -918,7 +917,6 @@ function checkAnswer(event, timeout)
 
 }
 
-//easter egg
 function nutella()
 {
     const nutellaImage = document.getElementById('nutellaDiv');
