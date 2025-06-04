@@ -59,10 +59,18 @@ var game3Image =  [
     "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/va.svg", // Vatican City
     "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/jp.svg", // Japan
     "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/dk.svg", // Denmark
-    
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/ag.svg", // Antigua & Barbuda
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/al.svg", // Albania
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/an.svg", // Netherlands Antilles
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/ar.svg", // Argentina
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/br.svg", // Brasil
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/in.svg", // India
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/ee.svg", // Estonia
+    "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/aq-true_south.svg", // Antartic
+
 ]
 
-var memoryGameArray = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23);
+var memoryGameArray = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31);
 
 var hasGame3BeenStarted = false;
 var hasGame4BeenStarted = false;
@@ -585,7 +593,7 @@ function loadGame3()
 
     shuffleArray(memoryGameArray); // mescola l'array per avere le immagini in ordine casuale
 
-    var flagPairsArray = memoryGameArray.slice(12);
+    var flagPairsArray = memoryGameArray.slice(20);
 
     console.log("memoryGameArray: " + memoryGameArray);
     console.log("flagPairsArray: " + flagPairsArray);
