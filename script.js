@@ -77,15 +77,18 @@ var hasGame4BeenStarted = false;
 var game4Index = 0;
 var questionID = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29);
 
+// HTML elements
 var body;
 var aboutButton;
 var homeButton;
+var home;
 
 window.addEventListener('DOMContentLoaded', function()
 {
     body = document.getElementById('main');
     aboutButton = document.getElementById('aboutButton');
     homeButton = document.getElementById('homeButton');
+    home = document.getElementById('home');
 });
 
 function setBodyBgClass(className)
@@ -127,12 +130,11 @@ function resetAllGames() // TODO PER OGNI GIOCO
     document.getElementById('test').innerHTML = '';
     document.getElementById('test2').innerHTML = '';
 
-    counterGame1 = 0;
-
     document.getElementById('statsGame1').innerHTML = '';
     document.getElementById('statsGame2').innerHTML = '';
     document.getElementById('hintGame2').innerHTML = '';
 
+    counterGame1 = 0;
     totalAttemptsGame1 = 0;
     winPercentageGame1 = 0;
     winsGame1 = 0;
@@ -141,13 +143,12 @@ function resetAllGames() // TODO PER OGNI GIOCO
     hasGame2BeenStarted = false;
     hasGame4BeenStarted = false;
     game4QuestionIndex = 0;
-
-    document.querySelectorAll('.defaultButton.matched').length = 0;
 }
 
-function backToHome() // torna alla home
+function backToHome()
 {
-    document.getElementById('testi-home').style.display = 'block';
+    aboutButton.style.display = 'block';
+    home.style.display = 'block';
     homeButton.style.display = 'none';
 
     // TODO: PER OGNI GIOCO
@@ -158,7 +159,6 @@ function backToHome() // torna alla home
     document.getElementById('gameProgress3').style.display = 'none';
     document.getElementById('gameProgress4').style.display = 'none';
     document.getElementById('gameFrame4').style.display = 'none';
-    aboutButton.style.display = 'block';
 
     clearInterval(countDownStartGame3);
     clearInterval(countDownPlayGame3);
@@ -495,18 +495,24 @@ function startGame2(event)
         document.getElementById('generatedNumber2').innerHTML = 'Errato!';
     }
 
-    totalAttemptsGame1++; // Aumentiamo il contatore dei tentativi totali
-    winPercentageGame1 = (winsGame2 / totalAttemptsGame1) * 100; // Calculate the win percentage
+    totalAttemptsGame1++;
+    winPercentageGame1 = (winsGame2 / totalAttemptsGame1) * 100;
     document.getElementById('statsGame2').innerHTML = 'Statistiche: vittorie ' + winsGame2.toString() + ' | totale tentativi ' + totalAttemptsGame1.toString() + ' | percentuale di vincita ' + winPercentageGame1.toFixed(2) + '%';
 
 }
 
+function loadGenericGame()
+{
+    setDefaultBackground();
+    aboutButton.style.display = 'none';
+    home.style.display = 'none';
+    homeButton.style.display = 'block';
+}
+
 function loadGame1()
 {
-    document.getElementById('testi-home').style.display = 'none';
-    homeButton.style.display = 'block';
+    loadGenericGame();
     document.getElementById('gameFrame1').style.display = 'block';
-    aboutButton.style.display = 'none';
     document.getElementById('gameSetup').style.display = 'none';
     document.getElementById('game1MinMaxValues').style.display = 'block';
     currentPage = 1;
@@ -514,10 +520,7 @@ function loadGame1()
 
 function loadGame2()
 {
-    setDefaultBackground();
-    document.getElementById('testi-home').style.display = 'none';
-    homeButton.style.display = 'block';
-    aboutButton.style.display = 'none';
+    loadGenericGame();
     document.getElementById('gameFrame2').style.display = 'block';
     document.getElementById('gameSetup2').style.display = 'none';
     document.getElementById('game2MinMaxValues').style.display = 'block';
@@ -583,9 +586,7 @@ function checkFlag(button, index)
 
 function loadGame3()
 {
-    document.getElementById('testi-home').style.display = 'none';
-    homeButton.style.display = 'block';
-    aboutButton.style.display = 'none';
+    loadGenericGame();
     document.getElementById('gameFrame3').style.display = 'block';
     document.getElementById('gameProgress3').style.display = 'block';
     document.getElementById("game3Title").innerHTML = "15";
@@ -755,11 +756,8 @@ function loadGame3()
 
 function loadGame4()
 {
-    setDefaultBackground();
-    document.getElementById('testi-home').style.display = 'none';
+    loadGenericGame();
     document.getElementById("inputGame4").value = "";
-    homeButton.style.display = 'block';
-    aboutButton.style.display = 'none';
     document.getElementById('gameFrame4').style.display = 'block';
     document.getElementById('gameProgress4').style.display = 'block';
     document.getElementById("nextQuestionButton").disabled = true;
@@ -927,11 +925,11 @@ function nutella()
     if (nutellaImage.style.display === 'none')
     {
         nutellaImage.style.display = 'block';
-        document.getElementById('testi-home').style.display = 'none';
+        home.style.display = 'none';
     }
     else
     {
         nutellaImage.style.display = 'none';
-        document.getElementById('testi-home').style.display = 'block';
+        home.style.display = 'block';
     }
 }
