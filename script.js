@@ -77,11 +77,15 @@ var hasGame4BeenStarted = false;
 var game4Index = 0;
 var questionID = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29);
 
-var body; // sfondo
+var body;
+var aboutButton;
+var homeButton;
 
 window.addEventListener('DOMContentLoaded', function()
 {
     body = document.getElementById('main');
+    aboutButton = document.getElementById('aboutButton');
+    homeButton = document.getElementById('homeButton');
 });
 
 function setBodyBgClass(className)
@@ -144,7 +148,7 @@ function resetAllGames() // TODO PER OGNI GIOCO
 function backToHome() // torna alla home
 {
     document.getElementById('testi-home').style.display = 'block';
-    document.getElementById('homeButton').style.display = 'none';
+    homeButton.style.display = 'none';
 
     // TODO: PER OGNI GIOCO
 
@@ -154,7 +158,7 @@ function backToHome() // torna alla home
     document.getElementById('gameProgress3').style.display = 'none';
     document.getElementById('gameProgress4').style.display = 'none';
     document.getElementById('gameFrame4').style.display = 'none';
-    document.getElementById('nutellaButton').style.display = 'block';
+    aboutButton.style.display = 'block';
 
     clearInterval(countDownStartGame3);
     clearInterval(countDownPlayGame3);
@@ -500,9 +504,9 @@ function startGame2(event)
 function loadGame1()
 {
     document.getElementById('testi-home').style.display = 'none';
-    document.getElementById('homeButton').style.display = 'block';
+    homeButton.style.display = 'block';
     document.getElementById('gameFrame1').style.display = 'block';
-    document.getElementById('nutellaButton').style.display = 'none';
+    aboutButton.style.display = 'none';
     document.getElementById('gameSetup').style.display = 'none';
     document.getElementById('game1MinMaxValues').style.display = 'block';
     currentPage = 1;
@@ -512,8 +516,8 @@ function loadGame2()
 {
     setDefaultBackground();
     document.getElementById('testi-home').style.display = 'none';
-    document.getElementById('homeButton').style.display = 'block';
-    document.getElementById('nutellaButton').style.display = 'none';
+    homeButton.style.display = 'block';
+    aboutButton.style.display = 'none';
     document.getElementById('gameFrame2').style.display = 'block';
     document.getElementById('gameSetup2').style.display = 'none';
     document.getElementById('game2MinMaxValues').style.display = 'block';
@@ -580,8 +584,8 @@ function checkFlag(button, index)
 function loadGame3()
 {
     document.getElementById('testi-home').style.display = 'none';
-    document.getElementById('homeButton').style.display = 'block';
-    document.getElementById('nutellaButton').style.display = 'none';
+    homeButton.style.display = 'block';
+    aboutButton.style.display = 'none';
     document.getElementById('gameFrame3').style.display = 'block';
     document.getElementById('gameProgress3').style.display = 'block';
     document.getElementById("game3Title").innerHTML = "15";
@@ -754,8 +758,8 @@ function loadGame4()
     setDefaultBackground();
     document.getElementById('testi-home').style.display = 'none';
     document.getElementById("inputGame4").value = "";
-    document.getElementById('homeButton').style.display = 'block';
-    document.getElementById('nutellaButton').style.display = 'none';
+    homeButton.style.display = 'block';
+    aboutButton.style.display = 'none';
     document.getElementById('gameFrame4').style.display = 'block';
     document.getElementById('gameProgress4').style.display = 'block';
     document.getElementById("nextQuestionButton").disabled = true;
@@ -763,7 +767,7 @@ function loadGame4()
     currentPage = 4;
     clearInterval(countDownQuestionGame4);
     clearInterval(progressBarValue);
-    var game4countdown = 20; // 10 secondi per rispondere
+    var game4countdown = 20;
     setProgressBarValue(game4countdown, 4);
     document.getElementById("inputGame4").disabled = false;
     document.getElementById("inputGame4").focus();
