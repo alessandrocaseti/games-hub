@@ -154,7 +154,6 @@ body.win-bg
 	background-size: cover;
 	height: 100%;
 	backdrop-filter: blur(20px);
-
 }
 
 body.defeat-bg
