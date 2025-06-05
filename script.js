@@ -620,7 +620,6 @@ function loadGame3()
             var image = game3Image[flagPairsFullArray[i]];
             var url = "url('" + image + "')"; 
             button.style.backgroundImage = url.toString();
-            button.style.backgroundSize = "cover"; // Copri l'intera area del bottone con l'immagine
         }
     }
     else
@@ -631,14 +630,14 @@ function loadGame3()
             const button = document.createElement('button');
             var image = game3Image[flagPairsFullArray[i]];
             button.innerText = "";
-            button.className = 'defaultButton';
+            button.className = 'memoryButton';
             button.id = 'Button' + i.toString();
             button.style.width= "160px";
             button.style.margin = "30px";
             button.style.height = "160px";
             var url = "url('" + image + "')"; 
             button.style.backgroundImage = url.toString();
-            button.style.backgroundSize = "cover"; // Copri l'intera area del bottone con l'immagine
+
             button.addEventListener('click', () => // algoritmo memory
             {
                 if(startCountdown > 0)
@@ -650,10 +649,10 @@ function loadGame3()
 
                 if(startCountdown <= 0 && !button.classList.contains('matched') && !button.classList.contains('clicked'))
                 {
-                    console.log(document.querySelectorAll('.defaultButton.matched').length);
+                    console.log(document.querySelectorAll('.memoryButton.matched').length);
                     
                     // Conta quanti bottoni sono stati cliccati (con classe 'clicked')
-                    const clickedButtons = document.querySelectorAll('.defaultButton.clicked:not(.matched)');
+                    const clickedButtons = document.querySelectorAll('.memoryButton.clicked:not(.matched)');
                     if(clickedButtons.length === 2) {
                         // Se ci sono già 2 bottoni cliccati, non permettere altri click finché non si risolve
                         return;
@@ -663,7 +662,7 @@ function loadGame3()
                     var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')";
                     button.style.backgroundImage = newUrl.toString();
 
-                    const updatedClickedButtons = document.querySelectorAll('.defaultButton.clicked:not(.matched)');
+                    const updatedClickedButtons = document.querySelectorAll('.memoryButton.clicked:not(.matched)');
                     if(updatedClickedButtons.length === 2) 
                     {
                         // Prendi i due bottoni e confronta i loro valori
@@ -680,9 +679,9 @@ function loadGame3()
                                 btn2.classList.add('matched');
                                 btn1.classList.remove('clicked');
                                 btn2.classList.remove('clicked');
-                            }, 400); // breve feedback visivo
+                            }, 400);
 
-                            if (document.querySelectorAll('.defaultButton.matched').length === 22) // WIIIIN
+                            if (document.querySelectorAll('.memoryButton.matched').length === 22)
                             {
                                 setWinBackground();
                                 document.getElementById("game3Title").innerHTML = "HAI VINTO!";

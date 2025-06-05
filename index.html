@@ -14,10 +14,14 @@
 
     <body id="main" class="default-bg" style="color: #FFFFFF; font-family: 'Poppins'; font-size: 20px; font-weight: 750;">
 
-        <button id="homeButton" onclick="backToHome()" class="defaultButton" style="width: 200px; height: 30px; display: none; margin-left: 20px; margin-top: 34px;">Torna alla Home</button>
+        <button id="homeButton" onclick="backToHome()" class="defaultButton"
+                style="width: 200px; height: 30px; display: none; margin-left: 20px; margin-top: 34px;">Torna alla Home</button>
 
         <div style="display: flex; justify-content: right; margin-right: 10px;">
-            <button id="aboutButton" onclick="nutella()" class="defaultButton" style="border-radius: 100%; width: 32px; height: 32px; background-image: url('assets/about.png'); background-size: cover; margin: 20px;"></button>
+
+            <button id="aboutButton" onclick="nutella()" class="memoryButton"
+                    style="border-radius: 100%; width: 32px; height: 32px; background-image: url('assets/about.png'); background-size: cover; margin: 20px;"></button>
+
         </div>
 
         <!-- Home -->
@@ -26,16 +30,31 @@
             <img id="ghLogo" src="assets/logo.png" alt="logo" style="user-select: none; -webkit-user-drag: none;  width: 25vh; height: 25vh; margin-top: -4vh;">
 
             <div id="homeTitleDiv" style="text-align: center; margin-bottom: 20px;">
+
                 <h1 id="mainTitle" class="glow" style="font-size: 90px; font-weight: 750; margin-top: -30px;">Games Hub</h1>
                 <p id="welcomeText" style="font-size: 20px; font-weight: 500; margin-top: -50px;">Benvenuto su Games Hub!</p>
                 <p id="chooseGameText" style="font-size: 20px; font-weight: 500;">Scegli un gioco cliccando uno dei seguenti quattro bottoni:</p>
+
             </div>
 
             <div id="gameButtonsDiv" style="margin-top: 50px;">
-                <button id="game1" class="defaultButton" style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;" onclick="loadGame1()">Guess the Number (hard)</button>
-                <button id="game2" class="defaultButton" style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;" onclick="loadGame2()">Guess the Number (easy)</button>
-                <button id="game3" class="defaultButton" style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;" onclick="loadGame3()">Memory<br>Country Flags</button>
-                <button id="game4" class="defaultButton" style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;" onclick="loadGame4()">Reazione a Catena</button>
+
+                <button id="game1" class="defaultButton"
+                        style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;"
+                        onclick="loadGame1()">Guess the Number (hard)</button>
+
+                <button id="game2" class="defaultButton"
+                        style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;"
+                        onclick="loadGame2()">Guess the Number (easy)</button>
+
+                <button id="game3" class="defaultButton"
+                        style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;"
+                        onclick="loadGame3()">Memory<br>Country Flags</button>
+
+                <button id="game4" class="defaultButton"
+                        style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;"
+                        onclick="loadGame4()">Reazione a Catena</button>
+
             </div>
 
         </div>
@@ -47,6 +66,7 @@
 
             <!-- Setup gioco 1 -->
             <div id="game1MinMaxValues">
+
                 <h1 class="textAnimaton" id="valuesTitle" style="font-size: 30px; font-weight: 700;">Inserisci il valore minimo e quello massimo</h1>
 
                 <form id="formSetMinMax" onsubmit="setMinMaxValues(event)" style="display: block; text-align: center; margin-top: 20px;">
@@ -54,10 +74,12 @@
                     <input id="maxValue" type="number" class="defaultInputBox" placeholder="Inserisci il massimo" autocomplete="off">
                     <button id="inputButton" type="submit" class="defaultButton" style="height: 36px; margin: 10px;">Set Values</button>
                 </form>
+
             </div>
 
             <!-- Interfaccia gioco 1 -->
             <div id="gameSetup" style="display: none; align-items: center; margin-top: -30px;">
+
                 <h1 id="gameTitle" style="font-size: 30px; font-weight: 700;"></h1>
 
                 <form id="formStartGame" onsubmit="startGame1(event)" style="display:inline-block; margin-top: -20px;">
@@ -65,7 +87,9 @@
                     <button id="inputButton2" type="submit" class="defaultButton" style="width: 100px; margin: 5px; height: 36px">Genera</button>
                 </form>
 
-                <button id="editValuesButton" class="defaultButton" onclick="editValuesGame1()" style="display: inline-block; width: 100px; height: 36px; margin: 5px;">Modifica</button>
+                <button id="editValuesButton" class="defaultButton" onclick="editValuesGame1()"
+                        style="display: inline-block; width: 100px; height: 36px; margin: 5px;">Modifica</button>
+
             </div>
 
             <h1 id="generatedNumber1" style="font-size: 200px; margin-top: 60px;"></h1>
@@ -92,6 +116,7 @@
 
             <!-- Interfaccia gioco 2 -->
             <div id="gameSetup2" style="display: none; align-items: center; margin-top: -30px;">
+
                 <h1 id="gameTitle2" style="font-size: 30px; font-weight: 700;"></h1>
 
                 <form id="formStartGame2" onsubmit="startGame2(event)" style="display:inline-block; margin-top: -20px;">
@@ -99,8 +124,11 @@
                     <button id="inputButton4" type="submit" class="defaultButton" style="height: 36px; margin: 5px;">Tenta</button>
                 </form>
 
-                <button id="editValuesButton2" class="defaultButton" onclick="editValuesGame2()" style="display: inline-block; width: 100px; height: 36px; margin: 5px;">Modifica</button>
+                <button id="editValuesButton2" class="defaultButton" onclick="editValuesGame2()"
+                        style="display: inline-block; width: 100px; height: 36px; margin: 5px;">Modifica</button>
+
             </div>
+
             <div id="cancellami" style="display: none; text-align: center; align-items: center;">
                 <h1 id="generatedNumber2" style="font-size: 200px; margin-top: 70px;"></h1>
                 <h1 id="test2" style="font-size: 70px; margin-top: -100px;"></h1>
@@ -108,6 +136,7 @@
                 <h2 id="hintGame2" style="font-size: 50px; margin-top: -40px; font-weight: 400;"></h2>
                 <h2 id="statsGame2" style="font-size: 30px; margin-top: -40px; font-weight: 400;"></h2>
             </div>
+
         </div>
 
         <!-- GIOCO 3: MEMORY COUNTRY FLAGS -->
@@ -127,21 +156,33 @@
         </div>
 
         <div id="gameFrame4" style="margin-top: 20px; display: none; text-align: center;">
+
             <div style="display: flex; justify-content: right;">
-                <button onclick="loadGame4()" id="nextQuestionButton" class="defaultButton" style="width: 200px; height: 30px; margin-right: 20px; margin-top: -76px;">Prossima domanda</button>
+
+                <button onclick="loadGame4()" id="nextQuestionButton" class="defaultButton"
+                        style="width: 200px; height: 30px; margin-right: 20px; margin-top: -76px;">Prossima domanda</button>
+
             </div>
+
             <h1 id="game4MessageInfo" style="font-size: 50px; user-select: none; width: auto; height: 30px; margin-top: -20px;"></h1>
             <h1 id="game4Title" class="textAnimaton" style="font-size: 120px; letter-spacing: 36px; text-align: center; margin-top: 160px;"></h1>
             <h1 id="game4Title2" class="textAnimaton" style="font-size: 120px; letter-spacing: 36px; text-align: center; margin-top: -40px;"></h1>
             <h2 id="game4Tip" class="textAnimaton" style="font-size: 30px;"></h2>
+
             <form onsubmit="checkAnswer(event, 0)">
+
                 <input type="text" id="inputGame4" placeholder="Inserisci la risposta" class="defaultInputBox" style="width: 300px;" autocomplete="off">
+
             </form>
+
         </div>
 
-        <!-- Nutella -->
+        <!-- About section -->
+
         <div id="nutellaDiv" style="text-align: center; display: none;">
+
             <img id="nutellaImage" class="textAnimaton" src="assets/nutella.png" style="width: 600px; height: 800px; margin-top: 20px;">
+
         </div>
 
     </body>
