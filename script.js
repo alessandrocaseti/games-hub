@@ -148,6 +148,7 @@ function resetAllGames() // TODO PER OGNI GIOCO
 function backToHome()
 {
     aboutButton.style.display = 'block';
+    aboutDiv.style.display = 'none';
     home.style.display = 'block';
     homeButton.style.display = 'none';
 
@@ -918,17 +919,10 @@ function checkAnswer(event, timeout)
 
 }
 
-function nutella()
+function about()
 {
-    const nutellaImage = document.getElementById('nutellaDiv');
-    if (nutellaImage.style.display === 'none')
-    {
-        nutellaImage.style.display = 'block';
-        home.style.display = 'none';
-    }
-    else
-    {
-        nutellaImage.style.display = 'none';
-        home.style.display = 'block';
-    }
+    aboutDiv.style.display = 'block';
+    aboutButton.style.display = 'none';
+    homeButton.style.display = 'block';
+    home.style.display = 'none';
 }
