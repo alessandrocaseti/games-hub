@@ -67,7 +67,7 @@
             <!-- Setup gioco 1 -->
             <div id="game1MinMaxValues">
 
-                <h1 class="textAnimaton" id="valuesTitle" style="font-size: 30px; font-weight: 700;">Inserisci il valore minimo e quello massimo</h1>
+                <h1 id="valuesTitle" class="textAnimaton" style="font-size: 30px; font-weight: 700;">Inserisci il valore minimo e quello massimo</h1>
 
                 <form id="formSetMinMax" onsubmit="setMinMaxValues(event)" style="display: block; text-align: center; margin-top: 20px;">
                     <input id="minValue" type="number" class="defaultInputBox" placeholder="Inserisci il minimo" min="0">
@@ -141,7 +141,7 @@
 
         <!-- GIOCO 3: MEMORY COUNTRY FLAGS -->
 
-        <div class="defaultProgressBar" style="display: none;" id="gameProgress3">
+        <div id="gameProgress3" class="defaultProgressBar" style="display: none;">
             <progress id="progressBar3" max="100" style="height: 16px; width: 89.5%; margin-bottom: -120px;"></progress>
         </div>
 
@@ -151,7 +151,7 @@
 
         <!-- GIOCO 4: REAZIONE A CATENA (IMPICCATO) -->
 
-        <div class="defaultProgressBar" style="display: none;" id="gameProgress4">
+        <div id="gameProgress4" class="defaultProgressBar" style="display: none;">
             <progress id="progressBar4" max="100" style="height: 16px; width: 85%; margin-bottom: -120px;"></progress>
         </div>
 
@@ -159,7 +159,7 @@
 
             <div style="display: flex; justify-content: right;">
 
-                <button onclick="loadGame4()" id="nextQuestionButton" class="defaultButton"
+                <button id="nextQuestionButton" onclick="loadGame4()" class="defaultButton"
                         style="width: 200px; height: 30px; margin-right: 20px; margin-top: -76px;">Prossima domanda</button>
 
             </div>
@@ -171,7 +171,7 @@
 
             <form onsubmit="checkAnswer(event, 0)">
 
-                <input type="text" id="inputGame4" placeholder="Inserisci la risposta" class="defaultInputBox" style="width: 300px;" autocomplete="off">
+                <input id="inputGame4" type="text" placeholder="Inserisci la risposta" class="defaultInputBox" style="width: 300px;" autocomplete="off">
 
             </form>
 
