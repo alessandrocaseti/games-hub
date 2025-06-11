@@ -37,6 +37,12 @@
 	}
 }
 
+.defaultImage
+{
+	user-select: none; 
+	-webkit-user-drag: none;
+}
+
 .defaultButton
 {
 	background-color: rgb(15, 15, 15);
