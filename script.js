@@ -25,7 +25,7 @@ var game4WinTracker = 0;
 var game4LostTracker = 0;
 var game4QuestionIndex = -1;
 
-var game4Questions = 30;
+const game4Questions = 41;
 
 var progressBarValue = 0; // valore della progressbar per il gioco 3 e 4
 
@@ -75,7 +75,7 @@ var memoryGameArray = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
 var hasGame3BeenStarted = false;
 var hasGame4BeenStarted = false;
 var game4Index = 0;
-var questionID = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29);
+var questionID = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40);
 
 // HTML elements
 var body;
@@ -239,6 +239,28 @@ function getQuestion(index)
             return "Donald Trump";
         case 29:
             return "Unti e Bisunti";
+        case 30:
+            return "Ricchi e Poveri";
+        case 31:
+            return "Games Hub";
+        case 32:
+            return "Constatazione Amichevole"
+        case 33:
+            return "Pink Floyd";
+        case 34:
+            return "Ariana Grande";
+        case 35:
+            return "Reazione a Catena";
+        case 36:
+            return "Carlo Conti";
+        case 37:
+            return "Vittorio Sgarbi"
+        case 38:
+            return "Piramidi di Giza";
+        case 39:
+            return "Torre Eiffel";
+        case 40:
+            return "Dora L'esploratrice";
         default:
             return "null";
     }
@@ -308,6 +330,28 @@ function getQuestionTip(index)
             return "Attuale presidente degli Stati Uniti d'America";
         case 29:
             return "Programma televisivo italiano di cucina casereccia condotto da Chef Rubio";
+        case 30:
+            return "Ricchi e Poveri";
+        case 31:
+            return "Il nome di questo fantastico sito web";
+        case 32:
+            return "Documento standardizzato utilizzato per denunciare un sinistro stradale"
+        case 33:
+            return "Gruppo musicale rock britannico fondato a Londra nel 1965";
+        case 34:
+            return "Cantautrice e attrice statunitense salita al successo grazie alle serie Nickelodeon Victorious e Sam & Cat";
+        case 35:
+            return "Programma televisivo italiano di genere game show, in onda su Rai 1 dal 2 luglio 2007 nella fascia preserale";
+        case 36:
+            return "Conduttore televisivo e radiofonico famoso per i suoi programmi su Rai 1";
+        case 37:
+            return "Critico e storico d'arte, saggista, politico e personaggio televisivo italiano"
+        case 38:
+            return "Complesso di antichi monumenti della civiltà egizia";
+        case 39:
+            return "Torre metallica completata nel 1889 in occasione dell'Esposizione universale";
+        case 40:
+            return "Serie animata per bambini prodotta da Nickelodeon";
         default:
             return "null";
     }
@@ -853,7 +897,7 @@ function loadGame4()
             if(game4QuestionIndex == 29)
             {
                 console.log("QUIZ COMPLETATO - tramite tempo scaduto");
-                document.getElementById("game4MessageInfo").innerHTML = "HAI COMPLETATO IL QUIZ! " + "Punteggio: " + game4WinTracker.toString() + " / 30";
+                document.getElementById("game4MessageInfo").innerHTML = "HAI COMPLETATO IL QUIZ! " + "Punteggio: " + game4WinTracker.toString() + " / " + + game4Questions.toString();
                 document.getElementById("inputGame4").disabled = true;
                 document.getElementById("nextQuestionButton").disabled = true;
             }
@@ -881,12 +925,12 @@ function checkAnswer(event, timeout)
             document.getElementById("game4Title2").innerHTML = parolaFull2.join('').toUpperCase();
 
             game4WinTracker = game4QuestionIndex + 1 - game4LostTracker;
-            document.getElementById("game4MessageInfo").innerHTML = "ESATTO! Punteggio: " + game4WinTracker.toString() + " / 30";
+            document.getElementById("game4MessageInfo").innerHTML = "ESATTO! Punteggio: " + game4WinTracker.toString() + " / " + game4Questions.toString();
 
             if(game4QuestionIndex == 29)
             {
                 console.log("QUIZ COMPLETATO - tramite risposta corretta");
-                document.getElementById("game4MessageInfo").innerHTML = "HAI COMPLETATO IL QUIZ! " + "Punteggio: " + game4WinTracker.toString() + " / 30";
+                document.getElementById("game4MessageInfo").innerHTML = "HAI COMPLETATO IL QUIZ! " + "Punteggio: " + game4WinTracker.toString() + " / " + + game4Questions.toString();
                 document.getElementById("inputGame4").disabled = true;
                 document.getElementById("nextQuestionButton").disabled = true;
             }
