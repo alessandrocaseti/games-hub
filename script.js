@@ -761,7 +761,7 @@ function loadGame4()
     document.getElementById('gameFrame4').style.display = 'block';
     document.getElementById('gameProgress4').style.display = 'block';
     document.getElementById("nextQuestionButton").disabled = true;
-    document.getElementById("game4MessageInfo").innerHTML = "10";
+    document.getElementById("game4MessageInfo").innerHTML = "20";
     currentPage = 4;
     clearInterval(countDownQuestionGame4);
     clearInterval(progressBarValue);
