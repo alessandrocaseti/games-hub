@@ -86,6 +86,7 @@ const strings_it = {
     game2ButtonText : "Indovina il numero (easy)",
     game3ButtonText : "Memory: <br> bandiere",
     game4ButtonText : "Reazione a Catena",
+    insertMinMaxValues : "Inserisci il valore minimo e quello massimo",
     backToHome : "Torna alla Home"
 };
 
@@ -98,6 +99,7 @@ const strings_en = {
     game2ButtonText : "Guess the number (easy)",
     game3ButtonText : "Memory: <br> country flags",
     game4ButtonText : "Italian simple quiz",
+    insertMinMaxValues : "Insert minimum and maximum values",
     backToHome : "Back to Home"
 };
 
@@ -123,9 +125,12 @@ function setLanguage(id)
     document.getElementById("welcomeText").innerHTML = translate.homeWelcomeText;
     document.getElementById("chooseGameText").innerHTML = translate.homeTeachingText;
     document.getElementById("game1").innerHTML = translate.game1ButtonText;
+    document.getElementById("game1Title").innerHTML = translate.game1ButtonText;
+    document.getElementById("valuesTitle").innerHTML = translate.insertMinMaxValues;
+    document.getElementById("valuesTitle2").innerHTML = translate.insertMinMaxValues;
     document.getElementById("game2").innerHTML = translate.game2ButtonText;
+    document.getElementById("game2Title").innerHTML = translate.game2ButtonText;
     document.getElementById("game3").innerHTML = translate.game3ButtonText;
-    document.getElementById("game4").innerHTML = translate.game4ButtonText;
     document.getElementById("game4").innerHTML = translate.game4ButtonText;
     homeButton.innerHTML = translate.backToHome;
 }
