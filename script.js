@@ -331,7 +331,7 @@ function getQuestionTip(index)
         case 29:
             return "Programma televisivo italiano di cucina casereccia condotto da Chef Rubio";
         case 30:
-            return "Ricchi e Poveri";
+            return "Gruppo italiano pop nato a Genova nel 1967";
         case 31:
             return "Il nome di questo fantastico sito web";
         case 32:
@@ -848,7 +848,7 @@ function loadGame4()
             vettoreCaratteri2[i] = '';
             parolaFull2[i] = ''; // cancella anche la parola completa
         }
-        if(randomNum == 0 && vettoreCaratteri[i] != ' ' && vettoreCaratteri[i] != '') // 40% di probabilità di mostrare il carattere
+        if(randomNum == 0 && vettoreCaratteri[i] != ' ' && vettoreCaratteri[i] != '' && vettoreCaratteri[i] != '\'') // 40% di probabilità di mostrare il carattere
         {
             vettoreCaratteri[i] = '_';
         }
@@ -866,7 +866,7 @@ function loadGame4()
     for (var j = secondIndex; j < lunghezza; j++)
     {
         var randomNum = Math.floor(Math.random() * 1.5);
-        if(randomNum == 0 && vettoreCaratteri2[j] != ' ' && vettoreCaratteri2[j] != '') // 50% di probabilità di mostrare il carattere
+        if(randomNum == 0 && vettoreCaratteri2[j] != ' ' && vettoreCaratteri2[j] != '' && vettoreCaratteri[i] != "'") // 50% di probabilità di mostrare il carattere
         {
             vettoreCaratteri2[j] = '_';
         }
@@ -888,13 +888,13 @@ function loadGame4()
         document.getElementById("game4MessageInfo").innerHTML = game4countdown.toString();
         if (game4countdown <= 0) 
         {
-            if(game4QuestionIndex < 29)
+            if(game4QuestionIndex < game4Questions - 1)
             {
                 document.getElementById("game4MessageInfo").innerHTML = "Tempo scaduto!";
             }
             game4LostTracker++;
             console.log(game4QuestionIndex)
-            if(game4QuestionIndex == 29)
+            if(game4QuestionIndex == game4Questions - 1)
             {
                 console.log("QUIZ COMPLETATO - tramite tempo scaduto");
                 document.getElementById("game4MessageInfo").innerHTML = "HAI COMPLETATO IL QUIZ! " + "Punteggio: " + game4WinTracker.toString() + " / " + + game4Questions.toString();
@@ -927,7 +927,7 @@ function checkAnswer(event, timeout)
             game4WinTracker = game4QuestionIndex + 1 - game4LostTracker;
             document.getElementById("game4MessageInfo").innerHTML = "ESATTO! Punteggio: " + game4WinTracker.toString() + " / " + game4Questions.toString();
 
-            if(game4QuestionIndex == 29)
+            if(game4QuestionIndex == game4Questions - 1)
             {
                 console.log("QUIZ COMPLETATO - tramite risposta corretta");
                 document.getElementById("game4MessageInfo").innerHTML = "HAI COMPLETATO IL QUIZ! " + "Punteggio: " + game4WinTracker.toString() + " / " + + game4Questions.toString();
@@ -948,7 +948,7 @@ function checkAnswer(event, timeout)
         setDefeatBackground();
         document.getElementById("game4Title").innerHTML = parolaFull.join('').toUpperCase();
         document.getElementById("game4Title2").innerHTML = parolaFull2.join('').toUpperCase();
-        if(game4QuestionIndex < 29)
+        if(game4QuestionIndex < game4Questions - 1)
         {
             document.getElementById("nextQuestionButton").disabled = false;
         }
