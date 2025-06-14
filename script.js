@@ -596,39 +596,6 @@ function setProgressBarValue(value, progressBarIndex)
         }, 10); // aggiorna la progressBar ogni 10 ms per fare una animation mooolto smooth
 }
 
-function checkFlag(button, index)
-{
-
-    selectedFlags++;
-
-    if(selectedFlags == 1)
-    {
-        // e la prima bandiera selezionata
-        console.log("Prima bandiera selezionata: " + index.toString());
-    }
-    if(selectedFlags == 2) // se sono state selezionate due bandiere
-    {
-        // fai il check
-        console.log("Seconda bandiera selezionata: " + index.toString());
-        hasMemoryPairBeenRevealed == true
-    }
-    if(selectedFlags > 2)
-    {
-        // deseleziona le bandiere
-        console.log("Troppe bandiere selezionate, resetto tutto");
-        selectedFlags = 0; // resetta il contatore delle bandiere selezionate
-        for (let j = 0; j < 24; j++)
-        {
-            var button = document.getElementById('Button' + j.toString());
-            if(button) // punto interrogativo
-            {
-                button.style.backgroundImage = "url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/xx.svg')";
-                hasMemoryPairBeenRevealed = false;
-            }
-        }
-    }
-}
-
 function loadGame3()
 {
     loadGenericGame();
