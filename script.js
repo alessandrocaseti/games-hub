@@ -77,11 +77,66 @@ var hasGame4BeenStarted = false;
 var game4Index = 0;
 var questionID = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40);
 
+const strings_it = {
+
+    name : "Hub di Giochi",
+    homeWelcomeText : "Benvenuto su Games Hub!",
+    homeTeachingText : "Scegli un gioco cliccando su uno dei seguenti bottoni:",
+    game1ButtonText : "Indovina il numero (hard)",
+    game2ButtonText : "Indovina il numero (easy)",
+    game3ButtonText : "Memory: <br> bandiere",
+    game4ButtonText : "Reazione a Catena",
+    backToHome : "Torna alla Home"
+};
+
+const strings_en = {
+
+    name : "Games Hub",
+    homeWelcomeText : "Welcome on Games Hub!",
+    homeTeachingText : "Choose a game by clicking one of the buttons below:",
+    game1ButtonText : "Guess the number (hard)",
+    game2ButtonText : "Guess the number (easy)",
+    game3ButtonText : "Memory: <br> country flags",
+    game4ButtonText : "Italian simple quiz",
+    backToHome : "Back to Home"
+};
+
+function setLanguage(id)
+{
+    let translate;
+
+    switch(id)
+    {
+        case "it":
+            translate = strings_it;
+            break;
+        case "en":
+            translate = strings_en;
+            break;
+        default:
+            translate = strings_it;
+            break;
+    }
+
+    document.getElementById("pageTitle").innerHTML = translate.name;
+    document.getElementById("mainTitle").innerHTML = translate.name;
+    document.getElementById("welcomeText").innerHTML = translate.homeWelcomeText;
+    document.getElementById("chooseGameText").innerHTML = translate.homeTeachingText;
+    document.getElementById("game1").innerHTML = translate.game1ButtonText;
+    document.getElementById("game2").innerHTML = translate.game2ButtonText;
+    document.getElementById("game3").innerHTML = translate.game3ButtonText;
+    document.getElementById("game4").innerHTML = translate.game4ButtonText;
+    document.getElementById("game4").innerHTML = translate.game4ButtonText;
+    homeButton.innerHTML = translate.backToHome;
+}
+
+
 // HTML elements
 var body;
 var aboutButton;
 var homeButton;
 var home;
+var langButtons;
 
 window.addEventListener('DOMContentLoaded', function()
 {
@@ -89,6 +144,9 @@ window.addEventListener('DOMContentLoaded', function()
     aboutButton = document.getElementById('aboutButton');
     homeButton = document.getElementById('homeButton');
     home = document.getElementById('home');
+    langButtons = document.getElementById('languageButtons');
+    setLanguage();
+    
 });
 
 function setBodyBgClass(className)
@@ -151,6 +209,7 @@ function backToHome()
     aboutDiv.style.display = 'none';
     home.style.display = 'block';
     homeButton.style.display = 'none';
+    langButtons.style.display = 'block';
 
     // TODO: PER OGNI GIOCO
 
@@ -552,6 +611,8 @@ function loadGenericGame()
     aboutButton.style.display = 'none';
     home.style.display = 'none';
     homeButton.style.display = 'block';
+    langButtons.style.display = 'none';
+
 }
 
 function loadGame1()
@@ -932,8 +993,6 @@ function checkAnswer(event, timeout)
 
 function about()
 {
+    loadGenericGame();
     aboutDiv.style.display = 'block';
-    aboutButton.style.display = 'none';
-    homeButton.style.display = 'block';
-    home.style.display = 'none';
 }

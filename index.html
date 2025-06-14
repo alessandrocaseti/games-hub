@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Games Hub</title>
+        <title id="pageTitle"></title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap">
         <link rel="icon" type="image/x-icon" href="assets/logo.png">
@@ -15,9 +15,14 @@
     <body id="main" class="default-bg" style="color: #FFFFFF; font-family: 'Poppins'; font-size: 20px; font-weight: 750;">
 
         <button id="homeButton" onclick="backToHome()" class="defaultButton"
-                style="width: 200px; height: 30px; display: none; margin-left: 20px; margin-top: 34px;">Torna alla Home</button>
+                style="width: 200px; height: 30px; display: none; margin-left: 20px; margin-top: 34px;"></button>
 
         <div style="display: flex; justify-content: right; margin-right: 10px;">
+
+            <div id="languageButtons" style="margin-top: 1vh;">
+                <button class="defaultButton" onclick="setLanguage('it')">Italiano</button>
+                <button class="defaultButton" style="margin: 5px;" onclick="setLanguage('en')">English</button>
+            </div>
 
             <button id="aboutButton" onclick="about()" class="memoryButton"
                     style="border-radius: 100%; width: 32px; height: 32px; background-image: url('assets/about.png'); background-size: cover; margin: 20px;"></button>
@@ -31,9 +36,9 @@
 
             <div id="homeTitleDiv" style="text-align: center; margin-bottom: 20px;">
 
-                <h1 id="mainTitle" class="glow" style="font-size: 90px; font-weight: 750; margin-top: -30px;">Games Hub</h1>
-                <p id="welcomeText" class="textAnimaton" style="font-size: 20px; font-weight: 500; margin-top: -50px;">Benvenuto su Games Hub!</p>
-                <p id="chooseGameText" class="textAnimaton" style="font-size: 20px; font-weight: 500;">Scegli un gioco cliccando uno dei seguenti quattro bottoni:</p>
+                <h1 id="mainTitle" class="glow" style="font-size: 90px; font-weight: 750; margin-top: -30px;"></h1>
+                <p id="welcomeText" class="textAnimaton" style="font-size: 20px; font-weight: 500; margin-top: -50px;"></p>
+                <p id="chooseGameText" class="textAnimaton" style="font-size: 20px; font-weight: 500;"></p>
 
             </div>
 
@@ -41,19 +46,19 @@
 
                 <button id="game1" class="defaultButton"
                         style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;"
-                        onclick="loadGame1()">Guess the Number (hard)</button>
+                        onclick="loadGame1()"></button>
 
                 <button id="game2" class="defaultButton"
                         style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;"
-                        onclick="loadGame2()">Guess the Number (easy)</button>
+                        onclick="loadGame2()"></button>
 
                 <button id="game3" class="defaultButton"
                         style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;"
-                        onclick="loadGame3()">Memory<br>Country Flags</button>
+                        onclick="loadGame3()"></button>
 
                 <button id="game4" class="defaultButton"
                         style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;"
-                        onclick="loadGame4()">Reazione a Catena</button>
+                        onclick="loadGame4()"></button>
 
             </div>
 
