@@ -87,6 +87,13 @@ const strings_it = {
     game3ButtonText : "Memory: <br> bandiere",
     game4ButtonText : "Reazione a Catena",
     insertMinMaxValues : "Inserisci il valore minimo e quello massimo",
+    insertMin : "Inserisci il minimo",
+    insertMax : "Inserisci il massimo",
+    setValues : "Imposta valori",
+    insertNumber : "Inserisci un numero",
+    generate : "Genera",
+    try : "Tenta",
+    edit : "Modifica",
     backToHome : "Torna alla Home"
 };
 
@@ -100,6 +107,13 @@ const strings_en = {
     game3ButtonText : "Memory: <br> country flags",
     game4ButtonText : "Italian simple quiz",
     insertMinMaxValues : "Insert minimum and maximum values",
+    insertMin : "Insert minimum",
+    insertMax : "Insert maximum",
+    setValues : "Set values",
+    insertNumber : "Insert a number",
+    generate : "Generate",
+    try : "Try",
+    edit : "Edit",
     backToHome : "Back to Home"
 };
 
@@ -126,8 +140,20 @@ function setLanguage(id)
     document.getElementById("chooseGameText").innerHTML = translate.homeTeachingText;
     document.getElementById("game1").innerHTML = translate.game1ButtonText;
     document.getElementById("game1Title").innerHTML = translate.game1ButtonText;
+    document.getElementById("minValue").placeholder = translate.insertMin;
+    document.getElementById("maxValue").placeholder = translate.insertMax;
+    document.getElementById("editValuesButton").innerHTML = translate.edit;
+    document.getElementById("editValuesButton2").innerHTML = translate.edit;
+    document.getElementById("inputButton").innerHTML = translate.setValues;
+    document.getElementById("inputButton2").innerHTML = translate.generate;
+    document.getElementById("inputBox").placeholder = translate.insertNumber;
     document.getElementById("valuesTitle").innerHTML = translate.insertMinMaxValues;
     document.getElementById("valuesTitle2").innerHTML = translate.insertMinMaxValues;
+    document.getElementById("minValue2").placeholder = translate.insertMin;
+    document.getElementById("maxValue2").placeholder = translate.insertMax;
+    document.getElementById("inputButton3").innerHTML = translate.setValues;
+    document.getElementById("inputButton4").innerHTML = translate.try;
+    document.getElementById("inputBox2").placeholder = translate.insertNumber;
     document.getElementById("game2").innerHTML = translate.game2ButtonText;
     document.getElementById("game2Title").innerHTML = translate.game2ButtonText;
     document.getElementById("game3").innerHTML = translate.game3ButtonText;

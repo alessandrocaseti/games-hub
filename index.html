@@ -75,9 +75,9 @@
                 <h1 id="valuesTitle" class="textAnimaton" style="font-size: 30px; font-weight: 700;"></h1>
 
                 <form id="formSetMinMax" onsubmit="setMinMaxValues(event)" style="display: block; text-align: center; margin-top: 20px;">
-                    <input id="minValue" type="number" class="defaultInputBox" placeholder="Inserisci il minimo" min="0">
-                    <input id="maxValue" type="number" class="defaultInputBox" placeholder="Inserisci il massimo" autocomplete="off">
-                    <button id="inputButton" type="submit" class="defaultButton" style="height: 36px; margin: 10px;">Set Values</button>
+                    <input id="minValue" type="number" class="defaultInputBox" min="0">
+                    <input id="maxValue" type="number" class="defaultInputBox" autocomplete="off">
+                    <button id="inputButton" type="submit" class="defaultButton" style="height: 36px; margin: 10px;"></button>
                 </form>
 
             </div>
@@ -88,12 +88,12 @@
                 <h1 id="gameTitle" class="textAnimaton" style="font-size: 30px; font-weight: 700;"></h1>
 
                 <form id="formStartGame" onsubmit="startGame1(event)" style="display:inline-block; margin-top: -20px;">
-                    <input id="inputBox" type="number" class="defaultInputBox" placeholder="Inserisci un numero" autocomplete="off">
-                    <button id="inputButton2" type="submit" class="defaultButton" style="width: 100px; margin: 5px; height: 36px">Genera</button>
+                    <input id="inputBox" type="number" class="defaultInputBox" autocomplete="off">
+                    <button id="inputButton2" type="submit" class="defaultButton" style="width: 100px; margin: 5px; height: 36px"></button>
                 </form>
 
-                <button id="editValuesButton" class="textAnimaton" class="defaultButton" onclick="editValuesGame1()"
-                        style="display: inline-block; width: 100px; height: 36px; margin: 5px;">Modifica</button>
+                <button id="editValuesButton" class="defaultButton" onclick="editValuesGame1()"
+                        style="display: inline-block; width: 100px; height: 36px; margin: 5px;"></button>
 
             </div>
 
@@ -113,9 +113,9 @@
                 <h1 id="valuesTitle2" class="textAnimaton" style="font-size: 30px; font-weight: 700;"></h1>
 
                 <form id="formSetMinMax2" onsubmit="setMinMaxValues(event)" style="display: block; text-align: center; margin-top: 20px;">
-                    <input id="minValue2" type="number" class="defaultInputBox" placeholder="Inserisci il minimo" min="0">
-                    <input id="maxValue2" type="number" class="defaultInputBox" placeholder="Inserisci il massimo">
-                    <button id="inputButton3" type="submit" class="defaultButton" style="height: 36px;">Set Values</button>
+                    <input id="minValue2" type="number" class="defaultInputBox" min="0">
+                    <input id="maxValue2" type="number" class="defaultInputBox">
+                    <button id="inputButton3" type="submit" class="defaultButton" style="height: 36px;"></button>
                 </form>
             </div>
 
@@ -125,12 +125,12 @@
                 <h1 id="gameTitle2" class="textAnimaton" style="font-size: 30px; font-weight: 700;"></h1>
 
                 <form id="formStartGame2" onsubmit="startGame2(event)" style="display:inline-block; margin-top: -20px;">
-                    <input id="inputBox2" type="number" class="defaultInputBox" placeholder="Inserisci un numero">
-                    <button id="inputButton4" type="submit" class="defaultButton" style="height: 36px; margin: 5px;">Tenta</button>
+                    <input id="inputBox2" type="number" class="defaultInputBox">
+                    <button id="inputButton4" type="submit" class="defaultButton" style="height: 36px; margin: 5px;"></button>
                 </form>
 
                 <button id="editValuesButton2" class="defaultButton" onclick="editValuesGame2()"
-                        style="display: inline-block; width: 100px; height: 36px; margin: 5px;">Modifica</button>
+                        style="display: inline-block; width: 100px; height: 36px; margin: 5px;"></button>
 
             </div>
 
@@ -186,10 +186,10 @@
 
         <div id="aboutDiv" style="text-align: center; display: none;">
             <img id="aboutLogo" src="assets/logo.png" class="defaultImage" style="width: 40vh; height: 40vh; margin-top: 20px;">
-            <h1 style="font-size: 72px; margin-top: -4vh;" class="glow">Games Hub</h1>
-            <h2 style="font-size: 32px; margin-top: -4vh;">Versione 1.0.0 (7 giugno 2025)</h2>
-            <p style="font-size: 24px; font-weight: 600;">Sviluppato da Alessandro Caseti</p>
-            <a href="https://github.com/alessandrocaseti/games-hub" style="color: #FFFFFF; margin-top: 50px;">Repository GitHub</a>
+            <h1 id="aboutTitle" style="font-size: 72px; margin-top: -4vh;" class="glow">Games Hub</h1>
+            <h2 id="aboutVersion" style="font-size: 32px; margin-top: -4vh;">Versione 1.0.0 (7 giugno 2025)</h2>
+            <p id="aboutDev" style="font-size: 24px; font-weight: 600;">Sviluppato da Alessandro Caseti</p>
+            <a id="aboutRepo" href="https://github.com/alessandrocaseti/games-hub" style="color: #FFFFFF; margin-top: 50px;">Repository GitHub</a>
         </div>
 
     </body>
