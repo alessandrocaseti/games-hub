@@ -1,6 +1,6 @@
 // definiamo ste variabili
 
-const appVersion = "1.0.0";
+const appVersion = "1.1.0";
 
 var currentPage = 0; // 0 = home, 1 = game1, 2 = game2, 3 = game3, 4 = game4
 var counterGame1 = 0; // contatore per il gioco 1 e 2

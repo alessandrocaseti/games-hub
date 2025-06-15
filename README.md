@@ -11,4 +11,4 @@ Games Hub is a gaming platform that allows you to play 4 different games, includ
 - Memory: country flags
 - Quiz
 
-Current version: 1.0.0
+Current version: 1.1.0
