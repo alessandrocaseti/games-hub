@@ -1021,6 +1021,7 @@ function loadGame4()
             if(game4QuestionIndex < game4Questions - 1)
             {
                 document.getElementById("game4MessageInfo").innerHTML = getLocalizedString("timesUp");
+                document.getElementById("nextQuestionButton").focus();
             }
             game4LostTracker++;
             console.log(game4QuestionIndex)
@@ -1051,6 +1052,7 @@ function checkAnswer(event, timeout)
             clearInterval(progressBarValue);
             clearInterval(countDownQuestionGame4);
             document.getElementById("nextQuestionButton").disabled = false;
+            document.getElementById("nextQuestionButton").focus();
             setWinBackground();
             document.getElementById("game4Title").innerHTML = parolaFull.join('').toUpperCase();
             document.getElementById("game4Title2").innerHTML = parolaFull2.join('').toUpperCase();
