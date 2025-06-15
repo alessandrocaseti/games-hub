@@ -104,6 +104,12 @@ const strings_it = {
     attempts : " tentativi",
     wrong : "Sbagliato!",
     exact : "Esatto!",
+    numberLessThan : "Il numero generato è minore di ",
+    numberGreaterThan : "Il numero generato è maggiore di ",
+    stats : "Statistiche - ",
+    wins : "vittorie: ",
+    generatedNumbers : "numeri generati: ",
+    winPercentage : "percentuale di vincita: ",
     backToHome : "Torna alla Home"
 };
 
@@ -132,6 +138,12 @@ const strings_en = {
     attempts : " attempts",
     wrong : "Wrong!",
     exact : "Exact!",
+    numberLessThan : "The generated number is less than ",
+    numberGreaterThan : "The generated number is greater than ",
+    stats : "Stats - ",
+    wins : "wins: ",
+    generatedNumbers : "generated numbers: ",
+    winPercentage : "win percentage: ",
     backToHome : "Back to Home"
 };
 
@@ -142,12 +154,17 @@ function setLanguage(id)
     {
         case "it":
             translate = strings_it;
+            document.getElementById("italianButton").style.borderColor = "yellow";
+            document.getElementById("englishButton").style.borderColor = "gray";
             break;
         case "en":
             translate = strings_en;
+            document.getElementById("englishButton").style.borderColor = "yellow";
+            document.getElementById("italianButton").style.borderColor = "gray";
             break;
         default:
             translate = strings_en;
+            document.getElementById("englishButton").style.borderColor = "yellow";
             break;
     }
 
@@ -590,7 +607,9 @@ function startGame1(event)
     totalAttemptsGame1++; // Aumentiamo il contatore dei tentativi totali
     winPercentageGame1 = (winsGame1 / totalAttemptsGame1) * 100; // Calcola la percentuale di vittoria
     // STATS
-    document.getElementById('statsGame1').innerHTML = 'Statistiche: vittorie ' + winsGame1.toString() + ' | numeri generati ' + totalAttemptsGame1.toString() + ' | percentuale di vincita ' + winPercentageGame1.toFixed(2) + '%';
+    document.getElementById('statsGame1').innerHTML = getLocalizedString("stats") + getLocalizedString("wins") + winsGame1.toString()
+                                                    + ' | ' + getLocalizedString("generatedNumbers") + totalAttemptsGame1.toString()
+                                                    + ' | ' + getLocalizedString("winPercentage") + winPercentageGame1.toFixed(2) + '%';
 }
 
 function startGame2(event)
@@ -641,19 +660,20 @@ function startGame2(event)
         setDefeatBackground();
         if(input > randomNum2)
         {
-            document.getElementById('hintGame2').innerHTML = 'Il numero generato è minore di ' + input.toString() + '!';
+            document.getElementById('hintGame2').innerHTML = getLocalizedString("numberLessThan") + input.toString() + '!';
         }
         else
         {
-            document.getElementById('hintGame2').innerHTML = 'Il numero generato è maggiore di ' + input.toString() + '!';
+            document.getElementById('hintGame2').innerHTML = getLocalizedString("numberGreaterThan") + input.toString() + '!';
         }
         document.getElementById('generatedNumber2').innerHTML = getLocalizedString("wrong");
     }
 
     totalAttemptsGame1++;
     winPercentageGame1 = (winsGame2 / totalAttemptsGame1) * 100;
-    document.getElementById('statsGame2').innerHTML = 'Statistiche: vittorie ' + winsGame2.toString() + ' | totale tentativi ' + totalAttemptsGame1.toString() + ' | percentuale di vincita ' + winPercentageGame1.toFixed(2) + '%';
-
+    document.getElementById('statsGame2').innerHTML = getLocalizedString("stats") + getLocalizedString("wins") + winsGame2.toString()
+                                                    + ' | ' + getLocalizedString("generatedNumbers") + totalAttemptsGame1.toString()
+                                                    + ' | ' + getLocalizedString("winPercentage") + winPercentageGame1.toFixed(2) + '%';
 }
 
 function loadGenericGame()
