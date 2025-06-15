@@ -77,6 +77,8 @@ var hasGame4BeenStarted = false;
 var game4Index = 0;
 var questionID = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40);
 
+let translate; //language
+
 const strings_it = {
 
     name : "Hub di Giochi",
@@ -91,9 +93,14 @@ const strings_it = {
     insertMax : "Inserisci il massimo",
     setValues : "Imposta valori",
     insertNumber : "Inserisci un numero",
+    insertNumberFrom : "Inserisci un numero da ",
+    insertNumberTo : " a ",
     generate : "Genera",
     try : "Tenta",
     edit : "Modifica",
+    winFirstTry : "Hai vinto al primo tentativo!",
+    attempt : "Tentativo ",
+    wrong : "Sbagliato!",
     backToHome : "Torna alla Home"
 };
 
@@ -111,15 +118,19 @@ const strings_en = {
     insertMax : "Insert maximum",
     setValues : "Set values",
     insertNumber : "Insert a number",
+    insertNumberFrom : "Insert a number from ",
+    insertNumberTo : " to ",
     generate : "Generate",
     try : "Try",
     edit : "Edit",
+    winFirstTry : "You won at first try!",
+    attempt : "Attempt ",
+    wrong : "Wrong!",
     backToHome : "Back to Home"
 };
 
 function setLanguage(id)
 {
-    let translate;
 
     switch(id)
     {
@@ -130,7 +141,7 @@ function setLanguage(id)
             translate = strings_en;
             break;
         default:
-            translate = strings_it;
+            translate = strings_en;
             break;
     }
 
@@ -161,6 +172,10 @@ function setLanguage(id)
     homeButton.innerHTML = translate.backToHome;
 }
 
+function getLocalizedString(string_id)
+{
+    return translate[string_id];
+}
 
 // HTML elements
 var body;
@@ -493,7 +508,7 @@ function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
         document.getElementById('inputBox2').min = min;
         document.getElementById('inputBox2').max = max;
         document.getElementById('inputBox2').value = null;
-        document.getElementById('gameTitle2').innerHTML = 'Inserisci un numero da ' + min.toString() + ' a ' + max.toString();
+        document.getElementById('gameTitle2').innerHTML = getLocalizedString("insertNumberFrom") + min.toString() + getLocalizedString("insertNumberTo") + max.toString();
     }
 
     document.getElementById('game1MinMaxValues').style.display = 'none';
@@ -541,7 +556,7 @@ function startGame1(event)
     var counter = counterGame1;
     setDefaultBackground();
     document.getElementById('generatedNumber1').innerHTML = randomNum.toString();
-    document.getElementById('test').innerHTML = 'Tentativo ' + counter.toString();
+    document.getElementById('test').innerHTML = getLocalizedString("attempt") + counter.toString();
 
     // VITTORIA
     if (input == randomNum)
@@ -555,7 +570,7 @@ function startGame1(event)
         }
         else
         {
-            document.getElementById('test').innerHTML = 'Hai vinto al primo tentativo!';
+            document.getElementById('test').innerHTML = getLocalizedString("winFirstTry");
         }
 
         counterGame1 = 0; // Resettiamo il contatore
@@ -608,13 +623,13 @@ function startGame2(event)
         }
         else
         {
-            document.getElementById('test2').innerHTML = 'Hai vinto al primo tentativo!';
+            document.getElementById('test2').innerHTML = getLocalizedString("winFirstTry");
         }
         document.getElementById('inputBox2').value = null; // Reset the input box
-        counterGame1 = 0; // Resettiamo il contatore
-        winsGame2++; // Aumentiamo il contatore delle vittorie
-        document.getElementById('restartButton').style.display = 'block'; // mostriamo il restart button
-        hasGame2BeenStarted = false; // Reset game 2
+        counterGame1 = 0;
+        winsGame2++;
+        document.getElementById('restartButton').style.display = 'block';
+        hasGame2BeenStarted = false;
     }
     else // SCONFITTA
     {
@@ -627,7 +642,7 @@ function startGame2(event)
         {
             document.getElementById('hintGame2').innerHTML = 'Il numero generato è maggiore di ' + input.toString() + '!';
         }
-        document.getElementById('generatedNumber2').innerHTML = 'Errato!';
+        document.getElementById('generatedNumber2').innerHTML = getLocalizedString("wrong");
     }
 
     totalAttemptsGame1++;
@@ -998,7 +1013,7 @@ function checkAnswer(event, timeout)
         }
         else
         {
-            document.getElementById("game4MessageInfo").innerHTML = "SBAGLIATO!";
+            document.getElementById("game4MessageInfo").innerHTML = getLocalizedString("wrong");
         }
 
     }
