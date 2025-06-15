@@ -99,8 +99,11 @@ const strings_it = {
     try : "Tenta",
     edit : "Modifica",
     winFirstTry : "Hai vinto al primo tentativo!",
+    winIn : "Hai vinto in ",
     attempt : "Tentativo ",
+    attempts : " tentativi",
     wrong : "Sbagliato!",
+    exact : "Esatto!",
     backToHome : "Torna alla Home"
 };
 
@@ -124,8 +127,11 @@ const strings_en = {
     try : "Try",
     edit : "Edit",
     winFirstTry : "You won at first try!",
+    winIn : "You won in ",
     attempt : "Attempt ",
+    attempts : " attempts",
     wrong : "Wrong!",
+    exact : "Exact!",
     backToHome : "Back to Home"
 };
 
@@ -491,7 +497,7 @@ function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
         document.getElementById('inputBox').min = min;
         document.getElementById('inputBox').max = max;
         document.getElementById('inputBox').value = null;
-        document.getElementById('gameTitle').innerHTML = 'Inserisci un numero da ' + min.toString() + ' a ' + max.toString();
+        document.getElementById('gameTitle').innerHTML = getLocalizedString("insertNumberFrom") + min.toString() + getLocalizedString("insertNumberTo") + max.toString();
     }
     else if (currentPage == 2) // game 2
     {
@@ -562,11 +568,11 @@ function startGame1(event)
     if (input == randomNum)
     {
         setWinBackground();
-        document.getElementById('generatedNumber1').innerHTML = 'Esatto!';
+        document.getElementById('generatedNumber1').innerHTML = getLocalizedString("exact");
 
         if (counterGame1 > 1) // plurale o singolare
         {
-            document.getElementById('test').innerHTML = 'Hai vinto in ' + counter.toString() + ' tentativi!';
+            document.getElementById('test').innerHTML = getLocalizedString("winIn") + counter.toString() + getLocalizedString("attempts") + "!";
         }
         else
         {
@@ -615,11 +621,11 @@ function startGame2(event)
         setWinBackground();
 
         document.getElementById('hintGame2').innerHTML = ''; // reset perchè rimane
-        document.getElementById('generatedNumber2').innerHTML = 'Esatto!';
+        document.getElementById('generatedNumber2').innerHTML = getLocalizedString("exact");
 
         if (counterGame1 > 1) // plurale o singolare
         {
-            document.getElementById('test2').innerHTML = 'Hai vinto in ' + counterGame1.toString() + ' tentativi!';
+            document.getElementById('test2').innerHTML = getLocalizedString("winIn") + counterGame1.toString() + getLocalizedString("attempts") + "!";
         }
         else
         {
@@ -628,7 +634,6 @@ function startGame2(event)
         document.getElementById('inputBox2').value = null; // Reset the input box
         counterGame1 = 0;
         winsGame2++;
-        document.getElementById('restartButton').style.display = 'block';
         hasGame2BeenStarted = false;
     }
     else // SCONFITTA
@@ -999,7 +1004,7 @@ function checkAnswer(event, timeout)
             document.getElementById("game4Title2").innerHTML = parolaFull2.join('').toUpperCase();
 
             game4WinTracker = game4QuestionIndex + 1 - game4LostTracker;
-            document.getElementById("game4MessageInfo").innerHTML = "ESATTO! Punteggio: " + game4WinTracker.toString() + " / " + game4Questions.toString();
+            document.getElementById("game4MessageInfo").innerHTML = getLocalizedString("exact") + " Punteggio: " + game4WinTracker.toString() + " / " + game4Questions.toString();
 
             if(game4QuestionIndex == game4Questions - 1)
             {
