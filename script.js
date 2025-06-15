@@ -86,7 +86,7 @@ const strings_it = {
     homeTeachingText : "Scegli un gioco cliccando su uno dei seguenti bottoni:",
     game1ButtonText : "Indovina il numero (hard)",
     game2ButtonText : "Indovina il numero (easy)",
-    game3ButtonText : "Memory: <br> bandiere",
+    game3ButtonText : "Memory <br> bandiere",
     game4ButtonText : "Reazione a Catena",
     insertMinMaxValues : "Inserisci il valore minimo e quello massimo",
     insertMin : "Inserisci il minimo",
@@ -110,6 +110,14 @@ const strings_it = {
     wins : "vittorie: ",
     generatedNumbers : "numeri generati: ",
     winPercentage : "percentuale di vincita: ",
+    start : "VIA!",
+    youLost : "HAI PERSO!",
+    youWon : "HAI VINTO!",
+    insertAnswer : "Inserisci la risposta",
+    nextQuestion : "Prossima domanda",
+    score : "Punteggio: ",
+    quizCompleted : "HAI COMPLETATO IL QUIZ!",
+    timesUp : "Tempo scaduto!",
     backToHome : "Torna alla Home"
 };
 
@@ -120,7 +128,7 @@ const strings_en = {
     homeTeachingText : "Choose a game by clicking one of the buttons below:",
     game1ButtonText : "Guess the number (hard)",
     game2ButtonText : "Guess the number (easy)",
-    game3ButtonText : "Memory: <br> country flags",
+    game3ButtonText : "Memory <br> country flags",
     game4ButtonText : "Italian simple quiz",
     insertMinMaxValues : "Insert minimum and maximum values",
     insertMin : "Insert minimum",
@@ -144,6 +152,14 @@ const strings_en = {
     wins : "wins: ",
     generatedNumbers : "generated numbers: ",
     winPercentage : "win percentage: ",
+    start : "START!",
+    youLost : "YOU LOST!",
+    youWon : "YOU WON!",
+    insertAnswer : "Insert answer",
+    nextQuestion : "Next question",
+    score : "Score: ",
+    quizCompleted : "YOU COMPLETED THE QUIZ!",
+    timesUp : "Time's up!",
     backToHome : "Back to Home"
 };
 
@@ -192,6 +208,8 @@ function setLanguage(id)
     document.getElementById("game2Title").innerHTML = translate.game2ButtonText;
     document.getElementById("game3").innerHTML = translate.game3ButtonText;
     document.getElementById("game4").innerHTML = translate.game4ButtonText;
+    document.getElementById("nextQuestionButton").innerHTML = translate.nextQuestion;
+    document.getElementById("inputGame4").placeholder = translate.insertAnswer;
     homeButton.innerHTML = translate.backToHome;
 }
 
@@ -828,7 +846,7 @@ function loadGame3()
                             if (document.querySelectorAll('.memoryButton.matched').length === 22)
                             {
                                 setWinBackground();
-                                document.getElementById("game3Title").innerHTML = "HAI VINTO!";
+                                document.getElementById("game3Title").innerHTML = getLocalizedString("youWon");
                                 clearInterval(countDownPlayGame3);                            
                             }
                         } 
@@ -864,7 +882,7 @@ function loadGame3()
         if (startCountdown <= 0) 
         {
             clearInterval(countDownStartGame3);
-            document.getElementById("game3Title").innerHTML = "VIA!";
+            document.getElementById("game3Title").innerHTML = getLocalizedString("start");
             for (let j = 0; j < 24; j++)
             {
                 var button = document.getElementById('Button' + j.toString());
@@ -882,7 +900,7 @@ function loadGame3()
                 if (gameCountdown <= 0) 
                 {
                     setDefeatBackground();
-                    document.getElementById("game3Title").innerHTML = "HAI PERSO!";
+                    document.getElementById("game3Title").innerHTML = getLocalizedString("youLost");
                     for (let j = 0; j < 24; j++)
                     {
                         var button = document.getElementById('Button' + j.toString());
@@ -989,14 +1007,15 @@ function loadGame4()
         {
             if(game4QuestionIndex < game4Questions - 1)
             {
-                document.getElementById("game4MessageInfo").innerHTML = "Tempo scaduto!";
+                document.getElementById("game4MessageInfo").innerHTML = getLocalizedString("timesUp");
             }
             game4LostTracker++;
             console.log(game4QuestionIndex)
             if(game4QuestionIndex == game4Questions - 1)
             {
                 console.log("QUIZ COMPLETATO - tramite tempo scaduto");
-                document.getElementById("game4MessageInfo").innerHTML = "HAI COMPLETATO IL QUIZ! " + "Punteggio: " + game4WinTracker.toString() + " / " + + game4Questions.toString();
+                document.getElementById("game4MessageInfo").innerHTML = getLocalizedString("quizCompleted") + ' ' + getLocalizedString("score") 
+                                                                      + game4WinTracker.toString() + " / " + + game4Questions.toString();
                 document.getElementById("inputGame4").disabled = true;
                 document.getElementById("nextQuestionButton").disabled = true;
             }
@@ -1024,12 +1043,14 @@ function checkAnswer(event, timeout)
             document.getElementById("game4Title2").innerHTML = parolaFull2.join('').toUpperCase();
 
             game4WinTracker = game4QuestionIndex + 1 - game4LostTracker;
-            document.getElementById("game4MessageInfo").innerHTML = getLocalizedString("exact") + " Punteggio: " + game4WinTracker.toString() + " / " + game4Questions.toString();
+            document.getElementById("game4MessageInfo").innerHTML = getLocalizedString("exact") + ' ' + getLocalizedString("score") 
+                                                                  + game4WinTracker.toString() + " / " + game4Questions.toString();
 
             if(game4QuestionIndex == game4Questions - 1)
             {
                 console.log("QUIZ COMPLETATO - tramite risposta corretta");
-                document.getElementById("game4MessageInfo").innerHTML = "HAI COMPLETATO IL QUIZ! " + "Punteggio: " + game4WinTracker.toString() + " / " + + game4Questions.toString();
+                document.getElementById("game4MessageInfo").innerHTML = getLocalizedString("quizCompleted") + ' ' + getLocalizedString("score") 
+                                                                      + game4WinTracker.toString() + " / " + + game4Questions.toString();
                 document.getElementById("inputGame4").disabled = true;
                 document.getElementById("nextQuestionButton").disabled = true;
             }
