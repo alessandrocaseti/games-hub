@@ -931,15 +931,15 @@ function loadGame3()
 function loadGame4()
 {
     loadGenericGame();
+    var game4countdown = 20;
     document.getElementById("inputGame4").value = "";
     document.getElementById('gameFrame4').style.display = 'block';
     document.getElementById('gameProgress4').style.display = 'block';
     document.getElementById("nextQuestionButton").disabled = true;
-    document.getElementById("game4MessageInfo").innerHTML = "20";
+    document.getElementById("game4MessageInfo").innerHTML = game4countdown.toString();
     currentPage = 4;
     clearInterval(countDownQuestionGame4);
     clearInterval(progressBarValue);
-    var game4countdown = 20;
     setProgressBarValue(game4countdown, 4);
     document.getElementById("inputGame4").disabled = false;
     document.getElementById("inputGame4").focus();
@@ -1021,8 +1021,8 @@ function loadGame4()
             if(game4QuestionIndex < game4Questions - 1)
             {
                 document.getElementById("game4MessageInfo").innerHTML = getLocalizedString("timesUp");
-                document.getElementById("nextQuestionButton").focus();
             }
+            document.getElementById("nextQuestionButton").focus();
             game4LostTracker++;
             console.log(game4QuestionIndex)
             if(game4QuestionIndex == game4Questions - 1)
