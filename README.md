@@ -1,5 +1,5 @@
 # Games Hub
-![image](https://github.com/user-attachments/assets/e134a462-80a8-4ff2-8889-80a69ad6169e)
+![screenshot](https://raw.githubusercontent.com/alessandrocaseti/games-hub/refs/heads/main/screenshot.png)
 A simple project to learn HTML, Javascript and CSS.
 
 [GitHub pages website](https://alessandrocaseti.github.io/games-hub/)
