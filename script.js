@@ -1,5 +1,7 @@
 // definiamo ste variabili
 
+const appVersion = "1.0.0";
+
 var currentPage = 0; // 0 = home, 1 = game1, 2 = game2, 3 = game3, 4 = game4
 var counterGame1 = 0; // contatore per il gioco 1 e 2
 var game1Min = 0; // valore minimo del gioco 1 e 2
@@ -118,7 +120,10 @@ const strings_it = {
     score : "Punteggio: ",
     quizCompleted : "HAI COMPLETATO IL QUIZ!",
     timesUp : "Tempo scaduto!",
-    backToHome : "Torna alla Home"
+    backToHome : "Torna alla Home",
+    aboutDev : "Sviluppato da Alessandro Caseti",
+    aboutRepo : "Repository GitHub",
+    version : "Versione " + appVersion.toString() + " (15 giugno 2025)"
 };
 
 const strings_en = {
@@ -160,7 +165,10 @@ const strings_en = {
     score : "Score: ",
     quizCompleted : "YOU COMPLETED THE QUIZ!",
     timesUp : "Time's up!",
-    backToHome : "Back to Home"
+    backToHome : "Back to Home",
+    aboutDev : "Developed by Alessandro Caseti",
+    aboutRepo : "GitHub repository ",
+    version : "Version " + appVersion.toString() + " (15th June 2025)"
 };
 
 function setLanguage(id)
@@ -210,6 +218,11 @@ function setLanguage(id)
     document.getElementById("game4").innerHTML = translate.game4ButtonText;
     document.getElementById("nextQuestionButton").innerHTML = translate.nextQuestion;
     document.getElementById("inputGame4").placeholder = translate.insertAnswer;
+    document.getElementById("aboutTitle").innerHTML = translate.name;
+    document.getElementById("aboutVersion").innerHTML = translate.version;
+    document.getElementById("aboutDev").innerHTML = translate.aboutDev;
+    document.getElementById("aboutRepo").innerHTML = translate.aboutRepo;
+
     homeButton.innerHTML = translate.backToHome;
 }
 
