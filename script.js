@@ -123,6 +123,7 @@ const strings_it = {
     backToHome : "Torna alla Home",
     aboutDev : "Sviluppato da Alessandro Caseti",
     aboutRepo : "Repository GitHub",
+    aboutTitle : "Informazioni su Games Hub",
     version : "Versione " + appVersion.toString() + " (15 giugno 2025)"
 };
 
@@ -168,12 +169,12 @@ const strings_en = {
     backToHome : "Back to Home",
     aboutDev : "Developed by Alessandro Caseti",
     aboutRepo : "GitHub repository",
+    aboutTitle : "About Games Hub",
     version : "Version " + appVersion.toString() + " (15th June 2025)"
 };
 
 function setLanguage(id)
 {
-
     switch(id)
     {
         case "it":
@@ -192,7 +193,7 @@ function setLanguage(id)
             break;
     }
 
-    document.getElementById("pageTitle").innerHTML = translate.name;
+    title.innerHTML = translate.name;
     document.getElementById("mainTitle").innerHTML = translate.name;
     document.getElementById("welcomeText").innerHTML = translate.homeWelcomeText;
     document.getElementById("chooseGameText").innerHTML = translate.homeTeachingText;
@@ -237,6 +238,7 @@ var aboutButton;
 var homeButton;
 var home;
 var langButtons;
+var title;
 
 window.addEventListener('DOMContentLoaded', function()
 {
@@ -245,8 +247,8 @@ window.addEventListener('DOMContentLoaded', function()
     homeButton = document.getElementById('homeButton');
     home = document.getElementById('home');
     langButtons = document.getElementById('languageButtons');
+    title = document.getElementById("pageTitle");
     setLanguage();
-    
 });
 
 function setBodyBgClass(className)
@@ -310,7 +312,7 @@ function backToHome()
     home.style.display = 'block';
     homeButton.style.display = 'none';
     langButtons.style.display = 'block';
-
+    title.innerHTML = getLocalizedString("name");
     // TODO: PER OGNI GIOCO
 
     document.getElementById('gameFrame1').style.display = 'none';
@@ -720,6 +722,7 @@ function loadGenericGame()
 function loadGame1()
 {
     loadGenericGame();
+    title.innerHTML = getLocalizedString("game1ButtonText") + ' - ' + getLocalizedString("name");
     document.getElementById('gameFrame1').style.display = 'block';
     document.getElementById('gameSetup').style.display = 'none';
     document.getElementById('game1MinMaxValues').style.display = 'block';
@@ -729,6 +732,7 @@ function loadGame1()
 function loadGame2()
 {
     loadGenericGame();
+    title.innerHTML = getLocalizedString("game2ButtonText") + ' - ' + getLocalizedString("name");
     document.getElementById('gameFrame2').style.display = 'block';
     document.getElementById('gameSetup2').style.display = 'none';
     document.getElementById('game2MinMaxValues').style.display = 'block';
@@ -762,6 +766,7 @@ function setProgressBarValue(value, progressBarIndex)
 function loadGame3()
 {
     loadGenericGame();
+    title.innerHTML = getLocalizedString("game3ButtonText") + ' - ' + getLocalizedString("name");
     document.getElementById('gameFrame3').style.display = 'block';
     document.getElementById('gameProgress3').style.display = 'block';
     document.getElementById("game3Title").innerHTML = "15";
@@ -931,6 +936,7 @@ function loadGame3()
 function loadGame4()
 {
     loadGenericGame();
+    title.innerHTML = getLocalizedString("game4ButtonText") + ' - ' + getLocalizedString("name");
     var game4countdown = 20;
     document.getElementById("inputGame4").value = "";
     document.getElementById('gameFrame4').style.display = 'block';
@@ -1101,5 +1107,6 @@ function checkAnswer(event, timeout)
 function about()
 {
     loadGenericGame();
+    title.innerHTML = getLocalizedString("aboutTitle");
     aboutDiv.style.display = 'block';
 }
