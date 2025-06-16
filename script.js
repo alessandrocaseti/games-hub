@@ -800,6 +800,7 @@ function loadGame3()
             var image = game3Image[flagPairsFullArray[i]];
             var url = "url('" + image + "')"; 
             button.style.backgroundImage = url.toString();
+            button.disabled = false;
         }
     }
     else
@@ -924,7 +925,7 @@ function loadGame3()
                         var button = document.getElementById('Button' + j.toString());
                         var url = "url('" + game3Image[flagPairsFullArray[j]] + "')";
                         button.style.backgroundImage = url.toString();
-                        button.style.backgroundSize = "cover"; // Copri l'intera area del bottone con l'immagine
+                        button.disabled = true;
                     }
                     clearInterval(countDownPlayGame3);
                 }
