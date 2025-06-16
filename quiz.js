@@ -1,3 +1,14 @@
+////        GAMES HUB       ////
+
+const game4Questions = 41; // number of questions
+
+var questionID = [];
+
+for (var i = 0; i < game4Questions; i++) 
+{
+    questionID.push(i);
+}
+
 function getQuestion(index)
 {
     switch(index)

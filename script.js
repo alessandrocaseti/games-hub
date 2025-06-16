@@ -1,4 +1,4 @@
-// definiamo ste variabili
+////        GAMES HUB       ////
 
 const appVersion = "1.1.0";
 
@@ -26,8 +26,6 @@ var hasMemoryPairBeenRevealed = false;
 var game4WinTracker = 0;
 var game4LostTracker = 0;
 var game4QuestionIndex = -1;
-
-const game4Questions = 41;
 
 var progressBarValue = 0; // valore della progressbar per il gioco 3 e 4
 
@@ -77,7 +75,6 @@ var memoryGameArray = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
 var hasGame3BeenStarted = false;
 var hasGame4BeenStarted = false;
 var game4Index = 0;
-var questionID = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40);
 
 let translate; //language
 
