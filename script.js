@@ -83,12 +83,12 @@ let translate; //language
 
 const strings_it = {
 
-    name : "Hub di Giochi",
+    name : "Games Hub",
     homeWelcomeText : "Benvenuto su Games Hub!",
     homeTeachingText : "Scegli un gioco cliccando su uno dei seguenti bottoni:",
     game1ButtonText : "Indovina il numero (hard)",
     game2ButtonText : "Indovina il numero (easy)",
-    game3ButtonText : "Memory <br> bandiere",
+    game3ButtonText : "Memory - bandiere",
     game4ButtonText : "Reazione a Catena",
     insertMinMaxValues : "Inserisci il valore minimo e quello massimo",
     insertMin : "Inserisci il minimo",
@@ -133,7 +133,7 @@ const strings_en = {
     homeTeachingText : "Choose a game by clicking one of the buttons below:",
     game1ButtonText : "Guess the number (hard)",
     game2ButtonText : "Guess the number (easy)",
-    game3ButtonText : "Memory <br> country flags",
+    game3ButtonText : "Memory - country flags",
     game4ButtonText : "Italian simple quiz",
     insertMinMaxValues : "Insert minimum and maximum values",
     insertMin : "Insert minimum",
@@ -167,7 +167,7 @@ const strings_en = {
     timesUp : "Time's up!",
     backToHome : "Back to Home",
     aboutDev : "Developed by Alessandro Caseti",
-    aboutRepo : "GitHub repository ",
+    aboutRepo : "GitHub repository",
     version : "Version " + appVersion.toString() + " (15th June 2025)"
 };
 
