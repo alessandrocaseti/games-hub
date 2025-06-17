@@ -362,6 +362,7 @@ function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
         document.getElementById('inputBox').min = min;
         document.getElementById('inputBox').max = max;
         document.getElementById('inputBox').value = null;
+        document.getElementById('inputBox').focus();
         document.getElementById('gameTitle').innerHTML = getLocalizedString("insertNumberFrom") + min.toString() + getLocalizedString("insertNumberTo") + max.toString();
     }
     else if (currentPage == 2) // game 2
@@ -379,6 +380,7 @@ function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
         document.getElementById('inputBox2').min = min;
         document.getElementById('inputBox2').max = max;
         document.getElementById('inputBox2').value = null;
+        document.getElementById('inputBox2').focus();
         document.getElementById('gameTitle2').innerHTML = getLocalizedString("insertNumberFrom") + min.toString() + getLocalizedString("insertNumberTo") + max.toString();
     }
 
@@ -396,6 +398,7 @@ function editValuesGame1()
     document.getElementById('gameSetup').style.display = 'none';
     document.getElementById('game1MinMaxValues').style.display = 'block';
     document.getElementById('minValue').value = game1Min.toString();
+    document.getElementById('minValue').focus();
     document.getElementById('maxValue').value = game1Max.toString();
     resetAllGames();
 }
@@ -406,6 +409,7 @@ function editValuesGame2()
     document.getElementById('gameSetup2').style.display = 'none';
     document.getElementById('game2MinMaxValues').style.display = 'block';
     document.getElementById('minValue2').value = game1Min.toString();
+    document.getElementById('minValue2').focus();
     document.getElementById('maxValue2').value = game1Max.toString();
     resetAllGames();
 }
@@ -414,7 +418,6 @@ function startGame1(event)
 {
     event.preventDefault(); // Prevent the form from reloading the page
     counterGame1++;
-
     var input = parseInt(document.getElementById('inputBox').value); // Convertiamo la stringa restituita da inputBox in un numero
 
     if (isNaN(input)) // se generi un NaN
@@ -541,6 +544,7 @@ function loadGame1()
     document.getElementById('gameFrame1').style.display = 'block';
     document.getElementById('gameSetup').style.display = 'none';
     document.getElementById('game1MinMaxValues').style.display = 'block';
+    document.getElementById('minValue').focus();
     currentPage = 1;
 }
 
@@ -552,6 +556,7 @@ function loadGame2()
     document.getElementById('gameSetup2').style.display = 'none';
     document.getElementById('game2MinMaxValues').style.display = 'block';
     document.getElementById('cancellami').style.display = 'none';
+    document.getElementById('minValue2').focus();
     currentPage = 2;
 }
 
