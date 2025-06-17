@@ -263,7 +263,8 @@ function resetAllGames() // TODO PER OGNI GIOCO
     game4WinTracker = 0;
     hasGame2BeenStarted = false;
     hasGame4BeenStarted = false;
-    game4QuestionIndex = 0;
+    game4QuestionIndex = -1;
+    game4WinTracker = 0;
 }
 
 function backToHome()
