@@ -109,6 +109,7 @@
 	font-family: var(--defaultFont);
 	font-size: 18px;
 	color: white;
+	height: 36px;
 	margin-top: 10px;
 	transition: ease-in-out 0.12s;
 	user-select: none;
@@ -160,7 +161,7 @@
 	transition: ease-in-out 0.12s;
 	user-select: none;
 	box-shadow: 0 0 20px -5px rgb(33, 33, 33);
-	animation: fadeIn 7s;
+	animation: fadeIn 10s;
 }
 
 .memoryButton:hover
@@ -200,7 +201,7 @@ progress
 	background-color: transparent;
 	width: 170px;
 	height: 30px;
-	margin: 10px;
+	margin-right: 10px;
 	border-radius: 6px;
 	border-style: solid;
 	border-width: 1px;
@@ -219,6 +220,8 @@ progress
 	width: 200px;
 	height: 30px;
 	margin: 10px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 	border-radius: 6px;
 	border-style: solid;
 	border-width: 1px;
@@ -231,10 +234,11 @@ progress
 
 .defaultInputBox:disabled
 {
-	background-color: transparent;
+	background-color: black;
 	width: 200px;
 	height: 30px;
 	margin: 10px;
+	margin-left: 0px;
 	border-radius: 6px;
 	border-style: solid;
 	border-width: 2px;
@@ -291,11 +295,14 @@ body.defeat-bg
 	animation: glow 5s ease-in-out infinite alternate;
 }
 
-@keyframes glow {
-  from {
+@keyframes glow 
+{
+  from 
+  {
     text-shadow: 0 0 2px #4c003a, 0 0 10px #ff00d0, 0 0 15px #79003c, 0 0 20px #e60082, 0 0 25 #e60073, 0 0 30px #e60073, 0 0 35px #870044;
   }
-  to {
+  to 
+  {
     text-shadow: 0 0 10px #860000, 0 0 15px #ab0056, 0 0 20px #9c004e, 0 0 25px #ff4da6, 0 0 30px #920049, 0 0 35px #009fbb, 0 0 40px #ff4da6;
   }
 }
