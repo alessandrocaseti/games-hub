@@ -754,6 +754,39 @@ function loadGame3()
     }, 1000);
 }
 
+function getRandomChar() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    return chars.charAt(Math.floor(Math.random() * chars.length));
+}
+
+function shuffleAnimation(p1, p2) {
+    var length1 = p1.length;
+    var length2 = p2.length;
+    var split1 = p1.split("");
+    var split2 = p2.split("");
+
+    var interval = 40; // ms
+    var duration = 400; // ms
+    var elapsed = 0;
+
+    var animation = setInterval(function() {
+        for (let i = 0; i < length1; i++) {
+            split1[i] = getRandomChar();
+        }
+        for (let i = 0; i < length2; i++) {
+            split2[i] = getRandomChar();
+        }
+        document.getElementById("game4Title").innerHTML = split1.join("");
+        document.getElementById("game4Title2").innerHTML = split2.join("");
+        elapsed += interval;
+        if (elapsed >= duration) {
+            clearInterval(animation);
+            document.getElementById("game4Title").innerHTML = p1;
+            document.getElementById("game4Title2").innerHTML = p2;
+        }
+    }, interval);
+}
+
 function loadGame4()
 {
     loadGenericGame();
@@ -835,8 +868,8 @@ function loadGame4()
     var parolaFinale = vettoreCaratteri.join('').toUpperCase(); // unisce gli elementi dell'array in una stringa
     var parolaFinale2 = vettoreCaratteri2.join('').toUpperCase(); // unisce gli elementi dell'array in una stringa
 
-    document.getElementById("game4Title").innerHTML = parolaFinale;
-    document.getElementById("game4Title2").innerHTML = parolaFinale2;
+    shuffleAnimation(parolaFinale, parolaFinale2);
+
     document.getElementById("game4Tip").innerHTML = getQuestionTip(indice);
 
     countDownQuestionGame4 = setInterval(function()
