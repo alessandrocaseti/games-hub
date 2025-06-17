@@ -874,6 +874,7 @@ function checkAnswer(event, timeout)
             clearInterval(progressBarValue);
             clearInterval(countDownQuestionGame4);
             document.getElementById("nextQuestionButton").disabled = false;
+            document.getElementById("inputGame4").disabled = true;
             document.getElementById("nextQuestionButton").focus();
             setWinBackground();
             document.getElementById("game4Title").innerHTML = parolaFull.join('').toUpperCase();
