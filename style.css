@@ -257,13 +257,12 @@ progress
 
 body.default-bg
 {
-	background: linear-gradient(10deg, #3b1508, #2d0917, #0f1754, #260024, #311414);
+	background: linear-gradient(10deg, #38083b, #2d0917, #0f1754, #260024, #311414);
 	background-size: 550% 550%;
 	animation: gradient 16s ease infinite;
 	height: 100%;
 	backdrop-filter: blur(20px);
 	font-family: var(--defaultFont);
-
 }
 
 body.win-bg
@@ -275,7 +274,6 @@ body.win-bg
 	height: 100%;
 	backdrop-filter: blur(20px);
 	font-family: var(--defaultFont);
-
 }
 
 body.defeat-bg

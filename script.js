@@ -252,14 +252,16 @@ function setBodyBgClass(className)
 {
     if (!body) return;
 
-    // Remove all background classes
+    // Se la classe è già presente, non fare nulla
+    if (body.classList.contains(className)) return;
+
+    // Rimuovi tutte le classi di background
     body.classList.remove('default-bg', 'win-bg', 'defeat-bg');
 
-    // Add the new class (no reflow needed for static backgrounds)
+    // Aggiungi la nuova classe
     body.classList.add(className);
 
-    // Force background repaint for static gradients
-    body.style.background = '';
+    // Non serve forzare il repaint, l'animazione CSS farà il resto
 }
 
 // funzioni per cambiare lo sfondo, sono da semplificare
@@ -534,7 +536,6 @@ function loadGenericGame()
     home.style.display = 'none';
     homeButton.style.display = 'block';
     langButtons.style.display = 'none';
-
 }
 
 function loadGame1()
