@@ -1,3 +1,17 @@
+/*
+
+@font-face {
+    font-family: defaultFont;
+    src:url("assets/");
+}
+
+*/
+
+:root
+{
+	--defaultFont: "Poppins";
+}
+
 @keyframes gradient
 {
 	0% {
@@ -92,7 +106,7 @@
 	border-style: solid;
 	border-width: 2px;
 	border-color: rgb(208, 208, 208);
-	font-family: 'Poppins';
+	font-family: var(--defaultFont);
 	font-size: 18px;
 	color: white;
 	margin-top: 10px;
@@ -122,7 +136,7 @@
 	border-style: solid;
 	border-width: 2px;
 	border-color: rgb(65, 24, 24);
-	font-family: 'Poppins';
+	font-family: var(--defaultFont);
 	font-size: 18px;
 	color: rgb(124, 124, 124);
 	margin-top: 10px;
@@ -139,7 +153,7 @@
 	border-style: solid;
 	border-width: 2px;
 	border-color: rgb(105, 105, 105);
-	font-family: 'Poppins';
+	font-family: var(--defaultFont);
 	font-size: 18px;
 	color: white;
 	margin-top: 10px;
@@ -191,7 +205,7 @@ progress
 	border-style: solid;
 	border-width: 1px;
 	border-color: rgb(239, 239, 239);
-	font-family: 'Poppins';
+	font-family: var(--defaultFont);
 	font-size: 18px;
 	color: white;
 	user-select: none;
@@ -209,7 +223,7 @@ progress
 	border-style: solid;
 	border-width: 1px;
 	border-color: yellow;
-	font-family: 'Poppins';
+	font-family: var(--defaultFont);
 	font-size: 18px;
 	color: white;
 	user-select: none;
@@ -225,7 +239,7 @@ progress
 	border-style: solid;
 	border-width: 2px;
 	border-color: rgb(255, 161, 47);
-	font-family: 'Poppins';
+	font-family: var(--defaultFont);
 	font-size: 18px;
 	color: rgb(114, 114, 114);
 	user-select: none;
@@ -243,6 +257,8 @@ body.default-bg
 	animation: gradient 16s ease infinite;
 	height: 100%;
 	backdrop-filter: blur(20px);
+	font-family: var(--defaultFont);
+
 }
 
 body.win-bg
@@ -253,6 +269,8 @@ body.win-bg
 	background-size: cover;
 	height: 100%;
 	backdrop-filter: blur(20px);
+	font-family: var(--defaultFont);
+
 }
 
 body.defeat-bg
@@ -262,6 +280,7 @@ body.defeat-bg
 	background-size: 550% 550%;
 	height: 100%;
 	backdrop-filter: blur(20px);
+	font-family: var(--defaultFont);
 }
 
 .glow 
