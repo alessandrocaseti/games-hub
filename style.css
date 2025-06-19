@@ -9,7 +9,16 @@
 
 :root
 {
-	--defaultFont: "Poppins";
+    --defaultFont: "Poppins";
+    --main-bg1: #38083b;
+    --main-bg2: #2d0917;
+    --main-bg3: #0f1754;
+    --main-bg4: #260024;
+    --main-bg5: #311414;
+    --win-bg1: #62c239;
+    --win-bg2: #228B22;
+    --defeat-bg1: #cd0000;
+    --defeat-bg2: #761a00;
 }
 
 @keyframes gradient
@@ -51,6 +60,13 @@
 	}
 }
 
+@keyframes bg-gradient 
+{
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 .animatedDiv
 {
 	animation: fadeIn 5s;
@@ -65,7 +81,8 @@
 	animation-iteration-count: infinite;
 }
 
-@keyframes shake {
+@keyframes shake 
+{
   0% { transform: translate(0px, 0px) rotate(0deg); transition: 1s;}
   5% { transform: translate(4px, 4px) rotate(0deg); transition: 1s;}
   10% { transform: translate(-2px, -4px) rotate(-1deg); transition: 1s;}
@@ -80,7 +97,8 @@
   95% { transform: translate(0px, 0px) rotate(0deg); transition: 1s;}
 }
 
-@keyframes fadeIn {
+@keyframes fadeIn 
+{
   0% { opacity: 0;}
   10% { opacity: 10;}
   20% { opacity: 20;}
@@ -93,6 +111,7 @@
   90% { opacity: 90;}
   100% { opacity: 100;}
 }
+
 .defaultImage:hover
 {
 	scale: 1.2;
@@ -179,7 +198,8 @@
 }
 
 input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+input::-webkit-inner-spin-button
+{
     -webkit-appearance: none;
 }
 
@@ -255,35 +275,32 @@ progress
 	animation: fadeIn 2s;
 }
 
-body.default-bg
+body.default-bg,
+body.win-bg,
+body.defeat-bg 
 {
-	background: linear-gradient(10deg, #38083b, #2d0917, #0f1754, #260024, #311414);
-	background-size: 550% 550%;
-	animation: gradient 16s ease infinite;
-	height: 100%;
-	backdrop-filter: blur(20px);
-	font-family: var(--defaultFont);
+    height: 100%;
+    backdrop-filter: blur(20px);
+    font-family: var(--defaultFont);
+    animation: bg-gradient 16s ease infinite;
 }
 
-body.win-bg
+body.default-bg 
 {
-	background: radial-gradient(circle, #62c239 0%, #228B22 100%);
-	background-size: 550% 550%;
-	animation: win-gradient 20s ease infinite;
-	background-size: cover;
-	height: 100%;
-	backdrop-filter: blur(20px);
-	font-family: var(--defaultFont);
+    background: linear-gradient(10deg, var(--main-bg1), var(--main-bg2), var(--main-bg3), var(--main-bg4), var(--main-bg5));
+    background-size: 550% 550%;
 }
 
-body.defeat-bg
+body.win-bg 
 {
-	background: linear-gradient(10deg, #cd0000, #761a00);
-	animation: defeat-gradient 20s ease infinite;
-	background-size: 550% 550%;
-	height: 100%;
-	backdrop-filter: blur(20px);
-	font-family: var(--defaultFont);
+    background: radial-gradient(circle, var(--win-bg1) 0%, var(--win-bg2) 100%);
+    background-size: 550% 550%;
+}
+
+body.defeat-bg 
+{
+    background: linear-gradient(10deg, var(--defeat-bg1), var(--defeat-bg2));
+    background-size: 550% 550%;
 }
 
 .glow 
