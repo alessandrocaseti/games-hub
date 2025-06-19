@@ -260,6 +260,7 @@ function resetAllGames()
     winsGame2 = 0;
     game4WinTracker = 0;
     hasGame2BeenStarted = false;
+    hasGame3BeenStarted = false;
     hasGame4BeenStarted = false;
     game4QuestionIndex = -1;
     game4WinTracker = 0;
@@ -273,19 +274,19 @@ function backToHome()
     homeButton.style.display = 'none';
     langButtons.style.display = 'block';
     title.innerHTML = getLocalizedString("name");
+    // Svuota gameFrame3 solo se esiste
 
+    // ...existing code...
     document.getElementById('gameFrame1').style.display = 'none';
     document.getElementById('gameFrame2').style.display = 'none';
     document.getElementById('gameFrame3').style.display = 'none';
     document.getElementById('gameProgress3').style.display = 'none';
     document.getElementById('gameProgress4').style.display = 'none';
     document.getElementById('gameFrame4').style.display = 'none';
-
     clearInterval(countDownStartGame3);
     clearInterval(countDownPlayGame3);
     clearInterval(progressBarValue);
     clearInterval(countDownQuestionGame4);
-
     setDefaultBackground();
     resetAllGames();
 }
@@ -550,7 +551,6 @@ function loadGame3()
     title.innerHTML = getLocalizedString("game3ButtonText") + ' - ' + getLocalizedString("name");
     document.getElementById('gameFrame3').style.display = 'block';
     document.getElementById('gameProgress3').style.display = 'block';
-    document.getElementById("game3Title").innerHTML = "15";
     currentPage = 3;
 
     let i = 0;
@@ -572,7 +572,7 @@ function loadGame3()
     
     console.log("flagPairsFullArray (randomized): " + flagPairsFullArray);
 
-    if(hasGame3BeenStarted == true) // se il gioco è già stato avviato, non ricreare i bottoni, ma comunque randomizza le images
+    if(hasGame3BeenStarted === true) // se il gioco è già stato avviato, non ricreare i bottoni, ma comunque randomizza le images
     {
         console.log("Buttons already generated. Randomized images and assigned them to the buttons.");
         for(i in flagPairsFullArray)
@@ -586,7 +586,14 @@ function loadGame3()
     }
     else
     {
+        console.log("Buttons not generated yet. Generating buttons now.");
+        var frame3 = document.getElementById('gameFrame3');
+        if(frame3)
+        {
+            frame3.innerHTML = '<h1 id="game3Title" class="textAnimaton" style="font-size: 70px; user-select: none; width: auto; height: 30px; margin-bottom: 100px;"></h1>';
+        }
         hasGame3BeenStarted = true; // ora il gioco è stato avviato
+        document.getElementById("game3Title").innerHTML = "15";
         for(i in flagPairsFullArray)
         {
             const button = document.createElement('button');
@@ -664,8 +671,7 @@ function loadGame3()
                     }
                 }
             })
-            var frame = document.getElementById("gameFrame3");
-            frame.appendChild(button)
+            frame3.appendChild(button)
         }
     }
 
