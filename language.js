@@ -43,7 +43,7 @@ const strings_it = {
     aboutDev : "Sviluppato da Alessandro Caseti",
     aboutRepo : "Repository GitHub",
     aboutTitle : "Informazioni su Games Hub",
-    version : "Versione " + appVersion.toString() + " (15 giugno 2025)"
+    version : "Versione " + appVersion.toString() + " (" + getLocalizedDate("dmy") +  ")"
 };
 
 const strings_en = {
@@ -89,7 +89,7 @@ const strings_en = {
     aboutDev : "Developed by Alessandro Caseti",
     aboutRepo : "GitHub repository",
     aboutTitle : "About Games Hub",
-    version : "Version " + appVersion.toString() + " (15th June 2025)"
+    version : "Version " + appVersion.toString() + " (" + getLocalizedDate("mdy") +  ")"
 };
 
 function setLanguage(id)
@@ -149,4 +149,23 @@ function setLanguage(id)
 function getLocalizedString(string_id)
 {
     return translate[string_id];
+}
+
+function getLocalizedDate(dateFormatID)
+{
+    const day = appReleaseDate.day;
+    const month = appReleaseDate.month;
+    const year = appReleaseDate.year;
+
+    switch(dateFormatID)
+    {
+        case "dmy":
+            return day + "/" + month + "/" + year;
+        case "mdy":
+            return month + "/" + day + "/" + year;
+        case "ymd":
+            return year + "/" + month + "/" + day;
+        default:
+            return day + "/" + month + "/" + year;
+    }
 }
