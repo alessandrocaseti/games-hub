@@ -167,7 +167,7 @@ function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
 
         if (min >= max || isNaN(min) || isNaN(max))
         {
-            alert('Errore: valori non validi. Assicurati che siano numeri e che il minimo sia minore del massimo.');
+            alert(getLocalizedString("invalidValues"));
             return;
         }
         game1Min = min;
@@ -185,7 +185,7 @@ function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
         var max = parseInt(document.getElementById('maxValue2').value); // ottieni il valore massimo dal field
         if (min >= max || isNaN(min) || isNaN(max))
         {
-            alert('Errore: valori non validi. Assicurati che siano numeri e che il minimo sia minore del massimo.');
+            alert(getLocalizedString("invalidValues"));
             return;
         }
         game1Min = min;
@@ -232,11 +232,11 @@ function startGame1(event)
 {
     event.preventDefault();
     counterGame1++;
-    var input = parseInt(document.getElementById('inputBox').value); // Convertiamo la stringa restituita da inputBox in un numero
+    var input = parseInt(document.getElementById('inputBox').value);
 
     if (isNaN(input)) // se generi un NaN
     {
-        alert('Errore: inserisci un valore compreso tra ' + game1Min.toString() + ' e ' + game1Max.toString() + '.'); // avviso del browser
+        alert(getLocalizedString("invalidRange") + game1Min.toString() + getLocalizedString("invalidRangeAnd") + game1Max.toString() + '.');
         return;
     }
 
@@ -286,7 +286,7 @@ function startGame2(event)
 
     if (isNaN(input)) // se generi un NaN
     {
-        alert('Errore: inserisci un valore compreso tra ' + game1Min.toString() + ' e ' + game1Max.toString() + '.'); // avviso del browser
+        alert(getLocalizedString("invalidRange") + game1Min.toString() + getLocalizedString("invalidRangeAnd") + game1Max.toString());
         return;
     }
 
