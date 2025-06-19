@@ -34,7 +34,6 @@ var randomNum2 = 0; // numero generato per il gioco 2
 var parolaFull = ""; // parola completa per il gioco 4
 var parolaFull2 = ""; // parola completa per il gioco 4 (seconda parte)
 
-var hasGame3BeenStarted = false;
 var hasGame4BeenStarted = false;
 var game4Index = 0;
 
@@ -260,7 +259,6 @@ function resetAllGames()
     winsGame2 = 0;
     game4WinTracker = 0;
     hasGame2BeenStarted = false;
-    hasGame3BeenStarted = false;
     hasGame4BeenStarted = false;
     game4QuestionIndex = -1;
     game4WinTracker = 0;
@@ -555,124 +553,98 @@ function loadGame3()
 
     let i = 0;
 
-    console.log("memoryGameArray (clean): " + memoryGameArray);
+    // Svuota e ricrea il frame ogni volta
+    var frame3 = document.getElementById('gameFrame3');
+    if(frame3) 
+    {
+        frame3.innerHTML = '<h1 id="game3Title" class="textAnimaton" style="font-size: 70px; user-select: none; width: auto; height: 30px; margin-bottom: 100px;"></h1>';
+    }
+    document.getElementById("game3Title").innerHTML = "15";
 
     shuffleArray(memoryGameArray); // mescola l'array per avere le immagini in ordine casuale
-
     var flagPairsArray = memoryGameArray.slice(20);
-
-    console.log("memoryGameArray (randomized): " + memoryGameArray);
-    console.log("flagPairsArray: " + flagPairsArray);
-
     var flagPairsFullArray = flagPairsArray.flatMap(x => [x, x]);
-
-    console.log("flagPairsFullArray (clean): " + flagPairsFullArray);
-
     shuffleArray(flagPairsFullArray);
-    
-    console.log("flagPairsFullArray (randomized): " + flagPairsFullArray);
 
-    if(hasGame3BeenStarted === true) // se il gioco è già stato avviato, non ricreare i bottoni, ma comunque randomizza le images
+    for(i in flagPairsFullArray)
     {
-        console.log("Buttons already generated. Randomized images and assigned them to the buttons.");
-        for(i in flagPairsFullArray)
-        {
-            var button = document.getElementById('Button' + i.toString());
-            var image = game3Image[flagPairsFullArray[i]];
-            var url = "url('" + image + "')"; 
-            button.style.backgroundImage = url.toString();
-            button.disabled = false;
-        }
-    }
-    else
-    {
-        console.log("Buttons not generated yet. Generating buttons now.");
-        var frame3 = document.getElementById('gameFrame3');
-        if(frame3)
-        {
-            frame3.innerHTML = '<h1 id="game3Title" class="textAnimaton" style="font-size: 70px; user-select: none; width: auto; height: 30px; margin-bottom: 100px;"></h1>';
-        }
-        hasGame3BeenStarted = true; // ora il gioco è stato avviato
-        document.getElementById("game3Title").innerHTML = "15";
-        for(i in flagPairsFullArray)
-        {
-            const button = document.createElement('button');
-            var image = game3Image[flagPairsFullArray[i]];
-            button.innerText = "";
-            button.className = 'memoryButton';
-            button.id = 'Button' + i.toString();
-            button.style.width= "160px";
-            button.style.margin = "30px";
-            button.style.height = "160px";
-            var url = "url('" + image + "')"; 
-            button.style.backgroundImage = url.toString();
+        const button = document.createElement('button');
+        var image = game3Image[flagPairsFullArray[i]];
+        button.innerText = "";
+        button.className = 'memoryButton';
+        button.id = 'Button' + i.toString();
+        button.style.width= "160px";
+        button.style.margin = "30px";
+        button.style.height = "160px";
+        var url = "url('" + image + "')"; 
+        button.style.backgroundImage = url.toString();
 
-            button.addEventListener('click', () => // algoritmo memory
+        button.addEventListener('click', () => // algoritmo memory
+        {
+            if(startCountdown > 0)
             {
-                if(startCountdown > 0)
+                var index = parseInt(button.id.replace('Button', ''));
+                var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')"; 
+                button.style.backgroundImage = newUrl.toString();
+            }
+
+            if(startCountdown <= 0 && !button.classList.contains('matched') && !button.classList.contains('clicked'))
+            {
+                console.log(document.querySelectorAll('.memoryButton.matched').length);
+                
+                // Conta quanti bottoni sono stati cliccati (con classe 'clicked')
+                const clickedButtons = document.querySelectorAll('.memoryButton.clicked:not(.matched)');
+                if(clickedButtons.length === 2)
                 {
-                    var index = parseInt(button.id.replace('Button', ''));
-                    var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')"; 
-                    button.style.backgroundImage = newUrl.toString();
+                    // Se ci sono già 2 bottoni cliccati, non permettere altri click finché non si risolve
+                    return;
                 }
+                button.classList.add('clicked');
+                var index = parseInt(button.id.replace('Button', ''));
+                var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')";
+                button.style.backgroundImage = newUrl.toString();
 
-                if(startCountdown <= 0 && !button.classList.contains('matched') && !button.classList.contains('clicked'))
+                const updatedClickedButtons = document.querySelectorAll('.memoryButton.clicked:not(.matched)');
+                if(updatedClickedButtons.length === 2) 
                 {
-                    console.log(document.querySelectorAll('.memoryButton.matched').length);
-                    
-                    // Conta quanti bottoni sono stati cliccati (con classe 'clicked')
-                    const clickedButtons = document.querySelectorAll('.memoryButton.clicked:not(.matched)');
-                    if(clickedButtons.length === 2) {
-                        // Se ci sono già 2 bottoni cliccati, non permettere altri click finché non si risolve
-                        return;
-                    }
-                    button.classList.add('clicked');
-                    var index = parseInt(button.id.replace('Button', ''));
-                    var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')";
-                    button.style.backgroundImage = newUrl.toString();
-
-                    const updatedClickedButtons = document.querySelectorAll('.memoryButton.clicked:not(.matched)');
-                    if(updatedClickedButtons.length === 2) 
+                    // Prendi i due bottoni e confronta i loro valori
+                    const btn1 = updatedClickedButtons[0];
+                    const btn2 = updatedClickedButtons[1];
+                    const idx1 = parseInt(btn1.id.replace('Button', ''));
+                    const idx2 = parseInt(btn2.id.replace('Button', ''));
+                    if(flagPairsFullArray[idx1] === flagPairsFullArray[idx2]) 
                     {
-                        // Prendi i due bottoni e confronta i loro valori
-                        const btn1 = updatedClickedButtons[0];
-                        const btn2 = updatedClickedButtons[1];
-                        const idx1 = parseInt(btn1.id.replace('Button', ''));
-                        const idx2 = parseInt(btn2.id.replace('Button', ''));
-                        if(flagPairsFullArray[idx1] === flagPairsFullArray[idx2]) 
+                        // Match! Rendi i bottoni "matched" e non più cliccabili
+                        setTimeout(() => 
                         {
-                            // Match! Rendi i bottoni "matched" e non più cliccabili
-                            setTimeout(() => 
-                            {
-                                btn1.classList.add('matched');
-                                btn2.classList.add('matched');
-                                btn1.classList.remove('clicked');
-                                btn2.classList.remove('clicked');
-                            }, 400);
+                            btn1.classList.add('matched');
+                            btn2.classList.add('matched');
+                            btn1.classList.remove('clicked');
+                            btn2.classList.remove('clicked');
+                        }, 400);
 
-                            if (document.querySelectorAll('.memoryButton.matched').length === 22)
-                            {
-                                setWinBackground();
-                                document.getElementById("game3Title").innerHTML = getLocalizedString("youWon");
-                                clearInterval(countDownPlayGame3);                            
-                            }
-                        } 
-                        else 
+                        if (document.querySelectorAll('.memoryButton.matched').length === 22)
                         {
-                            // Non match, nascondi dopo 1 secondo
-                            setTimeout(() => 
-                            {
-                                btn1.classList.remove('clicked');
-                                btn2.classList.remove('clicked');
-                                btn1.style.backgroundImage = questionMark;
-                                btn2.style.backgroundImage = questionMark;
-                            }, 400);
+                            setWinBackground();
+                            document.getElementById("game3Title").innerHTML = getLocalizedString("youWon");
+                            clearInterval(countDownPlayGame3);                            
                         }
+                    } 
+                    else 
+                    {
+                        // Non match, nascondi dopo 1 secondo
+                        setTimeout(() => 
+                        {
+                            btn1.classList.remove('clicked');
+                            btn2.classList.remove('clicked');
+                            btn1.style.backgroundImage = questionMark;
+                            btn2.style.backgroundImage = questionMark;
+                        }, 400);
                     }
                 }
-            })
-            frame3.appendChild(button)
-        }
+            }
+        })
+        frame3.appendChild(button)
     }
 
     document.getElementById('progressBar3').value = 100;
@@ -705,6 +677,7 @@ function loadGame3()
 
                 if (gameCountdown <= 0) 
                 {
+                    clearInterval(countDownPlayGame3);
                     setDefeatBackground();
                     document.getElementById("game3Title").innerHTML = getLocalizedString("youLost");
                     for (let j = 0; j < 24; j++)
@@ -714,8 +687,8 @@ function loadGame3()
                         button.style.backgroundImage = url.toString();
                         button.disabled = true;
                     }
-                    clearInterval(countDownPlayGame3);
                 }
+                
             }, 1000);
         }
     }, 1000);
