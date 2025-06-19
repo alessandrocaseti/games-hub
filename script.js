@@ -44,7 +44,7 @@ const strings_it = {
 
     name : "Games Hub",
     homeWelcomeText : "Benvenuto su Games Hub!",
-    homeTeachingText : "Scegli un gioco cliccando su uno dei seguenti bottoni:",
+    homeTeachingText : "Scegli un gioco cliccando su uno dei seguenti bottoni",
     game1ButtonText : "Indovina il numero (hard)",
     game2ButtonText : "Indovina il numero (easy)",
     game3ButtonText : "Memory - bandiere",
@@ -90,7 +90,7 @@ const strings_en = {
 
     name : "Games Hub",
     homeWelcomeText : "Welcome on Games Hub!",
-    homeTeachingText : "Choose a game by clicking one of the buttons below:",
+    homeTeachingText : "Choose a game by clicking one of the buttons below",
     game1ButtonText : "Guess the number (hard)",
     game2ButtonText : "Guess the number (easy)",
     game3ButtonText : "Memory - country flags",
@@ -226,8 +226,6 @@ function setBodyBgClass(className)
     // Non serve forzare il repaint, l'animazione CSS farà il resto
 }
 
-// funzioni per cambiare lo sfondo, sono da semplificare
-
 function setDefaultBackground()
 {
     setBodyBgClass('default-bg');
@@ -243,7 +241,7 @@ function setDefeatBackground()
     setBodyBgClass('defeat-bg');
 }
 
-function resetAllGames() // TODO PER OGNI GIOCO
+function resetAllGames()
 {
     document.getElementById('generatedNumber1').innerHTML = '';
     document.getElementById('generatedNumber2').innerHTML = '';
@@ -275,7 +273,6 @@ function backToHome()
     homeButton.style.display = 'none';
     langButtons.style.display = 'block';
     title.innerHTML = getLocalizedString("name");
-    // TODO: PER OGNI GIOCO
 
     document.getElementById('gameFrame1').style.display = 'none';
     document.getElementById('gameFrame2').style.display = 'none';
@@ -337,7 +334,7 @@ function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
         if (min >= max || isNaN(min) || isNaN(max))
         {
             alert('Errore: valori non validi. Assicurati che siano numeri e che il minimo sia minore del massimo.');
-            return; // avviso del browser
+            return;
         }
         game1Min = min;
         game1Max = max;
@@ -381,7 +378,7 @@ function editValuesGame2()
 
 function startGame1(event)
 {
-    event.preventDefault(); // Prevent the form from reloading the page
+    event.preventDefault();
     counterGame1++;
     var input = parseInt(document.getElementById('inputBox').value); // Convertiamo la stringa restituita da inputBox in un numero
 
@@ -718,12 +715,14 @@ function loadGame3()
     }, 1000);
 }
 
-function getRandomChar() {
+function getRandomChar() 
+{
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     return chars.charAt(Math.floor(Math.random() * chars.length));
 }
 
-function shuffleAnimation(p1, p2) {
+function shuffleAnimation(p1, p2) 
+{
     var length1 = p1.length;
     var length2 = p2.length;
     var split1 = p1.split("");
@@ -733,21 +732,29 @@ function shuffleAnimation(p1, p2) {
     var duration = 400; // ms
     var elapsed = 0;
 
-    var animation = setInterval(function() {
-        for (let i = 0; i < length1; i++) {
+    var animation = setInterval(function() 
+    {
+        for (let i = 0; i < length1; i++) 
+        {
             split1[i] = getRandomChar();
         }
-        for (let i = 0; i < length2; i++) {
+
+        for (let i = 0; i < length2; i++) 
+        {
             split2[i] = getRandomChar();
         }
+
         document.getElementById("game4Title").innerHTML = split1.join("");
         document.getElementById("game4Title2").innerHTML = split2.join("");
         elapsed += interval;
-        if (elapsed >= duration) {
+
+        if (elapsed >= duration) 
+        {
             clearInterval(animation);
             document.getElementById("game4Title").innerHTML = p1;
             document.getElementById("game4Title2").innerHTML = p2;
         }
+
     }, interval);
 }
 
