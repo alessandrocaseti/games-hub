@@ -1,3 +1,5 @@
+////        GAMES HUB       ////
+
 let translate;
 
 const strings_it = {
