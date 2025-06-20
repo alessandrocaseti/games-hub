@@ -135,9 +135,29 @@ function backToHome()
 
 function playWinSound()
 {
-    var audio = new Audio('https://cdn.freesound.org/previews/337/337049_3232293-lq.mp3');
+    var audio = new Audio('assets/exact.mp3');
     audio.play();
 }
+
+function playWrongSound()
+{
+    var audio = new Audio('assets/wrong.mp3');
+    audio.play();
+}
+
+function playShuffleSound()
+{
+    var audio = new Audio('assets/shuffle.mp3');
+    audio.play();
+}
+
+function playGongSound()
+{
+    var audio = new Audio('assets/gong.mp3');
+    audio.play();
+}
+
+var soundtrack = new Audio('assets/soundtrack.mp3');
 
 function shuffleArray(array)
 {
@@ -544,6 +564,8 @@ function getRandomChar()
 
 function shuffleAnimation(p1, p2) 
 {
+    playShuffleSound();
+
     var length1 = p1.length;
     var length2 = p2.length;
     var split1 = p1.split("");
@@ -662,6 +684,12 @@ function loadGame4()
 
     shuffleAnimation(parolaFinale, parolaFinale2);
 
+    if(soundtrack.paused)
+    {  
+        soundtrack.currentTime = 0;
+    }
+    soundtrack.play();
+
     document.getElementById("game4Tip").innerHTML = getQuestionTip(indice);
 
     countDownQuestionGame4 = setInterval(function()
@@ -700,7 +728,8 @@ function checkAnswer(event, timeout)
         if(inputBoxValue == getQuestion(game4Index).toUpperCase()) // win
         {
             setWinBackground();
-            playWinSound();            
+            playWinSound();   
+            soundtrack.pause();         
             clearInterval(progressBarValue);
             clearInterval(countDownQuestionGame4);
             document.getElementById("nextQuestionButton").disabled = false;
@@ -709,7 +738,7 @@ function checkAnswer(event, timeout)
             document.getElementById("game4Title").innerHTML = parolaFull.join('').toUpperCase();
             document.getElementById("game4Title2").innerHTML = parolaFull2.join('').toUpperCase();
             game4WinTracker = game4QuestionIndex + 1 - game4LostTracker;
-            
+
             document.getElementById("game4MessageInfo").innerHTML = getLocalizedString("exact") + ' ' + getLocalizedString("score") 
                                                                   + game4WinTracker.toString() + " / " + game4Questions.toString();
 
@@ -726,12 +755,14 @@ function checkAnswer(event, timeout)
         }
         else
         {
+            playWrongSound();
             document.getElementById("game4MessageInfo").innerHTML = getLocalizedString("wrong");
         }
     }
     else
     {
         setDefeatBackground();
+        playGongSound();
         document.getElementById("game4Title").innerHTML = parolaFull.join('').toUpperCase();
         document.getElementById("game4Title2").innerHTML = parolaFull2.join('').toUpperCase();
         if(game4QuestionIndex < game4Questions - 1)
