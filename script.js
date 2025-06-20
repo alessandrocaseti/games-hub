@@ -25,7 +25,7 @@ var gameCountdown = 60;
 var game4WinTracker = 0;  
 var game4LostTracker = 0;
 var game4QuestionIndex = -1;
-
+var fadeAudio = null;
 var progressBarValue = 0; // valore della progressbar per il gioco 3 e 4
 
 var hasGame2BeenStarted = false; // serve per il gioco 2
@@ -118,7 +118,7 @@ function backToHome()
     homeButton.style.display = 'none';
     langButtons.style.display = 'block';
     title.innerHTML = getLocalizedString("name");
-
+    fadeOutAudio(soundtrack);
     document.getElementById('gameFrame1').style.display = 'none';
     document.getElementById('gameFrame2').style.display = 'none';
     document.getElementById('gameFrame3').style.display = 'none';
@@ -158,6 +158,25 @@ function playGongSound()
 }
 
 var soundtrack = new Audio('assets/soundtrack.mp3');
+
+function fadeOutAudio(sound) 
+{
+    fadeAudio = setInterval(function () 
+    {
+        if (sound.volume != 0.0) 
+        {
+            sound.volume -= 0.01;
+        }
+
+        if (sound.volume < 0.02) 
+        {
+            clearInterval(fadeAudio);
+            sound.volume = 1.0;
+            sound.pause();
+            sound.currentTime = 0;
+        }
+    }, 10);
+}
 
 function shuffleArray(array)
 {
@@ -601,6 +620,42 @@ function shuffleAnimation(p1, p2)
     }, interval);
 }
 
+function blinkAnimation()
+{
+    var game4Title = document.getElementById("game4Title");
+    var game4Title2 = document.getElementById("game4Title2");
+    game4Title.style.color = 'orange';
+    game4Title2.style.color = 'orange';
+    var interval = 80; // ms
+    var duration = 800; // ms
+    var elapsed = 0;
+
+    var blinkInterval = setInterval(function() 
+    {
+        if (game4Title.style.visibility === 'hidden') 
+        {
+            game4Title.style.visibility = 'visible';
+            game4Title2.style.visibility = 'visible';
+        } 
+        else 
+        {
+            game4Title.style.visibility = 'hidden';
+            game4Title2.style.visibility = 'hidden';
+        }
+        
+        elapsed += interval;
+
+        if (elapsed >= duration) 
+        {
+            clearInterval(blinkInterval);
+            game4Title.style.visibility = 'visible';
+            game4Title2.style.visibility = 'visible';
+            game4Title.style.color = 'white';
+            game4Title2.style.color = 'white';
+        }
+    }, interval);
+}
+
 function loadGame4()
 {
     loadGenericGame();
@@ -626,7 +681,6 @@ function loadGame4()
     }
 
     console.log(questionID)
-
     hasGame4BeenStarted = true;
 
     var indice = questionID[game4QuestionIndex];
@@ -683,11 +737,9 @@ function loadGame4()
     var parolaFinale2 = vettoreCaratteri2.join('').toUpperCase(); // unisce gli elementi dell'array in una stringa
 
     shuffleAnimation(parolaFinale, parolaFinale2);
-
-    if(soundtrack.paused)
-    {  
-        soundtrack.currentTime = 0;
-    }
+    clearInterval(fadeAudio);
+    soundtrack.currentTime = 0;
+    soundtrack.volume = 1.0;
     soundtrack.play();
 
     document.getElementById("game4Tip").innerHTML = getQuestionTip(indice);
@@ -728,8 +780,8 @@ function checkAnswer(event, timeout)
         if(inputBoxValue == getQuestion(game4Index).toUpperCase()) // win
         {
             setWinBackground();
-            playWinSound();   
-            soundtrack.pause();         
+            playWinSound();
+            fadeOutAudio(soundtrack);
             clearInterval(progressBarValue);
             clearInterval(countDownQuestionGame4);
             document.getElementById("nextQuestionButton").disabled = false;
@@ -756,6 +808,7 @@ function checkAnswer(event, timeout)
         else
         {
             playWrongSound();
+            blinkAnimation();
             document.getElementById("game4MessageInfo").innerHTML = getLocalizedString("wrong");
         }
     }
