@@ -1,4 +1,4 @@
-////        GAMES HUB       ////
+//// GAMES HUB ////
 
 let translate;
 

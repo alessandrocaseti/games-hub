@@ -1,4 +1,4 @@
-////        GAMES HUB       ////
+//// GAMES HUB ////
 
 const game4Questions = 41; // number of questions
 

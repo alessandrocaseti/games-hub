@@ -1,7 +1,7 @@
-////        GAMES HUB       ////
+//// GAMES HUB ////
 
 const appVersion = "1.2.0";
-const appReleaseDate = { day : "15", month : "06", year : "2025" }
+const appReleaseDate = { day : "20", month : "06", year : "2025" }
 
 var currentPage = 0; // 0 = home, 1 = game1, 2 = game2, 3 = game3, 4 = game4
 
@@ -21,11 +21,8 @@ var countDownQuestionGame4 = 0;
 
 var startCountdown = 15;
 var gameCountdown = 60;
-var selectedFlags = 0;
 
-var hasMemoryPairBeenRevealed = false;
-
-var game4WinTracker = 0;
+var game4WinTracker = 0;  
 var game4LostTracker = 0;
 var game4QuestionIndex = -1;
 
@@ -121,9 +118,7 @@ function backToHome()
     homeButton.style.display = 'none';
     langButtons.style.display = 'block';
     title.innerHTML = getLocalizedString("name");
-    // Svuota gameFrame3 solo se esiste
 
-    // ...existing code...
     document.getElementById('gameFrame1').style.display = 'none';
     document.getElementById('gameFrame2').style.display = 'none';
     document.getElementById('gameFrame3').style.display = 'none';
@@ -154,7 +149,7 @@ function shuffleArray(array)
 
 function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
 {
-    event.preventDefault(); // Prevent the form from reloading the page
+    event.preventDefault();
 
     if (currentPage == 1) // se siamo nel gioco 1
     {
@@ -177,8 +172,8 @@ function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
     }
     else if (currentPage == 2) // game 2
     {
-        var min = parseInt(document.getElementById('minValue2').value); // ottieni il valore minimo dal field
-        var max = parseInt(document.getElementById('maxValue2').value); // ottieni il valore massimo dal field
+        var min = parseInt(document.getElementById('minValue2').value);
+        var max = parseInt(document.getElementById('maxValue2').value);
         if (min >= max || isNaN(min) || isNaN(max))
         {
             alert(getLocalizedString("invalidValues"));
@@ -197,10 +192,6 @@ function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
     document.getElementById('game1MinMaxValues').style.display = 'none';
     document.getElementById('game2MinMaxValues').style.display = 'none';
 }
-
-
-// LE FUNZIONI editValesGame1 e editValuesGame2 sono duplicate ma con ID diversi a seconda del gioco
-// SONO RICHIAMATE QUANDO SI CLICCA SUL PULSANTE "Modifica valori" NELLA PAGINA DEL GIOCO
 
 function editValuesGame1()
 {
@@ -230,7 +221,7 @@ function startGame1(event)
     counterGame1++;
     var input = parseInt(document.getElementById('inputBox').value);
 
-    if (isNaN(input)) // se generi un NaN
+    if (isNaN(input))
     {
         alert(getLocalizedString("invalidRange") + game1Min.toString() + getLocalizedString("invalidRangeAnd") + game1Max.toString() + '.');
         return;
@@ -275,12 +266,12 @@ function startGame1(event)
 
 function startGame2(event)
 {
-    event.preventDefault(); // Prevent the form from reloading the page
+    event.preventDefault();
     counterGame1++; // iniziamo aumentando il contatore
     var input = parseInt(document.getElementById('inputBox2').value); // Convertiamo la stringa restituita da inputBox in un numero
     document.getElementById('cancellami').style.display = 'block'; // varie scritte 
 
-    if (isNaN(input)) // se generi un NaN
+    if (isNaN(input))
     {
         alert(getLocalizedString("invalidRange") + game1Min.toString() + getLocalizedString("invalidRangeAnd") + game1Max.toString());
         return;
@@ -399,7 +390,6 @@ function loadGame3()
     document.getElementById('gameFrame3').style.display = 'block';
     document.getElementById('gameProgress3').style.display = 'block';
     currentPage = 3;
-
     let i = 0;
 
     // Svuota e ricrea il frame ogni volta
@@ -408,6 +398,7 @@ function loadGame3()
     {
         frame3.innerHTML = '<h1 id="game3Title" class="textAnimaton" style="font-size: 70px; user-select: none; width: auto; height: 30px; margin-bottom: 100px;"></h1>';
     }
+
     document.getElementById("game3Title").innerHTML = "15";
 
     shuffleArray(memoryGameArray); // mescola l'array per avere le immagini in ordine casuale
@@ -699,8 +690,7 @@ function loadGame4()
 
 function checkAnswer(event, timeout)
 {
-    
-    event.preventDefault(); // Prevent the form from reloading the page
+    event.preventDefault();
     if(timeout == 0)
     {
         const inputBoxValue = document.getElementById("inputGame4").value.toUpperCase();
@@ -736,7 +726,6 @@ function checkAnswer(event, timeout)
         {
             document.getElementById("game4MessageInfo").innerHTML = getLocalizedString("wrong");
         }
-
     }
     else
     {
