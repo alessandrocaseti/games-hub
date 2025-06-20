@@ -14,9 +14,9 @@ function getQuestion(index)
     switch(index)
     {
         case 0:
-            return "Madonna Alta";
+            return "Orient Express";
         case 1:
-            return "Roberto Orfei";
+            return "Renato Curi";
         case 2:
             return "Statuto Albertino";
         case 3:
@@ -105,9 +105,9 @@ function getQuestionTip(index)
     switch(index)
     {
         case 0:
-            return "Dove ti trovi adesso?";
+            return "Famoso treno che collega Parigi a Istanbul, noto per il suo lusso e le sue storie misteriose";
         case 1:
-            return "Il migliore professore di Italiano del GB";
+            return "Stadio di Perugia dedicato a un calciatore tragicamente scomparso";
         case 2:
             return "Costituzione emanata da Carlo Alberto";
         case 3:

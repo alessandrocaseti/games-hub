@@ -97,7 +97,7 @@ const strings_en = {
     aboutDev : "Developed by Alessandro Caseti",
     aboutRepo : "GitHub repository",
     aboutTitle : "About Games Hub",
-    version : "Version " + appVersion.toString() + " (" + getLocalizedDate("mdy") +  ")"
+    version : "Version " + appVersion.toString() + " (" + getLocalizedDate("dmy") +  ")"
 };
 
 function setLanguage(id)

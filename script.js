@@ -133,11 +133,6 @@ function backToHome()
     resetAllGames();
 }
 
-function generateIncrementalIndex(oldIndex)
-{
-    return oldIndex + 1;
-}
-
 function shuffleArray(array)
 {
     for (var i = array.length - 1; i > 0; i--) 
