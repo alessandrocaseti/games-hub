@@ -133,6 +133,12 @@ function backToHome()
     resetAllGames();
 }
 
+function playWinSound()
+{
+    var audio = new Audio('https://cdn.freesound.org/previews/337/337049_3232293-lq.mp3');
+    audio.play();
+}
+
 function shuffleArray(array)
 {
     for (var i = array.length - 1; i > 0; i--) 
@@ -232,6 +238,7 @@ function startGame1(event)
     if (input == randomNum)
     {
         setWinBackground();
+        playWinSound();
         document.getElementById('generatedNumber1').innerHTML = getLocalizedString("exact");
 
         if (counterGame1 > 1) // plurale o singolare
@@ -285,7 +292,7 @@ function startGame2(event)
     if (input == randomNum2)
     {
         setWinBackground();
-
+        playWinSound();
         document.getElementById('hintGame2').innerHTML = ''; // reset perchè rimane
         document.getElementById('generatedNumber2').innerHTML = getLocalizedString("exact");
 
@@ -692,17 +699,17 @@ function checkAnswer(event, timeout)
         console.log("Input rilevato");
         if(inputBoxValue == getQuestion(game4Index).toUpperCase()) // win
         {
-            console.log("Risposta corretta");
+            setWinBackground();
+            playWinSound();            
             clearInterval(progressBarValue);
             clearInterval(countDownQuestionGame4);
             document.getElementById("nextQuestionButton").disabled = false;
             document.getElementById("inputGame4").disabled = true;
             document.getElementById("nextQuestionButton").focus();
-            setWinBackground();
             document.getElementById("game4Title").innerHTML = parolaFull.join('').toUpperCase();
             document.getElementById("game4Title2").innerHTML = parolaFull2.join('').toUpperCase();
-
             game4WinTracker = game4QuestionIndex + 1 - game4LostTracker;
+            
             document.getElementById("game4MessageInfo").innerHTML = getLocalizedString("exact") + ' ' + getLocalizedString("score") 
                                                                   + game4WinTracker.toString() + " / " + game4Questions.toString();
 
