@@ -118,7 +118,27 @@ function backToHome()
     homeButton.style.display = 'none';
     langButtons.style.display = 'block';
     title.innerHTML = getLocalizedString("name");
-    fadeOutAudio(soundtrack);
+
+    if(soundtrack.paused == false)
+    {
+        fadeOutAudio(soundtrack);
+    }
+
+    if(memorySoundtrack.paused == false)
+    {
+        fadeOutAudio(memorySoundtrack);
+    }
+
+    if(memoryLoadingSound.paused == false)
+    {
+        fadeOutAudio(memoryLoadingSound);
+    }
+
+    if(memoryWinSound.paused == false)
+    {
+        fadeOutAudio(memoryWinSound);
+    }
+
     document.getElementById('gameFrame1').style.display = 'none';
     document.getElementById('gameFrame2').style.display = 'none';
     document.getElementById('gameFrame3').style.display = 'none';
@@ -131,6 +151,44 @@ function backToHome()
     clearInterval(countDownQuestionGame4);
     setDefaultBackground();
     resetAllGames();
+}
+
+var memoryLoadingSound = new Audio('assets/memory_loading.mp3');
+var memorySoundtrack = new Audio('assets/memory.mp3');
+var memoryWinSound = new Audio('assets/win.mp3');
+var soundtrack = new Audio('assets/soundtrack.mp3');
+
+function playMemoryLoadingSound()
+{
+    memoryLoadingSound.currentTime = 0;
+    memoryLoadingSound.volume = 1.0;
+    memoryLoadingSound.play();
+}
+
+function playMemorySoundtrack()
+{
+    memorySoundtrack.currentTime = 0;
+    memorySoundtrack.volume = 1.0;
+    memorySoundtrack.play();
+}
+
+function playMatchSound()
+{
+    var audio = new Audio('assets/match.mp3');
+    audio.play();
+}
+
+function playMemoryWinSound()
+{
+    memoryWinSound.currentTime = 0;
+    memoryWinSound.volume = 1.0;
+    memoryWinSound.play();
+}
+
+function playClick()
+{
+    var audio = new Audio('assets/click.mp3');
+    audio.play();
 }
 
 function playWinSound()
@@ -156,8 +214,6 @@ function playGongSound()
     var audio = new Audio('assets/gong.mp3');
     audio.play();
 }
-
-var soundtrack = new Audio('assets/soundtrack.mp3');
 
 function fadeOutAudio(sound) 
 {
@@ -427,6 +483,7 @@ function setProgressBarValue(value, progressBarIndex)
 function loadGame3()
 {
     loadGenericGame();
+    playMemoryLoadingSound();
     title.innerHTML = getLocalizedString("game3ButtonText") + ' - ' + getLocalizedString("name");
     document.getElementById('gameFrame3').style.display = 'block';
     document.getElementById('gameProgress3').style.display = 'block';
@@ -485,8 +542,9 @@ function loadGame3()
                 var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')";
                 button.style.backgroundImage = newUrl.toString();
 
+                playClick();
                 const updatedClickedButtons = document.querySelectorAll('.memoryButton.clicked:not(.matched)');
-                if(updatedClickedButtons.length === 2) 
+                if(updatedClickedButtons.length === 2)
                 {
                     // Prendi i due bottoni e confronta i loro valori
                     const btn1 = updatedClickedButtons[0];
@@ -503,15 +561,18 @@ function loadGame3()
                             btn1.classList.remove('clicked');
                             btn2.classList.remove('clicked');
                         }, 400);
-
+                        playMatchSound();
                         if (document.querySelectorAll('.memoryButton.matched').length === 22)
                         {
+                            fadeOutAudio(memorySoundtrack);
+                            playMemoryWinSound();
                             setWinBackground();
                             document.getElementById("game3Title").innerHTML = getLocalizedString("youWon");
-                            clearInterval(countDownPlayGame3);                            
+                            clearInterval(countDownPlayGame3);  
+                            clearInterval(progressBarValue);                          
                         }
                     } 
-                    else 
+                    else
                     {
                         // Non match, nascondi dopo 1 secondo
                         setTimeout(() => 
@@ -538,7 +599,12 @@ function loadGame3()
         startCountdown--;
         document.getElementById("game3Title").innerHTML = startCountdown.toString();
 
-        if (startCountdown <= 0) 
+        if (startCountdown === 4)
+        {
+            playMemorySoundtrack();
+        }
+
+        if (startCountdown <= 0)
         {
             clearInterval(countDownStartGame3);
             document.getElementById("game3Title").innerHTML = getLocalizedString("start");
