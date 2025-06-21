@@ -17,19 +17,19 @@
 
     <body id="main" class="default-bg" style="color: #FFFFFF; font-size: 20px; font-weight: 750;">
 
-        <button id="homeButton" onclick="backToHome()" class="defaultButton"
+        <button id="homeButton" onclick="backToHome()" class="defaultButton" onmouseover="playSecondaryClick()"
                 style="width: 200px; height: 30px; display: none; margin-left: 20px; margin-top: 34px;"></button>
 
         <div class="defaultDiv" style="display: flex; justify-content: right; margin-right: 10px;">
 
             <div id="languageButtons" style="margin-top: 1vh;">
-                <button id="italianButton" class="defaultButton" onclick="setLanguage('it')"
+                <button id="italianButton" class="defaultButton" onclick="setLanguage('it')" onmouseover="playSecondaryClick()"
                         style="background-image: url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/it.svg'); width: 4vh; height: 4vh;"></button>
-                <button id="englishButton" class="defaultButton" onclick="setLanguage('en')"
+                <button id="englishButton" class="defaultButton" onclick="setLanguage('en')" onmouseover="playSecondaryClick()"
                         style="background-image: url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/uk.svg'); width: 4vh; height: 4vh; margin-left: 5px;"></button>
             </div>
 
-            <button id="aboutButton" onclick="about()" class="memoryButton"
+            <button id="aboutButton" onclick="about()" class="memoryButton" onmouseover="playSecondaryClick()"
                     style="border-radius: 100%; width: 4vh; height: 4vh; background-image: url('assets/about.png'); background-size: cover; margin: 20px;"></button>
 
         </div>
@@ -51,19 +51,19 @@
 
                 <button id="game1" class="defaultButton"
                         style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;"
-                        onclick="loadGame1()"></button>
+                        onclick="loadGame1()" onmouseover="playSecondaryClick()"></button>
 
                 <button id="game2" class="defaultButton"
                         style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;"
-                        onclick="loadGame2()"></button>
+                        onclick="loadGame2()" onmouseover="playSecondaryClick()"></button>
 
                 <button id="game3" class="defaultButton"
                         style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;"
-                        onclick="loadGame3()"></button>
+                        onclick="loadGame3()" onmouseover="playSecondaryClick()"></button>
 
                 <button id="game4" class="defaultButton"
                         style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;"
-                        onclick="loadGame4()"></button>
+                        onclick="loadGame4()" onmouseover="playSecondaryClick()"></button>
 
             </div>
 
@@ -80,8 +80,8 @@
                 <h1 id="valuesTitle" class="textAnimaton" style="font-size: 30px; font-weight: 700;"></h1>
 
                 <form id="formSetMinMax" onsubmit="setMinMaxValues(event)" style="display: block; text-align: center; margin-top: 20px;">
-                    <input id="minValue" type="number" class="defaultInputBox" min="0">
-                    <input id="maxValue" type="number" class="defaultInputBox" autocomplete="off">
+                    <input id="minValue" type="number" class="defaultInputBox" min="0" onfocus="playSecondaryClick()">
+                    <input id="maxValue" type="number" class="defaultInputBox" onfocus="playSecondaryClick()" autocomplete="off">
                     <button id="inputButton" type="submit" class="defaultButton"></button>
                 </form>
 
@@ -93,7 +93,7 @@
                 <h1 id="gameTitle" class="textAnimaton" style="font-size: 30px; font-weight: 700;"></h1>
 
                 <form id="formStartGame" onsubmit="startGame1(event)" style="display:inline-block; margin-top: -20px;">
-                    <input id="inputBox" type="number" class="defaultInputBox" autocomplete="off">
+                    <input id="inputBox" type="number" class="defaultInputBox" autocomplete="off" onfocus="playSecondaryClick()">
                     <button id="inputButton2" type="submit" class="defaultButton" style="width: 100px; margin: 5px; height: 36px"></button>
                 </form>
 
@@ -118,8 +118,8 @@
                 <h1 id="valuesTitle2" class="textAnimaton" style="font-size: 30px; font-weight: 700;"></h1>
 
                 <form id="formSetMinMax2" onsubmit="setMinMaxValues(event)" style="display: block; text-align: center; margin-top: 20px;">
-                    <input id="minValue2" type="number" class="defaultInputBox" min="0">
-                    <input id="maxValue2" type="number" class="defaultInputBox">
+                    <input id="minValue2" type="number" class="defaultInputBox" min="0" onfocus="playSecondaryClick()">
+                    <input id="maxValue2" type="number" class="defaultInputBox" onfocus="playSecondaryClick()">
                     <button id="inputButton3" type="submit" class="defaultButton"></button>
                 </form>
             </div>
@@ -130,7 +130,7 @@
                 <h1 id="gameTitle2" class="textAnimaton" style="font-size: 30px; font-weight: 700;"></h1>
 
                 <form id="formStartGame2" onsubmit="startGame2(event)" style="display:inline-block; margin-top: -20px;">
-                    <input id="inputBox2" type="number" class="defaultInputBox">
+                    <input id="inputBox2" type="number" class="defaultInputBox" onfocus="playSecondaryClick()">
                     <button id="inputButton4" type="submit" class="defaultButton" style="height: 36px; margin: 5px;"></button>
                 </form>
 
@@ -167,7 +167,7 @@
 
             <div style="display: flex; justify-content: right;">
 
-                <button id="nextQuestionButton" onclick="loadGame4()" class="defaultButton"
+                <button id="nextQuestionButton" onclick="loadGame4()" class="defaultButton" onmouseover="playSecondaryClick()" b
                         style="width: 200px; height: 30px; margin-right: 20px; margin-top: -76px;"></button>
 
             </div>
@@ -178,7 +178,7 @@
             <h2 id="game4Tip" class="textAnimaton" style="font-size: 30px;"></h2>
 
             <form onsubmit="checkAnswer(event, 0)">
-                <input id="inputGame4" type="text" placeholder="Inserisci la risposta" class="defaultInputBox" style="width: 300px;" autocomplete="off">
+                <input id="inputGame4" type="text" placeholder="Inserisci la risposta" class="defaultInputBox" style="width: 300px;" autocomplete="off" onfocus="playSecondaryClick()">
             </form>
 
         </div>

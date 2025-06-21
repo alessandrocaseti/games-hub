@@ -119,6 +119,8 @@ function backToHome()
     langButtons.style.display = 'block';
     title.innerHTML = getLocalizedString("name");
 
+    playMainClick();
+
     if(soundtrack.paused == false)
     {
         fadeOutAudio(soundtrack);
@@ -158,6 +160,18 @@ var memorySoundtrack = new Audio('assets/memory.mp3');
 var memoryWinSound = new Audio('assets/win.mp3');
 var soundtrack = new Audio('assets/soundtrack.mp3');
 
+function playMainClick()
+{
+    var audio = new Audio('assets/click_main.mp3');
+    audio.play();
+}
+
+function playSecondaryClick()
+{
+    var audio = new Audio('assets/click_secondary.mp3');
+    audio.play();
+}
+
 function playMemoryLoadingSound()
 {
     memoryLoadingSound.currentTime = 0;
@@ -183,6 +197,13 @@ function playMemoryWinSound()
     memoryWinSound.currentTime = 0;
     memoryWinSound.volume = 1.0;
     memoryWinSound.play();
+}
+
+function playErrorSound()
+{
+    var audio = new Audio('assets/error.mp3');
+    audio.volume = 0.3;
+    audio.play();
 }
 
 function playClick()
@@ -246,6 +267,7 @@ function shuffleArray(array)
 function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
 {
     event.preventDefault();
+    playMainClick();
 
     if (currentPage == 1) // se siamo nel gioco 1
     {
@@ -292,6 +314,7 @@ function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
 function editValuesGame1()
 {
     setDefaultBackground();
+    playMainClick();
     document.getElementById('gameSetup').style.display = 'none';
     document.getElementById('game1MinMaxValues').style.display = 'block';
     document.getElementById('minValue').value = game1Min.toString();
@@ -303,6 +326,7 @@ function editValuesGame1()
 function editValuesGame2()
 {
     setDefaultBackground();
+    playMainClick();
     document.getElementById('gameSetup2').style.display = 'none';
     document.getElementById('game2MinMaxValues').style.display = 'block';
     document.getElementById('minValue2').value = game1Min.toString();
@@ -314,6 +338,7 @@ function editValuesGame2()
 function startGame1(event)
 {
     event.preventDefault();
+    playMainClick();
     counterGame1++;
     var input = parseInt(document.getElementById('inputBox').value);
 
@@ -364,6 +389,7 @@ function startGame1(event)
 function startGame2(event)
 {
     event.preventDefault();
+    playMainClick();
     counterGame1++; // iniziamo aumentando il contatore
     var input = parseInt(document.getElementById('inputBox2').value); // Convertiamo la stringa restituita da inputBox in un numero
     document.getElementById('cancellami').style.display = 'block'; // varie scritte 
@@ -428,6 +454,7 @@ function startGame2(event)
 function loadGenericGame()
 {
     setDefaultBackground();
+    playMainClick();
     aboutButton.style.display = 'none';
     home.style.display = 'none';
     homeButton.style.display = 'block';
@@ -516,7 +543,7 @@ function loadGame3()
         button.style.height = "160px";
         var url = "url('" + image + "')"; 
         button.style.backgroundImage = url.toString();
-
+        button.addEventListener('mouseover', () => {playSecondaryClick()});
         button.addEventListener('click', () => // algoritmo memory
         {
             if(startCountdown > 0)
@@ -582,10 +609,11 @@ function loadGame3()
                             btn1.style.backgroundImage = questionMark;
                             btn2.style.backgroundImage = questionMark;
                         }, 400);
+                        playErrorSound();
                     }
                 }
             }
-        })
+        });
         frame3.appendChild(button)
     }
 
