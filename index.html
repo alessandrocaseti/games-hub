@@ -27,7 +27,9 @@
                 <button id="italianButton" class="defaultButton" onclick="setLanguage('it')" onmouseover="playSecondaryClick()"
                         style="background-image: url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/it.svg'); width: 4vh; height: 4vh;"></button>
                 <button id="englishButton" class="defaultButton" onclick="setLanguage('en')" onmouseover="playSecondaryClick()"
-                        style="background-image: url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/uk.svg'); width: 4vh; height: 4vh; margin-left: 5px;"></button>
+                        style="background-image: url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/uk.svg'); width: 4vh; height: 4vh;"></button>
+                <button id="settingsButton" class="memoryButton" onclick="showSettings()" onmouseover="playSecondaryClick()"
+                        style="background-image: url('assets/settings.png'); width: 4vh; height: 4vh; background-size: cover; margin-left: 5px;"></button>
             </div>
 
             <button id="aboutButton" onclick="about()" class="memoryButton" onmouseover="playSecondaryClick()"
@@ -183,6 +185,69 @@
             </form>
 
         </div>
+
+        <!-- Settings page -->
+
+        <div id="settingsPage" style="text-align: center; display: none; margin-top: 10vh;">
+
+            <h1 id="settingsTitle" class="textAnimaton" style="font-size: 50px; margin-top: -20px;">Impostazioni</h1>
+
+            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto;">
+                <div class="div1">
+                    <h2 class="textAnimaton" style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Soundtrack</h2>
+                </div>
+                <div class="div2">
+                    <h3 class="textAnimaton" style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Attiva o disattiva la riproduzione delle tracce musicali in sottofondo</h2>
+                </div>
+                <div class="div3" style="margin-top: 30px;">
+                    <label class="switch" onmouseover="playSecondaryClick()">
+                        <input type="checkbox" checked id="soundtrackToggle" onchange="toggleSoundtrack()">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="parent" id="volumeSoundtrack" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 4vh;">
+                <div class="div1">
+                    <h2 class="textAnimaton" style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Volume soundtrack</h2>
+                </div>
+                <div class="div2">
+                    <h3 class="textAnimaton" style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Regola il volume delle tracce musicali in sottofondo</h2>
+                </div>
+                <div class="div3" style="margin-top: 32px; margin-right: 3vh;">
+                    <input type="range" min="1" max="100" value="50" class="sliderVolume" id="sliderVolume" onmouseover="playSecondaryClick()" onchange="setSoundtrackVolume()" style="margin-right: 220px;">
+                </div>
+            </div>
+
+            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 4vh;">
+                <div class="div1">
+                    <h2 class="textAnimaton" style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Effetti sonori</h2>
+                </div>
+                <div class="div2">
+                    <h3 class="textAnimaton" style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Attiva o disattiva la riproduzione degli effetti sonori al click o passaggio del mouse</h2>
+                </div>
+                <div class="div3" style="margin-top: 30px;">
+                    <label class="switch" onmouseover="playSecondaryClick()">
+                        <input type="checkbox" checked id="effectsToggle" onchange="toggleEffects()" onmouseover="playSecondaryClick()">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="parent" id="volumeEffects" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 4vh;">
+                <div class="div1">
+                    <h2 class="textAnimaton" style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Volume effetti</h2>
+                </div>
+                <div class="div2">
+                    <h3 class="textAnimaton" style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Regola il volume degli effetti sonori al click o passaggio del mouse</h2>
+                </div>
+                <div class="div3" style="margin-top: 32px; margin-right: 3vh;">
+                    <input type="range" min="1" max="100" value="50" class="sliderVolume" id="sliderEffects" onmouseover="playSecondaryClick()" onchange="setEffectsVolume()" style="margin-right: 220px;">
+                </div>
+            </div>
+
+        </div>
+
 
         <!-- About section -->
 

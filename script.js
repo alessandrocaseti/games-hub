@@ -52,6 +52,8 @@ window.addEventListener('DOMContentLoaded', function()
     home = document.getElementById('home');
     langButtons = document.getElementById('languageButtons');
     title = document.getElementById("pageTitle");
+    document.getElementById('sliderVolume').value = 100;
+    document.getElementById('sliderEffects').value = 100;
     setLanguage();
 });
 
@@ -113,7 +115,8 @@ function resetAllGames()
 function backToHome()
 {
     aboutButton.style.display = 'block';
-    aboutDiv.style.display = 'none';
+    document.getElementById("aboutDiv").style.display = 'none';
+    document.getElementById("settingsPage").style.display = 'none';
     home.style.display = 'block';
     homeButton.style.display = 'none';
     langButtons.style.display = 'block';
@@ -121,22 +124,22 @@ function backToHome()
 
     playMainClick();
 
-    if(soundtrack.paused == false)
+    if(quizSoundtrack.paused === false)
     {
-        fadeOutAudio(soundtrack);
+        fadeOutAudio(quizSoundtrack);
     }
 
-    if(memorySoundtrack.paused == false)
+    if(memorySoundtrack.paused === false)
     {
         fadeOutAudio(memorySoundtrack);
     }
 
-    if(memoryLoadingSound.paused == false)
+    if(memoryLoadingSound.paused === false)
     {
         fadeOutAudio(memoryLoadingSound);
     }
 
-    if(memoryWinSound.paused == false)
+    if(memoryWinSound.paused === false)
     {
         fadeOutAudio(memoryWinSound);
     }
@@ -732,9 +735,7 @@ function loadGame4()
 
     shuffleAnimation(parolaFinale, parolaFinale2);
     clearInterval(fadeAudio);
-    soundtrack.currentTime = 0;
-    soundtrack.volume = 1.0;
-    soundtrack.play();
+    playQuizSoundtrack();
 
     document.getElementById("game4Tip").innerHTML = getQuestionTip(indice);
 
@@ -775,7 +776,7 @@ function checkAnswer(event, timeout)
         {
             setWinBackground();
             playWinSound();
-            fadeOutAudio(soundtrack);
+            fadeOutAudio(quizSoundtrack);
             clearInterval(progressBarValue);
             clearInterval(countDownQuestionGame4);
             document.getElementById("nextQuestionButton").disabled = false;
@@ -827,9 +828,15 @@ function checkAnswer(event, timeout)
 
 }
 
+function showSettings()
+{
+    loadGenericGame();
+    document.getElementById('settingsPage').style.display = 'block';
+}
+
 function about()
 {
     loadGenericGame();
     title.innerHTML = getLocalizedString("aboutTitle");
-    aboutDiv.style.display = 'block';
+    document.getElementById("aboutDiv").style.display = 'block';
 }

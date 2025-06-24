@@ -102,6 +102,7 @@ const strings_en = {
 
 function setLanguage(id)
 {
+    playMainClick();
     switch(id)
     {
         case "it":
