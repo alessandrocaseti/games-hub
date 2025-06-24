@@ -190,14 +190,19 @@
 
         <div id="settingsPage" style="text-align: center; display: none; margin-top: 10vh;">
 
-            <h1 id="settingsTitle" class="textAnimaton" style="font-size: 50px; margin-top: -20px;">Impostazioni</h1>
+            <h1 id="settingsTitle" class="textAnimaton" style="font-size: 50px; margin-top: -60px;">Impostazioni</h1>
+            <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 50px; display: flex; flex-direction: row;">
+                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h1>
+                    <h2 id="settingsAudioTitle" class="textAnimaton" style="font-size: 24px; margin-top: -20px;"> Suono</h1>
+            </div>
 
-            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto;">
+            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
                     <h2 class="textAnimaton" style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Soundtrack</h2>
                 </div>
                 <div class="div2">
-                    <h3 class="textAnimaton" style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Attiva o disattiva la riproduzione delle tracce musicali in sottofondo</h2>
+                    <h3 class="textAnimaton" style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Attiva o disattiva la riproduzione delle tracce musicali in sottofondo
+                        </h2>
                 </div>
                 <div class="div3" style="margin-top: 30px;">
                     <label class="switch" onmouseover="playSecondaryClick()">
@@ -207,7 +212,7 @@
                 </div>
             </div>
 
-            <div class="parent" id="volumeSoundtrack" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 4vh;">
+            <div class="parent" id="volumeSoundtrack" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
                     <h2 class="textAnimaton" style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Volume soundtrack</h2>
                 </div>
@@ -219,7 +224,7 @@
                 </div>
             </div>
 
-            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 4vh;">
+            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
                     <h2 class="textAnimaton" style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Effetti sonori</h2>
                 </div>
@@ -234,7 +239,7 @@
                 </div>
             </div>
 
-            <div class="parent" id="volumeEffects" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 4vh;">
+            <div class="parent" id="volumeEffects" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
                     <h2 class="textAnimaton" style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Volume effetti</h2>
                 </div>
@@ -245,6 +250,9 @@
                     <input type="range" min="1" max="100" value="50" class="sliderVolume" id="sliderEffects" onmouseover="playSecondaryClick()" onchange="setEffectsVolume()" style="margin-right: 220px;">
                 </div>
             </div>
+
+
+
 
         </div>
 
