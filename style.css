@@ -142,7 +142,7 @@
 .defaultButton:hover
 {
 	scale: 1.12;
-	background-color: rgb(35, 0, 85);
+	background-color: rgb(7, 0, 64);
 	border-color: yellow;
 	color: white;
 }
