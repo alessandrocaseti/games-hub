@@ -489,3 +489,18 @@ transition: 1s;
   background: rgb(255, 255, 255);
   cursor: pointer;
 }
+
+.defaultSelect
+{
+  width: 170px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 6px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(239, 239, 239);
+  font-size: 18px;
+  user-select: none;
+  transition: ease-in-out 0.2s;
+  animation: fadeIn 5s;
+}

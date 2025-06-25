@@ -54,6 +54,7 @@ window.addEventListener('DOMContentLoaded', function()
     title = document.getElementById("pageTitle");
     document.getElementById('sliderVolume').value = 100;
     document.getElementById('sliderEffects').value = 100;
+    document.getElementById('memoryDifficulty').value = "24";
     setLanguage();
 });
 
@@ -156,15 +157,6 @@ function backToHome()
     clearInterval(countDownQuestionGame4);
     setDefaultBackground();
     resetAllGames();
-}
-
-function shuffleArray(array)
-{
-    for (var i = array.length - 1; i > 0; i--) 
-    {
-        var rand = Math.floor(Math.random() * (i + 1));
-        [array[i], array[rand]] = [array[rand], array[i]];
-    }
 }
 
 function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
@@ -408,168 +400,6 @@ function setProgressBarValue(value, progressBarIndex)
             }
 
         }, 10); // aggiorna la progressBar ogni 10 ms per fare una animation mooolto smooth
-}
-
-function loadGame3()
-{
-    loadGenericGame();
-    playMemoryLoadingSound();
-    title.innerHTML = getLocalizedString("game3ButtonText") + ' - ' + getLocalizedString("name");
-    document.getElementById('gameFrame3').style.display = 'block';
-    document.getElementById('gameProgress3').style.display = 'block';
-    currentPage = 3;
-    let i = 0;
-
-    // Svuota e ricrea il frame ogni volta
-    var frame3 = document.getElementById('gameFrame3');
-    if(frame3) 
-    {
-        frame3.innerHTML = '<h1 id="game3Title" class="textAnimaton" style="font-size: 70px; user-select: none; width: auto; height: 30px; margin-bottom: 100px;"></h1>';
-    }
-
-    document.getElementById("game3Title").innerHTML = "15";
-
-    shuffleArray(memoryGameArray); // mescola l'array per avere le immagini in ordine casuale
-    var flagPairsArray = memoryGameArray.slice(20);
-    var flagPairsFullArray = flagPairsArray.flatMap(x => [x, x]);
-    shuffleArray(flagPairsFullArray);
-
-    for(i in flagPairsFullArray)
-    {
-        const button = document.createElement('button');
-        var image = game3Image[flagPairsFullArray[i]];
-        button.innerText = "";
-        button.className = 'memoryButton';
-        button.id = 'Button' + i.toString();
-        button.style.width= "160px";
-        button.style.margin = "30px";
-        button.style.height = "160px";
-        var url = "url('" + image + "')"; 
-        button.style.backgroundImage = url.toString();
-        button.addEventListener('mouseover', () => {playSecondaryClick()});
-        button.addEventListener('click', () => // algoritmo memory
-        {
-            if(startCountdown > 0)
-            {
-                var index = parseInt(button.id.replace('Button', ''));
-                var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')"; 
-                button.style.backgroundImage = newUrl.toString();
-            }
-
-            if(startCountdown <= 0 && !button.classList.contains('matched') && !button.classList.contains('clicked'))
-            {
-                console.log(document.querySelectorAll('.memoryButton.matched').length);
-                
-                // Conta quanti bottoni sono stati cliccati (con classe 'clicked')
-                const clickedButtons = document.querySelectorAll('.memoryButton.clicked:not(.matched)');
-                if(clickedButtons.length === 2)
-                {
-                    // Se ci sono già 2 bottoni cliccati, non permettere altri click finché non si risolve
-                    return;
-                }
-                button.classList.add('clicked');
-                var index = parseInt(button.id.replace('Button', ''));
-                var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')";
-                button.style.backgroundImage = newUrl.toString();
-
-                playClick();
-                const updatedClickedButtons = document.querySelectorAll('.memoryButton.clicked:not(.matched)');
-                if(updatedClickedButtons.length === 2)
-                {
-                    // Prendi i due bottoni e confronta i loro valori
-                    const btn1 = updatedClickedButtons[0];
-                    const btn2 = updatedClickedButtons[1];
-                    const idx1 = parseInt(btn1.id.replace('Button', ''));
-                    const idx2 = parseInt(btn2.id.replace('Button', ''));
-                    if(flagPairsFullArray[idx1] === flagPairsFullArray[idx2]) 
-                    {
-                        // Match! Rendi i bottoni "matched" e non più cliccabili
-                        setTimeout(() => 
-                        {
-                            btn1.classList.add('matched');
-                            btn2.classList.add('matched');
-                            btn1.classList.remove('clicked');
-                            btn2.classList.remove('clicked');
-                        }, 400);
-                        playMatchSound();
-                        if (document.querySelectorAll('.memoryButton.matched').length === 22)
-                        {
-                            fadeOutAudio(memorySoundtrack);
-                            playMemoryWinSound();
-                            setWinBackground();
-                            document.getElementById("game3Title").innerHTML = getLocalizedString("youWon");
-                            clearInterval(countDownPlayGame3);  
-                            clearInterval(progressBarValue);                          
-                        }
-                    } 
-                    else
-                    {
-                        // Non match, nascondi dopo 1 secondo
-                        setTimeout(() => 
-                        {
-                            btn1.classList.remove('clicked');
-                            btn2.classList.remove('clicked');
-                            btn1.style.backgroundImage = questionMark;
-                            btn2.style.backgroundImage = questionMark;
-                        }, 400);
-                        playErrorSound();
-                    }
-                }
-            }
-        });
-        frame3.appendChild(button)
-    }
-
-    document.getElementById('progressBar3').value = 100;
-    startCountdown = 15;
-    setProgressBarValue(startCountdown, 3);
-    gameCountdown = 60;
-
-    countDownStartGame3 = setInterval(function() 
-    {
-        startCountdown--;
-        document.getElementById("game3Title").innerHTML = startCountdown.toString();
-
-        if (startCountdown === 4)
-        {
-            playMemorySoundtrack();
-        }
-
-        if (startCountdown <= 0)
-        {
-            clearInterval(countDownStartGame3);
-            document.getElementById("game3Title").innerHTML = getLocalizedString("start");
-            for (let j = 0; j < 24; j++)
-            {
-                var button = document.getElementById('Button' + j.toString());
-                if(button)
-                {
-                    button.style.backgroundImage = questionMark;
-                }
-            }
-            setProgressBarValue(gameCountdown, 3);
-            countDownPlayGame3 = setInterval(function() 
-            {
-                gameCountdown--;
-                document.getElementById("game3Title").innerHTML = gameCountdown.toString();
-
-                if (gameCountdown <= 0) 
-                {
-                    clearInterval(countDownPlayGame3);
-                    setDefeatBackground();
-                    document.getElementById("game3Title").innerHTML = getLocalizedString("youLost");
-                    for (let j = 0; j < 24; j++)
-                    {
-                        var button = document.getElementById('Button' + j.toString());
-                        var url = "url('" + game3Image[flagPairsFullArray[j]] + "')";
-                        button.style.backgroundImage = url.toString();
-                        button.disabled = true;
-                    }
-                }
-                
-            }, 1000);
-        }
-    }, 1000);
 }
 
 function getRandomChar() 
