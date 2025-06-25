@@ -38,8 +38,15 @@ var game3Image =
 
 const questionMark = "url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/xx.svg')";
 
-var memoryFlags;
-var flagCount = 24;
+var flagCount = 24; // by default
+const flags = game3Image.length;
+
+var memoryGameArray = [];
+
+for (var i = 0; i < flags; i++) 
+{
+    memoryGameArray.push(i);
+}
 
 function setMemoryDifficulty()
 {
@@ -63,14 +70,8 @@ function setMemoryDifficulty()
             flagCount = 24;
     }
 
-    // memoryFlags = game3Image.slice(0, flagCount);
-    // memoryGameArray = shuffleArray(memoryFlags.concat(memoryFlags));
     console.log("Memory difficulty set to " + flagCount + " flags.");
 }
-
-const flags = 32;
-
-var memoryGameArray = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31);
 
 function shuffleArray(array)
 {
@@ -81,9 +82,8 @@ function shuffleArray(array)
     }
 }
 
-function loadGame3()
+function loadMemoryGame()
 {
-    console.log(flagCount);
     loadGenericGame();
     playMemoryLoadingSound();
     title.innerHTML = getLocalizedString("game3ButtonText") + ' - ' + getLocalizedString("name");
@@ -133,6 +133,7 @@ function loadGame3()
         var url = "url('" + image + "')"; 
         button.style.backgroundImage = url.toString();
         button.addEventListener('mouseover', () => {playSecondaryClick()});
+
         button.addEventListener('click', () => // algoritmo memory
         {
             if(startCountdown > 0)
@@ -157,9 +158,9 @@ function loadGame3()
                 var index = parseInt(button.id.replace('Button', ''));
                 var newUrl = "url('" + game3Image[flagPairsFullArray[index]] + "')";
                 button.style.backgroundImage = newUrl.toString();
-
                 playClick();
                 const updatedClickedButtons = document.querySelectorAll('.memoryButton.clicked:not(.matched)');
+
                 if(updatedClickedButtons.length === 2)
                 {
                     // Prendi i due bottoni e confronta i loro valori
@@ -167,6 +168,7 @@ function loadGame3()
                     const btn2 = updatedClickedButtons[1];
                     const idx1 = parseInt(btn1.id.replace('Button', ''));
                     const idx2 = parseInt(btn2.id.replace('Button', ''));
+
                     if(flagPairsFullArray[idx1] === flagPairsFullArray[idx2]) 
                     {
                         // Match! Rendi i bottoni "matched" e non più cliccabili
@@ -177,7 +179,9 @@ function loadGame3()
                             btn1.classList.remove('clicked');
                             btn2.classList.remove('clicked');
                         }, 300);
+
                         playMatchSound();
+
                         if (document.querySelectorAll('.memoryButton.matched').length === flagCount - 2)
                         {
                             fadeOutAudio(memorySoundtrack);
@@ -190,14 +194,15 @@ function loadGame3()
                     } 
                     else
                     {
-                        // Non match, nascondi dopo 400ms secondo
+                        // Non match, nascondi dopo 400ms
                         setTimeout(() => 
                         {
                             btn1.classList.remove('clicked');
                             btn2.classList.remove('clicked');
                             btn1.style.backgroundImage = questionMark;
                             btn2.style.backgroundImage = questionMark;
-                        }, 400);
+                        }, 300);
+
                         playErrorSound();
                     }
                 }
