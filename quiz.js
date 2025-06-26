@@ -2,11 +2,38 @@
 
 const game4Questions = 41; // number of questions
 
+var quizDifficulty = 1.5; // by default
+
 var questionID = [];
 
 for (var i = 0; i < game4Questions; i++) 
 {
     questionID.push(i);
+}
+
+function setQuizDifficulty()
+{
+    var difficulty = document.getElementById("quizDifficulty").value;
+
+    switch (difficulty) 
+    {
+        case "3":
+            quizDifficulty = 3;
+            break;
+        case "2":
+            quizDifficulty = 2;
+            break;
+        case "1.5":
+            quizDifficulty = 1.5;
+            break;
+        case "1.1":
+            quizDifficulty = 1.1;
+            break;
+        default:
+            quizDifficulty = 2;
+    }
+
+    console.log("Quiz difficulty set to: " + quizDifficulty);
 }
 
 function getQuestion(index)

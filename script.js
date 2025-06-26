@@ -55,6 +55,7 @@ window.addEventListener('DOMContentLoaded', function()
     document.getElementById('sliderVolume').value = 100;
     document.getElementById('sliderEffects').value = 100;
     document.getElementById('memoryDifficulty').value = "24";
+    document.getElementById('quizDifficulty').value = "2";
     setLanguage();
 });
 
@@ -312,7 +313,7 @@ function loadGame4()
 
     for (var i = 0; i < lunghezza; i++)
     {
-        var randomNum = Math.floor(Math.random() * 1.5); // genera un numero casuale da 0 a 1
+        var randomNum = Math.floor(Math.random() * quizDifficulty); // genera un numero casuale da 0 a 1
         if(needToClear == true) // se abbiamo già trovato uno spazio -> non scrivere più niente
         {
             vettoreCaratteri[i - 1] = '';
@@ -340,7 +341,7 @@ function loadGame4()
 
     for (var j = secondIndex; j < lunghezza; j++)
     {
-        var randomNum = Math.floor(Math.random() * 1.5);
+        var randomNum = Math.floor(Math.random() * quizDifficulty);
         if(randomNum == 0 && vettoreCaratteri2[j] != ' ' && vettoreCaratteri2[j] != '' && vettoreCaratteri[j] != '\'') // 50% di probabilità di mostrare il carattere
         {
             vettoreCaratteri2[j] = '_';

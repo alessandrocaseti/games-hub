@@ -1,3 +1,5 @@
+//// GAMES HUB ////
+
 function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
 {
     event.preventDefault();
