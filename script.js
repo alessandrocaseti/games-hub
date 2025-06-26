@@ -341,7 +341,7 @@ function loadGame4()
     for (var j = secondIndex; j < lunghezza; j++)
     {
         var randomNum = Math.floor(Math.random() * 1.5);
-        if(randomNum == 0 && vettoreCaratteri2[j] != ' ' && vettoreCaratteri2[j] != '' && vettoreCaratteri[i] != '\'') // 50% di probabilità di mostrare il carattere
+        if(randomNum == 0 && vettoreCaratteri2[j] != ' ' && vettoreCaratteri2[j] != '' && vettoreCaratteri[j] != '\'') // 50% di probabilità di mostrare il carattere
         {
             vettoreCaratteri2[j] = '_';
         }
