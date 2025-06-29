@@ -436,6 +436,12 @@ function checkAnswer(event, timeout)
             document.getElementById("game4MessageInfo").innerHTML = getLocalizedString("exact") + ' ' + getLocalizedString("score") 
                                                                   + game4WinTracker.toString() + " / " + game4Questions.toString();
 
+            if(users)
+            {
+                XP[currentlyPlayingUserID] += 100;
+                updateXP(currentlyPlayingUserID);
+            }                                                     
+
             if(game4QuestionIndex == game4Questions - 1)
             {
                 console.log("QUIZ COMPLETATO - tramite risposta corretta");
@@ -443,6 +449,11 @@ function checkAnswer(event, timeout)
                                                                       + game4WinTracker.toString() + " / " + + game4Questions.toString();
                 document.getElementById("inputGame4").disabled = true;
                 document.getElementById("nextQuestionButton").disabled = true;
+                if(users)
+                {
+                    XP[currentlyPlayingUserID] += 500;
+                    updateXP(currentlyPlayingUserID);
+                }  
             }
 
             console.log(game4QuestionIndex)

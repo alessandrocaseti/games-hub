@@ -223,6 +223,12 @@ function loadMemoryGame()
 
                         playMatchSound();
 
+                        if(users)
+                        {
+                            XP[currentlyPlayingUserID] += 50;
+                            updateXP(currentlyPlayingUserID);
+                        }  
+
                         if (document.querySelectorAll('.memoryButton.matched').length === flagCount - 2)
                         {
                             fadeOutAudio(memorySoundtrack);
@@ -230,7 +236,12 @@ function loadMemoryGame()
                             setWinBackground();
                             document.getElementById("game3Title").innerHTML = getLocalizedString("youWon");
                             clearInterval(countDownPlayGame3);  
-                            clearInterval(progressBarValue);                          
+                            clearInterval(progressBarValue);
+                            if(users)
+                            {
+                                XP[currentlyPlayingUserID] += 1000;
+                                updateXP(currentlyPlayingUserID);
+                            }                     
                         }
                     } 
                     else

@@ -175,3 +175,10 @@ function selectUser(id, triggerSound)
   document.getElementById("currentUserXP").innerHTML = "XP: " + XP[id];
 
 }
+
+function updateXP(userID)
+{
+  document.getElementById("currentUserXP").innerHTML = "XP: " + XP[userID];
+  document.getElementById("userCardXP" + userID).innerHTML = "XP: " + XP[userID];
+  document.getElementById("userXP" + userID).innerHTML = "XP: " + XP[userID];
+}
