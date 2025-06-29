@@ -102,10 +102,31 @@ function shuffleArray(array)
     }
 }
 
-function loadMemoryGame()
+function loadGame3()
 {
     loadGenericGame();
+    if(users && totalUserCount > 1)
+    {
+        showUserSelection(3);
+    }
+    else if(users && totalUserCount === 1)
+    {
+        userSelectionGame = 3;
+        selectUser(0, false);
+    }
+    if(!users)
+    {
+        loadMemoryGame();
+    }
+}
+
+function loadMemoryGame()
+{
     playMemoryLoadingSound();
+    if(users)
+    {
+        document.getElementById("currentUserDiv").style.display = "flex";
+    }
     title.innerHTML = getLocalizedString("game3ButtonText") + ' - ' + getLocalizedString("name");
     document.getElementById('gameFrame3').style.display = 'block';
     document.getElementById('gameProgress3').style.display = 'block';

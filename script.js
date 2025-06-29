@@ -121,6 +121,7 @@ function backToHome()
     document.getElementById("settingsPage").style.display = 'none';
     home.style.display = 'block';
     homeButton.style.display = 'none';
+
     langButtons.style.display = 'block';
     title.innerHTML = getLocalizedString("name");
 
@@ -146,6 +147,8 @@ function backToHome()
         fadeOutAudio(memoryWinSound);
     }
 
+    document.getElementById("userSelection").style.display = "none";
+    document.getElementById("currentUserDiv").style.display = "none";
     document.getElementById('gameFrame1').style.display = 'none';
     document.getElementById('gameFrame2').style.display = 'none';
     document.getElementById('gameFrame3').style.display = 'none';
@@ -277,6 +280,29 @@ function blinkAnimation()
 function loadGame4()
 {
     loadGenericGame();
+    if(users && totalUserCount > 1)
+    {
+        showUserSelection(3);
+    }
+    else if(users && totalUserCount === 1)
+    {
+        userSelectionGame = 4;
+        selectUser(0, false);
+    }
+    if(!users)
+    {
+        loadQuiz();
+    }
+}
+
+function loadQuiz()
+{
+    loadGenericGame();
+    if(users)
+    {
+        document.getElementById("currentUserDiv").style.display = "flex";
+    }
+
     title.innerHTML = getLocalizedString("game4ButtonText") + ' - ' + getLocalizedString("name");
     var game4countdown = 20;
     document.getElementById("inputGame4").value = "";

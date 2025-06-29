@@ -1,12 +1,17 @@
 //// GAMES HUB ////
 
+var users = false;
 var currentUserID = null;
+
+var currentlyPlayingUserID = null;
+
+var totalUserCount = 0;
 
 var avatar = ["assets/nouser.png", "assets/nouser.png", "assets/nouser.png", "assets/nouser.png"];
 var XP = [0, 0, 0, 0];
 var username = ["1", "2", "3", "4"];
 
-function toggleUsers() 
+function toggleUsers()
 {
   playMainClick();
 
@@ -16,9 +21,11 @@ function toggleUsers()
     currentUserID = -1;
     document.getElementById("addUserCard").style.display = "grid";
     document.getElementById("appendChildDiv").style.display = "block";
+    users = true;
   }
-  else 
+  else
   {
+    users = false;
     currentUserID = null;
     document.getElementById("addUserCard").style.display = "none";
     document.getElementById("appendChildDiv").style.display = "none";
@@ -35,7 +42,7 @@ function openUserDialog()
   console.log("currentUSERID: " + currentUserID)
   playMainClick();
 
-  if (currentUserID === 3) 
+  if (currentUserID === 3)
   {
     alert("You can only add up to 4 users.");
     return;
@@ -87,6 +94,8 @@ function addUser()
   document.getElementById("userXP" + currentUserID).innerText = "XP: " + XP[currentUserID];
   document.getElementById("userPic" + currentUserID).src = avatar[currentUserID];
 
+  totalUserCount += 1;
+
   username[currentUserID] = userName; // STORE new username
 
   console.log("ADDED USER " + currentUserID);
@@ -107,6 +116,7 @@ function deleteUser(id, triggerSound)
   document.getElementById("userXP" + id).innerText = "";
 
   currentUserID--;
+  totalUserCount--;
 
   username[id] = "";
   avatar[id] = "assets/nouser.png";
@@ -120,3 +130,48 @@ function debug()
   }
 }
 
+var userSelectionGame;
+
+function showUserSelection(gameID)
+{
+  document.getElementById("userSelection").style.display = "block";
+  if(totalUserCount === 3)
+  {
+    document.getElementById("userSelection2").style.display = "block";
+  }
+  if(totalUserCount === 4)
+  {
+    document.getElementById("userSelection2").style.display = "block";
+    document.getElementById("userSelection3").style.display = "block";
+  }
+  for(let i = 0; i < 4; i++)
+  {
+    document.getElementById("userCardPic" + i).src = avatar[i];
+    document.getElementById("userCardName" + i).innerHTML = username[i];
+    document.getElementById("userCardXP" + i).innerHTML = "XP: " + XP[i];
+  }
+
+  userSelectionGame = gameID;
+}
+
+function selectUser(id, triggerSound)
+{
+  if(triggerSound)
+  {
+    playMainClick();
+  }
+  currentlyPlayingUserID = id;
+  document.getElementById("userSelection").style.display = "none";
+  if(userSelectionGame === 3)
+  {
+    loadMemoryGame();
+  }
+  else
+  {
+    loadQuiz();
+  }
+  document.getElementById("currentUserPic").src = avatar[id];
+  document.getElementById("currentUserName").innerHTML = username[id];
+  document.getElementById("currentUserXP").innerHTML = "XP: " + XP[id];
+
+}
