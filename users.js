@@ -42,7 +42,7 @@ function openUserDialog()
   console.log("currentUSERID: " + currentUserID)
   playMainClick();
 
-  if (currentUserID === 3)
+  if (totalUserCount === 4)
   {
     alert("You can only add up to 4 users.");
     return;
@@ -128,6 +128,7 @@ function debug()
   for (let i = 0; i < 4; i++) {
     console.log("User " + i + ": " + username[i] + ", Avatar: " + avatar[i] + ", XP: " + XP[i]);
   }
+  console.log("totalusercount: " + totalUserCount)
 }
 
 var userSelectionGame;
