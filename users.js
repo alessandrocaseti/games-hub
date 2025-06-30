@@ -26,9 +26,11 @@ function toggleUsers()
   else
   {
     users = false;
+    totalUserCount = 0;
     currentUserID = null;
     document.getElementById("addUserCard").style.display = "none";
     document.getElementById("appendChildDiv").style.display = "none";
+    document.getElementById("userSelection").style.display = "none";
 
     for (let i = 0; i < 4; i++) 
     {
@@ -114,6 +116,10 @@ function deleteUser(id, triggerSound)
   document.getElementById("user" + id).style.display = "none";
   document.getElementById("userName" + id).innerText = "";
   document.getElementById("userXP" + id).innerText = "";
+  document.getElementById("currentUserName" + id).innerText = "";
+  document.getElementById("currentUserXP" + id).innerText = "";
+  document.getElementById("userCardName" + id).innerText = "";
+  document.getElementById("userCardXP" + id).innerText = "";
 
   currentUserID--;
   totalUserCount--;
