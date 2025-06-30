@@ -116,8 +116,8 @@ function deleteUser(id, triggerSound)
   document.getElementById("user" + id).style.display = "none";
   document.getElementById("userName" + id).innerText = "";
   document.getElementById("userXP" + id).innerText = "";
-  document.getElementById("currentUserName" + id).innerText = "";
-  document.getElementById("currentUserXP" + id).innerText = "";
+  document.getElementById("currentUserName").innerText = "";
+  document.getElementById("currentUserXP").innerText = "";
   document.getElementById("userCardName" + id).innerText = "";
   document.getElementById("userCardXP" + id).innerText = "";
 
