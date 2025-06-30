@@ -26,7 +26,6 @@ function toggleUsers()
   else
   {
     users = false;
-    totalUserCount = 0;
     currentUserID = null;
     document.getElementById("addUserCard").style.display = "none";
     document.getElementById("appendChildDiv").style.display = "none";
@@ -36,6 +35,7 @@ function toggleUsers()
     {
       deleteUser(i, true);
     }
+    totalUserCount = 0;
   }
 }
 

@@ -296,7 +296,7 @@ function loadGame4()
 
 function loadQuiz(triggerSound)
 {
-    if(users)
+    if(totalUserCount > 0)
     {
         document.getElementById("currentUserDiv").style.display = "flex";
     }

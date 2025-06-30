@@ -128,10 +128,12 @@ function loadGame3()
 function loadMemoryGame()
 {
     playMemoryLoadingSound();
-    if(users)
+
+    if(totalUserCount > 0)
     {
         document.getElementById("currentUserDiv").style.display = "flex";
     }
+    
     title.innerHTML = getLocalizedString("game3ButtonText") + ' - ' + getLocalizedString("name");
     document.getElementById('gameFrame3').style.display = 'block';
     document.getElementById('gameProgress3').style.display = 'block';
