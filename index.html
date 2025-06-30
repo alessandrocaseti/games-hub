@@ -180,7 +180,7 @@
 
             <div style="display: flex; justify-content: right;">
 
-                <button id="nextQuestionButton" onclick="loadQuiz()" class="defaultButton" onmouseover="playSecondaryClick()" b
+                <button id="nextQuestionButton" onclick="loadQuiz(true)" class="defaultButton" onmouseover="playSecondaryClick()" b
                         style="width: 200px; height: 30px; margin-right: 4vh; margin-top: -40px;"></button>
 
             </div>
@@ -191,7 +191,7 @@
             <h2 id="game4Tip" class="textAnimaton" style="font-size: 30px;"></h2>
 
             <form onsubmit="checkAnswer(event, 0)">
-                <input id="inputGame4" type="text" placeholder="Inserisci la risposta" class="defaultInputBox" style="width: 300px;" autocomplete="off" onfocus="playSecondaryClick()">
+                <input id="inputGame4" type="text" class="defaultInputBox" style="width: 300px;" autocomplete="off" onfocus="playSecondaryClick()">
             </form>
 
         </div>

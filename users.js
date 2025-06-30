@@ -169,7 +169,7 @@ function selectUser(id, triggerSound)
   }
   else
   {
-    loadQuiz();
+    loadQuiz(true);
   }
   document.getElementById("currentUserPic").src = avatar[id];
   document.getElementById("currentUserName").innerHTML = username[id];

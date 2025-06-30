@@ -68,6 +68,11 @@ for (var i = 0; i < flags; i++)
     memoryGameArray.push(i);
 }
 
+var countDownStartGame3 = 0;
+var countDownPlayGame3 = 0;
+var startCountdown = 15;
+var gameCountdown = 60;
+
 function setMemoryDifficulty()
 {
     var difficulty = document.getElementById("memoryDifficulty").value;
@@ -104,7 +109,7 @@ function shuffleArray(array)
 
 function loadGame3()
 {
-    loadGenericGame();
+    loadGenericGame(true);
     if(users && totalUserCount > 1)
     {
         showUserSelection(3);
@@ -114,7 +119,7 @@ function loadGame3()
         userSelectionGame = 3;
         selectUser(0, false);
     }
-    if(!users)
+    else
     {
         loadMemoryGame();
     }

@@ -189,7 +189,7 @@ function startGame2(event)
 
 function loadGame1()
 {
-    loadGenericGame();
+    loadGenericGame(true);
     title.innerHTML = getLocalizedString("game1ButtonText") + ' - ' + getLocalizedString("name");
     document.getElementById('gameFrame1').style.display = 'block';
     document.getElementById('gameSetup').style.display = 'none';
@@ -200,7 +200,7 @@ function loadGame1()
 
 function loadGame2()
 {
-    loadGenericGame();
+    loadGenericGame(true);
     title.innerHTML = getLocalizedString("game2ButtonText") + ' - ' + getLocalizedString("name");
     document.getElementById('gameFrame2').style.display = 'block';
     document.getElementById('gameSetup2').style.display = 'none';

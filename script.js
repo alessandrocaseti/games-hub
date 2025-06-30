@@ -15,17 +15,11 @@ var winsGame2 = 0; // contatore per le vittorie del gioco 2
 var totalAttemptsGame1 = 0; // contatore per i tentativi totali del gioco 1 e 2
 var winPercentageGame1 = 0; // percentuale di vittoria del gioco 1 e 2
 
-var countDownStartGame3 = 0;
-var countDownPlayGame3 = 0;
 var countDownQuestionGame4 = 0;
-
-var startCountdown = 15;
-var gameCountdown = 60;
 
 var game4WinTracker = 0;  
 var game4LostTracker = 0;
 var game4QuestionIndex = -1;
-var fadeAudio = null;
 var progressBarValue = 0; // valore della progressbar per il gioco 3 e 4
 
 var hasGame2BeenStarted = false; // serve per il gioco 2
@@ -163,10 +157,15 @@ function backToHome()
     resetAllGames();
 }
 
-function loadGenericGame()
+function loadGenericGame(triggerSound)
 {
     setDefaultBackground();
-    playMainClick();
+
+    if(triggerSound)
+    {
+        playMainClick();
+    }
+
     aboutButton.style.display = 'none';
     home.style.display = 'none';
     homeButton.style.display = 'block';
@@ -279,29 +278,35 @@ function blinkAnimation()
 
 function loadGame4()
 {
-    loadGenericGame();
+    loadGenericGame(false);
     if(users && totalUserCount > 1)
     {
-        showUserSelection(3);
+        showUserSelection(4);
     }
     else if(users && totalUserCount === 1)
     {
         userSelectionGame = 4;
         selectUser(0, false);
     }
-    if(!users)
+    else
     {
-        loadQuiz();
+        loadQuiz(true);
     }
 }
 
-function loadQuiz()
+function loadQuiz(triggerSound)
 {
-    loadGenericGame();
     if(users)
     {
         document.getElementById("currentUserDiv").style.display = "flex";
     }
+
+    if(triggerSound)
+    {
+        playMainClick();
+    }
+
+    loadGenericGame(!triggerSound);
 
     title.innerHTML = getLocalizedString("game4ButtonText") + ' - ' + getLocalizedString("name");
     var game4countdown = 20;
@@ -337,7 +342,7 @@ function loadQuiz()
     var secondIndex = 0; // index da dove ripartire per scrivere il secondo vettore
     var needToClear = false; // serve per il ciclo for
 
-    for (var i = 0; i < lunghezza; i++)
+    for (let i = 0; i < lunghezza; i++)
     {
         var randomNum = Math.floor(Math.random() * quizDifficulty); // genera un numero casuale da 0 a 1
         if(needToClear == true) // se abbiamo già trovato uno spazio -> non scrivere più niente
@@ -350,7 +355,7 @@ function loadQuiz()
             vettoreCaratteri2[i] = '';
             parolaFull2[i] = ''; // cancella anche la parola completa
         }
-        if(randomNum == 0 && vettoreCaratteri[i] != ' ' && vettoreCaratteri[i] != '' && vettoreCaratteri[i] != '\'') // 40% di probabilità di mostrare il carattere
+        if(randomNum == 0 && vettoreCaratteri[i] != ' ' && vettoreCaratteri[i] != '' && vettoreCaratteri[i] != "\'")
         {
             vettoreCaratteri[i] = '_';
         }
@@ -359,20 +364,18 @@ function loadQuiz()
             secondIndex = i + 1; // +1 per non scrivere lo spazio
             needToClear = true; // ora non scrivere più niente
         }
-        vettoreCaratteri[i] = vettoreCaratteri[i].toUpperCase(); // mettiamo in maiuscolo
     }
 
     vettoreCaratteri[lunghezza - 1] = ''; // cancella l'ultimo carattere se è uno spazio
     parolaFull[lunghezza - 1] = ''; // cancella l'ultimo carattere se è uno spazio
 
-    for (var j = secondIndex; j < lunghezza; j++)
+    for (let j = secondIndex; j < lunghezza; j++)
     {
         var randomNum = Math.floor(Math.random() * quizDifficulty);
-        if(randomNum == 0 && vettoreCaratteri2[j] != ' ' && vettoreCaratteri2[j] != '' && vettoreCaratteri[j] != '\'') // 50% di probabilità di mostrare il carattere
+        if(randomNum == 0 && vettoreCaratteri2[j] != ' ' && vettoreCaratteri2[j] != '' && vettoreCaratteri2[j] != "\'")
         {
             vettoreCaratteri2[j] = '_';
         }
-        vettoreCaratteri2[j] = vettoreCaratteri2[j].toUpperCase(); // mettiamo in maiuscolo
     }
 
     game4Index = indice;
@@ -488,13 +491,13 @@ function checkAnswer(event, timeout)
 
 function showSettings()
 {
-    loadGenericGame();
+    loadGenericGame(true);
     document.getElementById('settingsPage').style.display = 'block';
 }
 
 function about()
 {
-    loadGenericGame();
+    loadGenericGame(true);
     title.innerHTML = getLocalizedString("aboutTitle");
     document.getElementById("aboutDiv").style.display = 'block';
 }

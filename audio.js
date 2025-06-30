@@ -11,6 +11,8 @@ var playSoundEffectsSetting = true;
 var volumeSoundtrack = 1.0;
 var volumeEffects = 1.0;
 
+var fadeAudio = null;
+
 function toggleSoundtrack()
 {
     const setting = document.getElementById("soundtrackToggle");
