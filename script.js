@@ -30,36 +30,19 @@ window.addEventListener('DOMContentLoaded', function()
     setLanguage();
 });
 
-function setBodyBgClass(className)
-{
+function setBackground(type) {
     if (!body) return;
-
-    // Se la classe è già presente, non fare nulla
-    if (body.classList.contains(className)) return;
-
-    // Rimuovi tutte le classi di background
-    body.classList.remove('default-bg', 'win-bg', 'defeat-bg');
-
-    // Aggiungi la nuova classe
-    body.classList.add(className);
-
-    // Non serve forzare il repaint, l'animazione CSS farà il resto
+    const validTypes = ['default-bg', 'win-bg', 'defeat-bg'];
+    if (!validTypes.includes(type)) return;
+    if (body.classList.contains(type)) return;
+    body.classList.remove(...validTypes);
+    body.classList.add(type);
 }
 
-function setDefaultBackground()
-{
-    setBodyBgClass('default-bg');
-}
-
-function setWinBackground()
-{
-    setBodyBgClass('win-bg');
-}
-
-function setDefeatBackground()
-{
-    setBodyBgClass('defeat-bg');
-}
+// Alias per retrocompatibilità (opzionale)
+function setDefaultBackground() { setBackground('default-bg'); }
+function setWinBackground() { setBackground('win-bg'); }
+function setDefeatBackground() { setBackground('defeat-bg'); }
 
 function resetAllGames()
 {
@@ -156,20 +139,20 @@ function setProgressBarValue(value, progressBarIndex)
     var progressBar = document.getElementById(getProgressBar.toString());
     var max = value * 1000; // valore massimo della barra di avanzamento
     progressBarValue = setInterval(function() 
+    {
+        max = (max - 10); // calcola il nuovo valore della barra di avanzamento
+        progressBar.value = max / (value * 10);
+
+        if (max <= 0)
         {
-            max = (max - 10); // calcola il nuovo valore della barra di avanzamento
-            progressBar.value = max / (value * 10);
-
-            if (max <= 0)
+            clearInterval(progressBarValue);
+            if(progressBarIndex == 4)
             {
-                clearInterval(progressBarValue);
-                if(progressBarIndex == 4)
-                {
-                    checkAnswer(document.createEvent("Event"), 1); // chiama la funzione per controllare la risposta del gioco 4
-                }
+                checkAnswer(document.createEvent("Event"), 1); // chiama la funzione per controllare la risposta del gioco 4
             }
+        }
 
-        }, 10); // aggiorna la progressBar ogni 10 ms per fare una animation mooolto smooth
+    }, 10); // aggiorna la progressBar ogni 10 ms per fare una animation mooolto smooth
 }
 
 function showSettings()
