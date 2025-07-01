@@ -1,5 +1,18 @@
 //// GAMES HUB ////
 
+var counterGame1 = 0; // contatore per il gioco 1 e 2
+var game1Min = 0; // valore minimo del gioco 1 e 2
+var game1Max = 0; // valore massimo del gioco 1 e 2
+
+var winsGame1 = 0; // contatore per le vittorie del gioco 1
+var winsGame2 = 0; // contatore per le vittorie del gioco 2
+
+var totalAttemptsGame1 = 0; // contatore per i tentativi totali del gioco 1 e 2
+var winPercentageGame1 = 0; // percentuale di vittoria del gioco 1 e 2
+
+var hasGame2BeenStarted = false; // serve per il gioco 2
+var randomNum2 = 0; // numero generato per il gioco 2
+
 function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
 {
     event.preventDefault();

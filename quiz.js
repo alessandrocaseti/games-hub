@@ -2,6 +2,15 @@
 
 const game4Questions = 41; // number of questions
 
+var countDownQuestionGame4 = 0;
+var hasGame4BeenStarted = false;
+var game4Index = 0;
+var game4WinTracker = 0;  
+var game4LostTracker = 0;
+var game4QuestionIndex = -1;
+var parolaFull = ""; // parola completa 1
+var parolaFull2 = ""; // parola completa 2
+
 var quizDifficulty = 1.5; // by default
 
 var questionID = [];

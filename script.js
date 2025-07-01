@@ -5,30 +5,7 @@ const appReleaseDate = { day : "20", month : "06", year : "2025" }
 
 var currentPage = 0; // 0 = home, 1 = game1, 2 = game2, 3 = game3, 4 = game4
 
-var counterGame1 = 0; // contatore per il gioco 1 e 2
-var game1Min = 0; // valore minimo del gioco 1 e 2
-var game1Max = 0; // valore massimo del gioco 1 e 2
-
-var winsGame1 = 0; // contatore per le vittorie del gioco 1
-var winsGame2 = 0; // contatore per le vittorie del gioco 2
-
-var totalAttemptsGame1 = 0; // contatore per i tentativi totali del gioco 1 e 2
-var winPercentageGame1 = 0; // percentuale di vittoria del gioco 1 e 2
-
-var countDownQuestionGame4 = 0;
-
-var game4WinTracker = 0;  
-var game4LostTracker = 0;
-var game4QuestionIndex = -1;
 var progressBarValue = 0; // valore della progressbar per il gioco 3 e 4
-
-var hasGame2BeenStarted = false; // serve per il gioco 2
-var randomNum2 = 0; // numero generato per il gioco 2
-var parolaFull = ""; // parola completa per il gioco 4
-var parolaFull2 = ""; // parola completa per il gioco 4 (seconda parte)
-
-var hasGame4BeenStarted = false;
-var game4Index = 0;
 
 // HTML elements
 var body;
