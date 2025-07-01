@@ -27,10 +27,7 @@
         <div class="defaultDiv" style="display: flex; justify-content: right; margin-right: 10px;">
 
             <div id="languageButtons" style="margin-top: 1vh;">
-                <button id="italianButton" class="defaultButton" onclick="setLanguage('it')" onmouseover="playSecondaryClick()"
-                        style="background-image: url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/it.svg'); width: 4vh; height: 4vh;"></button>
-                <button id="englishButton" class="defaultButton" onclick="setLanguage('en')" onmouseover="playSecondaryClick()"
-                        style="background-image: url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/uk.svg'); width: 4vh; height: 4vh;"></button>
+
                 <button id="settingsButton" class="memoryButton" onclick="showSettings()" onmouseover="playSecondaryClick()"
                         style="background-image: url('assets/settings.png'); width: 4vh; height: 4vh; background-size: cover; margin-left: 5px;"></button>
             </div>
@@ -352,7 +349,7 @@
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Crea utente</h2>
                 </div>
                 <div class="div2">
-                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Aggiungi un nuovo utente</h3>
+                    <h3 id="enableUsersCardDescription" style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;"></h3>
                 </div>
                 <div class="div3" style="margin: 0 auto; margin-top: 8px; margin-right: 20px;">
                     <button onclick="openUserDialog()" class="defaultButton" onmouseover="playSecondaryClick()" style="font-family: iconFont; font-size: 24px; width: 10vh; height: 6vh;"></button>
@@ -417,7 +414,28 @@
                     <button class="defaultButton" style="width: 12vh;" onclick="addUser()" onmouseover="playSecondaryClick()">Salva</button>
                 </div>
             </div>
-            <button onclick="debug()">DEBUG USERS</button>
+            <button style="display: none;" onclick="debug()">DEBUG USERS</button>
+
+            <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 70px; display: flex; flex-direction: row;">
+                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h1>
+                    <h2 id="difficultyTitle" style="font-size: 24px; margin-top: -20px;">Lingua</h1>
+            </div>
+
+            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
+                <div class="div1">
+                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Cambia lingua</h2>
+                </div>
+                <div class="div2">
+                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Seleziona la lingua del sito (italiano / inglese)</h3>
+                </div>
+                <div class="div3" style="display: flex; flex-direction: row; margin-top: 1vh; margin-right: 2vh;">
+                    <button id="italianButton" class="defaultButton" onclick="setLanguage('it')" onmouseover="playSecondaryClick()"
+                            style="background-image: url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/it.svg'); width: 6vh; height: 6vh; margin-right: 1vh;"></button>
+                    <button id="englishButton" class="defaultButton" onclick="setLanguage('en')" onmouseover="playSecondaryClick()"
+                            style="background-image: url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/uk.svg'); width: 6vh; height: 6vh;"></button>
+                </div>
+            </div>
+
             <div style="margin-bottom: 20vh;"></div>
         </div>
 

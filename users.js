@@ -24,6 +24,7 @@ function toggleUsers()
         currentUserID = -1;
         document.getElementById("addUserCard").style.display = "grid";
         document.getElementById("appendChildDiv").style.display = "block";
+        document.getElementById("enableUsersCardDescription").innerHTML = "Aggiungi un nuovo utente (" + totalUserCount + "/4)";
         users = true;
     }
     else
@@ -63,6 +64,8 @@ function openUserDialog()
     }
 
     document.getElementById("box").style.display = "grid";
+    window.scrollBy(0, 300);
+
 }
 
 function closeUserDialog()
@@ -102,6 +105,7 @@ function addUser()
     document.getElementById("userPic" + currentUserID).src = avatar[currentUserID];
 
     totalUserCount += 1;
+    document.getElementById("enableUsersCardDescription").innerHTML = "Aggiungi un nuovo utente (" + totalUserCount + "/4)";
 
     username[currentUserID] = userName; // STORE new username
 
@@ -132,6 +136,8 @@ function deleteUser(id, triggerSound)
 
     currentUserID--;
     totalUserCount--;
+
+    document.getElementById("enableUsersCardDescription").innerHTML = "Aggiungi un nuovo utente (" + totalUserCount + "/4)";
 
     totalDeletedUsers += 1;
 
