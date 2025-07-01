@@ -5,6 +5,9 @@ var currentUserID = null;
 
 var currentlyPlayingUserID = null;
 
+var deletedUsers = [null, null, null, null];
+var totalDeletedUsers = -1;
+
 var totalUserCount = 0;
 
 var avatar = ["assets/nouser.png", "assets/nouser.png", "assets/nouser.png", "assets/nouser.png"];
@@ -30,7 +33,7 @@ function toggleUsers()
     document.getElementById("addUserCard").style.display = "none";
     document.getElementById("appendChildDiv").style.display = "none";
     document.getElementById("userSelection").style.display = "none";
-
+    deletedUsers = [null, null, null, null];
     for (let i = 0; i < 4; i++) 
     {
       deleteUser(i, true);
@@ -113,6 +116,10 @@ function deleteUser(id, triggerSound)
     playMainClick();
   }
 
+  username[id] = "";
+  avatar[id] = "assets/nouser.png";
+  XP[id] = 0;
+
   document.getElementById("user" + id).style.display = "none";
   document.getElementById("userName" + id).innerText = "";
   document.getElementById("userXP" + id).innerText = "";
@@ -124,9 +131,9 @@ function deleteUser(id, triggerSound)
   currentUserID--;
   totalUserCount--;
 
-  username[id] = "";
-  avatar[id] = "assets/nouser.png";
-  XP[id] = 0;
+  totalDeletedUsers += 1;
+
+  deletedUsers[totalDeletedUsers] = id;
 }
 
 function debug()
@@ -135,6 +142,7 @@ function debug()
     console.log("User " + i + ": " + username[i] + ", Avatar: " + avatar[i] + ", XP: " + XP[i]);
   }
   console.log("totalusercount: " + totalUserCount)
+  console.log("deletedUsers: " + deletedUsers)
 }
 
 var userSelectionGame;
