@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title id="pageTitle"></title>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="texts.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap">
         <link rel="icon" type="image/x-icon" href="assets/logo.png">
         <script src="script.js"></script>
@@ -55,8 +56,8 @@
             <div class="defaultDiv" id="homeTitleDiv" style="text-align: center; margin-bottom: 20px;">
 
                 <h1 id="mainTitle" class="glow" style="font-size: 90px; font-weight: 750; margin-top: -30px;"></h1>
-                <p id="welcomeText" class="textAnimaton" style="font-size: 20px; font-weight: 500; margin-top: -50px;"></p>
-                <p id="chooseGameText" class="textAnimaton" style="font-size: 20px; font-weight: 500;"></p>
+                <p id="welcomeText" style="font-size: 20px; font-weight: 500; margin-top: -50px;"></p>
+                <p id="chooseGameText" style="font-size: 20px; font-weight: 500;"></p>
 
             </div>
 
@@ -85,12 +86,12 @@
         <!-- GIOCO 1: GUESS THE RANDOM NUMBER - HARD VERSION -->
         <div id="gameFrame1" style="margin-top: 20px; display: none; text-align: center;">
 
-            <h1 id="game1Title" class="textAnimaton" style="font-size: 50px;"></h1>
+            <h1 id="game1Title" style="font-size: 50px;"></h1>
 
             <!-- Setup gioco 1 -->
             <div id="game1MinMaxValues">
 
-                <h1 id="valuesTitle" class="textAnimaton" style="font-size: 30px; font-weight: 700;"></h1>
+                <h1 id="valuesTitle" style="font-size: 30px; font-weight: 700;"></h1>
 
                 <form id="formSetMinMax" onsubmit="setMinMaxValues(event)" style="display: block; text-align: center; margin-top: 20px;">
                     <input id="minValue" type="number" class="defaultInputBox" min="0" onfocus="playSecondaryClick()">
@@ -103,7 +104,7 @@
             <!-- Interfaccia gioco 1 -->
             <div id="gameSetup" style="display: none; align-items: center; margin-top: -30px;">
 
-                <h1 id="gameTitle" class="textAnimaton" style="font-size: 30px; font-weight: 700;"></h1>
+                <h1 id="gameTitle" style="font-size: 30px; font-weight: 700;"></h1>
 
                 <form id="formStartGame" onsubmit="startGame1(event)" style="display:inline-block; margin-top: -20px;">
                     <input id="inputBox" type="number" class="defaultInputBox" autocomplete="off" onfocus="playSecondaryClick()">
@@ -115,20 +116,20 @@
 
             </div>
 
-            <h1 id="generatedNumber1" class="textAnimaton" style="font-size: 200px; margin-top: 60px;"></h1>
-            <h1 id="test" class="textAnimaton" style="font-size: 70px; margin-top: -100px;"></h1>
-            <h2 id="statsGame1" class="textAnimaton" style="font-size: 30px; margin-top: 0px; font-weight: 400;"></h2>
+            <h1 id="generatedNumber1" style="font-size: 200px; margin-top: 60px;"></h1>
+            <h1 id="test" style="font-size: 70px; margin-top: -100px;"></h1>
+            <h2 id="statsGame1" style="font-size: 30px; margin-top: 0px; font-weight: 400;"></h2>
 
         </div>
 
         <!-- GIOCO 2: GUESS THE RANDOM NUMBER - EASY VERSION -->
         <div id="gameFrame2" style="margin-top: 20px; display: none; text-align: center;">
 
-            <h1 id="game2Title" class="textAnimaton" style="font-size: 50px;"></h1>
+            <h1 id="game2Title" style="font-size: 50px;"></h1>
 
             <!-- Setup gioco 2 -->
             <div id="game2MinMaxValues">
-                <h1 id="valuesTitle2" class="textAnimaton" style="font-size: 30px; font-weight: 700;"></h1>
+                <h1 id="valuesTitle2" style="font-size: 30px; font-weight: 700;"></h1>
 
                 <form id="formSetMinMax2" onsubmit="setMinMaxValues(event)" style="display: block; text-align: center; margin-top: 20px;">
                     <input id="minValue2" type="number" class="defaultInputBox" min="0" onfocus="playSecondaryClick()">
@@ -140,7 +141,7 @@
             <!-- Interfaccia gioco 2 -->
             <div id="gameSetup2" style="display: none; align-items: center; margin-top: -30px;">
 
-                <h1 id="gameTitle2" class="textAnimaton" style="font-size: 30px; font-weight: 700;"></h1>
+                <h1 id="gameTitle2" style="font-size: 30px; font-weight: 700;"></h1>
 
                 <form id="formStartGame2" onsubmit="startGame2(event)" style="display:inline-block; margin-top: -20px;">
                     <input id="inputBox2" type="number" class="defaultInputBox" onfocus="playSecondaryClick()">
@@ -153,10 +154,10 @@
             </div>
 
             <div id="cancellami" style="display: none; text-align: center; align-items: center;">
-                <h1 id="generatedNumber2" class="textAnimaton" style="font-size: 200px; margin-top: 70px;"></h1>
-                <h1 id="test2" class="textAnimaton" style="font-size: 70px; margin-top: -100px;"></h1>
-                <h2 id="hintGame2" class="textAnimaton" style="font-size: 50px; margin-top: -40px; font-weight: 400;"></h2>
-                <h2 id="statsGame2" class="textAnimaton" style="font-size: 30px; margin-top: -40px; font-weight: 400;"></h2>
+                <h1 id="generatedNumber2" style="font-size: 200px; margin-top: 70px;"></h1>
+                <h1 id="test2" style="font-size: 70px; margin-top: -100px;"></h1>
+                <h2 id="hintGame2" style="font-size: 50px; margin-top: -40px; font-weight: 400;"></h2>
+                <h2 id="statsGame2" style="font-size: 30px; margin-top: -40px; font-weight: 400;"></h2>
             </div>
 
         </div>
@@ -185,10 +186,10 @@
 
             </div>
 
-            <h1 id="game4MessageInfo" class="textAnimaton" style="font-size: 50px; user-select: none; width: auto; height: 30px; margin-top: -20px;"></h1>
-            <h1 id="game4Title" class="textAnimaton" style="font-size: 120px; letter-spacing: 36px; text-align: center; margin-top: 160px;"></h1>
-            <h1 id="game4Title2" class="textAnimaton" style="font-size: 120px; letter-spacing: 36px; text-align: center; margin-top: -40px;"></h1>
-            <h2 id="game4Tip" class="textAnimaton" style="font-size: 30px;"></h2>
+            <h1 id="game4MessageInfo" style="font-size: 50px; user-select: none; width: auto; height: 30px; margin-top: -20px;"></h1>
+            <h1 id="game4Title" style="font-size: 120px; letter-spacing: 36px; text-align: center; margin-top: 160px;"></h1>
+            <h1 id="game4Title2" style="font-size: 120px; letter-spacing: 36px; text-align: center; margin-top: -40px;"></h1>
+            <h2 id="game4Tip" style="font-size: 30px;"></h2>
 
             <form onsubmit="checkAnswer(event, 0)">
                 <input id="inputGame4" type="text" class="defaultInputBox" style="width: 300px;" autocomplete="off" onfocus="playSecondaryClick()">
@@ -227,19 +228,18 @@
 
         <div id="settingsPage" style="text-align: center; display: none; margin-top: 10vh;">
 
-            <h1 id="settingsTitle" class="textAnimaton" style="font-size: 50px; margin-top: -60px;">Impostazioni</h1>
+            <h1 id="settingsTitle" style="font-size: 50px; margin-top: -60px;">Impostazioni</h1>
             <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 50px; display: flex; flex-direction: row;">
                 <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h1>
-                    <h2 id="settingsAudioTitle" class="textAnimaton" style="font-size: 24px; margin-top: -20px;"> Suono</h1>
+                    <h2 id="settingsAudioTitle" style="font-size: 24px; margin-top: -20px;">Suono</h1>
             </div>
 
             <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
-                    <h2 class="textAnimaton" style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Soundtrack</h2>
+                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Soundtrack</h2>
                 </div>
                 <div class="div2">
-                    <h3 class="textAnimaton" style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Attiva o disattiva la riproduzione delle tracce musicali in sottofondo
-                        </h2>
+                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Attiva o disattiva la riproduzione delle tracce musicali in sottofondo</h3>
                 </div>
                 <div class="div3" style="margin-top: 30px;">
                     <label class="switch" onmouseover="playSecondaryClick()">
@@ -251,10 +251,10 @@
 
             <div class="parent" id="volumeSoundtrack" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
-                    <h2 class="textAnimaton" style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Volume soundtrack</h2>
+                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Volume soundtrack</h2>
                 </div>
                 <div class="div2">
-                    <h3 class="textAnimaton" style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Regola il volume delle tracce musicali in sottofondo</h2>
+                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Regola il volume delle tracce musicali in sottofondo</h3>
                 </div>
                 <div class="div3" style="margin-top: 32px; margin-right: 3vh;">
                     <input type="range" min="1" max="100" value="50" class="sliderVolume" id="sliderVolume" onmouseover="playSecondaryClick()" onchange="setSoundtrackVolume()" style="margin-right: 220px;">
@@ -263,10 +263,10 @@
 
             <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
-                    <h2 class="textAnimaton" style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Effetti sonori</h2>
+                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Effetti sonori</h2>
                 </div>
                 <div class="div2">
-                    <h3 class="textAnimaton" style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Attiva o disattiva la riproduzione degli effetti sonori al click o passaggio del mouse</h2>
+                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Attiva o disattiva la riproduzione degli effetti sonori al click o passaggio del mouse</h3>
                 </div>
                 <div class="div3" style="margin-top: 30px;">
                     <label class="switch" onmouseover="playSecondaryClick()">
@@ -278,10 +278,10 @@
 
             <div class="parent" id="volumeEffects" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
-                    <h2 class="textAnimaton" style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Volume effetti</h2>
+                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Volume effetti</h2>
                 </div>
                 <div class="div2">
-                    <h3 class="textAnimaton" style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Regola il volume degli effetti sonori al click o passaggio del mouse</h2>
+                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Regola il volume degli effetti sonori al click o passaggio del mouse</h3>
                 </div>
                 <div class="div3" style="margin-top: 32px; margin-right: 3vh;">
                     <input type="range" min="1" max="100" value="50" class="sliderVolume" id="sliderEffects" onmouseover="playSecondaryClick()" onchange="setEffectsVolume()" style="margin-right: 220px;">
@@ -290,15 +290,15 @@
 
             <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 70px; display: flex; flex-direction: row;">
                 <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h1>
-                    <h2 id="difficultyTitle" class="textAnimaton" style="font-size: 24px; margin-top: -20px;">Giochi</h1>
+                    <h2 id="difficultyTitle" style="font-size: 24px; margin-top: -20px;">Giochi</h1>
             </div>
 
             <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
-                    <h2 class="textAnimaton" style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Difficoltà memory</h2>
+                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Difficoltà memory</h2>
                 </div>
                 <div class="div2">
-                    <h3 class="textAnimaton" style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Seleziona il numero di bandiere con cui giocare (16, 24, 32, 40)</h3>
+                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Seleziona il numero di bandiere con cui giocare (16, 24, 32, 40)</h3>
                 </div>
                 <div class="div3" style="margin-top: 30px;">
                     <select id="memoryDifficulty" class="defaultSelect" style="margin-right: 30px;" onchange="setMemoryDifficulty()" onmouseover="playSecondaryClick()">
@@ -312,10 +312,10 @@
 
             <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
-                    <h2 class="textAnimaton" style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Difficoltà quiz</h2>
+                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Difficoltà quiz</h2>
                 </div>
                 <div class="div2">
-                    <h3 class="textAnimaton" style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Seleziona la percentuale di lettere da mostrare nelle risposte dei quiz</h3>
+                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Seleziona la percentuale di lettere da mostrare nelle risposte dei quiz</h3>
                 </div>
                 <div class="div3" style="margin-top: 30px;">
                     <select id="quizDifficulty" class="defaultSelect" style="margin-right: 30px;" onchange="setQuizDifficulty()" onmouseover="playSecondaryClick()">
@@ -328,16 +328,16 @@
             </div>
 
             <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 70px; display: flex; flex-direction: row;">
-                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h1>
-                    <h2 id="usersTitle" class="textAnimaton" style="font-size: 24px; margin-top: -20px;">Utenti</h1>
+                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h2>
+                <h2 id="usersTitle" style="font-size: 24px; margin-top: -20px;">Utenti</h2>
             </div>
 
             <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
-                    <h2 class="textAnimaton" style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Esperienza utenti</h2>
+                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Esperienza utenti</h2>
                 </div>
                 <div class="div2">
-                    <h3 class="textAnimaton" style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Abilita esperienza utenti</h3>
+                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Abilita esperienza utenti</h3>
                 </div>
                 <div class="div3" style="margin-top: 30px;">
                     <label class="switch" onmouseover="playSecondaryClick()">
@@ -349,10 +349,10 @@
 
             <div class="parent" id="addUserCard" style="display: none; width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
-                    <h2 class="textAnimaton" style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Crea utente</h2>
+                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Crea utente</h2>
                 </div>
                 <div class="div2">
-                    <h3 class="textAnimaton" style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Aggiungi un nuovo utente</h3>
+                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Aggiungi un nuovo utente</h3>
                 </div>
                 <div class="div3" style="margin: 0 auto; margin-top: 8px; margin-right: 20px;">
                     <button onclick="openUserDialog()" class="defaultButton" onmouseover="playSecondaryClick()" style="font-family: iconFont; font-size: 24px; width: 10vh; height: 6vh;"></button>
@@ -423,7 +423,7 @@
 
         <!-- About section -->
 
-        <div id="aboutDiv" style="text-align: center; display: none;">
+        <div id="aboutDiv" style="text-align: center; display: none; margin-top: 4vh;">
             <img id="aboutLogo" src="assets/logo.png" class="defaultImage" style="width: 40vh; height: 40vh; margin-top: 20px;">
             <h1 id="aboutTitle" style="font-size: 72px; margin-top: -4vh;" class="glow"></h1>
             <h2 id="aboutVersion" style="font-size: 32px; margin-top: -4vh;"></h2>

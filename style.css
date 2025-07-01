@@ -1,4 +1,4 @@
-
+/* GAMES HUB */
 
 @font-face {
     font-family: iconFont;
@@ -272,11 +272,6 @@ progress
 	user-select: none;
 }
 
-.textAnimation
-{
-	animation: fadeIn 2s;
-}
-
 body.default-bg,
 body.win-bg,
 body.defeat-bg 
@@ -303,26 +298,6 @@ body.defeat-bg
 {
     background: linear-gradient(10deg, var(--defeat-bg1), var(--defeat-bg2));
     background-size: 550% 550%;
-}
-
-.glow 
-{
-	text-align: center;
-	-webkit-animation: glow 5s ease-in-out infinite alternate;
-	-moz-animation: glow 5s ease-in-out infinite alternate;
-	animation: glow 5s ease-in-out infinite alternate;
-}
-
-@keyframes glow 
-{
-  from 
-  {
-    text-shadow: 0 0 2px #4c003a, 0 0 10px #ff00d0, 0 0 15px #79003c, 0 0 20px #e60082, 0 0 25 #e60073, 0 0 30px #e60073, 0 0 35px #870044;
-  }
-  to 
-  {
-    text-shadow: 0 0 10px #860000, 0 0 15px #ab0056, 0 0 20px #9c004e, 0 0 25px #ff4da6, 0 0 30px #920049, 0 0 35px #009fbb, 0 0 40px #ff4da6;
-  }
 }
 
 /* The switch - the box around the slider */
