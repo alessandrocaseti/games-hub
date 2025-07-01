@@ -3,17 +3,15 @@
 const appVersion = "1.2.0";
 const appReleaseDate = { day : "20", month : "06", year : "2025" }
 
-var currentPage = 0; // 0 = home, 1 = game1, 2 = game2, 3 = game3, 4 = game4
-
-var progressBarValue = 0; // valore della progressbar per il gioco 3 e 4
+let currentPage = 0; // 0 = home, 1 = game1, 2 = game2, 3 = game3, 4 = game4
 
 // HTML elements
-var body;
-var aboutButton;
-var homeButton;
-var home;
-var langButtons;
-var title;
+let body;
+let aboutButton;
+let homeButton;
+let home;
+let langButtons;
+let title;
 
 window.addEventListener('DOMContentLoaded', function()
 {
@@ -30,7 +28,8 @@ window.addEventListener('DOMContentLoaded', function()
     setLanguage();
 });
 
-function setBackground(type) {
+function setBackground(type) 
+{
     if (!body) return;
     const validTypes = ['default-bg', 'win-bg', 'defeat-bg'];
     if (!validTypes.includes(type)) return;
@@ -39,7 +38,6 @@ function setBackground(type) {
     body.classList.add(type);
 }
 
-// Alias per retrocompatibilità (opzionale)
 function setDefaultBackground() { setBackground('default-bg'); }
 function setWinBackground() { setBackground('win-bg'); }
 function setDefeatBackground() { setBackground('defeat-bg'); }
@@ -132,12 +130,14 @@ function loadGenericGame(triggerSound)
     langButtons.style.display = 'none';
 }
 
+let progressBarValue = 0;
+
 function setProgressBarValue(value, progressBarIndex)
 {
     clearInterval(progressBarValue);
-    var getProgressBar = "progressBar" + progressBarIndex.toString();
-    var progressBar = document.getElementById(getProgressBar.toString());
-    var max = value * 1000; // valore massimo della barra di avanzamento
+    const getProgressBar = "progressBar" + progressBarIndex.toString();
+    let progressBar = document.getElementById(getProgressBar.toString());
+    let max = value * 1000; // valore massimo della barra di avanzamento
     progressBarValue = setInterval(function() 
     {
         max = (max - 10); // calcola il nuovo valore della barra di avanzamento
@@ -152,7 +152,7 @@ function setProgressBarValue(value, progressBarIndex)
             }
         }
 
-    }, 10); // aggiorna la progressBar ogni 10 ms per fare una animation mooolto smooth
+    }, 10);
 }
 
 function showSettings()

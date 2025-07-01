@@ -58,7 +58,7 @@ var game3Image =
 
 const questionMark = "url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/xx.svg')";
 
-var flagCount = 24; // by default
+let flagCount = 24; // by default
 const flags = game3Image.length;
 
 var memoryGameArray = [];
@@ -68,14 +68,14 @@ for (var i = 0; i < flags; i++)
     memoryGameArray.push(i);
 }
 
-var countDownStartGame3 = 0;
-var countDownPlayGame3 = 0;
-var startCountdown = 15;
-var gameCountdown = 60;
+let countDownStartGame3 = 0;
+let countDownPlayGame3 = 0;
+let startCountdown = 15;
+let gameCountdown = 60;
 
 function setMemoryDifficulty()
 {
-    var difficulty = document.getElementById("memoryDifficulty").value;
+    const difficulty = document.getElementById("memoryDifficulty").value;
 
     switch (difficulty) 
     {

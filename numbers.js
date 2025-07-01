@@ -1,17 +1,17 @@
 //// GAMES HUB ////
 
-var counterGame1 = 0; // contatore per il gioco 1 e 2
-var game1Min = 0; // valore minimo del gioco 1 e 2
-var game1Max = 0; // valore massimo del gioco 1 e 2
+let counterGame1 = 0; // contatore per il gioco 1 e 2
+let game1Min = 0; // valore minimo del gioco 1 e 2
+let game1Max = 0; // valore massimo del gioco 1 e 2
 
-var winsGame1 = 0; // contatore per le vittorie del gioco 1
-var winsGame2 = 0; // contatore per le vittorie del gioco 2
+let winsGame1 = 0; // contatore per le vittorie del gioco 1
+let winsGame2 = 0; // contatore per le vittorie del gioco 2
 
-var totalAttemptsGame1 = 0; // contatore per i tentativi totali del gioco 1 e 2
-var winPercentageGame1 = 0; // percentuale di vittoria del gioco 1 e 2
+let totalAttemptsGame1 = 0; // contatore per i tentativi totali del gioco 1 e 2
+let winPercentageGame1 = 0; // percentuale di vittoria del gioco 1 e 2
 
-var hasGame2BeenStarted = false; // serve per il gioco 2
-var randomNum2 = 0; // numero generato per il gioco 2
+let hasGame2BeenStarted = false; // serve per il gioco 2
+let randomNum2 = 0; // numero generato per il gioco 2
 
 function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
 {
@@ -20,8 +20,8 @@ function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
 
     if (currentPage == 1) // se siamo nel gioco 1
     {
-        var min = parseInt(document.getElementById('minValue').value); // ottieni il valore minimo dal field
-        var max = parseInt(document.getElementById('maxValue').value); // ottieni il valore massimo dal field
+        const min = parseInt(document.getElementById('minValue').value); // ottieni il valore minimo dal field
+        const max = parseInt(document.getElementById('maxValue').value); // ottieni il valore massimo dal field
 
         if (min >= max || isNaN(min) || isNaN(max))
         {
@@ -39,8 +39,8 @@ function setMinMaxValues(event) // vale per entrambi i giochi (1 e 2)
     }
     else if (currentPage == 2) // game 2
     {
-        var min = parseInt(document.getElementById('minValue2').value);
-        var max = parseInt(document.getElementById('maxValue2').value);
+        const min = parseInt(document.getElementById('minValue2').value);
+        const max = parseInt(document.getElementById('maxValue2').value);
         if (min >= max || isNaN(min) || isNaN(max))
         {
             alert(getLocalizedString("invalidValues"));
@@ -89,7 +89,7 @@ function startGame1(event)
     event.preventDefault();
     playMainClick();
     counterGame1++;
-    var input = parseInt(document.getElementById('inputBox').value);
+    const input = parseInt(document.getElementById('inputBox').value);
 
     if (isNaN(input))
     {
@@ -97,8 +97,8 @@ function startGame1(event)
         return;
     }
 
-    var randomNum = Math.floor(Math.random() * (game1Max - game1Min + 1) + game1Min);
-    var counter = counterGame1;
+    const randomNum = Math.floor(Math.random() * (game1Max - game1Min + 1) + game1Min);
+    let counter = counterGame1;
     setDefaultBackground();
     document.getElementById('generatedNumber1').innerHTML = randomNum.toString();
     document.getElementById('test').innerHTML = getLocalizedString("attempt") + counter.toString();
@@ -140,7 +140,7 @@ function startGame2(event)
     event.preventDefault();
     playMainClick();
     counterGame1++; // iniziamo aumentando il contatore
-    var input = parseInt(document.getElementById('inputBox2').value); // Convertiamo la stringa restituita da inputBox in un numero
+    const input = parseInt(document.getElementById('inputBox2').value); // Convertiamo la stringa restituita da inputBox in un numero
     document.getElementById('cancellami').style.display = 'block'; // varie scritte 
 
     if (isNaN(input))

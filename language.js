@@ -2,8 +2,8 @@
 
 let translate;
 
-const strings_it = {
-
+const strings_it = 
+{
     name : "Games Hub",
     homeWelcomeText : "Benvenuto su Games Hub!",
     homeTeachingText : "Scegli un gioco cliccando su uno dei seguenti bottoni",
@@ -51,8 +51,8 @@ const strings_it = {
     version : "Versione " + appVersion.toString() + " (" + getLocalizedDate("dmy") +  ")"
 };
 
-const strings_en = {
-
+const strings_en = 
+{
     name : "Games Hub",
     homeWelcomeText : "Welcome on Games Hub!",
     homeTeachingText : "Choose a game by clicking one of the buttons below",
