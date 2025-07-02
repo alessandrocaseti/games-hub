@@ -12,15 +12,58 @@
 :root
 {
     --defaultFont: "Poppins";
-    --main-bg1: #38083b;
-    --main-bg2: #2d0917;
+    --main-bg1: #011945;
+    --main-bg2: #17092d;
     --main-bg3: #0f1754;
-    --main-bg4: #260024;
-    --main-bg5: #311414;
+    --main-bg4: #280364;
+    --main-bg5: #24046e;
+    --dark-bg1: #040023;
+    --dark-bg2: #000523;
+    --dark-bg3: #16002f;
     --win-bg1: #62c239;
     --win-bg2: #228B22;
     --defeat-bg1: #cd0000;
     --defeat-bg2: #761a00;
+}
+
+body.default-bg,
+body.dark-bg,
+body.win-bg,
+body.defeat-bg 
+{
+    height: 100%;
+    backdrop-filter: blur(20px);
+    font-family: var(--defaultFont);
+    animation: bg-gradient 16s ease infinite;
+}
+
+body.default-bg 
+{
+    background: linear-gradient(15deg, var(--main-bg1), var(--main-bg2), var(--main-bg3), var(--main-bg4) 80%, var(--main-bg5) 100%);
+    background-size: 550% 550%;
+}
+
+body.dark-bg 
+{
+    background: linear-gradient(135deg, #05060c 0%, #0e101d 40%, #0f091e 80%, #05091a 100%);
+    background-size: 550% 550%;
+}
+
+@keyframes patternMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 600px 600px; }
+}
+
+body.win-bg 
+{
+    background: radial-gradient(circle, var(--win-bg1) 0%, var(--win-bg2) 100%);
+    background-size: 550% 550%;
+}
+
+body.defeat-bg 
+{
+    background: linear-gradient(10deg, var(--defeat-bg1), var(--defeat-bg2));
+    background-size: 550% 550%;
 }
 
 @keyframes gradient
@@ -270,34 +313,6 @@ progress
 	font-size: 18px;
 	color: rgb(114, 114, 114);
 	user-select: none;
-}
-
-body.default-bg,
-body.win-bg,
-body.defeat-bg 
-{
-    height: 100%;
-    backdrop-filter: blur(20px);
-    font-family: var(--defaultFont);
-    animation: bg-gradient 16s ease infinite;
-}
-
-body.default-bg 
-{
-    background: linear-gradient(10deg, var(--main-bg1), var(--main-bg2), var(--main-bg3), var(--main-bg4), var(--main-bg5));
-    background-size: 550% 550%;
-}
-
-body.win-bg 
-{
-    background: radial-gradient(circle, var(--win-bg1) 0%, var(--win-bg2) 100%);
-    background-size: 550% 550%;
-}
-
-body.defeat-bg 
-{
-    background: linear-gradient(10deg, var(--defeat-bg1), var(--defeat-bg2));
-    background-size: 550% 550%;
 }
 
 /* The switch - the box around the slider */

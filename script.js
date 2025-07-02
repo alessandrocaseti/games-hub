@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', function()
 function setBackground(type) 
 {
     if (!body) return;
-    const validTypes = ['default-bg', 'win-bg', 'defeat-bg'];
+    const validTypes = ['default-bg', 'dark-bg', 'win-bg', 'defeat-bg'];
     if (!validTypes.includes(type)) return;
     if (body.classList.contains(type)) return;
     body.classList.remove(...validTypes);
@@ -39,6 +39,7 @@ function setBackground(type)
 }
 
 function setDefaultBackground() { setBackground('default-bg'); }
+function setDarkBackground() { setBackground('dark-bg')}
 function setWinBackground() { setBackground('win-bg'); }
 function setDefeatBackground() { setBackground('defeat-bg'); }
 
