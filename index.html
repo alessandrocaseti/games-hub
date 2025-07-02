@@ -435,7 +435,27 @@
                             style="background-image: url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/uk.svg'); width: 6vh; height: 6vh;"></button>
                 </div>
             </div>
-            <button onclick="setDarkBackground()">SET DARK BACK</button>
+
+            <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 70px; display: flex; flex-direction: row;">
+                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h2>
+                <h2 style="font-size: 24px; margin-top: -20px;">Interfaccia</h2>
+            </div>
+
+            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
+                <div class="div1">
+                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Tema scuro</h2>
+                </div>
+                <div class="div2">
+                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Imposta il tema scuro a tutto il sito</h3>
+                </div>
+                <div class="div3" style="margin-top: 30px;">
+                    <label class="switch" onmouseover="playSecondaryClick()">
+                        <input type="checkbox" id="themeToggle" onchange="toggleTheme()">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+
             <div style="margin-bottom: 20vh;"></div>
         </div>
 

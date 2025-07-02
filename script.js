@@ -5,6 +5,8 @@ const appReleaseDate = { day : "20", month : "06", year : "2025" }
 
 let currentPage = 0; // 0 = home, 1 = game1, 2 = game2, 3 = game3, 4 = game4
 
+let theme = "light";
+
 // HTML elements
 let body;
 let aboutButton;
@@ -38,10 +40,40 @@ function setBackground(type)
     body.classList.add(type);
 }
 
-function setDefaultBackground() { setBackground('default-bg'); }
-function setDarkBackground() { setBackground('dark-bg')}
+function setDefaultBackground() 
+{ 
+    switch(theme)
+    {
+        case "light":
+            setBackground('default-bg');
+            break;
+        case "dark":
+            setBackground('dark-bg');
+            break;
+        default:
+            setBackground('default-bg'); 
+    }
+}
+
 function setWinBackground() { setBackground('win-bg'); }
 function setDefeatBackground() { setBackground('defeat-bg'); }
+
+function toggleTheme()
+{
+    playMainClick();
+
+    const setting = document.getElementById("themeToggle");
+    if (setting.checked)
+    {
+        theme = "dark";
+    }
+    else
+    {
+        theme = "light";
+    }
+    
+    setDefaultBackground();
+}
 
 function resetAllGames()
 {
