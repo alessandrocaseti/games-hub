@@ -2,7 +2,7 @@
 
 var users = false;
 var currentUserID = null;
-
+var selectedAvatar = "";
 var currentlyPlayingUserID = null;
 
 var deletedUsers = [null, null, null, null];
@@ -12,7 +12,7 @@ var totalUserCount = 0;
 
 var avatar = ["assets/nouser.png", "assets/nouser.png", "assets/nouser.png", "assets/nouser.png"];
 var XP = [0, 0, 0, 0];
-var username = ["1", "2", "3", "4"];
+var username = ["", "", "", ""];
 
 function toggleUsers()
 {
@@ -56,12 +56,12 @@ function openUserDialog()
         return;
     }
 
-    currentUserID++;
 
-    for (let i = 1; i <= 8; i++) 
-    {
+    for (let i = 1; i <= 8; i++) {
         document.getElementById("avatar" + i).style.backgroundImage = "url('assets/user" + i + ".png')";
+        document.getElementById("avatar" + i).style.borderColor = "white";
     }
+    selectedAvatar = "assets/nouser.png"; // Reset avatar selection ogni volta che si apre la dialog
 
     document.getElementById("box").style.display = "grid";
     window.scrollBy(0, 300);
@@ -73,6 +73,7 @@ function closeUserDialog()
     playMainClick();
     document.getElementById("box").style.display = "none";
     document.getElementById("newUserName").value = "";
+    selectedAvatar = "";
 }
 
 function selectAvatar(avatarId)
@@ -86,7 +87,7 @@ function selectAvatar(avatarId)
 
     document.getElementById("avatar" + avatarId).style.borderColor = "yellow"; // Highlight selected avatar
 
-    avatar[currentUserID] = 'assets/user' + avatarId + '.png'; // STORE selected avatar
+    selectedAvatar = 'assets/user' + avatarId + '.png'; // STORE selected avatar
 }
 
 function addUser() 
@@ -98,12 +99,23 @@ function addUser()
         return;
     }
 
+    currentUserID++;
+
     // USER CARD ATTRIBUTES
     document.getElementById("user" + currentUserID).style.display = "grid";
     document.getElementById("userName" + currentUserID).innerText = userName;
     document.getElementById("userXP" + currentUserID).innerText = "XP: " + XP[currentUserID];
-    document.getElementById("userPic" + currentUserID).src = avatar[currentUserID];
 
+    if (!selectedAvatar || selectedAvatar === "assets/nouser.png") 
+    {
+        avatar[currentUserID] = "assets/nouser.png";
+    }
+    else 
+    {
+        avatar[currentUserID] = selectedAvatar;
+    }
+
+    document.getElementById("userPic" + currentUserID).src = avatar[currentUserID];
     totalUserCount += 1;
     document.getElementById("enableUsersCardDescription").innerHTML = "Aggiungi un nuovo utente (" + totalUserCount + "/4)";
 
