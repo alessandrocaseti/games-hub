@@ -182,8 +182,8 @@ function setMemoryDifficulty()
 
     switch (difficulty)
     {
-        case "16":
-            flagCount = 16;
+        case "18":
+            flagCount = 18;
             break;
         case "24":
             flagCount = 24;
@@ -268,19 +268,36 @@ function loadMemoryGame()
         button.className = 'memoryButton';
         button.id = 'Button' + i.toString();
 
-        if(flagCount === 16 || flagCount === 24)
+        if(flagCount === 18)
+        {
+            button.style.width= "180px";
+            button.style.margin = "30px";
+            button.style.marginLeft = "60px"
+            button.style.marginRight = "60px"
+            button.style.height = "180px";
+        }
+        else if(flagCount === 24)
         {
             button.style.width= "160px";
             button.style.margin = "30px";
+            button.style.marginTop = "40px";
             button.style.height = "160px";
         }
-        else if(flagCount === 32 || flagCount === 40)
+        else if(flagCount === 32)
         {
-            button.style.width= "160px";
-            button.style.margin = "8px";
-            button.style.marginLeft = "30px";
-            button.style.marginRight = "30px";
-            button.style.height = "160px";
+            button.style.width= "140px";
+            button.style.margin = "18px";
+            button.style.marginLeft = "42px";
+            button.style.marginRight = "42px";
+            button.style.height = "140px";
+        }
+        else // 40
+        {
+            button.style.width= "120px";
+            button.style.margin = "28px";
+            button.style.marginLeft = "28px";
+            button.style.marginRight = "28px";
+            button.style.height = "120px";
         }
 
         var url = "url('" + image + "')"; 
