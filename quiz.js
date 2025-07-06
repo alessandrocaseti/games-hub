@@ -22,7 +22,7 @@ for (var i = 0; i < game4Questions; i++)
 
 function setQuizDifficulty()
 {
-    var difficulty = document.getElementById("quizDifficulty").value;
+    const difficulty = document.getElementById("quizDifficulty").value;
 
     switch (difficulty) 
     {

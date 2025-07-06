@@ -1,6 +1,81 @@
 //// GAMES HUB ////
 
-var game3Image = 
+var streamers = 
+[
+    // Xiuder
+    "https://scontent.ffco4-1.fna.fbcdn.net/v/t39.30808-6/498115761_10171370385445370_797518814016839335_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=8PiQTIm0T8MQ7kNvwERCwfK&_nc_oc=Adn1UpjJMxD927R68W8CO_vnREXsXmFgpS8w8JlDLhvtjZXvOoqTyVifWu2txYjahdQ&_nc_zt=23&_nc_ht=scontent.ffco4-1.fna&_nc_gid=bDYHSLqFa770Z6uJvDVXYQ&oh=00_AfOIszqNpn7_Tg8ohqWiH3nxJN1xgQSoDOiXSuPO-W6TCA&oe=686CA9B2",
+
+    // Jody
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP1teX6viLQq8-a3dsy0cx1eoAQP9mezCD6A&s",
+
+    // Favij
+    "https://yt3.googleusercontent.com/R5DDfUFm5eI_j_FO6Y1Bc08GN01uN8iX6kACYz-L-mVk-AjcnB4UhD3MCYn_uLoQ3bB7P_Mn=s900-c-k-c0x00ffffff-no-rj",
+
+    // Lollolacustre
+    "https://bestmoviecomicsandgames.it/wp-content/uploads/2025/05/Lollolocustre.jpg",
+
+    // Blur
+    "https://img.redbull.com/images/c_crop,x_0,y_275,h_4326,w_4326/c_fill,w_124,h_124/q_auto:low,f_auto/redbullcom/2024/5/13/eg5vz8xpyflwxsknu7ox/gianmarco-tumblurr-tocco",
+
+    // Me Contro Te  
+    "https://yt3.googleusercontent.com/YnQh23-rZV6ImyNOdSxfWe_WU3U5x20vtlIqEJ61gzyUq2xFjKP2PYjBRWpjbiqyclMza_ui=s900-c-k-c0x00ffffff-no-rj",
+
+    // Speed
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU3D20EMHymIzyoOusLbsgf3WRoSN1KXZ2Zg&s",
+
+    // Marza
+    "https://www.hallofseries.com/wp-content/uploads/2024/10/marzaa.webp",
+
+    // Stepny
+    "https://yt3.googleusercontent.com/bJcyHgIWypeclm-PukoWLZ8BbAFf3l6c8hKajB_JqZAmZSffxBT2SZIvHCN-g16f4Uh_sd8j=s900-c-k-c0x00ffffff-no-rj",
+
+    // Mr Beast
+    "https://cdn.prod.website-files.com/63b9c43cf803b0331540fa68/66bf7f0ebfa3fe2764910428_MrBeast.png",
+
+    // MikeShowSha
+    "https://www.famousbirthdays.com/faces/mikeshowsha-image.jpg",
+
+    // Kai Cenat
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTneBDzO3gHBy9aMDmz-POBSetZyaRR5FueOQ&s",
+
+    // Dieffe
+    "https://bestmoviecomicsandgames.it/wp-content/uploads/2024/04/dieffe.jpg",
+
+    // SurrealPower
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA2V_L_8qKFPhHQeuimbc462f5tUkPYm0EZQ&s",
+
+    // Dario Moccia
+    "https://www.festivaldelnerd.it/wp-content/uploads/2025/05/darios.png",
+
+    // Grenbaud
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb90NPmua2VsH44jMOpqeS1RraTjruJO5Dow&s",
+
+    // ilMasseo
+    "https://static-cdn.jtvnw.net/jtv_user_pictures/866ce8e7-7f68-4fa6-83ff-3b8ad30aee3f-profile_image-300x300.png",
+
+    // Zano
+    "https://yt3.googleusercontent.com/tfxobOKUzm5-JDE4Zsw2Knkimx63oJWXPCZ3BDquiEiWGeW87EmeCer-45yztjicm4aZMOuWlw=s900-c-k-c0x00ffffff-no-rj",
+
+    // Power
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNjSf7IcLWsz6cBS05h9bXyDhYpZ1OVnyZZA&s",
+
+    // MatteoHS
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn0u35UCRrYeWgKmZf28mOxGFdrZwVNe0dvw&s",
+
+    // Michele Molteni
+    "https://www.liquidarte.it/wp-content/uploads/Schermata-2024-04-15-alle-12.05.28.jpg",
+
+    // Riccardo Dose
+    "https://static.wikia.nocookie.net/youtube/images/c/cf/Logo_Youtube_Di_Riccardo_Dose.jpg/revision/latest/thumbnail/width/360/height/360?cb=20230503192428&path-prefix=it",
+
+    // Gabriele Vagnato
+    "https://yt3.googleusercontent.com/ytc/AIdro_mJ5CbleaCcvheS4qfWz47NwxpaNoypictgPfjzUs7ahIc=s900-c-k-c0x00ffffff-no-rj",
+
+    // Joker
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB8kuzBXOcVv_61m4Hwf32ex5z99MI8WRRNQ&s",
+]
+
+var flagImages = 
 [
     "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/am.svg", // Armenia
     "https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/ae.svg", // United Arab Emirates
@@ -58,26 +133,54 @@ var game3Image =
 
 const questionMark = "url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/xx.svg')";
 
-let flagCount = 24; // by default
-const flags = game3Image.length;
+var game3Image = flagImages;
 
-var memoryGameArray = [];
-
-for (var i = 0; i < flags; i++) 
+function getFlagsCount()
 {
-    memoryGameArray.push(i);
+    return game3Image.length;
+}
+
+function setMemoryImages() 
+{
+    const setting = document.getElementById("memoryImages").value;
+    switch (setting) 
+    {
+        case "flags":
+            game3Image = flagImages;
+            break;
+        case "streamers":
+            game3Image = streamers;
+            break;
+        default:
+            game3Image = flagImages;
+            break;
+    }
+}
+
+let flagCount = 24; // by default
+
+function getMemoryGameArray() 
+{
+    let arr = [];
+    for (let i = 0; i < getFlagsCount(); i++) 
+    {
+        arr.push(i);
+    }
+    return arr;
 }
 
 let countDownStartGame3 = 0;
 let countDownPlayGame3 = 0;
 let startCountdown = 15;
 let gameCountdown = 60;
+const memoryStartCountdown = 15;
+const memoryPlayCountdown = 60;
 
 function setMemoryDifficulty()
 {
     const difficulty = document.getElementById("memoryDifficulty").value;
 
-    switch (difficulty) 
+    switch (difficulty)
     {
         case "16":
             flagCount = 16;
@@ -147,10 +250,12 @@ function loadMemoryGame()
         frame3.innerHTML = '<h1 id="game3Title" class="textAnimaton" style="font-size: 70px; user-select: none; width: auto; height: 30px; margin-bottom: 100px;"></h1>';
     }
 
-    document.getElementById("game3Title").innerHTML = "15";
+    document.getElementById("game3Title").innerHTML = memoryStartCountdown;
 
+
+    let memoryGameArray = getMemoryGameArray(); // ottiene il nuovo array
     shuffleArray(memoryGameArray); // array completo randomizzato
-    var flagPairsArray = memoryGameArray.slice(flags - (flagCount / 2)); // array dimezzato
+    var flagPairsArray = memoryGameArray.slice(getFlagsCount() - (flagCount / 2)); // array dimezzato
     var flagPairsFullArray = flagPairsArray.flatMap(x => [x, x]); // array raddoppiato
     shuffleArray(flagPairsFullArray); // array finale randomizzato
     console.log(flagPairsFullArray);
@@ -248,7 +353,7 @@ function loadMemoryGame()
                             {
                                 XP[currentlyPlayingUserID] += 1000;
                                 updateXP(currentlyPlayingUserID);
-                            }                     
+                            } 
                         }
                     } 
                     else
@@ -271,9 +376,9 @@ function loadMemoryGame()
     }
 
     document.getElementById('progressBar3').value = 100;
-    startCountdown = 15;
+    startCountdown = memoryStartCountdown;
     setProgressBarValue(startCountdown, 3);
-    gameCountdown = 60;
+    gameCountdown = memoryPlayCountdown;
 
     countDownStartGame3 = setInterval(function() 
     {
