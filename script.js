@@ -75,6 +75,12 @@ function toggleTheme()
     setDefaultBackground();
 }
 
+function updateSliderFill(slider) 
+{
+    const value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+    slider.style.background = `linear-gradient(90deg,rgb(128, 128, 255) ${value}%, rgb(43, 43, 121) ${value}%)`;
+}
+
 function resetAllGames()
 {
     document.getElementById('generatedNumber1').innerHTML = '';
