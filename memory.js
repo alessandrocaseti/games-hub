@@ -5,6 +5,9 @@ var streamers =
     // Xiuder
     "https://scontent.ffco4-1.fna.fbcdn.net/v/t39.30808-6/498115761_10171370385445370_797518814016839335_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=8PiQTIm0T8MQ7kNvwERCwfK&_nc_oc=Adn1UpjJMxD927R68W8CO_vnREXsXmFgpS8w8JlDLhvtjZXvOoqTyVifWu2txYjahdQ&_nc_zt=23&_nc_ht=scontent.ffco4-1.fna&_nc_gid=bDYHSLqFa770Z6uJvDVXYQ&oh=00_AfOIszqNpn7_Tg8ohqWiH3nxJN1xgQSoDOiXSuPO-W6TCA&oe=686CA9B2",
 
+    // Ciccio
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY-EXB799xwJ8bsrh5zQV-5Nk2jbqJtPpozw&s",
+    
     // Jody
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP1teX6viLQq8-a3dsy0cx1eoAQP9mezCD6A&s",
 

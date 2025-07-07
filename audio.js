@@ -204,17 +204,22 @@ function playGongSound()
 
 function fadeOutAudio(sound) 
 {
-    fadeAudio = setInterval(function () 
+    // Ferma eventuali fade precedenti
+    if (fadeAudio) 
     {
-        if (sound.volume != 0.0) 
-        {
-            sound.volume -= 0.01;
-        }
+        clearInterval(fadeAudio);
+        fadeAudio = null;
+    }
 
-        if (sound.volume < 0.02) 
+    fadeAudio = setInterval(function() 
+    {
+        // Diminuisci il volume senza mai andare sotto 0
+        sound.volume = Math.max(0, sound.volume - 0.01);
+        if (sound.volume <= 0.01) 
         {
             clearInterval(fadeAudio);
-            sound.volume = 1.0;
+            fadeAudio = null;
+            sound.volume = 0;
             sound.pause();
             sound.currentTime = 0;
         }
