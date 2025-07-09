@@ -23,10 +23,6 @@ window.addEventListener('DOMContentLoaded', function()
     home = document.getElementById('home');
     langButtons = document.getElementById('languageButtons');
     title = document.getElementById("pageTitle");
-    document.getElementById('sliderVolume').value = 100;
-    document.getElementById('sliderEffects').value = 100;
-    document.getElementById('memoryDifficulty').value = "24";
-    document.getElementById('quizDifficulty').value = "2";
     setDefaultBackground();
     loadSettings();
 });
