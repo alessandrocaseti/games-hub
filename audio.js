@@ -29,6 +29,7 @@ function toggleSoundtrack()
         document.getElementById("volumeSoundtrack").style.display = "none";
         console.log("Soundtrack disabled");
     }
+    saveSettings();
 }
 
 function toggleEffects()
@@ -47,16 +48,19 @@ function toggleEffects()
         document.getElementById("volumeEffects").style.display = "none";
         console.log("Effects disabled");
     }
+    saveSettings();
 }
 
 function setSoundtrackVolume()
 {
     volumeSoundtrack = document.getElementById("sliderVolume").value / 100;
+    saveSettings();
 }
 
 function setEffectsVolume()
 {
     volumeEffects = document.getElementById("sliderEffects").value / 100;
+    saveSettings();
 }
 
 function playMainClick()

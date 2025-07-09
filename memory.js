@@ -158,6 +158,7 @@ function setMemoryImages()
             game3Image = flagImages;
             break;
     }
+    saveSettings();
 }
 
 let flagCount = 24; // by default
@@ -200,8 +201,7 @@ function setMemoryDifficulty()
         default:
             flagCount = 24;
     }
-
-    console.log("Memory difficulty set to " + flagCount + " flags.");
+    saveSettings();
 }
 
 function shuffleArray(array)

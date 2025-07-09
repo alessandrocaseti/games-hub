@@ -100,7 +100,7 @@ const strings_en =
     version : "Version " + appVersion.toString() + " (" + getLocalizedDate("dmy") +  ")"
 };
 
-function setLanguage(id)
+function setLanguage(id, save)
 {
     playMainClick();
     switch(id)
@@ -153,6 +153,11 @@ function setLanguage(id)
     document.getElementById("aboutRepo").innerHTML = translate.aboutRepo;
 
     homeButton.innerHTML = translate.backToHome;
+    
+    document.getElementById("italianButton").classList.toggle('selected', id === 'it');
+    document.getElementById("englishButton").classList.toggle('selected', id === 'en');
+
+    if(save) { saveSettings(); }
 }
 
 function getLocalizedString(string_id)

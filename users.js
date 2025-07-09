@@ -43,6 +43,7 @@ function toggleUsers()
 
         totalUserCount = 0;
     }
+    saveSettings();
 }
 
 function openUserDialog()

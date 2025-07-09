@@ -27,59 +27,9 @@ window.addEventListener('DOMContentLoaded', function()
     document.getElementById('sliderEffects').value = 100;
     document.getElementById('memoryDifficulty').value = "24";
     document.getElementById('quizDifficulty').value = "2";
-    setLanguage();
-});
-
-function setBackground(type) 
-{
-    if (!body) return;
-    const validTypes = ['default-bg', 'dark-bg', 'win-bg', 'defeat-bg'];
-    if (!validTypes.includes(type)) return;
-    if (body.classList.contains(type)) return;
-    body.classList.remove(...validTypes);
-    body.classList.add(type);
-}
-
-function setDefaultBackground() 
-{ 
-    switch(theme)
-    {
-        case "light":
-            setBackground('default-bg');
-            break;
-        case "dark":
-            setBackground('dark-bg');
-            break;
-        default:
-            setBackground('default-bg'); 
-    }
-}
-
-function setWinBackground() { setBackground('win-bg'); }
-function setDefeatBackground() { setBackground('defeat-bg'); }
-
-function toggleTheme()
-{
-    playMainClick();
-
-    const setting = document.getElementById("themeToggle");
-    if (setting.checked)
-    {
-        theme = "dark";
-    }
-    else
-    {
-        theme = "light";
-    }
-    
     setDefaultBackground();
-}
-
-function updateSliderFill(slider) 
-{
-    const value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
-    slider.style.background = `linear-gradient(90deg,rgb(128, 128, 255) ${value}%, rgb(43, 43, 121) ${value}%)`;
-}
+    loadSettings();
+});
 
 function resetAllGames()
 {

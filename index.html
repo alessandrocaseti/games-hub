@@ -17,6 +17,7 @@
         <script src="language.js"></script>
         <script src="audio.js"></script>
         <script src="users.js"></script>
+        <script src="settings.js"></script>
     </head>
 
     <body id="main" class="default-bg" style="color: #FFFFFF; font-size: 20px; font-weight: 750;">
@@ -444,9 +445,9 @@
                     <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Seleziona la lingua del sito (italiano / inglese)</h3>
                 </div>
                 <div class="div3" style="display: flex; flex-direction: row; margin-top: 1vh; margin-right: 2vh;">
-                    <button id="italianButton" class="defaultButton" onclick="setLanguage('it')" onmouseover="playSecondaryClick()"
+                    <button id="italianButton" class="defaultButton" onclick="setLanguage('it', true)" onmouseover="playSecondaryClick()"
                             style="background-image: url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/it.svg'); width: 6vh; height: 6vh; margin-right: 1vh;"></button>
-                    <button id="englishButton" class="defaultButton" onclick="setLanguage('en')" onmouseover="playSecondaryClick()"
+                    <button id="englishButton" class="defaultButton" onclick="setLanguage('en', true)" onmouseover="playSecondaryClick()"
                             style="background-image: url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/uk.svg'); width: 6vh; height: 6vh;"></button>
                 </div>
             </div>

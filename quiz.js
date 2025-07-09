@@ -41,8 +41,7 @@ function setQuizDifficulty()
         default:
             quizDifficulty = 2;
     }
-
-    console.log("Quiz difficulty set to: " + quizDifficulty);
+    saveSettings();
 }
 
 function getQuestion(index)
