@@ -12,10 +12,10 @@
 {
   from 
   {
-    text-shadow: 0 0 2px #4c003a, 0 0 10px #ff00d0, 0 0 15px #79003c, 0 0 20px #e60082, 0 0 25 #e60073, 0 0 30px #e60073, 0 0 35px #870044;
+    text-shadow: 0 0 2px #4c003a, 0 0 10px rgb(128, 128, 255), 0 0 15px #79003c, 0 0 20px #e60082, 0 0 25 #e60073, 0 0 30px #e60073, 0 0 35px #870044;
   }
   to 
   {
-    text-shadow: 0 0 6px #860000, 0 0 15px #ab0056, 0 0 20px #9c004e, 0 0 25px #ff4da6, 0 0 30px #920049, 0 0 35px #009fbb, 0 0 40px #ff4da6;
+    text-shadow: 0 0 6px #860000, 0 0 15px #ab0056,  0 0 25px rgb(128, 128, 255), 0 0 30px rgb(128, 128, 255), 0 0 35px #009fbb, 0 0 40px #ff4da6;
   }
 }

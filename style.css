@@ -185,7 +185,7 @@ body.defeat-bg
 .defaultButton:hover
 {
 	scale: 1.12;
-	background-color: rgb(7, 0, 64);
+	background-color: transparent;
 	border-color: yellow;
 	color: white;
 }
@@ -338,7 +338,7 @@ progress
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #929292;
   -webkit-transition: .4s;
   transition: .2s;
 }
@@ -361,15 +361,15 @@ progress
 }
 
 input:checked + .slider:hover  {
-  background-color:  #36a5ff;
+  background-color:  rgb(152, 152, 255);
 }
 
 input:checked + .slider {
-  background-color: #1886e1;
+  background-color: rgb(128, 128, 255);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #1886e1;
+  box-shadow: 0 0 1px rgb(214, 214, 255);
 }
 
 input:checked + .slider:before {
