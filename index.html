@@ -22,15 +22,17 @@
 
     <body id="main" class="default-bg" style="color: #FFFFFF; font-size: 20px; font-weight: 750;">
 
+        <!-- NavigationButtons -->
+
         <button id="homeButton" onclick="backToHome()" class="defaultButton" onmouseover="playSecondaryClick()"
                 style="width: 200px; height: 30px; display: none; margin-left: 20px; margin-top: 34px;"></button>
 
-        <div class="defaultDiv" style="display: flex; justify-content: right; margin-right: 10px;">
-
+        <div style="display: flex; justify-content: right; margin-right: 10px;">
             <button id="settingsButton" class="memoryButton" onclick="showSettings()" onmouseover="playSecondaryClick()"
                     style="background-image: url('assets/settings.png'); width: 4vh; height: 4vh; background-size: cover; margin-left: 5px; margin-top: 1vh;"></button>
-
         </div>
+
+        <!-- CurrentUserOverlay -->
 
         <div id="currentUserDiv" style="display: none; flex-direction: row; justify-content: right; margin-top: -4vh;">
             <img id="currentUserPic" style="width: 6vh; height: 6vh; margin-right: 8vh;">
@@ -41,11 +43,12 @@
         </div>
 
         <!-- Home -->
+
         <div id="home" style="text-align: center; margin-top: 40px;">
 
             <img id="ghLogo" src="assets/logo.png" class="defaultImage" style="width: 28vh; height: 28vh; margin-top: -4vh;">
 
-            <div class="defaultDiv" id="homeTitleDiv" style="text-align: center; margin-bottom: 20px;">
+            <div id="homeTitleDiv" style="text-align: center; margin-bottom: 20px;">
 
                 <h1 id="mainTitle" class="glow" style="font-size: 90px; font-weight: 750; margin-top: -30px;"></h1>
                 <p id="welcomeText" style="font-size: 20px; font-weight: 500; margin-top: -50px;"></p>
@@ -154,7 +157,7 @@
 
         </div>
 
-        <!-- GIOCO 3: MEMORY COUNTRY FLAGS -->
+        <!-- Memory -->
 
         <div id="gameProgress3" class="defaultProgressBar" style="display: none;">
             <progress id="progressBar3" max="100" style="height: 16px; width: 89.5%; margin-bottom: -120px;"></progress>
@@ -163,7 +166,7 @@
         <div id="gameFrame3" style="display: none; text-align: center; margin-top: -60px;">
         </div>
 
-        <!-- GIOCO 4: REAZIONE A CATENA (IMPICCATO) -->
+        <!-- Quiz -->
 
         <div id="gameProgress4" class="defaultProgressBar" style="display: none;">
             <progress id="progressBar4" max="100" style="height: 16px; width: 85%; margin-bottom: -120px;"></progress>
@@ -188,6 +191,8 @@
             </form>
 
         </div>
+
+        <!-- UserSelectionPage -->
 
         <div id="userSelection" style="display: none; text-align: center;">
             <h1 style="margin: 10vh;">Seleziona l'utente che sta giocando</h1>
@@ -216,7 +221,7 @@
         </div>
 
 
-        <!-- Settings page -->
+        <!-- Settings -->
 
         <div id="settingsPage" style="text-align: center; display: none; margin-top: 10vh;">
 
@@ -236,6 +241,8 @@
                     <h2 id="settingsAudioTitle" style="font-size: 24px; margin-top: -20px;">Suono</h1>
             </div>
 
+            <!-- Settings::EnableSoundtrack -->
+
             <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Soundtrack</h2>
@@ -251,6 +258,8 @@
                 </div>
             </div>
 
+            <!-- Settings::VolumeSoundtrack -->
+
             <div class="parent" id="volumeSoundtrack" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Volume soundtrack</h2>
@@ -262,6 +271,8 @@
                     <input type="range" min="1" max="100" value="50" class="sliderVolume" id="sliderVolume" onmouseover="playSecondaryClick()" onchange="setSoundtrackVolume()" oninput="updateSliderFill(this)" style="margin-right: 220px;">
                 </div>
             </div>
+
+            <!-- Settings::EnableEffects -->
 
             <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
@@ -277,6 +288,8 @@
                     </label>
                 </div>
             </div>
+
+            <!-- Settings::VolumeEffects -->
 
             <div class="parent" id="volumeEffects" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
@@ -295,6 +308,8 @@
                     <h2 id="difficultyTitle" style="font-size: 24px; margin-top: -20px;">Giochi</h1>
             </div>
 
+            <!-- Settings::MemoryImages -->
+
             <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Immagini memory</h2>
@@ -309,6 +324,8 @@
                     </select>
                 </div>
             </div>
+
+            <!-- Settings::MemoryDifficulty -->
 
             <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
@@ -327,6 +344,8 @@
                 </div>
             </div>
 
+            <!-- Settings::QuizDifficulty -->
+
             <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Difficoltà quiz</h2>
@@ -343,6 +362,8 @@
                     </select>
                 </div>
             </div>
+
+            <!-- Settings::Users -->
 
             <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 70px; display: flex; flex-direction: row;">
                 <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h2>
@@ -364,6 +385,8 @@
                 </div>
             </div>
 
+            <!-- Settings::CreateUser -->
+
             <div class="parent" id="addUserCard" style="display: none; width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Crea utente</h2>
@@ -375,6 +398,8 @@
                     <button onclick="openUserDialog()" class="defaultButton" onmouseover="playSecondaryClick()" style="font-family: iconFont; font-size: 24px; width: 10vh; height: 6vh;"></button>
                 </div>
             </div>
+
+            <!-- Settings::UserCards -->
 
             <div id="appendChildDiv">
                 <div class="newUserDiv" id="user0" style="display: none;">
@@ -411,6 +436,8 @@
                 </div>
             </div>
 
+            <!-- Settings::NewUserDialog -->
+
             <div id="box">
                 <h1 style="margin-top: 10px;">Crea nuovo utente</h1>
                 <p style="margin-top: -30px; font-weight: 500;">Scegli il tuo avatar</p>
@@ -437,6 +464,8 @@
 
             <button style="display: none;" onclick="debug()">DEBUG USERS</button>
 
+            <!-- Settings::Language -->
+
             <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 70px; display: flex; flex-direction: row;">
                 <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h1>
                     <h2 id="difficultyTitle" style="font-size: 24px; margin-top: -20px;">Lingua</h1>
@@ -457,8 +486,10 @@
                 </div>
             </div>
 
+            <!-- Settings::Theme -->
+
             <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 70px; display: flex; flex-direction: row;">
-                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h2>
+                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h2>
                 <h2 style="font-size: 24px; margin-top: -20px;">Interfaccia</h2>
             </div>
 
@@ -476,6 +507,8 @@
                     </label>
                 </div>
             </div>
+
+            <!-- Settings::About -->
 
             <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 70px; display: flex; flex-direction: row;">
                 <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h1>
@@ -496,6 +529,8 @@
                 </div>
             </div>
 
+            <!-- Settings::AC -->
+
             <div style="width: 23%; height: 6vh; transition: 1s; display: flex; flex-direction: row; border-color: rgb(128, 128, 255); border-radius: 1vh; border-width: 2px; border-style: groove; margin: 0 auto; justify-content: center; margin-top: 6vh;">
                 <img src="assets/ac.png" style="width: 8vh; height: 8vh; margin-top: -8px; margin-left: -12px;" style="user-select: none; -webkit-user-drag: none;">
                 <h4 style="font-weight: 500; margin-top: 16px; margin-left: 4px;">Developed by Alessandro Caseti</h4>
@@ -505,7 +540,7 @@
 
         </div>
 
-        <!-- About section -->
+        <!-- About section TO BE DELETED -->
 
         <div id="aboutDiv" style="text-align: center; display: none; margin-top: 4vh;">
             <img id="aboutLogo" src="assets/logo.png" class="defaultImage" style="width: 40vh; height: 40vh; margin-top: 20px;">
