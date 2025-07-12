@@ -9,19 +9,17 @@ let theme = "light";
 
 // HTML elements
 let body;
-let aboutButton;
 let homeButton;
 let home;
-let langButtons;
+let settingsButton;
 let title;
 
 window.addEventListener('DOMContentLoaded', function()
 {
     body = document.getElementById('main');
-    aboutButton = document.getElementById('aboutButton');
     homeButton = document.getElementById('homeButton');
     home = document.getElementById('home');
-    langButtons = document.getElementById('languageButtons');
+    settingsButton = document.getElementById('settingsButton');
     title = document.getElementById("pageTitle");
     setDefaultBackground();
     loadSettings();
@@ -53,13 +51,11 @@ function resetAllGames()
 
 function backToHome()
 {
-    aboutButton.style.display = 'block';
-    document.getElementById("aboutDiv").style.display = 'none';
     document.getElementById("settingsPage").style.display = 'none';
     home.style.display = 'block';
     homeButton.style.display = 'none';
 
-    langButtons.style.display = 'block';
+    settingsButton.style.display = 'block';
     title.innerHTML = getLocalizedString("name");
 
     playMainClick();
@@ -109,10 +105,9 @@ function loadGenericGame(triggerSound)
         playMainClick();
     }
 
-    aboutButton.style.display = 'none';
     home.style.display = 'none';
     homeButton.style.display = 'block';
-    langButtons.style.display = 'none';
+    settingsButton.style.display = 'none';
 }
 
 let progressBarValue = 0;
@@ -146,9 +141,3 @@ function showSettings()
     document.getElementById('settingsPage').style.display = 'block';
 }
 
-function about()
-{
-    loadGenericGame(true);
-    title.innerHTML = getLocalizedString("aboutTitle");
-    document.getElementById("aboutDiv").style.display = 'block';
-}
