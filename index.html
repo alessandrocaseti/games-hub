@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title id="pageTitle"></title>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="settings.css">
         <link rel="stylesheet" href="texts.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap">
         <link rel="icon" type="image/x-icon" href="assets/logo.png">
@@ -227,7 +228,9 @@
 
             <h1 id="settingsTitle" style="font-size: 50px; margin-top: -60px;">Impostazioni</h1>
 
-            <div class="parent" style="width: 50%; height: 8vh; border-color: rgb(128, 128, 255); border-radius: 1vh; border-width: 2px; border-style: groove; margin: 0 auto; margin-top: 3vh;">
+            <!-- Settings::InfoBanner -->
+
+            <div class="settingsCard" style="width: 50%; height: 8vh; border-color: rgb(128, 128, 255); border-radius: 1vh; border-width: 2px; border-style: groove; margin: 0 auto; margin-top: 3vh;">
                 <div class="div1">
                     <h2 class="fontIcon" style="color: yellow; font-size: 36px; margin: 0 auto; margin-left: 2vh; margin-top: 2vh;"></h1>
                 </div>
@@ -237,13 +240,13 @@
             </div>
 
             <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 50px; display: flex; flex-direction: row;">
-                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h1>
-                    <h2 id="settingsAudioTitle" style="font-size: 24px; margin-top: -20px;">Suono</h1>
+                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h2>
+                <h2 id="settingsAudioTitle" style="font-size: 24px; margin-top: -20px;">Suono</h2>
             </div>
 
             <!-- Settings::EnableSoundtrack -->
 
-            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
+            <div class="settingsCard">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Soundtrack</h2>
                 </div>
@@ -260,7 +263,7 @@
 
             <!-- Settings::VolumeSoundtrack -->
 
-            <div class="parent" id="volumeSoundtrack" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
+            <div class="settingsCard" id="volumeSoundtrack">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Volume soundtrack</h2>
                 </div>
@@ -274,7 +277,7 @@
 
             <!-- Settings::EnableEffects -->
 
-            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
+            <div class="settingsCard">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Effetti sonori</h2>
                 </div>
@@ -291,7 +294,7 @@
 
             <!-- Settings::VolumeEffects -->
 
-            <div class="parent" id="volumeEffects" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
+            <div class="settingsCard" id="volumeEffects">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Volume effetti</h2>
                 </div>
@@ -304,13 +307,13 @@
             </div>
 
             <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 70px; display: flex; flex-direction: row;">
-                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h1>
-                    <h2 id="difficultyTitle" style="font-size: 24px; margin-top: -20px;">Giochi</h1>
+                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h2>
+                <h2 id="difficultyTitle" style="font-size: 24px; margin-top: -20px;">Giochi</h2>
             </div>
 
             <!-- Settings::MemoryImages -->
 
-            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
+            <div class="settingsCard">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Immagini memory</h2>
                 </div>
@@ -327,7 +330,7 @@
 
             <!-- Settings::MemoryDifficulty -->
 
-            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
+            <div class="settingsCard">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Difficoltà memory</h2>
                 </div>
@@ -346,7 +349,7 @@
 
             <!-- Settings::QuizDifficulty -->
 
-            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
+            <div class="settingsCard">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Difficoltà quiz</h2>
                 </div>
@@ -370,7 +373,7 @@
                 <h2 id="usersTitle" style="font-size: 24px; margin-top: -20px;">Utenti</h2>
             </div>
 
-            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
+            <div class="settingsCard">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Esperienza utenti</h2>
                 </div>
@@ -387,7 +390,7 @@
 
             <!-- Settings::CreateUser -->
 
-            <div class="parent" id="addUserCard" style="display: none; width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
+            <div class="settingsCard" id="addUserCard">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Crea utente</h2>
                 </div>
@@ -467,11 +470,11 @@
             <!-- Settings::Language -->
 
             <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 70px; display: flex; flex-direction: row;">
-                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h1>
-                    <h2 id="difficultyTitle" style="font-size: 24px; margin-top: -20px;">Lingua</h1>
+                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h2>
+                <h2 id="difficultyTitle" style="font-size: 24px; margin-top: -20px;">Lingua</h2>
             </div>
 
-            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
+            <div class="settingsCard">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Cambia lingua</h2>
                 </div>
@@ -493,7 +496,7 @@
                 <h2 style="font-size: 24px; margin-top: -20px;">Interfaccia</h2>
             </div>
 
-            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
+            <div class="settingsCard">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Tema scuro</h2>
                 </div>
@@ -511,11 +514,11 @@
             <!-- Settings::About -->
 
             <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 70px; display: flex; flex-direction: row;">
-                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h1>
-                    <h2 id="aboutSettingsTitle" style="font-size: 24px; margin-top: -20px;">Informazioni su</h1>
+                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h2>
+                <h2 id="aboutSettingsTitle" style="font-size: 24px; margin-top: -20px;">Informazioni su</h2>
             </div>
 
-            <div class="parent" style="width: 50%; height: 10vh; border-color: #FFFFFF; border-radius: 1vh; border-width: 2px; border-style: solid; margin: 0 auto; margin-top: 3vh;">
+            <div class="settingsCard">
                 <div class="div1">
                     <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Games Hub</h2>
                 </div>
