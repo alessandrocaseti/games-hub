@@ -470,7 +470,7 @@ function checkAnswer(event, timeout)
             document.getElementById("game4MessageInfo").innerHTML = getLocalizedString("exact") + ' ' + getLocalizedString("score") 
                                                                   + game4WinTracker.toString() + " / " + game4Questions.toString();
 
-            if(users)
+            if(users && totalUserCount > 1)
             {
                 XP[currentlyPlayingUserID] += 100;
                 updateXP(currentlyPlayingUserID);
@@ -483,7 +483,7 @@ function checkAnswer(event, timeout)
                                                                       + game4WinTracker.toString() + " / " + + game4Questions.toString();
                 document.getElementById("inputGame4").disabled = true;
                 document.getElementById("nextQuestionButton").disabled = true;
-                if(users)
+                if(users && totalUserCount > 1)
                 {
                     XP[currentlyPlayingUserID] += 500;
                     updateXP(currentlyPlayingUserID);
