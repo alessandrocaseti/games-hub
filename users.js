@@ -14,6 +14,8 @@ var avatar = ["assets/nouser.png", "assets/nouser.png", "assets/nouser.png", "as
 var XP = [0, 0, 0, 0];
 var username = ["", "", "", ""];
 
+var scrollValue = 1400;
+
 function toggleUsers()
 {
     playMainClick();
@@ -40,7 +42,7 @@ function toggleUsers()
         {
             deleteUser(i, true);
         }
-
+        scrollValue = 1400;
         totalUserCount = 0;
     }
     saveSettings();
@@ -57,7 +59,6 @@ function openUserDialog()
         return;
     }
 
-
     for (let i = 1; i <= 8; i++) {
         document.getElementById("avatar" + i).style.backgroundImage = "url('assets/user" + i + ".png')";
         document.getElementById("avatar" + i).style.borderColor = "white";
@@ -65,8 +66,12 @@ function openUserDialog()
     selectedAvatar = "assets/nouser.png"; // Reset avatar selection ogni volta che si apre la dialog
 
     document.getElementById("box").style.display = "grid";
-    window.scrollBy(0, 300);
-
+    window.scrollTo
+    ({
+        top: scrollValue,
+        left: 0,
+        behavior: "smooth",
+    });
 }
 
 function closeUserDialog()
@@ -126,6 +131,7 @@ function addUser()
     console.log("username " + username[currentUserID] + " pic: " + avatar[currentUserID])
 
     closeUserDialog();
+    scrollValue += 100;
 }
 
 function deleteUser(id, triggerSound) 
@@ -153,6 +159,7 @@ function deleteUser(id, triggerSound)
     document.getElementById("enableUsersCardDescription").innerHTML = "Aggiungi un nuovo utente (" + totalUserCount + "/4)";
 
     totalDeletedUsers += 1;
+    scrollValue -= 100;
 
     deletedUsers[totalDeletedUsers] = id;
 }
