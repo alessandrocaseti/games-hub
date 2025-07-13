@@ -221,7 +221,6 @@
             </div>
         </div>
 
-
         <!-- Settings -->
 
         <div id="settingsPage" style="text-align: center; display: none; margin-top: 10vh;">
@@ -230,30 +229,30 @@
 
             <!-- Settings::InfoBanner -->
 
-            <div class="settingsCard" style="width: 50%; height: 8vh; border-color: rgb(128, 128, 255); border-radius: 1vh; border-width: 2px; border-style: groove; margin: 0 auto; margin-top: 3vh;">
-                <div class="div1">
-                    <h2 class="fontIcon" style="color: yellow; font-size: 36px; margin: 0 auto; margin-left: 2vh; margin-top: 2vh;"></h1>
+            <div class="banner" style="width: 50%;">
+                <div class="bannerIcon">
+                    <h2 class="fontIcon" style="color: yellow; font-size: 32px; margin-left: 4vh; margin-top: 20px;"></h2>
                 </div>
-                <div class="div2" style="width: 100vh">
-                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 8vh; margin-top: -4.5vh;">Tutte le impostazioni sono salvate in locale tramite il browser, tranne le informazioni sugli utenti, che andranno riassegnate ogni volta che aggiorni la pagina (ciò cambierà in un futuro aggiornamento).</h3>
+                <div style="width: 100vh; margin-left: -6vh; margin-top: -4px;">
+                    <h4>Tutte le impostazioni, tranne le informazioni sugli utenti, sono salvate in locale tramite il browser</h4>
                 </div>
             </div>
 
-            <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 50px; display: flex; flex-direction: row;">
-                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h2>
-                <h2 id="settingsAudioTitle" style="font-size: 24px; margin-top: -20px;">Suono</h2>
+            <div class="settingsHeader">
+                <h2 class="fontIcon settingsHeaderIcon"></h2>
+                <h3 id="settingsAudioTitle" class="settingsHeaderText">Suono</h3>
             </div>
 
             <!-- Settings::EnableSoundtrack -->
 
             <div class="settingsCard">
-                <div class="div1">
-                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Soundtrack</h2>
+                <div class="settingsCardTitle">
+                    <h2>Soundtrack</h2>
                 </div>
-                <div class="div2">
-                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Attiva o disattiva la riproduzione delle tracce musicali in sottofondo</h3>
+                <div class="settingsCardDescription">
+                    <h4>Attiva o disattiva la riproduzione delle tracce musicali in sottofondo</h4>
                 </div>
-                <div class="div3" style="margin-top: 30px;">
+                <div class="settingsCardControl" style="margin-top: 30px;">
                     <label class="switch" onmouseover="playSecondaryClick()">
                         <input type="checkbox" checked id="soundtrackToggle" onchange="toggleSoundtrack()">
                         <span class="slider round"></span>
@@ -264,13 +263,13 @@
             <!-- Settings::VolumeSoundtrack -->
 
             <div class="settingsCard" id="volumeSoundtrack">
-                <div class="div1">
-                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Volume soundtrack</h2>
+                <div class="settingsCardTitle">
+                    <h2>Volume soundtrack</h2>
                 </div>
-                <div class="div2">
-                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Regola il volume delle tracce musicali in sottofondo</h3>
+                <div class="settingsCardDescription">
+                    <h4>Regola il volume delle tracce musicali in sottofondo</h4>
                 </div>
-                <div class="div3" style="margin-top: 32px; margin-right: 3vh;">
+                <div class="settingsCardControl" style="margin-top: 32px; margin-right: 3vh;">
                     <input type="range" min="1" max="100" value="50" class="sliderVolume" id="sliderVolume" onmouseover="playSecondaryClick()" onchange="setSoundtrackVolume()" oninput="updateSliderFill(this)" style="margin-right: 220px;">
                 </div>
             </div>
@@ -278,13 +277,13 @@
             <!-- Settings::EnableEffects -->
 
             <div class="settingsCard">
-                <div class="div1">
-                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Effetti sonori</h2>
+                <div class="settingsCardTitle">
+                    <h2>Effetti sonori</h2>
                 </div>
-                <div class="div2">
-                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Attiva o disattiva la riproduzione degli effetti sonori al click o passaggio del mouse</h3>
+                <div class="settingsCardDescription">
+                    <h4>Attiva o disattiva la riproduzione degli effetti sonori al click o passaggio del mouse</h4>
                 </div>
-                <div class="div3" style="margin-top: 30px;">
+                <div class="settingsCardControl" style="margin-top: 30px;">
                     <label class="switch" onmouseover="playSecondaryClick()">
                         <input type="checkbox" checked id="effectsToggle" onchange="toggleEffects()" onmouseover="playSecondaryClick()">
                         <span class="slider round"></span>
@@ -295,32 +294,32 @@
             <!-- Settings::VolumeEffects -->
 
             <div class="settingsCard" id="volumeEffects">
-                <div class="div1">
-                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Volume effetti</h2>
+                <div class="settingsCardTitle">
+                    <h2>Volume effetti</h2>
                 </div>
-                <div class="div2">
-                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Regola il volume degli effetti sonori al click o passaggio del mouse</h3>
+                <div class="settingsCardDescription">
+                    <h4>Regola il volume degli effetti sonori al click o passaggio del mouse</h4>
                 </div>
-                <div class="div3" style="margin-top: 32px; margin-right: 3vh;">
+                <div class="settingsCardControl" style="margin-top: 32px; margin-right: 3vh;">
                     <input type="range" min="1" max="100" value="50" class="sliderVolume" id="sliderEffects" onmouseover="playSecondaryClick()" onchange="setEffectsVolume()" oninput="updateSliderFill(this)" style="margin-right: 220px;">
                 </div>
             </div>
 
-            <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 70px; display: flex; flex-direction: row;">
-                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h2>
-                <h2 id="difficultyTitle" style="font-size: 24px; margin-top: -20px;">Giochi</h2>
+            <div class="settingsHeader">
+                <h2 class="fontIcon settingsHeaderIcon"></h2>
+                <h3 id="difficultyTitle" class="settingsHeaderText">Giochi</h3>
             </div>
 
             <!-- Settings::MemoryImages -->
 
             <div class="settingsCard">
-                <div class="div1">
-                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Immagini memory</h2>
+                <div class="settingsCardTitle">
+                    <h2>Immagini memory</h2>
                 </div>
-                <div class="div2">
-                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Scegli con quale set di immagini giocare</h3>
+                <div class="settingsCardDescription">
+                    <h4>Scegli con quale set di immagini giocare</h4>
                 </div>
-                <div class="div3" style="margin-top: 30px;">
+                <div class="settingsCardControl" style="margin-top: 30px;">
                     <select id="memoryImages" class="defaultSelect" style="margin-right: 30px;" onchange="setMemoryImages()" onmouseover="playSecondaryClick()">
                         <option value="flags">Bandiere</option>
                         <option value="streamers">Streamers</option>
@@ -331,13 +330,13 @@
             <!-- Settings::MemoryDifficulty -->
 
             <div class="settingsCard">
-                <div class="div1">
-                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Difficoltà memory</h2>
+                <div class="settingsCardTitle">
+                    <h2>Difficoltà memory</h2>
                 </div>
-                <div class="div2">
-                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Seleziona il numero di bandiere con cui giocare (16, 24, 32, 40)</h3>
+                <div class="settingsCardDescription">
+                    <h4>Seleziona il numero di bandiere con cui giocare (16, 24, 32, 40)</h4>
                 </div>
-                <div class="div3" style="margin-top: 30px;">
+                <div class="settingsCardControl" style="margin-top: 30px;">
                     <select id="memoryDifficulty" class="defaultSelect" style="margin-right: 30px;" onchange="setMemoryDifficulty()" onmouseover="playSecondaryClick()">
                         <option value="18">Base - 18</option>
                         <option value="24">Normale - 24</option>
@@ -350,13 +349,13 @@
             <!-- Settings::QuizDifficulty -->
 
             <div class="settingsCard">
-                <div class="div1">
-                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Difficoltà quiz</h2>
+                <div class="settingsCardTitle">
+                    <h2>Difficoltà quiz</h2>
                 </div>
-                <div class="div2">
-                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Seleziona la percentuale di lettere da mostrare nelle risposte dei quiz</h3>
+                <div class="settingsCardDescription">
+                    <h4>Seleziona la percentuale di lettere da mostrare nelle risposte dei quiz</h4>
                 </div>
-                <div class="div3" style="margin-top: 30px;">
+                <div class="settingsCardControl" style="margin-top: 30px;">
                     <select id="quizDifficulty" class="defaultSelect" style="margin-right: 30px;" onchange="setQuizDifficulty()" onmouseover="playSecondaryClick()">
                         <option value="3">Facile (75%)</option>
                         <option value="2">Normale (50%)</option>
@@ -368,19 +367,19 @@
 
             <!-- Settings::Users -->
 
-            <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 70px; display: flex; flex-direction: row;">
-                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h2>
-                <h2 id="usersTitle" style="font-size: 24px; margin-top: -20px;">Utenti</h2>
+            <div class="settingsHeader">
+                <h2 class="fontIcon settingsHeaderIcon"></h2>
+                <h3 id="usersTitle" class="settingsHeaderText">Utenti</h3>
             </div>
 
             <div class="settingsCard">
-                <div class="div1">
-                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Esperienza utenti</h2>
+                <div class="settingsCardTitle">
+                    <h2>Esperienza utenti</h2>
                 </div>
-                <div class="div2">
-                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Abilita esperienza utenti</h3>
+                <div class="settingsCardDescription">
+                    <h4>Abilita esperienza utenti</h4>
                 </div>
-                <div class="div3" style="margin-top: 30px;">
+                <div class="settingsCardControl" style="margin-top: 30px;">
                     <label class="switch" onmouseover="playSecondaryClick()">
                         <input type="checkbox" id="usersToggle" onchange="toggleUsers()">
                         <span class="slider round"></span>
@@ -391,13 +390,13 @@
             <!-- Settings::CreateUser -->
 
             <div class="settingsCard" id="addUserCard">
-                <div class="div1">
-                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Crea utente</h2>
+                <div class="settingsCardTitle">
+                    <h2>Crea utente</h2>
                 </div>
-                <div class="div2">
-                    <h3 id="enableUsersCardDescription" style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;"></h3>
+                <div class="settingsCardDescription">
+                    <h4 id="enableUsersCardDescription"></h4>
                 </div>
-                <div class="div3" style="margin: 0 auto; margin-top: 8px; margin-right: 20px;">
+                <div class="settingsCardControl" style="margin: 0 auto; margin-top: 8px; margin-right: 20px;">
                     <button onclick="openUserDialog()" class="defaultButton" onmouseover="playSecondaryClick()" style="font-family: iconFont; font-size: 24px; width: 10vh; height: 6vh;"></button>
                 </div>
             </div>
@@ -445,16 +444,16 @@
                 <h1 style="margin-top: 10px;">Crea nuovo utente</h1>
                 <p style="margin-top: -30px; font-weight: 500;">Scegli il tuo avatar</p>
                 <div style="display: flex; flex-direction: row; text-align: center; margin: 0 auto; margin-top: -20px;">
-                    <button id="avatar1" onclick="selectAvatar(1)" class="defaultButton" style="border-radius: 100%; width: 12vh; height: 12vh; margin: 2vh; margin-right: 5vh; margin-left: 5vh;" onmouseover="playSecondaryClick()"></button>
-                    <button id="avatar2" onclick="selectAvatar(2)" class="defaultButton" style="border-radius: 100%; width: 12vh; height: 12vh; margin: 2vh; margin-right: 5vh; margin-left: 5vh;" onmouseover="playSecondaryClick()"></button>
-                    <button id="avatar3" onclick="selectAvatar(3)" class="defaultButton" style="border-radius: 100%; width: 12vh; height: 12vh; margin: 2vh; margin-right: 5vh; margin-left: 5vh;" onmouseover="playSecondaryClick()"></button>
-                    <button id="avatar4" onclick="selectAvatar(4)" class="defaultButton" style="border-radius: 100%; width: 12vh; height: 12vh; margin: 2vh; margin-right: 5vh; margin-left: 5vh;" onmouseover="playSecondaryClick()"></button>
+                    <button id="avatar1" onclick="selectAvatar(1)" class="defaultButton avatarButton" onmouseover="playSecondaryClick()"></button>
+                    <button id="avatar2" onclick="selectAvatar(2)" class="defaultButton avatarButton" onmouseover="playSecondaryClick()"></button>
+                    <button id="avatar3" onclick="selectAvatar(3)" class="defaultButton avatarButton" onmouseover="playSecondaryClick()"></button>
+                    <button id="avatar4" onclick="selectAvatar(4)" class="defaultButton avatarButton" onmouseover="playSecondaryClick()"></button>
                 </div>
                 <div style="display: flex; flex-direction: row; text-align: center; margin: 0 auto; margin-top: -10px;">
-                    <button id="avatar5" onclick="selectAvatar(5)" class="defaultButton" style="border-radius: 100%; width: 12vh; height: 12vh; margin: 2vh; margin-right: 5vh; margin-left: 5vh;" onmouseover="playSecondaryClick()"></button>
-                    <button id="avatar6" onclick="selectAvatar(6)" class="defaultButton" style="border-radius: 100%; width: 12vh; height: 12vh; margin: 2vh; margin-right: 5vh; margin-left: 5vh;" onmouseover="playSecondaryClick()"></button>
-                    <button id="avatar7" onclick="selectAvatar(7)" class="defaultButton" style="border-radius: 100%; width: 12vh; height: 12vh; margin: 2vh; margin-right: 5vh; margin-left: 5vh;" onmouseover="playSecondaryClick()"></button>
-                    <button id="avatar8" onclick="selectAvatar(8)" class="defaultButton" style="border-radius: 100%; width: 12vh; height: 12vh; margin: 2vh; margin-right: 5vh; margin-left: 5vh;" onmouseover="playSecondaryClick()"></button>
+                    <button id="avatar5" onclick="selectAvatar(5)" class="defaultButton avatarButton" onmouseover="playSecondaryClick()"></button>
+                    <button id="avatar6" onclick="selectAvatar(6)" class="defaultButton avatarButton" onmouseover="playSecondaryClick()"></button>
+                    <button id="avatar7" onclick="selectAvatar(7)" class="defaultButton avatarButton" onmouseover="playSecondaryClick()"></button>
+                    <button id="avatar8" onclick="selectAvatar(8)" class="defaultButton avatarButton" onmouseover="playSecondaryClick()"></button>
                 </div>
                 <div style="text-align: center;">
                     <input id="newUserName" type="text" class="defaultInputBox" style="width: 24vh;" placeholder="Username" onfocus="playSecondaryClick()">
@@ -469,19 +468,19 @@
 
             <!-- Settings::Language -->
 
-            <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 70px; display: flex; flex-direction: row;">
-                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h2>
-                <h2 id="difficultyTitle" style="font-size: 24px; margin-top: -20px;">Lingua</h2>
+            <div class="settingsHeader">
+                <h2 class="fontIcon settingsHeaderIcon"></h2>
+                <h3 id="difficultyTitle" class="settingsHeaderText">Lingua</h3>
             </div>
 
             <div class="settingsCard">
-                <div class="div1">
-                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Cambia lingua</h2>
+                <div class="settingsCardTitle">
+                    <h2>Cambia lingua</h2>
                 </div>
-                <div class="div2">
-                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Seleziona la lingua del sito (italiano / inglese)</h3>
+                <div class="settingsCardDescription">
+                    <h4>Seleziona la lingua del sito (italiano / inglese)</h4>
                 </div>
-                <div class="div3" style="display: flex; flex-direction: row; margin-top: 1vh; margin-right: 2vh;">
+                <div class="settingsCardControl" style="display: flex; flex-direction: row; margin-top: 1vh; margin-right: 2vh;">
                     <button id="italianButton" class="defaultButton" onclick="setLanguage('it', true)" onmouseover="playSecondaryClick()"
                             style="background-image: url('https://raw.githubusercontent.com/kapowaz/square-flags/395a3335100d1e1f361daf8508d9d9c17e28962e/flags-original/it.svg'); width: 6vh; height: 6vh; margin-right: 1vh;"></button>
                     <button id="englishButton" class="defaultButton" onclick="setLanguage('en', true)" onmouseover="playSecondaryClick()"
@@ -491,19 +490,19 @@
 
             <!-- Settings::Theme -->
 
-            <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 70px; display: flex; flex-direction: row;">
-                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h2>
-                <h2 style="font-size: 24px; margin-top: -20px;">Interfaccia</h2>
+            <div class="settingsHeader">
+                <h2 class="fontIcon settingsHeaderIcon"></h2>
+                <h3 class="settingsHeaderText">Interfaccia</h3>
             </div>
 
             <div class="settingsCard">
-                <div class="div1">
-                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Tema scuro</h2>
+                <div class="settingsCardTitle">
+                    <h2>Tema scuro</h2>
                 </div>
-                <div class="div2">
-                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Imposta il tema scuro a tutto il sito</h3>
+                <div class="settingsCardDescription">
+                    <h4>Imposta il tema scuro a tutto il sito</h4>
                 </div>
-                <div class="div3" style="margin-top: 30px;">
+                <div class="settingsCardControl" style="margin-top: 30px;">
                     <label class="switch" onmouseover="playSecondaryClick()">
                         <input type="checkbox" id="themeToggle" onchange="toggleTheme()">
                         <span class="slider round"></span>
@@ -513,19 +512,19 @@
 
             <!-- Settings::About -->
 
-            <div style="text-align: left; width: 50%; height: 40px; margin: 0 auto; margin-bottom: -40px; margin-top: 70px; display: flex; flex-direction: row;">
-                <h2 class="fontIcon" style="font-size: 28px; margin-top: -16px; margin-right: 1vh;"></h2>
-                <h2 id="aboutSettingsTitle" style="font-size: 24px; margin-top: -20px;">Informazioni su</h2>
+            <div class="settingsHeader">
+                <h2 class="fontIcon settingsHeaderIcon"></h2>
+                <h3 id="aboutSettingsTitle" class="settingsHeaderText">Informazioni su</h3>
             </div>
 
             <div class="settingsCard">
-                <div class="div1">
-                    <h2 style="font-size: 30px; margin-left: 20px; margin-top: 8px;">Games Hub</h2>
+                <div class="settingsCardTitle">
+                    <h2 id="aboutTitle"></h2>
                 </div>
-                <div class="div2">
-                    <h3 style="font-weight: 500; font-size: 16px; margin-left: 20px; margin-top: -24px;">Versione 2.0.0 | 10 Agosto 2025</h3>
+                <div class="settingsCardDescription">
+                    <h4 id="aboutVersion"></h4>
                 </div>
-                <div class="div3" style="margin: 0 auto; margin-top: 8px; margin-right: 20px;">
+                <div class="settingsCardControl" style="margin: 0 auto; margin-top: 8px; margin-right: 20px;">
                     <a target="_blank" href="https://github.com/alessandrocaseti/games-hub" style="color: #FFFFFF; margin-top: 50px;">
                         <button class="defaultButton" onmouseover="playSecondaryClick()" style="font-family: iconFont; font-size: 24px; width: 6vh; height: 6vh; background-image: url('https://cdn-1.webcatalog.io/catalog/github/github-icon-filled-256.png?v=1747615358163');"></button>
                     </a>
@@ -534,23 +533,13 @@
 
             <!-- Settings::AC -->
 
-            <div style="width: 23%; height: 6vh; transition: 1s; display: flex; flex-direction: row; border-color: rgb(128, 128, 255); border-radius: 1vh; border-width: 2px; border-style: groove; margin: 0 auto; justify-content: center; margin-top: 6vh;">
-                <img src="assets/ac.png" style="width: 8vh; height: 8vh; margin-top: -8px; margin-left: -12px;" style="user-select: none; -webkit-user-drag: none;">
-                <h4 style="font-weight: 500; margin-top: 16px; margin-left: 4px;">Developed by Alessandro Caseti</h4>
+            <div class="banner" style="width: 20%;">
+                <img src="assets/ac.png" class="bannerIcon" style="width: 8vh; height: 8vh; user-select: none; -webkit-user-drag: none;">
+                <h4 id="aboutDev" class="bannerText" style="margin-top: 18px;"></h4>
             </div>
 
             <div style="margin-bottom: 24vh;"></div>
 
-        </div>
-
-        <!-- About section TO BE DELETED -->
-
-        <div id="aboutDiv" style="text-align: center; display: none; margin-top: 4vh;">
-            <img id="aboutLogo" src="assets/logo.png" class="defaultImage" style="width: 40vh; height: 40vh; margin-top: 20px;">
-            <h1 id="aboutTitle" style="font-size: 72px; margin-top: -4vh;" class="glow"></h1>
-            <h2 id="aboutVersion" style="font-size: 32px; margin-top: -4vh;"></h2>
-            <p id="aboutDev" style="font-size: 24px; font-weight: 600;"></p>
-            <a id="aboutRepo" target="_blank" href="https://github.com/alessandrocaseti/games-hub" style="color: #FFFFFF; margin-top: 50px;"></a>
         </div>
 
     </body>

@@ -46,9 +46,7 @@ const strings_it =
     timesUp : "Tempo scaduto!",
     backToHome : "Torna alla Home",
     aboutDev : "Sviluppato da Alessandro Caseti",
-    aboutRepo : "Repository GitHub",
-    aboutTitle : "Informazioni su Games Hub",
-    version : "Versione " + appVersion.toString() + " (" + getLocalizedDate("dmy") +  ")"
+    version : "Versione " + appVersion.toString() + " - " + getLocalizedDate("dmy")
 };
 
 const strings_en = 
@@ -95,9 +93,7 @@ const strings_en =
     timesUp : "Time's up!",
     backToHome : "Back to Home",
     aboutDev : "Developed by Alessandro Caseti",
-    aboutRepo : "GitHub repository",
-    aboutTitle : "About Games Hub",
-    version : "Version " + appVersion.toString() + " (" + getLocalizedDate("dmy") +  ")"
+    version : "Version " + appVersion.toString() + " - " + getLocalizedDate("dmy")
 };
 
 function setLanguage(id, save)
@@ -150,7 +146,6 @@ function setLanguage(id, save)
     document.getElementById("aboutTitle").innerHTML = translate.name;
     document.getElementById("aboutVersion").innerHTML = translate.version;
     document.getElementById("aboutDev").innerHTML = translate.aboutDev;
-    document.getElementById("aboutRepo").innerHTML = translate.aboutRepo;
 
     homeButton.innerHTML = translate.backToHome;
     
