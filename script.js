@@ -84,8 +84,7 @@ function backToHome()
     document.getElementById("currentUserDiv").style.display = "none";
     document.getElementById('gameFrame1').style.display = 'none';
     document.getElementById('gameFrame2').style.display = 'none';
-    document.getElementById('gameFrame3').style.display = 'none';
-    document.getElementById('gameProgress3').style.display = 'none';
+    document.getElementById('memory').style.display = 'none';
     document.getElementById('gameProgress4').style.display = 'none';
     document.getElementById('gameFrame4').style.display = 'none';
     clearInterval(countDownStartGame3);

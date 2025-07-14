@@ -241,8 +241,7 @@ function loadMemoryGame()
     }
     
     title.innerHTML = getLocalizedString("game3ButtonText") + ' - ' + getLocalizedString("name");
-    document.getElementById('gameFrame3').style.display = 'block';
-    document.getElementById('gameProgress3').style.display = 'block';
+    document.getElementById('memory').style.display = 'block';
     currentPage = 3;
     let i = 0;
 
@@ -250,7 +249,7 @@ function loadMemoryGame()
     var frame3 = document.getElementById('gameFrame3');
     if(frame3) 
     {
-        frame3.innerHTML = '<h1 id="game3Title" class="textAnimaton" style="font-size: 70px; user-select: none; width: auto; height: 30px; margin-bottom: 100px;"></h1>';
+        frame3.innerHTML = '';
     }
 
     document.getElementById("game3Title").innerHTML = memoryStartCountdown;
