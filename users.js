@@ -27,6 +27,7 @@ function toggleUsers()
         document.getElementById("addUserCard").style.display = "grid";
         document.getElementById("appendChildDiv").style.display = "block";
         users = true;
+        document.getElementById("addUserInfoText").innerHTML = "(" + totalUserCount + "/4)";
     }
     else
     {
@@ -54,7 +55,7 @@ function openUserDialog()
 
     if (totalUserCount === 4)
     {
-        alert("You can only add up to 4 users.");
+        alert(getLocalizedString("maxUserAlert"));
         return;
     }
 
@@ -100,7 +101,7 @@ function addUser()
     const userName = document.getElementById("newUserName").value;
     if (userName === "") 
     {
-        alert("Please enter a valid username!");
+        alert(getLocalizedString("invalidUsernameAlert"));
         return;
     }
 
@@ -127,6 +128,7 @@ function addUser()
 
     console.log("ADDED USER " + currentUserID);
     console.log("username " + username[currentUserID] + " pic: " + avatar[currentUserID])
+    document.getElementById("addUserInfoText").innerHTML = "(" + totalUserCount + "/4)";
 
     closeUserDialog();
     scrollValue += 100;
@@ -156,6 +158,7 @@ function deleteUser(id, triggerSound)
 
     totalDeletedUsers += 1;
     scrollValue -= 100;
+    document.getElementById("addUserInfoText").innerHTML = "(" + totalUserCount + "/4)";
 
     deletedUsers[totalDeletedUsers] = id;
 }

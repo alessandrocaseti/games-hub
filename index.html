@@ -28,9 +28,9 @@
         <button id="homeButton" onclick="backToHome()" class="defaultButton" onmouseover="playSecondaryClick()"
                 style="width: 200px; height: 30px; display: none; margin-left: 20px; margin-top: 34px;"></button>
 
-        <div style="display: flex; justify-content: right; margin-right: 10px;">
+        <div style="display: flex; justify-content: right; margin-right: 2vh; margin-top: 2vh;">
             <button id="settingsButton" class="memoryButton" onclick="showSettings()" onmouseover="playSecondaryClick()"
-                    style="background-image: url('assets/settings.png'); width: 4vh; height: 4vh; background-size: cover; margin-left: 5px; margin-top: 1vh;"></button>
+                    style="background-image: url('assets/icons/settings.png'); width: 5vh; height: 5vh; background-size: cover; "></button>
         </div>
 
         <!-- CurrentUserOverlay -->
@@ -196,7 +196,7 @@
         <!-- UserSelectionPage -->
 
         <div id="userSelection" style="display: none; text-align: center;">
-            <h1 style="margin: 10vh;">Seleziona l'utente che sta giocando</h1>
+            <h1 id="selectUser" style="margin: 10vh;"></h1>
             <div style="display: flex; flex-direction: row; margin: 0 auto; margin-top: 10vh; margin-left: auto; margin-right: auto; justify-content: center;">
                 <div id="userSelection0" class="userCard" onclick="selectUser(0, true)" onmouseover="playSecondaryClick()">
                     <img id="userCardPic0" style="width: 20vh; height: 20vh; margin: 18vh; margin-top: 4vh; margin-bottom: 0vh; grid-area: 1 / 1 / 3 / 3;">
@@ -394,7 +394,10 @@
                     <h2 id="addUserCardTitle"></h2>
                 </div>
                 <div class="settingsCardDescription">
-                    <h4 id="addUserCardDescription"></h4>
+                    <div style="display: flex; flex-direction: row;">
+                        <h4 id="addUserCardDescription"></h4>
+                        <h4 id="addUserInfoText" style="margin-left: 6px;">(0/4)</h4>
+                    </div>
                 </div>
                 <div class="settingsCardControl" style="margin: 0 auto; margin-top: 8px; margin-right: 20px;">
                     <button onclick="openUserDialog()" class="defaultButton" onmouseover="playSecondaryClick()" style="font-family: iconFont; font-size: 24px; width: 10vh; height: 6vh;"></button>

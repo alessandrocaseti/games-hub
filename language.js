@@ -83,6 +83,8 @@ const strings_it =
     usernamePlaceholder : "Inserisci username",
     cancel : "Annulla",
     save : "Salva",
+    maxUserAlert : "Puoi aggiungere solo fino a 4 utenti!",
+    invalidUsernameAlert : "Inserisci un username valido!",
     languageSettingsTitle : "Lingua",
     languageCardTitle : "Cambia lingua",
     languageCardDescription : "Seleziona la lingua del sito (italiano / inglese)",
@@ -91,6 +93,7 @@ const strings_it =
     themeCardDescription : "Imposta il tema scuro a tutto il sito",
     aboutSettingsTitle: "Informazioni su",
     aboutDev : "Sviluppato da Alessandro Caseti",
+    selectUser : "Seleziona l'utente che sta giocando",
     version : "Versione " + appVersion.toString() + " - " + getLocalizedDate("dmy")
 };
 
@@ -175,6 +178,8 @@ const strings_en =
     usernamePlaceholder : "Insert username",
     cancel : "Cancel",
     save : "Save",
+    maxUserAlert : "You can only add up to 4 users!",
+    invalidUsernameAlert : "Enter a valid username!",
     languageSettingsTitle : "Language",
     languageCardTitle : "Change language",
     languageCardDescription : "Select the displayed language of the website (italian / english)",
@@ -183,6 +188,7 @@ const strings_en =
     themeCardDescription : "Set a darker background across the whole website",
     aboutSettingsTitle: "About",
     aboutDev : "Developed by Alessandro Caseti",
+    selectUser : "Select the user who is playing",
     version : "Version " + appVersion.toString() + " - " + getLocalizedDate("dmy")
 };
 
@@ -281,6 +287,7 @@ function setLanguage(id, save)
     document.getElementById("interfaceSettingsTitle").innerHTML = translate.interfaceSettingsTitle;
     document.getElementById("themeCardTitle").innerHTML = translate.themeCardTitle;
     document.getElementById("themeCardDescription").innerHTML = translate.themeCardDescription;
+    document.getElementById("selectUser").innerHTML = translate.selectUser;
 
     homeButton.innerHTML = translate.backToHome;
     
