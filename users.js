@@ -14,7 +14,7 @@ var avatar = ["assets/nouser.png", "assets/nouser.png", "assets/nouser.png", "as
 var XP = [0, 0, 0, 0];
 var username = ["", "", "", ""];
 
-var scrollValue = 1400;
+var scrollValue = 1500;
 
 function toggleUsers()
 {
@@ -26,7 +26,6 @@ function toggleUsers()
         currentUserID = -1;
         document.getElementById("addUserCard").style.display = "grid";
         document.getElementById("appendChildDiv").style.display = "block";
-        document.getElementById("enableUsersCardDescription").innerHTML = "Aggiungi un nuovo utente (" + totalUserCount + "/4)";
         users = true;
     }
     else
@@ -42,8 +41,9 @@ function toggleUsers()
         {
             deleteUser(i, true);
         }
-        scrollValue = 1400;
+        scrollValue = 1500;
         totalUserCount = 0;
+        document.getElementById("addUserCardDescription").innerHTML = translate.addUserCardDescription + " (" + totalUserCount + "/4)";
     }
     saveSettings();
 }
@@ -123,7 +123,7 @@ function addUser()
 
     document.getElementById("userPic" + currentUserID).src = avatar[currentUserID];
     totalUserCount += 1;
-    document.getElementById("enableUsersCardDescription").innerHTML = "Aggiungi un nuovo utente (" + totalUserCount + "/4)";
+    document.getElementById("addUserCardDescription").innerHTML = translate.addUserCardDescription + " (" + totalUserCount + "/4)";
 
     username[currentUserID] = userName; // STORE new username
 
@@ -156,7 +156,7 @@ function deleteUser(id, triggerSound)
     currentUserID--;
     totalUserCount--;
 
-    document.getElementById("enableUsersCardDescription").innerHTML = "Aggiungi un nuovo utente (" + totalUserCount + "/4)";
+    document.getElementById("addUserCardDescription").innerHTML = translate.addUserCardDescription + " (" + totalUserCount + "/4)";
 
     totalDeletedUsers += 1;
     scrollValue -= 100;

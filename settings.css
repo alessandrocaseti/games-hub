@@ -1,6 +1,6 @@
 /* GAMES HUB */
 
-/* CONTROLS::SETTINGS_BANNER */
+/* ELEMENTS::SETTINGS_BANNER */
 
 .banner 
 {
@@ -32,7 +32,7 @@
     margin-left: -18px; 
 }
 
-/* CONTROLS::SETTINGS_HEADER */
+/* ELEMENTS::SETTINGS_HEADER */
 
 .settingsHeader
 {
@@ -56,7 +56,7 @@
 
 .settingsHeaderText { margin-top: -18px; }
 
-/* CONTROLS::SETTINGS_CARD */
+/* ELEMENTS::SETTINGS_CARD */
 
 .settingsCard
 {

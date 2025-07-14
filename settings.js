@@ -33,7 +33,7 @@ function loadSettings()
     document.getElementById('soundtrackToggle').checked = settings.soundtrackEnabled;
     document.getElementById('themeToggle').checked = settings.darkTheme;
     document.getElementById('usersToggle').checked = settings.users;
-    
+
     setMemoryImages();
     setMemoryDifficulty();
     setQuizDifficulty();
