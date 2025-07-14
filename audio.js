@@ -71,7 +71,7 @@ function playMainClick()
     }
     var audio = new Audio('assets/click_main.mp3');
     audio.volume = volumeEffects;
-    audio.play();
+    audio.play().catch(() => {});
 }
 
 function playSecondaryClick()
@@ -82,7 +82,7 @@ function playSecondaryClick()
     }
     var audio = new Audio('assets/click_secondary.mp3');
     audio.volume = volumeEffects;
-    audio.play();
+    audio.play().catch(() => {});
 }
 
 function playMemoryLoadingSound()
