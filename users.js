@@ -43,7 +43,6 @@ function toggleUsers()
         }
         scrollValue = 1500;
         totalUserCount = 0;
-        document.getElementById("addUserCardDescription").innerHTML = translate.addUserCardDescription + " (" + totalUserCount + "/4)";
     }
     saveSettings();
 }
@@ -123,7 +122,6 @@ function addUser()
 
     document.getElementById("userPic" + currentUserID).src = avatar[currentUserID];
     totalUserCount += 1;
-    document.getElementById("addUserCardDescription").innerHTML = translate.addUserCardDescription + " (" + totalUserCount + "/4)";
 
     username[currentUserID] = userName; // STORE new username
 
@@ -155,8 +153,6 @@ function deleteUser(id, triggerSound)
 
     currentUserID--;
     totalUserCount--;
-
-    document.getElementById("addUserCardDescription").innerHTML = translate.addUserCardDescription + " (" + totalUserCount + "/4)";
 
     totalDeletedUsers += 1;
     scrollValue -= 100;

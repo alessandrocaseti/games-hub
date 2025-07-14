@@ -269,7 +269,7 @@ function setLanguage(id, save)
     document.getElementById("enableUsersCardTitle").innerHTML = translate.enableUsersCardTitle;
     document.getElementById("enableUsersCardDescription").innerHTML = translate.enableUsersCardDescription;
     document.getElementById("addUserCardTitle").innerHTML = translate.addUserCardTitle;
-    document.getElementById("addUserCardDescription").innerHTML = translate.addUserCardDescription + " (0/4)";
+    document.getElementById("addUserCardDescription").innerHTML = translate.addUserCardDescription;
     document.getElementById("createNewUser").innerHTML = translate.addUserCardTitle;
     document.getElementById("selectAvatar").innerHTML = translate.selectAvatar;
     document.getElementById("newUserName").placeholder = translate.usernamePlaceholder;
