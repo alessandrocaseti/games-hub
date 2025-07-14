@@ -467,3 +467,12 @@ input:checked + .slider:before {
     display: inline-block;
     border-radius: 1px solid #000;
 }
+
+.defaultButton.gameButton
+{
+    width: 300px;
+    height: 200px;
+    border-radius: 25px;
+    font-size: 32px;
+    margin: 40px;
+}

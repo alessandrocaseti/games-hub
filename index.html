@@ -57,76 +57,63 @@
 
             </div>
 
+            <!-- MainButtons -->
+
             <div id="gameButtonsDiv" style="margin-top: 50px;">
 
-                <button id="game1" class="defaultButton"
-                        style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;"
+                <button id="game1" class="defaultButton gameButton"
                         onclick="loadGame1()" onmouseover="playSecondaryClick()"></button>
 
-                <button id="game2" class="defaultButton"
-                        style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;"
+                <button id="game2" class="defaultButton gameButton"
                         onclick="loadGame2()" onmouseover="playSecondaryClick()"></button>
 
-                <button id="game3" class="defaultButton"
-                        style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;"
+                <button id="game3" class="defaultButton gameButton"
                         onclick="loadGame3()" onmouseover="playSecondaryClick()"></button>
 
-                <button id="game4" class="defaultButton"
-                        style="width: 300px; height: 200px; border-radius: 25px; font-size: 32px; margin: 40px;"
+                <button id="game4" class="defaultButton gameButton"
                         onclick="loadGame4()" onmouseover="playSecondaryClick()"></button>
 
             </div>
 
         </div>
 
-        <!-- GIOCO 1: GUESS THE RANDOM NUMBER - HARD VERSION -->
+        <!-- GUESS THE RANDOM NUMBER HARD VERSION -->
+
         <div id="gameFrame1" style="margin-top: 20px; display: none; text-align: center;">
 
             <h1 id="game1Title" style="font-size: 50px;"></h1>
 
-            <!-- Setup gioco 1 -->
             <div id="game1MinMaxValues">
-
                 <h1 id="valuesTitle" style="font-size: 30px; font-weight: 700;"></h1>
-
                 <form id="formSetMinMax" onsubmit="setMinMaxValues(event)" style="display: block; text-align: center; margin-top: 20px;">
                     <input id="minValue" type="number" class="defaultInputBox" min="0" onfocus="playSecondaryClick()">
                     <input id="maxValue" type="number" class="defaultInputBox" onfocus="playSecondaryClick()" autocomplete="off">
                     <button id="inputButton" type="submit" class="defaultButton"></button>
                 </form>
-
             </div>
 
-            <!-- Interfaccia gioco 1 -->
             <div id="gameSetup" style="display: none; align-items: center; margin-top: -30px;">
-
                 <h1 id="gameTitle" style="font-size: 30px; font-weight: 700;"></h1>
-
                 <form id="formStartGame" onsubmit="startGame1(event)" style="display:inline-block; margin-top: -20px;">
                     <input id="inputBox" type="number" class="defaultInputBox" autocomplete="off" onfocus="playSecondaryClick()">
                     <button id="inputButton2" type="submit" class="defaultButton" style="width: 100px; margin: 5px; height: 36px"></button>
                 </form>
-
-                <button id="editValuesButton" class="defaultButton" onclick="editValuesGame1()"
-                        style="display: inline-block; width: 100px; height: 36px; margin: 5px;"></button>
-
+                <button id="editValuesButton" class="defaultButton" onclick="editValuesGame1()" style="display: inline-block; width: 100px; height: 36px; margin: 5px;"></button>
             </div>
 
             <h1 id="generatedNumber1" style="font-size: 200px; margin-top: 60px;"></h1>
             <h1 id="test" style="font-size: 70px; margin-top: -100px;"></h1>
             <h2 id="statsGame1" style="font-size: 30px; margin-top: 0px; font-weight: 400;"></h2>
-
         </div>
 
-        <!-- GIOCO 2: GUESS THE RANDOM NUMBER - EASY VERSION -->
+        <!-- GUESS THE RANDOM NUMBER EASY VERSION -->
+
         <div id="gameFrame2" style="margin-top: 20px; display: none; text-align: center;">
 
             <h1 id="game2Title" style="font-size: 50px;"></h1>
 
-            <!-- Setup gioco 2 -->
             <div id="game2MinMaxValues">
                 <h1 id="valuesTitle2" style="font-size: 30px; font-weight: 700;"></h1>
-
                 <form id="formSetMinMax2" onsubmit="setMinMaxValues(event)" style="display: block; text-align: center; margin-top: 20px;">
                     <input id="minValue2" type="number" class="defaultInputBox" min="0" onfocus="playSecondaryClick()">
                     <input id="maxValue2" type="number" class="defaultInputBox" onfocus="playSecondaryClick()">
@@ -134,19 +121,13 @@
                 </form>
             </div>
 
-            <!-- Interfaccia gioco 2 -->
             <div id="gameSetup2" style="display: none; align-items: center; margin-top: -30px;">
-
                 <h1 id="gameTitle2" style="font-size: 30px; font-weight: 700;"></h1>
-
                 <form id="formStartGame2" onsubmit="startGame2(event)" style="display:inline-block; margin-top: -20px;">
                     <input id="inputBox2" type="number" class="defaultInputBox" onfocus="playSecondaryClick()">
                     <button id="inputButton4" type="submit" class="defaultButton" style="height: 36px; margin: 5px;"></button>
                 </form>
-
-                <button id="editValuesButton2" class="defaultButton" onclick="editValuesGame2()"
-                        style="display: inline-block; width: 100px; height: 36px; margin: 5px;"></button>
-
+                <button id="editValuesButton2" class="defaultButton" onclick="editValuesGame2()" style="display: inline-block; width: 100px; height: 36px; margin: 5px;"></button>
             </div>
 
             <div id="cancellami" style="display: none; text-align: center; align-items: center;">
@@ -533,8 +514,8 @@
                     <h4 id="aboutVersion"></h4>
                 </div>
                 <div class="settingsCardControl" style="margin: 0 auto; margin-top: 8px; margin-right: 20px;">
-                    <a target="_blank" href="https://github.com/alessandrocaseti/games-hub" style="color: #FFFFFF; margin-top: 50px;">
-                        <button class="defaultButton" onmouseover="playSecondaryClick()" style="font-family: iconFont; font-size: 24px; width: 6vh; height: 6vh; background-image: url('https://cdn-1.webcatalog.io/catalog/github/github-icon-filled-256.png?v=1747615358163');"></button>
+                    <a target="_blank" href="https://github.com/alessandrocaseti/games-hub">
+                        <button class="defaultButton" onmouseover="playSecondaryClick()" style="font-family: iconFont; width: 6vh; height: 6vh; background-image: url('https://cdn-1.webcatalog.io/catalog/github/github-icon-filled-256.png?v=1747615358163');"></button>
                     </a>
                 </div>
             </div>
