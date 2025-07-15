@@ -206,26 +206,28 @@ function playGongSound()
     audio.play();
 }
 
-function fadeOutAudio(sound) 
+function fadeOutAudio(sound, step = 0.01, interval = 10) 
 {
-    // Ferma eventuali fade precedenti
-    if (fadeAudio) 
-    {
-        clearInterval(fadeAudio);
-        fadeAudio = null;
-    }
+    if (!sound || sound.paused || sound.volume <= 0) return;
 
-    fadeAudio = setInterval(function() 
+    let fading = true;
+
+    function fade() 
     {
-        // Diminuisci il volume senza mai andare sotto 0
-        sound.volume = Math.max(0, sound.volume - 0.01);
-        if (sound.volume <= 0.01) 
+        if (!fading) return;
+        sound.volume = Math.max(0, sound.volume - step);
+        if (sound.volume > 0) 
         {
-            clearInterval(fadeAudio);
-            fadeAudio = null;
+            setTimeout(fade, interval);
+        }
+        else 
+        {
             sound.volume = 0;
             sound.pause();
             sound.currentTime = 0;
+            fading = false;
         }
-    }, 10);
+    }
+
+    fade();
 }
