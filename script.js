@@ -1,7 +1,7 @@
 //// GAMES HUB ////
 
-const appVersion = "1.2.0";
-const appReleaseDate = { day : "20", month : "06", year : "2025" }
+const appVersion = "2.0.0";
+const appReleaseDate = { day : "15", month : "07", year : "2025" }
 
 let currentPage = 0; // 0 = home, 1 = game1, 2 = game2, 3 = game3, 4 = game4
 
