@@ -354,7 +354,7 @@ function loadMemoryGame()
 
                         playMatchSound();
 
-                        if(users && totalUserCount > 1)
+                        if(users && totalUserCount > 0)
                         {
                             XP[currentlyPlayingUserID] += 50;
                             updateXP(currentlyPlayingUserID);
@@ -368,7 +368,7 @@ function loadMemoryGame()
                             document.getElementById("game3Title").innerHTML = getLocalizedString("youWon");
                             clearInterval(countDownPlayGame3);  
                             clearInterval(progressBarValue);
-                            if(users && totalUserCount > 1)
+                            if(users && totalUserCount > 0)
                             {
                                 XP[currentlyPlayingUserID] += 1000;
                                 updateXP(currentlyPlayingUserID);

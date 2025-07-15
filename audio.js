@@ -137,7 +137,7 @@ function playClick()
 {
     if(!playSoundEffectsSetting) return;
 
-    const audio = new Audio('assets/click.mp3');
+    const audio = new Audio('assets/audio/memory_click.mp3');
     audio.volume = volumeEffects;
     audio.play();
 }
