@@ -1,17 +1,15 @@
 //// GAMES HUB ////
 
-var memoryLoadingSound = new Audio('assets/memory_loading.mp3');
-var memorySoundtrack = new Audio('assets/memory.mp3');
-var memoryWinSound = new Audio('assets/win.mp3');
-var quizSoundtrack = new Audio('assets/soundtrack.mp3');
+const memoryLoadingSound = new Audio('assets/audio/memory_loading.mp3');
+const memorySoundtrack = new Audio('assets/audio/memory_main.mp3');
+const memoryWinSound = new Audio('assets/audio/memory_win.mp3');
+const quizSoundtrack = new Audio('assets/audio/quiz_main.mp3');
 
-var playSoundtrackSetting = true;
-var playSoundEffectsSetting = true;
+let playSoundtrackSetting = true;
+let playSoundEffectsSetting = true;
 
-var volumeSoundtrack = 1.0;
-var volumeEffects = 1.0;
-
-var fadeAudio = null;
+let volumeSoundtrack = 1.0;
+let volumeEffects = 1.0;
 
 function toggleSoundtrack()
 {
@@ -65,32 +63,26 @@ function setEffectsVolume()
 
 function playMainClick()
 {
-    if(!playSoundEffectsSetting)
-    {
-        return;
-    }
-    var audio = new Audio('assets/click_main.mp3');
+    if(!playSoundEffectsSetting) return;
+
+    const audio = new Audio('assets/audio/click_main.mp3');
     audio.volume = volumeEffects;
     audio.play().catch(() => {});
 }
 
 function playSecondaryClick()
 {
-    if(!playSoundEffectsSetting)
-    {
-        return;
-    }
-    var audio = new Audio('assets/click_secondary.mp3');
+    if(!playSoundEffectsSetting) return;
+
+    const audio = new Audio('assets/audio/click_hover.mp3');
     audio.volume = volumeEffects;
     audio.play().catch(() => {});
 }
 
 function playMemoryLoadingSound()
 {
-    if(!playSoundtrackSetting)
-    {
-        return;
-    }
+    if(!playSoundtrackSetting) return;
+
     memoryLoadingSound.currentTime = 0;
     memoryLoadingSound.volume = volumeSoundtrack;
     memoryLoadingSound.play();
@@ -98,10 +90,8 @@ function playMemoryLoadingSound()
 
 function playMemorySoundtrack()
 {
-    if(!playSoundtrackSetting)
-    {
-        return;
-    }
+    if(!playSoundtrackSetting) return;
+
     memorySoundtrack.currentTime = 0;
     memorySoundtrack.volume = volumeSoundtrack;
     memorySoundtrack.play();
@@ -109,21 +99,17 @@ function playMemorySoundtrack()
 
 function playMatchSound()
 {
-    if(!playSoundEffectsSetting)
-    {
-        return;
-    }
-    var audio = new Audio('assets/match.mp3');
+    if(!playSoundEffectsSetting) return;
+
+    const audio = new Audio('assets/audio/memory_match.mp3');
     audio.volume = volumeEffects;
     audio.play();
 }
 
 function playMemoryWinSound()
 {
-    if(!playSoundEffectsSetting)
-    {
-        return;
-    }
+    if(!playSoundEffectsSetting) return;
+
     memoryWinSound.currentTime = 0;
     memoryWinSound.volume = volumeSoundtrack;
     memoryWinSound.play();
@@ -131,10 +117,8 @@ function playMemoryWinSound()
 
 function playQuizSoundtrack()
 {
-    if(!playSoundtrackSetting)
-    {
-        return;
-    }
+    if(!playSoundtrackSetting) return;
+
     quizSoundtrack.currentTime = 0;
     quizSoundtrack.volume = volumeSoundtrack;
     quizSoundtrack.play();
@@ -142,66 +126,54 @@ function playQuizSoundtrack()
 
 function playErrorSound()
 {
-    if(!playSoundEffectsSetting)
-    {
-        return;
-    }
-    var audio = new Audio('assets/error.mp3');
+    if(!playSoundEffectsSetting) return;
+
+    const audio = new Audio('assets/audio/memory_wrong.mp3');
     audio.volume = volumeEffects;
     audio.play();
 }
 
 function playClick()
 {
-    if(!playSoundEffectsSetting)
-    {
-        return;
-    }
-    var audio = new Audio('assets/click.mp3');
+    if(!playSoundEffectsSetting) return;
+
+    const audio = new Audio('assets/click.mp3');
     audio.volume = volumeEffects;
     audio.play();
 }
 
 function playWinSound()
 {
-    if(!playSoundEffectsSetting)
-    {
-        return;
-    }
-    var audio = new Audio('assets/exact.mp3');
+    if(!playSoundEffectsSetting) return;
+
+    const audio = new Audio('assets/audio/quiz_exact.mp3');
     audio.volume = volumeEffects;
     audio.play();
 }
 
 function playWrongSound()
 {
-    if(!playSoundEffectsSetting)
-    {
-        return;
-    }
-    var audio = new Audio('assets/wrong.mp3');
+    if(!playSoundEffectsSetting) return;
+
+    const audio = new Audio('assets/audio/quiz_wrong.mp3');
     audio.volume = volumeEffects;
     audio.play();
 }
 
 function playShuffleSound()
 {
-    if(!playSoundEffectsSetting)
-    {
-        return;
-    }
-    var audio = new Audio('assets/shuffle.mp3');
+    if(!playSoundEffectsSetting) return;
+
+    const audio = new Audio('assets/audio/quiz_shuffle.mp3');
     audio.volume = volumeEffects;
     audio.play();
 }
 
 function playGongSound()
 {
-    if(!playSoundEffectsSetting)
-    {
-        return;
-    }
-    var audio = new Audio('assets/gong.mp3');
+    if(!playSoundEffectsSetting) return;
+
+    const audio = new Audio('assets/audio/quiz_gong.mp3');
     audio.volume = volumeEffects;
     audio.play();
 }

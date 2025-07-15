@@ -415,7 +415,6 @@ function loadQuiz(triggerSound)
     var parolaFinale2 = vettoreCaratteri2.join('').toUpperCase(); // unisce gli elementi dell'array in una stringa
 
     shuffleAnimation(parolaFinale, parolaFinale2);
-    clearInterval(fadeAudio);
     playQuizSoundtrack();
 
     document.getElementById("game4Tip").innerHTML = getQuestionTip(indice);
