@@ -96,7 +96,7 @@ body.defeat-bg
     user-select: none; 
     -webkit-user-drag: none;
     transition: 2s; 
-    animation: shake 18s;
+    animation: shake 18s, fadeIn 5s;
     animation-iteration-count: infinite;
 }
 
