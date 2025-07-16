@@ -111,11 +111,13 @@ function loadGenericGame(triggerSound)
 
 let progressBarValue = 0;
 
-function setProgressBarValue(value, progressBarIndex)
+function setProgressBarValue(value, progressBarIndex, colorIndicator)
 {
     clearInterval(progressBarValue);
     const getProgressBar = "progressBar" + progressBarIndex.toString();
     let progressBar = document.getElementById(getProgressBar.toString());
+    progressBar.style.transition = "none";
+    progressBar.style.accentColor = "rgb(0, 208, 255)";
     let max = value * 1000; // valore massimo della barra di avanzamento
     progressBarValue = setInterval(function() 
     {
@@ -129,6 +131,13 @@ function setProgressBarValue(value, progressBarIndex)
             {
                 checkAnswer(document.createEvent("Event"), 1); // chiama la funzione per controllare la risposta del gioco 4
             }
+            progressBar.style.transition = "none";
+            progressBar.style.accentColor = "rgb(0, 208, 255)";
+        }
+        if(colorIndicator && max <= value * 250)
+        {
+            progressBar.style.transition = "ease-in-out 0.12s, accent-color 1.6s ease";
+            progressBar.style.accentColor = 'rgb(255, 0, 0)';
         }
 
     }, 10);

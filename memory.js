@@ -391,7 +391,7 @@ function loadMemoryGame()
 
     document.getElementById('progressBar3').value = 100;
     startCountdown = memoryStartCountdown;
-    setProgressBarValue(startCountdown, 3);
+    setProgressBarValue(startCountdown, 3, false);
     gameCountdown = memoryPlayCountdown;
 
     countDownStartGame3 = setInterval(function() 
@@ -416,7 +416,7 @@ function loadMemoryGame()
                     button.style.backgroundImage = questionMark;
                 }
             }
-            setProgressBarValue(gameCountdown, 3);
+            setProgressBarValue(gameCountdown, 3, true);
             countDownPlayGame3 = setInterval(function() 
             {
                 gameCountdown--;

@@ -214,7 +214,7 @@ progress
 {
     animation: fadeIn 5s;
     accent-color: rgb(0, 208, 255);
-    transition: ease-in-out 0.12s;
+    transition: ease-in-out 0.12s, accent-color 1s ease;
 }
 
 .defaultProgressBar

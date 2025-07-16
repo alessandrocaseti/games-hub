@@ -328,6 +328,7 @@ function loadGame4()
 function loadQuiz()
 {
     displayCurrentUser();
+    setDefaultBackground();
     title.innerHTML = getLocalizedString("game4ButtonText") + ' - ' + getLocalizedString("name");
     var game4countdown = 20;
     document.getElementById("inputGame4").value = "";
@@ -338,7 +339,7 @@ function loadQuiz()
     currentPage = 4;
     clearInterval(countDownQuestionGame4);
     clearInterval(progressBarValue);
-    setProgressBarValue(game4countdown, 4);
+    setProgressBarValue(game4countdown, 4, true);
     document.getElementById("inputGame4").disabled = false;
     document.getElementById("inputGame4").focus();
 
