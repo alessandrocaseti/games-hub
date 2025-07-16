@@ -476,3 +476,8 @@ input:checked + .slider:before {
     font-size: 32px;
     margin: 40px;
 }
+
+.defaultAnimation
+{
+    animation: fadeIn 5s;
+}

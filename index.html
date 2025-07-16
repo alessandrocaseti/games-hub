@@ -49,7 +49,7 @@
 
             <img id="ghLogo" src="assets/logo.png" class="defaultImage" style="width: 28vh; height: 28vh; margin-top: -4vh;">
 
-            <div id="homeTitleDiv" style="text-align: center; margin-bottom: 20px;">
+            <div id="homeTitleDiv" class="defaultAnimation" style="text-align: center; margin-bottom: 20px;">
 
                 <h1 id="mainTitle" class="glow" style="font-size: 90px; font-weight: 750; margin-top: -30px;"></h1>
                 <p id="welcomeText" style="font-size: 20px; font-weight: 500; margin-top: -50px;"></p>
@@ -79,7 +79,7 @@
 
         <!-- GUESS THE RANDOM NUMBER HARD VERSION -->
 
-        <div id="gameFrame1" style="margin-top: 20px; display: none; text-align: center;">
+        <div id="gameFrame1" class="defaultAnimation" style="margin-top: 20px; display: none; text-align: center;">
 
             <h1 id="game1Title" style="font-size: 50px;"></h1>
 
@@ -108,7 +108,7 @@
 
         <!-- GUESS THE RANDOM NUMBER EASY VERSION -->
 
-        <div id="gameFrame2" style="margin-top: 20px; display: none; text-align: center;">
+        <div id="gameFrame2" class="defaultAnimation" style="margin-top: 20px; display: none; text-align: center;">
 
             <h1 id="game2Title" style="font-size: 50px;"></h1>
 
@@ -142,7 +142,7 @@
         <!-- Memory -->
 
         <div id="memory" style="display: none;">
-            <div style="text-align: center;">
+            <div style="text-align: center;" class="defaultAnimation">
                 <h1 id="game3Title" class="textAnimaton" style="font-size: 70px; user-select: none; margin-top: -3vh;"></h1>
             </div>
 
@@ -159,7 +159,7 @@
             <progress id="progressBar4" max="100" style="height: 16px; width: 85%; margin-bottom: -120px;"></progress>
         </div>
 
-        <div id="gameFrame4" style="margin-top: 20px; display: none; text-align: center;">
+        <div id="gameFrame4" class="defaultAnimation" style="margin-top: 20px; display: none; text-align: center;">
 
             <div style="display: flex; justify-content: right;">
 
@@ -211,7 +211,9 @@
 
         <div id="settingsPage" style="text-align: center; display: none; margin-top: 10vh;">
 
-            <h1 id="settingsTitle" style="font-size: 50px; margin-top: -60px;"></h1>
+            <div class="defaultAnimation">
+                <h1 id="settingsTitle" style="font-size: 50px; margin-top: -60px;"></h1>
+            </div>
 
             <!-- Settings::InfoBanner -->
 
