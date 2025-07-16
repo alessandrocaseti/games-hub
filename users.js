@@ -224,6 +224,18 @@ function selectUser(id, triggerSound)
     document.getElementById("currentUserXP").innerHTML = "XP: " + XP[id];
 }
 
+function displayCurrentUser()
+{
+    if(totalUserCount > 0)
+    {
+        document.getElementById("currentUserDiv").style.display = "flex";
+    }
+    else
+    {
+        document.getElementById("currentUserDiv").style.display = "none";
+    }
+}
+
 function updateXP(userID)
 {
     document.getElementById("currentUserXP").innerHTML = "XP: " + XP[userID];

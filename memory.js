@@ -234,12 +234,7 @@ function loadGame3()
 function loadMemoryGame()
 {
     playMemoryLoadingSound();
-
-    if(totalUserCount > 0)
-    {
-        document.getElementById("currentUserDiv").style.display = "flex";
-    }
-    
+    displayCurrentUser();
     title.innerHTML = getLocalizedString("game3ButtonText") + ' - ' + getLocalizedString("name");
     document.getElementById('memory').style.display = 'block';
     currentPage = 3;

@@ -21,7 +21,7 @@
         <script src="settings.js"></script>
     </head>
 
-    <body id="main" class="default-bg" style="color: #FFFFFF; font-size: 20px; font-weight: 750;">
+    <body id="main" class="default-bg" style="color: #FFFFFF;">
 
         <!-- NavigationButtons -->
 
@@ -45,21 +45,19 @@
 
         <!-- Home -->
 
-        <div id="home" style="text-align: center; margin-top: 40px;">
+        <div id="home" class="defaultAnimation" style="text-align: center; margin-top: 40px;">
 
-            <img id="ghLogo" src="assets/logo.png" class="defaultImage" style="width: 28vh; height: 28vh; margin-top: -4vh;">
+            <img src="assets/logo.png" class="defaultImage" style="width: 28vh; height: 28vh; margin-top: -4vh;">
 
-            <div id="homeTitleDiv" class="defaultAnimation" style="text-align: center; margin-bottom: 20px;">
-
+            <div style="text-align: center; margin-bottom: 20px;">
                 <h1 id="mainTitle" class="glow" style="font-size: 90px; font-weight: 750; margin-top: -30px;"></h1>
-                <p id="welcomeText" style="font-size: 20px; font-weight: 500; margin-top: -50px;"></p>
-                <p id="chooseGameText" style="font-size: 20px; font-weight: 500;"></p>
-
+                <h2 id="welcomeText" style="margin-top: -50px;"></h2>
+                <h4 id="chooseGameText"></h4>
             </div>
 
             <!-- MainButtons -->
 
-            <div id="gameButtonsDiv" style="margin-top: 50px; display: flex; flex-direction: row; justify-content: center;">
+            <div style="margin-top: 50px; display: flex; flex-direction: row; justify-content: center;">
 
                 <button id="game1" class="defaultButton gameButton"
                         onclick="loadGame1()" onmouseover="playSecondaryClick()"></button>
@@ -181,7 +179,7 @@
 
         <!-- UserSelectionPage -->
 
-        <div id="userSelection" style="display: none; text-align: center;">
+        <div id="userSelection" style="display: none; text-align: center;" class="defaultAnimation">
             <h1 id="selectUser" style="margin: 10vh;"></h1>
             <div style="display: flex; flex-direction: row; margin: 0 auto; margin-top: 10vh; margin-left: auto; margin-right: auto; justify-content: center;">
                 <div id="userSelection0" class="userCard" onclick="selectUser(0, true)" onmouseover="playSecondaryClick()">

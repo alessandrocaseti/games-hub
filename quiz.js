@@ -309,7 +309,7 @@ function blinkAnimation()
 
 function loadGame4()
 {
-    loadGenericGame(false);
+    loadGenericGame(true);
     if(users && totalUserCount > 1)
     {
         showUserSelection(4);
@@ -321,24 +321,13 @@ function loadGame4()
     }
     else
     {
-        loadQuiz(true);
+        loadQuiz();
     }
 }
 
-function loadQuiz(triggerSound)
+function loadQuiz()
 {
-    if(totalUserCount > 0)
-    {
-        document.getElementById("currentUserDiv").style.display = "flex";
-    }
-
-    if(triggerSound)
-    {
-        playMainClick();
-    }
-
-    loadGenericGame(!triggerSound);
-
+    displayCurrentUser();
     title.innerHTML = getLocalizedString("game4ButtonText") + ' - ' + getLocalizedString("name");
     var game4countdown = 20;
     document.getElementById("inputGame4").value = "";

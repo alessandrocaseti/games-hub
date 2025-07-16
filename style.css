@@ -96,8 +96,14 @@ body.defeat-bg
     user-select: none; 
     -webkit-user-drag: none;
     transition: 2s; 
-    animation: shake 18s, fadeIn 5s;
+    animation: shake 18s;
     animation-iteration-count: infinite;
+}
+
+.defaultImage:hover
+{
+    scale: 1.2;
+    transform: translate(20px, -20px);
 }
 
 @keyframes shake 
@@ -129,12 +135,6 @@ body.defeat-bg
     80% { opacity: 80; }
     90% { opacity: 90; }
     100% { opacity: 100; }
-}
-
-.defaultImage:hover
-{
-    scale: 1.2;
-    transform: translate(20px, -20px);
 }
 
 .defaultButton
