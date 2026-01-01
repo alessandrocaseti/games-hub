@@ -215,7 +215,7 @@ function loadGame2()
 {
     loadGenericGame(true);
     title.innerHTML = getLocalizedString("game2ButtonText") + ' - ' + getLocalizedString("name");
-    document.getElementById('gameFrame2').style.display = 'block';
+    document.getElementById('sudoku').style.display = 'block';
     document.getElementById('gameSetup2').style.display = 'none';
     document.getElementById('game2MinMaxValues').style.display = 'block';
     document.getElementById('cancellami').style.display = 'none';
