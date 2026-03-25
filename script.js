@@ -23,6 +23,7 @@ window.addEventListener('DOMContentLoaded', function()
     title = document.getElementById("pageTitle");
     setDefaultBackground();
     loadSettings();
+    setLanguage('it', false); // Or 'it'—after loadSettings()
 });
 
 function resetAllGames()

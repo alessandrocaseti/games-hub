@@ -3,7 +3,7 @@
 var streamers = 
 [
     // Xiuder
-    "https://cdn1.procne.cloud/comicon-media/wrb05ql3quqj8lghrhmucxb5tru6",
+    "https://static.wixstatic.com/media/840ba5_5d5a9597d0714e2aa48110f77f9d77ed~mv2.jpg/v1/fill/w_500,h_500,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
 
     // Ciccio
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY-EXB799xwJ8bsrh5zQV-5Nk2jbqJtPpozw&s",
