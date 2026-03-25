@@ -83,7 +83,7 @@ function backToHome()
     document.getElementById("userSelection").style.display = "none";
     document.getElementById("currentUserDiv").style.display = "none";
     document.getElementById('gameFrame1').style.display = 'none';
-    document.getElementById('sudoku').style.display = 'none';
+    document.getElementById('gameFrame2').style.display = 'none';
     document.getElementById('memory').style.display = 'none';
     document.getElementById('gameProgress4').style.display = 'none';
     document.getElementById('gameFrame4').style.display = 'none';
