@@ -1,5 +1,83 @@
 //// GAMES HUB ////
 
+var celebrities = 
+[
+    // Paolo Bonolis
+    "https://www.ncanews.it/images/db/amalfinews/articoli/crp-500x500/paolo-bonolis-ospite-a-minori-per-una-serata-tra-i-338875.webp",
+
+    // Gerry Scotti
+    "https://www.ideabuilding.it/wp-content/uploads/2025/08/gerry-scotti-patrimonio-27.08.2025.ideabuilding-2-1.jpg",
+    
+    // Carlo Conti
+    "https://www.rdeditore.it/it/wp-content/uploads/2017/03/CARLO-CONTI.jpg",
+
+    // Amadeus
+    "https://biografieonline.it/img/bio/a/Amadeus.jpg",
+
+    // Fabrizio Corona
+    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOfKyFaKxNJ3Ci3NQxjGV-oqm05F6T86k0e9rvhzWdT2uMt_ddWJdbl2y2tu0V6OnUKVj_o40TB4Sqz-WV8qyg7kF6GsuJDgTO_tDqoggfycW_lfrq3soP4GOdsxDKewrC2sljn1DLqeqxI0pNJ7eQyZ2i00PUiQrW2KEf_tcjRpb-7fk3AhpVjbBZ3o65/s320/Fabrizio%20Corona.jpg",
+
+    // Vasco Rossi
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOu4xJ6yylc6NFGh7buBp9WMumRcrTZ0297A&s",
+
+    // Matteo Salvini
+    "https://upload.wikimedia.org/wikipedia/commons/e/ed/Matteo_Salvini%2C_2025.12.04_%28cropped%29.jpg",
+
+    // Giorgia Meloni
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Giorgia_Meloni_Official_2024_%28cropped%29.jpg/250px-Giorgia_Meloni_Official_2024_%28cropped%29.jpg",
+
+    // Matteo Renzi
+    "https://images.treccani.it/ext-tool/extra/images/6/67/67abb4927b7017c9800f1ea1b58aca34.jpg",
+
+    // Chiara Ferragni
+    "https://www.theblondesalad.com/wp-content/uploads/2022/07/Mobile.png",
+
+    // Fedez
+    "https://estenews.it/wp-content/uploads/2023/02/Fedez.jpg",
+
+    // Diletta Leotta
+    "https://www.rdeditore.it/it/wp-content/uploads/2023/02/LEOTTA2.jpg",
+
+    // Guè
+    "https://www.foodaffairs.it/wp-content/uploads/2021/06/gue-pequeno-1-1.jpg",
+
+    // Alessandro Cattelan
+    "https://lavialibera.it/documenti/autori/square/alessandro_cattelan.png",
+
+    // Stefano de Martino
+    "https://www.ticketone.it/obj/media/IT-eventim/galery/222x222/s/stefano-demartino-biglietti.jpg",
+
+    // Francesco Totti
+    "https://minimaetmoralia.it/wp-content/uploads/2013/09/FTotti.jpg",
+
+    // Bello Figo
+    "https://www.ticketone.it/obj/media/IT-eventim/galery/222x222/b/bello-figo-biglietti.jpg",
+
+    // Elly Shlein
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Elly_Schlein_in_2023_%28cropped%29.jpg/960px-Elly_Schlein_in_2023_%28cropped%29.jpg",
+
+    // Giuseppe Conte
+    "https://upload.wikimedia.org/wikipedia/commons/0/01/Giuseppe_Conte_Official.jpg",
+
+    // Bruno Barbieri
+    "https://www.rdeditore.it/it/wp-content/uploads/2021/01/BARBIERI.jpg",
+
+    // Alessandro Borghese
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6P7t3gKEhXI6ZosMu7VbJHTFvt4-jmUiawg&s",
+
+    // Elodie
+    "https://img.redbull.com/images/c_limit,w_1500,h_1000/f_auto,q_auto/redbullcom/2021/9/6/n5lopa05aflclrb4wvyy/elodie",
+
+    // Antonino Cannavacciuolo
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Antonino_Cannavacciuolo_2017.jpg/960px-Antonino_Cannavacciuolo_2017.jpg",
+
+    // Claudio Bisio
+    "https://static.wikia.nocookie.net/cinema/images/1/1b/1_Claudio-Bisio1.jpg/revision/latest?cb=20230225130813&path-prefix=it",
+
+    // Checco Zalone
+    "https://www.lopinionista.it/wp-content/uploads/2019/08/checco-zalone-e1566843237841-1200x900.jpg",
+]
+
 var streamers = 
 [
     // Xiuder
@@ -150,6 +228,9 @@ function setMemoryImages()
     {
         case "flags":
             game3Image = flagImages;
+            break;
+        case "celebrities":
+            game3Image = celebrities;
             break;
         case "streamers":
             game3Image = streamers;
